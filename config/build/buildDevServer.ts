@@ -5,6 +5,7 @@ export const buildDevServer = (options: TBuildOptions): DevServerConfiguration =
   const {port} = options;
   return {
     port,
-    open: true,
+    open: false,
+    historyApiFallback: true,
   }
 };
