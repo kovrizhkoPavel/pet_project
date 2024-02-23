@@ -13,11 +13,12 @@ export const buildWebpackConfig = (options: TBuildOptions): webpack.Configuratio
     entry: paths.entry,
     output: {
       filename: "bundle.js",
-      path: paths.build
+      path: paths.build,
+      clean: true,
     },
     plugins: buildPlugins(options),
     module: {
-      rules: buildLoader(),
+      rules: buildLoader(options),
     },
     resolve: buildResolve(),
     devServer: isDev ? buildDevServer(options) : undefined,

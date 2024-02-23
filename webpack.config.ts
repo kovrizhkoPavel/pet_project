@@ -10,7 +10,7 @@ export default (env: TBuildEnv): webpack.Configuration => {
   const port = env.port || DEFAULT_PORT;
 
   const paths: TBuildPath = {
-    entry: path.resolve(__dirname, "src", "index.ts"),
+    entry: path.resolve(__dirname, "src", "index.tsx"),
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, 'public', 'index.html'),
   }
