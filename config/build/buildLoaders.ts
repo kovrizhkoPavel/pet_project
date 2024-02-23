@@ -32,5 +32,3 @@ export const buildLoader = (options: TBuildOptions): webpack.RuleSetRule[] => {
 
   return [typeScriptLoader, cssLoader];
 }
-
-// comment
