@@ -8,9 +8,9 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "jsx": "react-jsx"
-//    "baseUrl": "."
+    "jsx": "react-jsx",
+    //    "strict": true,
+    //    "baseUrl": "."
   },
   "ts-node": {
     "compilerOptions": {
