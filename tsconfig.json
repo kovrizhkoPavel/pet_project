@@ -9,8 +9,11 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
-    //    "strict": true,
-    //    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
+    //    "strict": true
   },
   "ts-node": {
     "compilerOptions": {

@@ -4,6 +4,7 @@ export type TBuildPath = {
   entry: string;
   build: string;
   html: string;
+  src: string;
 }
 
 export type TBuildOptions = {
