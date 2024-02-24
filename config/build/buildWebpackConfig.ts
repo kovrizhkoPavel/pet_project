@@ -20,7 +20,7 @@ export const buildWebpackConfig = (options: TBuildOptions): webpack.Configuratio
     module: {
       rules: buildLoader(options),
     },
-    resolve: buildResolve(),
+    resolve: buildResolve(options),
     devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'inline-source-map' : undefined,
   }
