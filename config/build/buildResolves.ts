@@ -6,7 +6,5 @@ export const buildResolve = ({paths}: TBuildOptions): ResolveOptions =>({
   preferAbsolute: true,
   modules: [paths.src, 'node_modules'],
   mainFiles: ['index'],
-  alias: {
-    '~': paths.src,
-  }
+  alias: {},
 })
