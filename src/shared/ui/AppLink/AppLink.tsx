@@ -2,15 +2,16 @@ import {FC} from 'react';
 import {getClassName} from "shared/lib/classNames/getClassName";
 import cls from './AppLink.module.scss';
 import {Link, LinkProps} from "react-router-dom";
+import {TObjectValue} from "shared/types/types";
 
-export enum AppLinkTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-}
+export const AppLinkTheme = {
+  PRIMARY: 'primary',
+  INVERTED: 'inverted',
+} as const;
 
 type TAppLinkProps = {
   className?: string;
-  theme?: AppLinkTheme;
+  theme?: TObjectValue<typeof AppLinkTheme>;
 }
 
 export const AppLink: FC<TAppLinkProps & LinkProps> = (props) => {
