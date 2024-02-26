@@ -2,16 +2,16 @@ import {FC} from 'react';
 import "./styles/index.scss"
 import {Link} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider";
-import {className} from "shared/lib/classNames/className";
+import {getClassName} from "shared/lib/classNames/getClassName";
 import {AppRouter} from "app/providers/route";
+import {Navbar} from "widgets/Navbar";
 
 const App: FC = () => {
   const {theme, toggleTheme} = useTheme();
   return (
-    <div className={className('app', {hovered: true}, [theme, 'cls2'])}>
+    <div className={getClassName('app', {hovered: true}, [theme, 'cls2'])}>
+      <Navbar/>
       <button onClick={toggleTheme}>toggle theme</button>
-      <Link to="/" children="main"/>
-      <Link to="/about" children="about"/>
       <AppRouter/>
     </div>
   );
