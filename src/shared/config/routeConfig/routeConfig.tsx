@@ -1,13 +1,16 @@
 import {RouteProps} from "react-router-dom";
 import {MainPage} from "pages/MainPage";
 import {AboutPage} from "pages/AboutPage";
+import {TObjectValue} from "shared/types/types";
 
-enum AppRoute {
-  MAIN= 'main',
-  ABOUT= 'about',
-}
+const AppRoute = {
+  MAIN: 'main',
+  ABOUT: 'about',
+} as const;
 
-const RoutePath: Record<AppRoute, string> = {
+type TAppRouteValues = TObjectValue<typeof AppRoute>;
+
+const RoutePath: Record<TAppRouteValues, string> = {
   [AppRoute.MAIN]: `/${AppRoute.MAIN}`,
   [AppRoute.ABOUT]: `/${AppRoute.ABOUT}`,
 }
