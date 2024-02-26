@@ -1,10 +1,8 @@
-import {FC, Suspense} from 'react';
+import {FC} from 'react';
 import "./styles/index.scss"
-import {Link, Route, Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useTheme} from "app/providers/ThemeProvider";
 import {className} from "shared/lib/classNames/className";
-import {AboutPage} from "pages/AboutPage";
-import {MainPage} from "pages/MainPage";
 import {AppRouter} from "app/providers/route";
 
 const App: FC = () => {
