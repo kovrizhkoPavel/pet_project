@@ -6,11 +6,10 @@ import {AppRouter} from "app/providers/route";
 import {Navbar} from "widgets/Navbar";
 
 const App: FC = () => {
-  const {theme, toggleTheme} = useTheme();
+  const {theme} = useTheme();
   return (
     <div className={getClassName('app', {hovered: true}, [theme, 'cls2'])}>
       <Navbar/>
-      <button onClick={toggleTheme}>toggle theme</button>
       <AppRouter/>
     </div>
   );
