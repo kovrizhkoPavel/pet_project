@@ -2,7 +2,6 @@ import {FC} from 'react';
 import {getClassName} from "shared/lib/classNames/getClassName";
 import cls from './Navbar.module.scss';
 import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
-import {ThemeSwitcher} from "shared/ui/ThemeSwitcher/ThemeSwitcher";
 
 type TNavbarProps = {
   className?: string;
