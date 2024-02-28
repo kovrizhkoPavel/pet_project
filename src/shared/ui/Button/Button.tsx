@@ -4,7 +4,8 @@ import cls from './Button.module.scss';
 import {TObjectValue} from "shared/types/types";
 
 export const ButtonTheme = {
-  CLEAR: 'clear'
+  CLEAR: 'clear',
+  BORDER: 'border',
 } as const;
 
 type TButtonProps = {
