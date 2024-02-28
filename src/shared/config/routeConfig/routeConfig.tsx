@@ -11,7 +11,7 @@ const AppRoute = {
 type TAppRouteValues = TObjectValue<typeof AppRoute>;
 
 const RoutePath: Record<TAppRouteValues, string> = {
-  [AppRoute.MAIN]: `/${AppRoute.MAIN}`,
+  [AppRoute.MAIN]: `/`,
   [AppRoute.ABOUT]: `/${AppRoute.ABOUT}`,
 }
 

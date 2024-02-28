@@ -11,7 +11,6 @@ type TNavbarProps = {
 export const Navbar: FC<TNavbarProps> = ({className}) => {
   return (
     <div className={getClassName(cls.navbar, {}, [className])}>
-      <ThemeSwitcher/>
       <div className={cls.links}>
         <AppLink to="/" theme={AppLinkTheme.INVERTED} className={cls.link} children="main"/>
         <AppLink to="/about" theme={AppLinkTheme.INVERTED} className={cls.link} children="about"/>
