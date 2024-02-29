@@ -7,5 +7,6 @@ export const buildDevServer = (options: TBuildOptions): DevServerConfiguration =
     port,
     open: false,
     historyApiFallback: true,
+    hot: true,
   }
 };
