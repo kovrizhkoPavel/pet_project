@@ -1,7 +1,7 @@
-import {ButtonHTMLAttributes, FC} from 'react';
-import {getClassName} from "shared/lib/classNames/getClassName";
+import { ButtonHTMLAttributes, FC } from 'react';
+import { getClassName } from 'shared/lib/classNames/getClassName';
+import { TObjectValue } from 'shared/types/types';
 import cls from './Button.module.scss';
-import {TObjectValue} from "shared/types/types";
 
 export const ButtonTheme = {
   CLEAR: 'clear',
@@ -23,6 +23,7 @@ export const Button: FC<TButtonProps> = (props) => {
 
   return (
     <button
+      type="button"
       className={getClassName(cls.button, {}, [className, cls[theme]])}
       {...otherProps}
     >
