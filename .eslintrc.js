@@ -37,6 +37,7 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'react',
+    'i18next',
   ],
   rules: {
     indent: [
@@ -65,6 +66,7 @@ module.exports = {
     'no-shadow': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
   globals: {
     __IS_DEV__: true,
