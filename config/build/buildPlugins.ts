@@ -1,8 +1,8 @@
-import webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { TBuildOptions } from "./types/config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { TBuildOptions } from './types/config';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export const buildPlugins = ({paths, isDev}: TBuildOptions): webpack.WebpackPluginInstance[] => {
   const devPlugins = isDev
@@ -22,5 +22,5 @@ export const buildPlugins = ({paths, isDev}: TBuildOptions): webpack.WebpackPlug
     }),
     new webpack.HotModuleReplacementPlugin(),
     ...devPlugins,
-  ]
+  ];
 };

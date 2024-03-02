@@ -6,6 +6,6 @@ export const getClassName = (cls: string, mod: TMod = {}, additional: string[] =
       acc.push(className);
     }
     return acc;
-  }, [])
-  return [cls, ...additional.filter(Boolean), ...mods].join(' ')
-}
+  }, []);
+  return [cls, ...additional.filter(Boolean), ...mods].join(' ');
+};
