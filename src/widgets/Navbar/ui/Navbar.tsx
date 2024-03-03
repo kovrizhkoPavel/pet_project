@@ -10,8 +10,12 @@ type TNavbarProps = {
 export const Navbar: FC<TNavbarProps> = ({ className }) => (
   <div className={getClassName(cls.navbar, {}, [className])}>
     <div className={cls.links}>
-      <AppLink to="/" theme={AppLinkTheme.INVERTED} className={cls.link} children="main" />
-      <AppLink to="/about" theme={AppLinkTheme.INVERTED} className={cls.link} children="about" />
+      <AppLink to="/" theme={AppLinkTheme.INVERTED} className={cls.link}>
+        main
+      </AppLink>
+      <AppLink to="/about" theme={AppLinkTheme.INVERTED} className={cls.link}>
+        about
+      </AppLink>
     </div>
   </div>
 );
