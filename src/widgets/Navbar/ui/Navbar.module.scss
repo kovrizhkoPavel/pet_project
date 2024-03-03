@@ -1,11 +1,9 @@
 .navbar {
-  width: 100%;
-  height: var(--navbar-height);
   display: flex;
   align-items: center;
-
+  width: 100%;
+  height: var(--navbar-height);
   padding: 20px;
-
   background: var(--inverted-bg-color);
 }
 
@@ -15,6 +13,5 @@
 
 .link {
   margin: 0 4px;
-
   font-size: var(--font-size-l);
 }

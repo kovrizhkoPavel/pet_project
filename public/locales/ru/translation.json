@@ -1,5 +1,7 @@
 {
-  "title.about": "О компании",
-  "title:main": "Главная страница",
+  "nav_about": "О компании",
+  "nav_main": "Главная",
+  "title_about": "О компании",
+  "title_main": "Главная страница",
   "toggleLang": "Русский"
 }
