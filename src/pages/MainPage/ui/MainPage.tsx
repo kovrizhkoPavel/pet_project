@@ -6,7 +6,7 @@ const MainPage: FC = () => {
 
   return (
     <div>
-      {t('translation\:title:main')}
+      {t('translation\:title_main')}
     </div>
   );
 };

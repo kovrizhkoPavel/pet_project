@@ -1,5 +1,7 @@
 {
-  "title.about": "About",
-  "title:main": "Main page",
+  "nav_about": "About",
+  "nav_main": "Main",
+  "title_about": "About",
+  "title_main": "Main page",
   "toggleLang": "English"
 }
