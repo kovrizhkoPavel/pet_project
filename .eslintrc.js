@@ -63,6 +63,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/function-component-definition': 'off',
     'no-underscore-dangle': 'off',
+    'no-useless-escape': 'off',
     'no-shadow': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
