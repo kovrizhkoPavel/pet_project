@@ -68,6 +68,13 @@ module.exports = {
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    // 'sort-imports': ['error', {
+    //   ignoreCase: false,
+    //   ignoreDeclarationSort: false,
+    //   ignoreMemberSort: false,
+    //   memberSyntaxSortOrder: ['multiple', 'none', 'all', 'single'],
+    //   allowSeparatedGroups: false,
+    // }],
   },
   globals: {
     __IS_DEV__: true,
