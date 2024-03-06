@@ -1,8 +1,8 @@
 .app.light {
-  --bg-color: #fff;
-  --inverted-bg-color: #000;
-  --primary-color: #000;
-  --inverted-primaty-color: #fff;
-  --secondary-color: brown;
-  --inverted-secondary-colot: yellow;
+  --bg-color: var(--bg-light);
+  --inverted-bg-color: var(--bg-dark);
+  --primary-color: var(--font-color-dark);
+  --inverted-primaty-color: var(--font-color-light);
+  --secondary-color: var(--bg-brown);
+  --inverted-secondary-colot: var(--bg-yellow);
 }

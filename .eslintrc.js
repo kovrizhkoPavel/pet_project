@@ -67,6 +67,7 @@ module.exports = {
     'no-shadow': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
+    'no-console': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     // 'sort-imports': ['error', {
     //   ignoreCase: false,

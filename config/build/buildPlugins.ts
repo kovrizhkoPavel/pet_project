@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export const buildPlugins = ({paths, isDev}: TBuildOptions): webpack.WebpackPluginInstance[] => {
   const devPlugins = isDev
-    ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]
+    ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin({overlay: false})]
     : [];
   return [
     new HtmlWebpackPlugin({
