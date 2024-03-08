@@ -28,6 +28,14 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: [
+        '**/src/**/*.test.{ts,tsx}',
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
