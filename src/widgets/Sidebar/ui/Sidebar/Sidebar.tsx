@@ -18,7 +18,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
       }
       data-testid="sidebar"
     >
-      <button onClick={onButtonClick}>toggle</button>
+      <button onClick={onButtonClick} data-testid="sidebar_button">toggle</button>
       <div className={cls.switchers}>
         <LangSwitcher />
         <ThemeSwitcher />
