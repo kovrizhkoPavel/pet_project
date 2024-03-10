@@ -1,8 +1,8 @@
-import {FC} from 'react';
-import {getClassName} from "shared/lib/classNames/getClassName";
+import { FC } from 'react';
+import { getClassName } from 'shared/lib/classNames/getClassName';
+import { Link, LinkProps } from 'react-router-dom';
+import { TObjectValue } from 'shared/types/types';
 import cls from './AppLink.module.scss';
-import {Link, LinkProps} from "react-router-dom";
-import {TObjectValue} from "shared/types/types";
 
 export const AppLinkTheme = {
   PRIMARY: 'primary',
@@ -20,7 +20,8 @@ export const AppLink: FC<TAppLinkProps & LinkProps> = (props) => {
     to,
     children,
     theme = AppLinkTheme.PRIMARY,
-    ...otherProps} = props;
+    ...otherProps
+  } = props;
   return (
     <Link
       to={to}

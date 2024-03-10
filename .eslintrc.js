@@ -31,6 +31,7 @@ module.exports = {
     {
       files: [
         '**/src/**/*.test.{ts,tsx}',
+        '**/src/shared/lib/tests/**/*.{ts,tsx}',
       ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
