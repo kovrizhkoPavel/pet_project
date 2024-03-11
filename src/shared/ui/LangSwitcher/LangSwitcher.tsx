@@ -19,7 +19,7 @@ export const LangSwitcher: FC<TLangSwitcherProps> = ({ className }) => {
     <Button
       className={getClassName(cls.langSwitcher, {}, [className])}
       onClick={onButtonClick}
-      variant={ButtonVariant.BORDER}
+      variant={ButtonVariant.OUTLINE}
     >
       {t('translation\:toggleLang')}
     </Button>

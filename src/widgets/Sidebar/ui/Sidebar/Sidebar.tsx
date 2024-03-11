@@ -22,7 +22,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
       data-testid="sidebar"
     >
       <Button
-        variant={ButtonVariant.BORDER}
+        variant={ButtonVariant.OUTLINE}
         onClick={onButtonClick}
         data-testid="sidebar_button"
       >

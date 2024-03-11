@@ -15,6 +15,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -30,6 +31,8 @@ module.exports = {
     },
     {
       files: [
+        '**/config/**/*.ts',
+        '**/src/**/storybook/*.{ts,tsx}',
         '**/src/**/*.test.{ts,tsx}',
         '**/src/shared/lib/tests/**/*.{ts,tsx}',
       ],
@@ -74,6 +77,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-useless-escape': 'off',
     'no-shadow': 'off',
+    'react/display-name': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
     'no-console': 'error',

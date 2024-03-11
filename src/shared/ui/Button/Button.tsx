@@ -5,7 +5,7 @@ import cls from './Button.module.scss';
 
 export const ButtonVariant = {
   CLEAR: 'clear',
-  BORDER: 'border',
+  OUTLINE: 'outline',
 } as const;
 
 type TButtonProps = {

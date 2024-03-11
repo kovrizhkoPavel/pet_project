@@ -17,7 +17,7 @@ export const PageError: FC<TPageErrorProps> = ({ className }) => {
   return (
     <div className={getClassName(cls.pageError, {}, [className])}>
       <h2>{t('translation\:title_error')}</h2>
-      <Button onClick={onButtonClick} variant={ButtonVariant.BORDER} className={cls.button}>
+      <Button onClick={onButtonClick} variant={ButtonVariant.OUTLINE} className={cls.button}>
         {t('translation\:button_reload_page')}
       </Button>
     </div>
