@@ -25,6 +25,10 @@
   height: 45px;
   transition: 0.5s;
   transform: rotate(180deg);
+
+  & svg {
+    fill: var(--bg-color);
+  }
 }
 
 .collapsed {
