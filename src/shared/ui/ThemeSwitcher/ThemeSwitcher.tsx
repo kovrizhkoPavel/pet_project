@@ -7,6 +7,7 @@ export const ThemeSwitcher = () => {
   const isDark = theme === Theme.DARK;
 
   return (
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={`${cls.container} ${isDark ? cls.IsDark : cls.IsLight}`}
       title={isDark ? 'Activate light mode' : 'Activate dark mode'}
@@ -14,7 +15,7 @@ export const ThemeSwitcher = () => {
     >
       <input
         type="checkbox"
-        defaultChecked={theme === Theme.LIGHT}
+        defaultChecked={!isDark}
         onChange={toggleTheme}
       />
       <div />
