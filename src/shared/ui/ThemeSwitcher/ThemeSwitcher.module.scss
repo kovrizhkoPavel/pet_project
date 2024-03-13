@@ -6,8 +6,8 @@
   width: 80px;
   height: 35px;
   padding: 4px 8px;
-  border-radius: 35px;
   cursor: pointer;
+  border-radius: 35px;
 }
 
 .IsLight {
@@ -23,35 +23,35 @@
 }
 
 .container input + div {
-  border-radius: 50%;
+  position: relative;
   width: 26px;
   height: 26px;
-  position: relative;
+  border-radius: 50%;
   box-shadow: inset 8px -8px 0 0 var(--bg-color, #000);
-  transform: scale(1) rotate(-2deg);
   transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+  transform: scale(1) rotate(-2deg);
 }
 
 .container input + div::before {
-  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: inherit;
   height: inherit;
+  content: "";
   border-radius: inherit;
-  position: absolute;
-  left: 0;
-  top: 0;
   transition: background 0.3s ease;
 }
 
 .container input + div::after {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  margin: -2px 0 0 -2px;
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  content: "";
+  border-radius: 50%;
   box-shadow: 0 -16px 0 yellow,
   0 16px 0 yellow,
   16px 0 0 yellow,
@@ -60,14 +60,14 @@
   -12px 12px 0 yellow,
   12px -12px 0 yellow,
   -12px -12px 0 yellow;
-  transform: scale(0);
   transition: all 0.3s ease;
+  transform: scale(0);
 }
 
 .container input:checked + div {
   box-shadow: inset 32px -32px 0 0 #fff;
-  transform: scale(0.5) rotate(0deg);
   transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+  transform: scale(0.5) rotate(0deg);
 }
 
 .container input:checked + div::before {
@@ -76,6 +76,6 @@
 }
 
 .container input:checked + div::after {
-  transform: scale(1.5);
   transition: transform 0.5s ease 0.15s;
+  transform: scale(1.5);
 }
