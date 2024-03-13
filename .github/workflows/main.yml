@@ -1,9 +1,5 @@
 name: building, linting, testing
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push]
 jobs:
   pipline:
     runs-on: ubuntu-latest
