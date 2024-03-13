@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  pipline:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,12 +22,57 @@ jobs:
         run: npm i
       - name: build production project
         run: npm run build:prod
+
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm i
       - name: linting typeScript
         run: npm run lint
       - name: linting styles
         run: npm run lint:scss
+
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm i
       - name: unit tests
         run: npm run test:unit
+
+  ui-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm i
       - name: build storybook
         run: npm run storybook:build
       - name: ui test
