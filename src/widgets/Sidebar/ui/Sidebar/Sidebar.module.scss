@@ -2,12 +2,8 @@
   position: relative;
   width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
-  background: var(--inverted-bg-color);
+  background: var(--bg-color-invert);
   transition: width 0.3s;
-}
-
-.collapsed {
-  width: var(--sidebar-collapsed-width);
 }
 
 .switchers {
@@ -16,4 +12,29 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.button_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.button_toggle {
+  width: 45px;
+  height: 45px;
+  transition: 0.5s;
+  transform: rotate(180deg);
+
+  & svg {
+    fill: var(--bg-color);
+  }
+}
+
+.collapsed {
+  width: var(--sidebar-collapsed-width);
+
+  & .button_toggle {
+    transform: rotate(0deg);
+  }
 }

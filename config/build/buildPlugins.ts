@@ -3,11 +3,18 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { TBuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 
 export const buildPlugins = ({paths, isDev}: TBuildOptions): webpack.WebpackPluginInstance[] => {
   const devPlugins = isDev
-    ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]
+    ? [
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactRefreshWebpackPlugin({overlay: false}),
+      new webpack.HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin()
+    ]
     : [];
+
   return [
     new HtmlWebpackPlugin({
       template: paths.html
@@ -20,7 +27,6 @@ export const buildPlugins = ({paths, isDev}: TBuildOptions): webpack.WebpackPlug
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new webpack.HotModuleReplacementPlugin(),
     ...devPlugins,
   ];
 };

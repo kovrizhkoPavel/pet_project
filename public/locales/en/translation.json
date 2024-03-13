@@ -1,9 +1,11 @@
 {
+  "button_reload_page": "Reload page",
+  "button_switch_lang": "English",
   "nav_about": "About",
   "nav_main": "Main",
   "title_about": "About",
+  "title_error": "Something went wrong.",
   "title_main": "Main page",
   "title_not_found": "Page not found",
-  "title_not_founf": "Page not found",
   "toggleLang": "English"
 }

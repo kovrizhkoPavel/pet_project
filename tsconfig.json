@@ -3,7 +3,6 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -12,12 +11,17 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
-    }
+    },
+    "types": ["@testing-library/jest-dom", "node"],
     //    "strict": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
     }
-  }
+  },
+  "include": [
+    "./config/jest/jest-setup.ts",
+    "src/**/*"
+  ],
 }

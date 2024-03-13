@@ -1,9 +1,11 @@
 {
+  "button_reload_page": "Перезагрузить страницу",
+  "button_switch_lang": "Русский",
   "nav_about": "О компании",
   "nav_main": "Главная",
   "title_about": "О компании",
+  "title_error": "Что-то пошло не так.",
   "title_main": "Главная страница",
   "title_not_found": "Страница не найдена",
-  "title_not_founf": "Страница не найдена",
   "toggleLang": "Русский"
 }

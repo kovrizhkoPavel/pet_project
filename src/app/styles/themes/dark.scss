@@ -1,8 +1,8 @@
 .app.dark {
-  --bg-color: #000;
-  --inverted-bg-color: #fff;
-  --primary-color: #fff;
-  --inverted-primaty-color: #000;
-  --secondary-color: yellow;
-  --inverted-secondary-colot: brown;
+  --bg-color: var(--bg-dark);
+  --bg-color-invert: var(--bg-light);
+  --font-color: var(--font-color-light);
+  --font-color-invert: var(--font-color-dark);
+  --primary-color: var(--bg-blue-light);
+  --secondary-color: var(--bg-blue);
 }
