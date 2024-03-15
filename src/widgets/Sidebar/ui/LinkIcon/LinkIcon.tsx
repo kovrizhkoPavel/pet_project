@@ -8,14 +8,13 @@ import cls from './LinkIcon.module.scss';
 type TLinkIconProps = {
   path: TObjectValue<typeof RoutePath>;
   Icon: FC<SVGProps<SVGSVGElement>>;
-  isCollapsed: boolean;
   className?: string;
   iconClassName?: string;
   label?: string;
 }
 
 export const LinkIcon: FC<TLinkIconProps> = ({
-  className, iconClassName, path, Icon, isCollapsed, label,
+  className, iconClassName, path, Icon, label,
 }) => (
   <AppLink
     to={path}
@@ -24,7 +23,7 @@ export const LinkIcon: FC<TLinkIconProps> = ({
   >
     <div className={cls.link_container}>
       <Icon className={getClassName(cls.link_icon, {}, [iconClassName])} />
-      {(!isCollapsed && label) && <div className={cls.link__label}>{label}</div>}
+      { label && <div className={cls.link__label}>{label}</div> }
     </div>
   </AppLink>
 );

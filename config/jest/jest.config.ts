@@ -41,6 +41,12 @@ export default {
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
   },
 
+  // A map from regular expressions to paths to transformers
+  // transform: {
+  //   '^.+\\.tsx?$': 'babel-jest',
+  //   '^.+\\.svg$': 'jest-svg-transformer',
+  // },
+
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -176,9 +182,6 @@ export default {
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
   // timers: "real",
-
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

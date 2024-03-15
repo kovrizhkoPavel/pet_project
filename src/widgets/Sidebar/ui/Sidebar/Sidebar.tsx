@@ -29,24 +29,22 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
         <ButtonIcon
           onClick={onButtonClick}
           Icon={BurgerMenuIcon}
-          hasLabel={isCollapsed}
           className={cls.burgerMenuButton}
+          dataTestId="sidebar_button"
         />
         <LinkIcon
           path={RoutePath.main}
           Icon={HomeIcon}
-          isCollapsed={isCollapsed}
-          label={t('translation\:nav_main')}
+          label={!isCollapsed && t('translation\:nav_main')}
         />
         <LinkIcon
           path={RoutePath.about}
           Icon={AboutIcon}
-          isCollapsed={isCollapsed}
-          label={t('translation\:nav_about')}
+          label={!isCollapsed && t('translation\:nav_about')}
         />
       </div>
       <div className={cls.switchers}>
-        <LangSwitcher hasLabel={isCollapsed} />
+        <LangSwitcher />
       </div>
     </div>
   );
