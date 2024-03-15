@@ -34,6 +34,7 @@ module.exports = {
         '**/config/**/*.ts',
         '**/src/**/storybook/*.{ts,tsx}',
         '**/src/**/*.test.{ts,tsx}',
+        '**/src/**/*.stories.{ts,tsx}',
         '**/src/shared/lib/tests/**/*.{ts,tsx}',
       ],
       rules: {

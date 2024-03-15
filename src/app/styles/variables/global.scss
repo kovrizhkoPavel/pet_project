@@ -1,7 +1,7 @@
 :root {
   // font
 
-  --font-family-main: consolas, "Times New Roman", serif;
+  --font-family-main: consolas, "Roboto", sans-serif;
   --font-size-m: 16px;
   --font-line-m: 24px;
   --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
@@ -14,6 +14,8 @@
   --navbar-height: 50px;
   --sidebar-width: 200px;
   --sidebar-collapsed-width: 80px;
+  --icon-size-l: 45px;
+  --icon-size-m: 30px;
 
   // colors
   --bg-dark: #1a1a1a;
