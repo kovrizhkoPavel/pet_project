@@ -4,8 +4,6 @@ import HomeIcon from 'shared/assets/icon/home-icon.svg';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 
-type Story = StoryObj<typeof meta>;
-
 const meta = {
   title: 'shared/ButtonIcon',
   component: ButtonIcon,
@@ -15,22 +13,24 @@ const meta = {
   },
 } satisfies Meta<typeof ButtonIcon>;
 
-export const Label = {
+type Story = StoryObj<typeof meta>;
+
+export const Label: Story = {
   args: {
     label: 'test',
   },
 };
 
-export const noLabel = {};
+export const noLabel: Story = {};
 
-export const LabelDark = {
+export const LabelDark: Story = {
   args: {
     label: 'test',
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const noLabelDark = {
+export const noLabelDark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
 };
 export default meta;
