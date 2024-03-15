@@ -1,8 +1,13 @@
 import { FC, useState } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import { Button } from 'shared/ui/Button/Button';
-import ArrowIcon from 'shared/assets/icon/arrow.svg';
+import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
+import HomeIcon from 'shared/assets/icon/home-icon.svg';
+import AboutIcon from 'shared/assets/icon/about-icon.svg';
+import { RoutePath } from 'shared/config/routeConfig/constants';
+import { useTranslation } from 'react-i18next';
+import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
+import { LinkIcon } from '../LinkIcon/LinkIcon';
 import cls from './Sidebar.module.scss';
 
 type TSidebarProps = {
@@ -10,7 +15,8 @@ type TSidebarProps = {
 }
 
 export const Sidebar: FC<TSidebarProps> = ({ className }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const { t } = useTranslation();
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
   return (
     <div
@@ -19,17 +25,28 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
       }
       data-testid="sidebar"
     >
-      <div className={cls.button_wrap}>
-        <Button
+      <div className={cls.wrapper}>
+        <ButtonIcon
           onClick={onButtonClick}
-          data-testid="sidebar_button"
-          className={cls.button_toggle}
-        >
-          <ArrowIcon />
-        </Button>
+          Icon={BurgerMenuIcon}
+          hasLable={isCollapsed}
+          className={cls.burgerMenuButton}
+        />
+        <LinkIcon
+          path={RoutePath.main}
+          Icon={HomeIcon}
+          isCollapsed={isCollapsed}
+          label={t('translation\:nav_main')}
+        />
+        <LinkIcon
+          path={RoutePath.about}
+          Icon={AboutIcon}
+          isCollapsed={isCollapsed}
+          label={t('translation\:nav_about')}
+        />
       </div>
       <div className={cls.switchers}>
-        <LangSwitcher />
+        <LangSwitcher hasLabel={isCollapsed} />
       </div>
     </div>
   );
