@@ -29,7 +29,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
         <ButtonIcon
           onClick={onButtonClick}
           Icon={BurgerMenuIcon}
-          hasLable={isCollapsed}
+          hasLabel={isCollapsed}
           className={cls.burgerMenuButton}
         />
         <LinkIcon

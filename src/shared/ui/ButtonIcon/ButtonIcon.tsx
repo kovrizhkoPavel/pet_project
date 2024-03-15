@@ -6,14 +6,14 @@ import cls from './ButtonIcon.module.scss';
 type TButtonIconProps = {
   onClick: VoidFunction;
   Icon: FC<SVGProps<SVGSVGElement>>;
-  hasLable: boolean;
+  hasLabel: boolean;
   className?: string;
   iconClassName?: string;
   label?: string;
 }
 
 export const ButtonIcon: FC<TButtonIconProps> = ({
-  className, iconClassName, onClick, Icon, hasLable, label,
+  className, iconClassName, onClick, Icon, hasLabel, label,
 }) => (
   <Button
     onClick={onClick}
@@ -22,7 +22,7 @@ export const ButtonIcon: FC<TButtonIconProps> = ({
   >
     <div className={cls.button_container}>
       <Icon className={getClassName(cls.button__icon, {}, [iconClassName])} />
-      {(!hasLable && label) && <div className={cls.button__label}>{label}</div>}
+      {(!hasLabel && label) && <div className={cls.button__label}>{label}</div>}
     </div>
   </Button>
 );

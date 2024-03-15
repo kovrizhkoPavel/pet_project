@@ -24,7 +24,7 @@ export const LangSwitcher: FC<TLangSwitcherProps> = (props) => {
       onClick={onButtonClick}
       label={t('translation\:toggleLang')}
       Icon={LanguageIcon}
-      hasLable={hasLabel}
+      hasLabel={hasLabel}
     />
   );
 };
