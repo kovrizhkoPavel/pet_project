@@ -11,10 +11,12 @@ export type TBuildOptions = {
   mode: TBuildMode;
   paths: TBuildPath;
   isDev: boolean;
+  isDevAnalysis: boolean;
   port: number;
 }
 
 export type TBuildEnv = {
   mode: TBuildMode;
+  analysis: boolean;
   port: number;
 }
