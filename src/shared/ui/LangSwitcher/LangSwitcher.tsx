@@ -7,7 +7,6 @@ import cls from './LangSwitcher.module.scss';
 
 type TLangSwitcherProps = {
   className?: string;
-  classNameLabel?: string;
   hasLabel?: boolean;
 }
 
