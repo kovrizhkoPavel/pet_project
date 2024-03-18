@@ -1,21 +1,23 @@
 import { FC, Suspense } from 'react';
 import './styles/index.scss';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { AppRouter } from 'app/providers/route';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 const App: FC = () => {
   const { theme } = useTheme();
   return (
-    <div className={getClassName('app', { hovered: true }, [theme, 'cls2'])}>
+    <div className={getClassName('app', { hovered: true }, [theme])}>
       <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
+        <div className="wrapper">
           <Sidebar />
-          <div className="page-wrapper">
-            <AppRouter />
+          <div className="content">
+            <Navbar />
+            <div className="page-wrapper">
+              <AppRouter />
+            </div>
           </div>
         </div>
       </Suspense>

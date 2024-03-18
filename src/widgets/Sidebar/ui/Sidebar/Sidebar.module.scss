@@ -1,18 +1,26 @@
 .sidebar {
   position: relative;
   width: var(--sidebar-width);
-  height: calc(100vh - var(--navbar-height));
+  height: 100vh;
   padding-left: 12px;
   background: var(--bg-color-invert);
   transition: width 0.3s;
 }
 
-.switchers {
+.switcher {
   position: absolute;
   bottom: 20px;
   display: flex;
   justify-content: center;
   width: 100%;
+
+  div {
+    color: var(--font-color-invert);
+  }
+}
+
+.switchers__label {
+  color: var(--font-color-invert);
 }
 
 .wrapper {

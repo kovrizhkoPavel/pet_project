@@ -39,3 +39,18 @@ export const OutlineDark: Story = {
   },
   decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+export const FillLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.FILL,
+  },
+};
+
+export const FillDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.FILL,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

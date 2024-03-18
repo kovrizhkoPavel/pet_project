@@ -79,8 +79,12 @@ module.exports = {
     'no-useless-escape': 'off',
     'no-shadow': 'off',
     'react/display-name': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-array-index-key': 'error',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     'no-console': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     // 'sort-imports': ['error', {

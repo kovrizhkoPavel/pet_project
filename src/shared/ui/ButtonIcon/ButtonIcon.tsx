@@ -9,12 +9,19 @@ type TButtonIconProps = {
   Icon: TSvgIcon;
   className?: string;
   iconClassName?: string;
+  labelClassName?: string;
   label?: string;
   dataTestId?:string;
 }
 
 export const ButtonIcon: FC<TButtonIconProps> = ({
-  className, iconClassName, onClick, Icon, label, dataTestId,
+  className,
+  labelClassName,
+  iconClassName,
+  onClick,
+  Icon,
+  label,
+  dataTestId,
 }) => (
   <Button
     onClick={onClick}
@@ -23,7 +30,13 @@ export const ButtonIcon: FC<TButtonIconProps> = ({
   >
     <div className={cls.button_container}>
       <Icon className={getClassName(cls.button__icon, {}, [iconClassName])} />
-      {label && <div className={cls.button__label}>{label}</div>}
+      {
+        label && (
+          <div className={getClassName(cls.button__label, {}, [labelClassName])}>
+            {label}
+          </div>
+        )
+      }
     </div>
   </Button>
 );

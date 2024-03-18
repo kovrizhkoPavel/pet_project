@@ -43,8 +43,8 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
           label={!isCollapsed && t('translation\:nav_about')}
         />
       </div>
-      <div className={cls.switchers}>
-        <LangSwitcher />
+      <div className={cls.switcher}>
+        <LangSwitcher hasLabel={!isCollapsed} />
       </div>
     </div>
   );

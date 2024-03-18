@@ -6,6 +6,7 @@ import cls from './Button.module.scss';
 export const ButtonVariant = {
   CLEAR: 'clear',
   OUTLINE: 'outline',
+  FILL: 'fill',
 } as const;
 
 type TButtonProps = {

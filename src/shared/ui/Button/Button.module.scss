@@ -1,4 +1,5 @@
 .button {
+  padding: 8px 12px;
   cursor: pointer;
 }
 
@@ -11,10 +12,15 @@
 }
 
 .outline {
-  padding: 12px;
   color: var(--primary-color);
   background: none;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+}
+
+.fill {
+  color: var(--font-color);
+  background: var(--secondary-color);
+  border-radius: 10px;
 }
 

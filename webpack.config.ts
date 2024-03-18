@@ -7,6 +7,7 @@ import { TBuildEnv, TBuildPath } from './config/build/types/config';
 export default (env: TBuildEnv): webpack.Configuration => {
   const mode = env.mode || Mode.DEVELOPMENT;
   const isDev = env.mode === Mode.DEVELOPMENT;
+  const isDevAnalysis = Boolean(env.analysis);
   const port = env.port || DEFAULT_PORT;
 
   const paths: TBuildPath = {
@@ -20,6 +21,7 @@ export default (env: TBuildEnv): webpack.Configuration => {
     paths,
     mode,
     isDev,
+    isDevAnalysis,
     port,
   });
 };
