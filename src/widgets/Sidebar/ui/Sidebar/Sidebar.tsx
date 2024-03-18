@@ -44,7 +44,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
         />
       </div>
       <div className={cls.switchers}>
-        <LangSwitcher />
+        <LangSwitcher hasLabel={!isCollapsed} />
       </div>
     </div>
   );

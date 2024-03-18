@@ -11,11 +11,13 @@ const App: FC = () => {
   return (
     <div className={getClassName('app', { hovered: true }, [theme, 'cls2'])}>
       <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
+        <div className="wrapper">
           <Sidebar />
-          <div className="page-wrapper">
-            <AppRouter />
+          <div className="content">
+            <Navbar />
+            <div className="page-wrapper">
+              <AppRouter />
+            </div>
           </div>
         </div>
       </Suspense>

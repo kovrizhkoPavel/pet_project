@@ -7,10 +7,11 @@ import cls from './LangSwitcher.module.scss';
 
 type TLangSwitcherProps = {
   className?: string;
+  hasLabel?: boolean;
 }
 
 export const LangSwitcher: FC<TLangSwitcherProps> = (props) => {
-  const { className } = props;
+  const { className, hasLabel } = props;
   const { t, i18n } = useTranslation();
 
   const onButtonClick = async () => {
@@ -21,7 +22,7 @@ export const LangSwitcher: FC<TLangSwitcherProps> = (props) => {
     <ButtonIcon
       className={getClassName(cls.langSwitcher, {}, [className])}
       onClick={onButtonClick}
-      label={t('translation\:toggleLang')}
+      label={Boolean(hasLabel) && t('translation\:toggleLang')}
       Icon={LanguageIcon}
     />
   );
