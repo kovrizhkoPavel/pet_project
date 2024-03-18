@@ -1,6 +1,5 @@
 :root {
   // font
-
   --font-family-main: consolas, "Roboto", sans-serif;
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -10,7 +9,6 @@
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
   // size
-
   --navbar-height: 60px;
   --sidebar-width: 200px;
   --sidebar-collapsed-width: 80px;
@@ -24,4 +22,8 @@
   --font-color-dark: #1a1a1a;
   --bg-blue: #0384d3;
   --bg-blue-light: #65bff6;
+  --overlay-color: rgba(0, 0, 0, 0.6);
+
+  // z-indexes
+  --z-index-modal: 5;
 }
