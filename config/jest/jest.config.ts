@@ -16,12 +16,6 @@ export default {
     "json",
     "node"
   ],
-  // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: [
-    "node_modules", "src"
-  ],
-
-  modulePaths: ['<rootDir>src'],
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
@@ -35,10 +29,23 @@ export default {
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
 
+  // An array of directory names to be searched recursively up from the requiring module's location
+  moduleDirectories: [
+    "node_modules", "<rootDir>src"
+  ],
+
+  modulePaths: ['<rootDir>src'],
+
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    'entities/(.*)': '<rootDir>src/entities/$1'
+  },
+
+  // A set of global variables that need to be available in all test environments
+  globals: {
+    __IS_DEV__: true
   },
 
   // A map from regular expressions to paths to transformers
@@ -100,9 +107,6 @@ export default {
 
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
-
-  // A set of global variables that need to be available in all test environments
-  // globals: {},
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
