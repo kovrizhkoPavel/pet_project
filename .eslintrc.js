@@ -41,6 +41,12 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
       },
     },
+    {
+      files: ['**/src/**/slice/*.ts'],
+      rules: {
+        'no-param-reassign': 'off',
+      },
+    },
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
