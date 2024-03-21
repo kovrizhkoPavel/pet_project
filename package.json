@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack serve --env port=3000 mode=development",
     "start:analysis": "webpack serve --env port=3000 mode=development analysis=true",
+    "start:dev:server": "node ./json-server/index.js",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
@@ -66,6 +67,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
+    "json-server": "0.17.0",
     "jsx-runtime": "1.2.0",
     "loki": "0.34.0",
     "mini-css-extract-plugin": "2.8.1",
