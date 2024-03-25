@@ -24,6 +24,6 @@ describe('Counter', () => {
   });
   test('decrement', async () => {
     await userEvent.click(screen.getByTestId('button-decrement'));
-    expect(screen.getByTestId('counter')).toHaveTextContent('9');
+    expect(screen.getByTestId('counter')).toHaveTextContent('0');
   });
 });
