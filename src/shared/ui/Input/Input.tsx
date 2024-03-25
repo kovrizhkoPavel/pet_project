@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef, useState,
+  ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import cls from './Input.module.scss';
