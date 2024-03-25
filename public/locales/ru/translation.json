@@ -2,6 +2,8 @@
   "button_reload_page": "Перезагрузить страницу",
   "button_sing_in": "Войти",
   "button_switch_lang": "Русский",
+  "form_auth_login": "Логин",
+  "form_auth_pass": "Пароль",
   "nav_about": "О компании",
   "nav_main": "Главная",
   "title_about": "О компании",

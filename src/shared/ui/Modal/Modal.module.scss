@@ -21,14 +21,10 @@
   padding: 20px;
   color: var(--font-color);
   background: var(--bg-color);
-  border-radius: 12px;
+  border-radius: var(--border-radius-l);
 }
 
 .opened {
   pointer-events: auto;
   opacity: 1;
-
-  .content {
-    transform: scale(1);
-  }
 }
