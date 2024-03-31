@@ -11,6 +11,7 @@ type TInputProps = {
   label?: string;
   onChange?: (value: string) => void;
   isAutoFocus?: boolean;
+  isError?: boolean;
 } & TInputAttribute
 
 export const Input: FC<TInputProps> = (props) => {
@@ -20,6 +21,7 @@ export const Input: FC<TInputProps> = (props) => {
     value,
     label,
     isAutoFocus,
+    isError,
     ...otherProps
   } = props;
 
@@ -37,7 +39,7 @@ export const Input: FC<TInputProps> = (props) => {
   }, [isAutoFocus]);
 
   return (
-    <div className={getClassName(cls.input, {}, [className])}>
+    <div className={getClassName(cls.input, { [cls.error]: isError }, [className])}>
       {label && <p className={cls.label}>{label}</p>}
       <input
         ref={inputRef}

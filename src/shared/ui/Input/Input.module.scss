@@ -8,6 +8,11 @@
   }
 }
 
+.error input {
+  color: var(--error-color);
+  border-color: var(--error-color);
+}
+
 .label {
   padding-bottom: 8px;
 }

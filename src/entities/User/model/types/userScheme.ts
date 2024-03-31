@@ -1,8 +1,8 @@
 export type TUser = {
   id: number;
-  username: string;
+  userName: string;
 }
 
 export type UserScheme = {
-  authData?: TUser;
+  authData?: TUser | null;
 }

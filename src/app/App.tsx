@@ -1,23 +1,33 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useEffect } from 'react';
 import './styles/index.scss';
 import { AppRouter } from 'app/providers/route';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { userActions } from 'entities/User';
 
-const App: FC = () => (
-  <div className="app">
-    <Suspense fallback="">
-      <div className="wrapper">
-        <Sidebar />
-        <div className="content">
-          <Navbar />
-          <div className="page-wrapper">
-            <AppRouter />
+const App: FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
+
+  return (
+    <div className="app">
+      <Suspense fallback="">
+        <div className="wrapper">
+          <Sidebar />
+          <div className="content">
+            <Navbar />
+            <div className="page-wrapper">
+              <AppRouter />
+            </div>
           </div>
         </div>
-      </div>
-    </Suspense>
-  </div>
-);
+      </Suspense>
+    </div>
+  );
+};
 
 export default App;

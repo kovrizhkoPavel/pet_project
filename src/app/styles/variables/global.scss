@@ -22,10 +22,13 @@
   --bg-light: #fff;
   --font-color-light: #fff;
   --font-color-dark: #1a1a1a;
+  --font-color-red: #f50202;
+  --font-color-red-dark: #bd0404;
   --bg-blue: #0384d3;
   --bg-blue-light: #65bff6;
   --overlay-color: rgb(0 0 0 / 60%);
 
   // z-indexes
   --z-index-modal: 5;
+  --z-index-modal-loader: 6;
 }
