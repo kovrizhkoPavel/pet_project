@@ -1,5 +1,6 @@
 import { renderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
 import { expect, screen, userEvent } from '@storybook/test';
+import { StateSchema } from 'shared/types/stateSchema';
 import { Counter } from './Counter';
 
 describe('Counter', () => {
@@ -7,7 +8,7 @@ describe('Counter', () => {
     renderComponent(<Counter />, {
       initialState: {
         counter: { value: 10 },
-      },
+      } as StateSchema,
     });
   });
 

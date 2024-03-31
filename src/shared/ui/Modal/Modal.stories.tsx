@@ -6,6 +6,7 @@ const meta = {
   component: Modal,
   args: {
     children: 'Text',
+    title: 'Title',
   },
 } satisfies Meta<typeof Modal>;
 

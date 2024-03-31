@@ -11,11 +11,12 @@ type TModalProps = {
   isOpen: boolean;
   onClose: () => void;
   className?: string;
+  title?: string;
 }
 
 export const Modal: FC<TModalProps> = (props) => {
   const {
-    className, children, isOpen, onClose,
+    className, title, children, isOpen, onClose,
   } = props;
 
   const onKeyDown = useCallback((evt: KeyboardEvent) => {
@@ -44,6 +45,7 @@ export const Modal: FC<TModalProps> = (props) => {
       >
         <div className={cls.overlay} onClick={onClose}>
           <div className={cls.content} onClick={onContentClick}>
+            {title && <h4>{title}</h4>}
             {children}
           </div>
         </div>

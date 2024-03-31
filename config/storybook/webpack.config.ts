@@ -16,7 +16,7 @@ export default ({config}: {config: webpack.Configuration}) => {
   })
 
   config.resolve.extensions.push('.tsx', '.ts');
-  config.resolve.modules.push(paths)
+  config.resolve.modules.unshift(paths)
   config.module.rules.push(styleLoader, svgLoader);
 
  return config;
