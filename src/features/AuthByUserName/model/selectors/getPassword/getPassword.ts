@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getState } from '../getState/getState';
+import { getAuthForm } from '../getAuthForm/getAuthForm';
 import { AuthSchema } from '../../types/authSchema';
 
 export const getPassword = createSelector(
-  getState,
+  getAuthForm,
   (authState: AuthSchema) => authState?.password || '',
 );
