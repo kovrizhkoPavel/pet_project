@@ -1,9 +1,11 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { ModalLoader } from 'widgets/ModalLoader';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { authActions } from 'features/AuthByUserName/model/slice/authSlice';
 import { LoginFormAsync as LoginForm } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 
@@ -16,12 +18,18 @@ type TLoginModalProps = {
 export const LoginModal: FC<TLoginModalProps> = (props) => {
   const { className, isOpen, onClose } = props;
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const onModalClose = useCallback(() => {
+    onClose();
+    dispatch(authActions.reset());
+  }, []);
 
   return (
     <Modal
       isOpen={isOpen}
       lazy
-      onClose={onClose}
+      onClose={onModalClose}
       className={getClassName('', {}, [className])}
       contentClass={cls.loginContent}
       title={t('translation\:authorization_title')}

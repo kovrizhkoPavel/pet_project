@@ -20,7 +20,8 @@ type CombineReducer<T> = {
 
 export type TReducerManager = {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: UnknownAction) => StateFromReducersMapObject<CombineReducer<StateSchema>>;
+  reduce: (state: StateSchema, action: UnknownAction) =>
+    StateFromReducersMapObject<CombineReducer<StateSchema>>;
   add: (key: TStateSchemeKeys, reducer: Reducer) => void;
   remove: (key: TStateSchemeKeys) => void;
 }

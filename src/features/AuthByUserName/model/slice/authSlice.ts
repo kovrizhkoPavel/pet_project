@@ -19,6 +19,8 @@ const authSlice = createSlice({
     setPassword: (state, actions: PayloadAction<string>) => {
       state.password = actions.payload;
     },
+
+    reset: () => initialState,
   },
 
   extraReducers: (builder) => {
