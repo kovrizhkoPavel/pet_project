@@ -2,7 +2,6 @@ import { FC, Suspense, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
-import { Loader } from 'shared/ui/Loader/Loader';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { authActions } from 'features/AuthByUserName/model/slice/authSlice';
@@ -23,7 +22,7 @@ export const LoginModal: FC<TLoginModalProps> = (props) => {
   const onModalClose = useCallback(() => {
     onClose();
     dispatch(authActions.reset());
-  }, []);
+  }, [dispatch, onClose]);
 
   return (
     <Modal

@@ -3,7 +3,9 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema, TReducerManager, TStateSchemeKeys } from 'shared/types/stateSchema';
 
-export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): TReducerManager {
+export const createReducerManager = (
+  initialReducers: ReducersMapObject<StateSchema>,
+): TReducerManager => {
   const reducers = { ...initialReducers };
   let combinedReducer = combineReducers(reducers);
   let keysToRemove: TStateSchemeKeys[] = [];
@@ -12,15 +14,15 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
     getReducerMap: () => reducers,
 
     reduce: (state: StateSchema, action: UnknownAction) => {
+      const updateState = { ...state };
       if (keysToRemove.length > 0) {
-        state = { ...state };
-        for (const key of keysToRemove) {
-          delete state[key];
-        }
+        keysToRemove.forEach((key) => {
+          delete updateState[key];
+        });
         keysToRemove = [];
       }
 
-      return combinedReducer(state, action);
+      return combinedReducer(updateState, action);
     },
 
     add: (key: TStateSchemeKeys, reducer: Reducer) => {
@@ -40,4 +42,4 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
       combinedReducer = combineReducers(reducers);
     },
   };
-}
+};

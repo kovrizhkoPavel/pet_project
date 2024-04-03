@@ -4,7 +4,10 @@ import { StateSchema } from 'shared/types/stateSchema';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 
-export const createReduxStore = (initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
+export const createReduxStore = (
+  initialState: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+) => {
   const reducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -19,7 +22,8 @@ export const createReduxStore = (initialState: StateSchema, asyncReducers?: Redu
     preloadedState: initialState,
   });
 
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   store.reducerManager = reducerManager;
 
   return store;
