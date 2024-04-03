@@ -4,5 +4,5 @@ import { AuthSchema } from '../../types/authSchema';
 
 export const getPassword = createSelector(
   getState,
-  (authState: AuthSchema) => authState.password,
+  (authState: AuthSchema) => authState?.password || '',
 );

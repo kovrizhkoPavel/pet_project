@@ -4,5 +4,5 @@ import { getState } from '../getState/getState';
 
 export const getError = createSelector(
   getState,
-  (state: AuthSchema) => state.error,
+  (state: AuthSchema) => state?.error || '',
 );
