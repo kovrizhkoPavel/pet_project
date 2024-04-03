@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, MouseEvent, useCallback, useEffect,
+  FC, ReactNode, MouseEvent, useCallback, useEffect, useState,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import Portal from 'shared/ui/Portal/Portal';
@@ -11,12 +11,15 @@ type TModalProps = {
   isOpen: boolean;
   onClose: () => void;
   className?: string;
+  contentClass?: string;
   title?: string;
+  lazy?: boolean;
 }
 
 export const Modal: FC<TModalProps> = (props) => {
+  const [isMounted, setIsMounted] = useState(false);
   const {
-    className, title, children, isOpen, onClose,
+    className, contentClass, title, children, isOpen, lazy, onClose,
   } = props;
 
   const onKeyDown = useCallback((evt: KeyboardEvent) => {
@@ -37,6 +40,14 @@ export const Modal: FC<TModalProps> = (props) => {
     };
   }, [onKeyDown]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  if (!isMounted && lazy) return null;
+
   return (
     <Portal>
       <div className={
@@ -46,7 +57,9 @@ export const Modal: FC<TModalProps> = (props) => {
         <div className={cls.overlay} onClick={onClose}>
           <div className={cls.content} onClick={onContentClick}>
             {title && <h4>{title}</h4>}
-            {children}
+            <div className={getClassName('', {}, [contentClass])}>
+              {children}
+            </div>
           </div>
         </div>
       </div>
