@@ -1,13 +1,16 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from 'features/AuthByUserName/ui/LoginForm/LoginForm';
 import { useTranslation } from 'react-i18next';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { ModalLoader } from 'widgets/ModalLoader';
+import { LoginFormAsync as LoginForm } from '../LoginForm/LoginForm.async';
+import cls from './LoginModal.module.scss';
 
 type TLoginModalProps = {
-  className?: string;
   isOpen: boolean;
   onClose: VoidFunction;
+  className?: string;
 }
 
 export const LoginModal: FC<TLoginModalProps> = (props) => {
@@ -17,11 +20,15 @@ export const LoginModal: FC<TLoginModalProps> = (props) => {
   return (
     <Modal
       isOpen={isOpen}
+      lazy
       onClose={onClose}
       className={getClassName('', {}, [className])}
+      contentClass={cls.loginContent}
       title={t('translation\:authorization_title')}
     >
-      <LoginForm />
+      <Suspense fallback={<ModalLoader />}>
+        <LoginForm />
+      </Suspense>
     </Modal>
   );
 };

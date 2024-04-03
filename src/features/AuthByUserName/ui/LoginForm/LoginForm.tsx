@@ -19,7 +19,7 @@ type TLoginFormProps = {
   className?: string;
 }
 
-export const LoginForm: FC<TLoginFormProps> = ({ className }) => {
+const LoginForm: FC<TLoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const userName = useSelector(getUserName);
@@ -53,7 +53,7 @@ export const LoginForm: FC<TLoginFormProps> = ({ className }) => {
         isAutoFocus
       />
       <Input
-        type="t"
+        type="text"
         className={cls.input}
         label={t('translation\:form_auth_pass')}
         onChange={onPasswordChange}
@@ -70,3 +70,5 @@ export const LoginForm: FC<TLoginFormProps> = ({ className }) => {
     </div>
   );
 };
+
+export default LoginForm;
