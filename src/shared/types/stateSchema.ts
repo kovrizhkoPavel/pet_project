@@ -7,8 +7,8 @@ import {
 } from '@reduxjs/toolkit';
 
 export type StateSchema = {
-  counter?: CounterScheme;
-  user?: UserScheme;
+  counter: CounterScheme;
+  user: UserScheme;
   authForm?: AuthSchema;
 };
 
