@@ -9,8 +9,6 @@ jest.mock('axios');
 const mockAxios = jest.mocked(axios);
 
 describe('loginByUserName', () => {
-  let dispatch: ThunkDispatch<unknown, unknown, UnknownAction>;
-  let getState: () => unknown;
   const userValue = { id: 1, userName: 'admin' };
   const reqParams = { userName: 'admin', password: '123' };
 
