@@ -1,4 +1,3 @@
-import { ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { loginByUserName } from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { expect } from '@storybook/test';
