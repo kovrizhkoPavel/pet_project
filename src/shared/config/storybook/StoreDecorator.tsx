@@ -4,7 +4,7 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { authReducer } from 'features/AuthByUserName';
 
-const defaultAsyncReducers: ReducersMapObject<StateSchema> = {
+const defaultAsyncReducers: Partial<ReducersMapObject<StateSchema>> = {
   authForm: authReducer,
 };
 

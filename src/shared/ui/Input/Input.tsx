@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef,
+  ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import cls from './Input.module.scss';
@@ -14,7 +14,7 @@ type TInputProps = {
   isError?: boolean;
 } & TInputAttribute
 
-export const Input: FC<TInputProps> = (props) => {
+export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
   const {
     onChange,
     className,
@@ -49,4 +49,4 @@ export const Input: FC<TInputProps> = (props) => {
       />
     </div>
   );
-};
+});

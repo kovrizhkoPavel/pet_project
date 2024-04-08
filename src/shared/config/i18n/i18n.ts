@@ -10,6 +10,7 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: __IS_DEV__,
+    load: 'languageOnly',
 
     interpolation: {
       escapeValue: false,
@@ -17,6 +18,7 @@ i18n
     backend: {
       loadPath: 'locales/{{lng}}/{{ns}}.json',
     },
+    keySeparator: false,
   });
 
 export default i18n;

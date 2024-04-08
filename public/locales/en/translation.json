@@ -8,9 +8,11 @@
   "form_auth_pass": "Password",
   "nav_about": "About",
   "nav_main": "Main",
+  "nav_profile": "Profile",
   "title_about": "About",
   "title_error": "Error",
   "title_main": "Main page",
   "title_not_found": "Page not found",
+  "title_profile": "Profile",
   "toggleLang": "English"
 }

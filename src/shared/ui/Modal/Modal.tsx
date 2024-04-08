@@ -3,7 +3,7 @@ import {
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import Portal from 'shared/ui/Portal/Portal';
-import { KeyboardKey } from 'shared/constants';
+import { KeyboardKey } from 'shared/constants/common';
 import cls from './Modal.module.scss';
 
 type TModalProps = {

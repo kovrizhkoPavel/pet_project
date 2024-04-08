@@ -82,6 +82,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/function-component-definition': 'off',
     'react/jsx-no-useless-fragment': 'off',
+    'react/prop-types': 'off',
     'no-underscore-dangle': 'off',
     'no-useless-escape': 'off',
     'no-shadow': 'off',

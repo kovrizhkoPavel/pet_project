@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { AuthSchema } from 'features/AuthByUserName';
-import { getState } from '../getState/getState';
+import { getAuthForm } from '../getAuthForm/getAuthForm';
 
 export const getError = createSelector(
-  getState,
+  getAuthForm,
   (state: AuthSchema) => state?.error || '',
 );
