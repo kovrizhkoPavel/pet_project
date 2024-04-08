@@ -1,4 +1,4 @@
-import { FC, SVGProps } from 'react';
+import { FC, memo, SVGProps } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -13,7 +13,7 @@ type TLinkIconProps = {
   label?: string;
 }
 
-export const LinkIcon: FC<TLinkIconProps> = ({
+export const LinkIcon: FC<TLinkIconProps> = memo(({
   className, iconClassName, path, Icon, label,
 }) => (
   <AppLink
@@ -26,4 +26,4 @@ export const LinkIcon: FC<TLinkIconProps> = ({
       { label && <div className={cls.link__label}>{label}</div> }
     </div>
   </AppLink>
-);
+));

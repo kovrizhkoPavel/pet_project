@@ -3,7 +3,8 @@ import { getClassName } from 'shared/lib/classNames/getClassName';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
-import { SidebarLinkList } from 'widgets/Sidebar/model/SidebarLinkList';
+import { getSidebarLinkList } from 'widgets/Sidebar/model/GetSidebarLinkList';
+import i18n from 'i18next';
 import { LinkIcon } from '../LinkIcon/LinkIcon';
 import cls from './Sidebar.module.scss';
 
@@ -29,12 +30,12 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
           dataTestId="sidebar_button"
         />
         {
-          SidebarLinkList.map((item) => (
+          getSidebarLinkList().map((item) => (
             <LinkIcon
               key={item.path}
               path={item.path}
               Icon={item.Icon}
-              label={item.label}
+              label={!isCollapsed && item.label}
             />
           ))
         }

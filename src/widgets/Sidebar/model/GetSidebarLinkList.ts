@@ -12,7 +12,7 @@ type TSidebarLink = {
   label: string;
 }
 
-export const SidebarLinkList: TSidebarLink[] = [
+export const getSidebarLinkList = ():TSidebarLink[] => [
   {
     path: RoutePath.main,
     Icon: HomeIcon,
