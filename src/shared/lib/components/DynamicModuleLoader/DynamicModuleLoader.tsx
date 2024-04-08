@@ -2,7 +2,7 @@ import { FC, ReactNode, useEffect } from 'react';
 import { TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 import { useStore } from 'react-redux';
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export type TReducers = {
   [key in TStateSchemeKeys]?: Reducer;

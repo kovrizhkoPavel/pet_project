@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';

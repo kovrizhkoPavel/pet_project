@@ -3,7 +3,7 @@ import './styles/index.scss';
 import { AppRouter } from 'app/providers/route';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { userActions } from 'entities/User';
 
 const App: FC = () => {
