@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { StateSchema } from 'shared/types/stateSchema';
 import { Navbar } from './Navbar';
 
 const meta = {
@@ -28,6 +29,6 @@ export const ClearLightAuth: Story = {
           userName: 'admin',
         },
       },
-    }),
+    } as StateSchema),
   ],
 };

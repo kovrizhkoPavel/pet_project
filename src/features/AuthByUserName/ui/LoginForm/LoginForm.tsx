@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { KeyboardKey } from 'shared/constants';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
@@ -18,13 +19,14 @@ import cls from './LoginForm.module.scss';
 
 type TLoginFormProps = {
   className?: string;
+  onSuccess?: VoidFunction;
 }
 
 const initialReducer: TReducers = {
   authForm: authReducer,
 };
 
-const LoginForm: FC<TLoginFormProps> = ({ className }) => {
+const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const userName = useSelector(getUserName);
@@ -40,9 +42,26 @@ const LoginForm: FC<TLoginFormProps> = ({ className }) => {
     dispatch(authActions.setPassword(value));
   }, [dispatch]);
 
-  const onSubmit = () => {
-    dispatch(loginByUserName({ userName, password }));
+  const onSubmit = async () => {
+    const response = await dispatch(loginByUserName({ userName, password }));
+    if (response.meta.requestStatus === 'fulfilled') {
+      onSuccess?.();
+    }
   };
+
+  const onKeyDown = (evt: KeyboardEvent) => {
+    if (evt.key === KeyboardKey.ENTER) {
+      onSubmit();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  });
 
   return (
     <DynamicModuleLoader reducers={initialReducer} remountAfterUnmount>

@@ -34,7 +34,7 @@ export const LoginModal: FC<TLoginModalProps> = (props) => {
       title={t('translation\:authorization_title')}
     >
       <Suspense fallback={<ModalLoader />}>
-        <LoginForm />
+        <LoginForm onSuccess={onModalClose} />
       </Suspense>
     </Modal>
   );
