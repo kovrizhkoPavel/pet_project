@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { KeyboardKey } from 'shared/constants';
+import { KeyboardKey } from 'shared/constants/common';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';

@@ -5,11 +5,15 @@ import {
   EnhancedStore,
   Reducer, ReducersMapObject, StateFromReducersMapObject, UnknownAction,
 } from '@reduxjs/toolkit';
+import { ProfileScheme } from 'entities/Profile';
 
 export type StateSchema = {
   counter: CounterScheme;
   user: UserScheme;
+
+  // async reducers
   authForm?: AuthSchema;
+  profile?: ProfileScheme;
 };
 
 export type TStateSchemeKeys = keyof StateSchema;
