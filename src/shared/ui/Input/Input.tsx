@@ -14,7 +14,7 @@ type TInputProps = {
   isError?: boolean;
 } & TInputAttribute
 
-export const Input: FC<TInputProps> = memo((props) => {
+export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
   const {
     onChange,
     className,
