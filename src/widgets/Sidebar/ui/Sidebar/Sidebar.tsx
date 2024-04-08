@@ -2,11 +2,8 @@ import { FC, useState } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
-import HomeIcon from 'shared/assets/icon/home-icon.svg';
-import AboutIcon from 'shared/assets/icon/about-icon.svg';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { useTranslation } from 'react-i18next';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
+import { SidebarLinkList } from 'widgets/Sidebar/model/SidebarLinkList';
 import { LinkIcon } from '../LinkIcon/LinkIcon';
 import cls from './Sidebar.module.scss';
 
@@ -16,7 +13,6 @@ type TSidebarProps = {
 
 export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const { t } = useTranslation();
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
   return (
     <div
@@ -32,16 +28,16 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
           className={cls.burgerMenuButton}
           dataTestId="sidebar_button"
         />
-        <LinkIcon
-          path={RoutePath.main}
-          Icon={HomeIcon}
-          label={!isCollapsed && t('translation\:nav_main')}
-        />
-        <LinkIcon
-          path={RoutePath.about}
-          Icon={AboutIcon}
-          label={!isCollapsed && t('translation\:nav_about')}
-        />
+        {
+          SidebarLinkList.map((item) => (
+            <LinkIcon
+              key={item.path}
+              path={item.path}
+              Icon={item.Icon}
+              label={item.label}
+            />
+          ))
+        }
       </div>
       <div className={cls.switcher}>
         <LangSwitcher hasLabel={!isCollapsed} />

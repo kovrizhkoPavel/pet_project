@@ -8,9 +8,11 @@
   "form_auth_pass": "Пароль",
   "nav_about": "О компании",
   "nav_main": "Главная",
+  "nav_profile": "Профиль",
   "title_about": "О компании",
   "title_error": "Ошибка",
   "title_main": "Главная страница",
   "title_not_found": "Страница не найдена",
+  "title_profile": "Профиль",
   "toggleLang": "Русский"
 }
