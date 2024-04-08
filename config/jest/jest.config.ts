@@ -45,7 +45,8 @@ export default {
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: '',
   },
 
   // A map from regular expressions to paths to transformers
