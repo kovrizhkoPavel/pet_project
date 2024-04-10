@@ -34,7 +34,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
               key={item.path}
               path={item.path}
               Icon={item.Icon}
-              label={!isCollapsed && item.label}
+              label={!isCollapsed ? item.label : ''}
             />
           ))
         }

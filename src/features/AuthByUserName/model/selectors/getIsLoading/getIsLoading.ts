@@ -4,5 +4,5 @@ import { AuthSchema } from '../../types/authSchema';
 
 export const getIsLoading = createSelector(
   getAuthForm,
-  (authState: AuthSchema) => authState?.isLoading,
+  (authState: AuthSchema | undefined) => authState?.isLoading,
 );

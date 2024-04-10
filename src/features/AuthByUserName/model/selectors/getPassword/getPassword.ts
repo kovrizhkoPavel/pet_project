@@ -4,5 +4,5 @@ import { AuthSchema } from '../../types/authSchema';
 
 export const getPassword = createSelector(
   getAuthForm,
-  (authState: AuthSchema) => authState?.password || '',
+  (authState: AuthSchema | undefined) => authState?.password || '',
 );

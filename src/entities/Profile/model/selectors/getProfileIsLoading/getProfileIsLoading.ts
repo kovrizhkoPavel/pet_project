@@ -4,5 +4,5 @@ import { ProfileScheme } from 'entities/Profile';
 
 export const getProfileIsLoading = createSelector(
   getProfileState,
-  (state: ProfileScheme) => state?.isLoading || '',
+  (state: ProfileScheme | undefined) => state?.isLoading || '',
 );

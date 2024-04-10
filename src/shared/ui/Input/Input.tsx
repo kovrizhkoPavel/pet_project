@@ -33,13 +33,16 @@ export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    if (isAutoFocus) {
+    if (isAutoFocus && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isAutoFocus]);
 
   return (
-    <div className={getClassName(cls.input, { [cls.error]: isError }, [className])}>
+    <div className={
+      getClassName(cls.input, { [cls.error]: Boolean(isError) }, [className])
+    }
+    >
       {label && <p className={cls.label}>{label}</p>}
       <input
         ref={inputRef}

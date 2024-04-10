@@ -4,5 +4,5 @@ import { ProfileScheme } from 'entities/Profile';
 
 export const getProfileError = createSelector(
   getProfileState,
-  (state: ProfileScheme) => state?.error || '',
+  (state: ProfileScheme | undefined) => state?.error || '',
 );

@@ -22,7 +22,7 @@ export const LangSwitcher: FC<TLangSwitcherProps> = (props) => {
     <ButtonIcon
       className={getClassName(cls.langSwitcher, {}, [className])}
       onClick={onButtonClick}
-      label={Boolean(hasLabel) && t('translation\:toggleLang')}
+      label={hasLabel ? t('translation\:toggleLang') : ''}
       Icon={LanguageIcon}
     />
   );

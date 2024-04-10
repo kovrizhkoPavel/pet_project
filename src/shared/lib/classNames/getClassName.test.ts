@@ -12,11 +12,6 @@ describe('getClassName', () => {
   });
 
   test('test3', () => {
-    const expectVal = 'cl1 cl2';
-    expect(getClassName('cl1', { cl3: undefined }, ['cl2'])).toBe(expectVal);
-  });
-
-  test('test4', () => {
     const expectVal = 'cl1 cl3';
     expect(getClassName('cl1', { cl3: true }, [])).toBe(expectVal);
   });

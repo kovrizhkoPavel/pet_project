@@ -20,7 +20,10 @@ export const Text: FC<TTextProps> = (props) => {
   } = props;
 
   return (
-    <div className={getClassName(cls.textWrapper, {}, [className, cls[variant]])}>
+    <div className={
+      getClassName(cls.textWrapper, {}, [className, cls[variant || TextVariant.ERROR]])
+    }
+    >
       {title && <h4 className={cls.title}>{title}</h4>}
       {text && <p className={cls.text}>{text}</p>}
     </div>

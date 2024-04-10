@@ -4,5 +4,5 @@ import { getAuthForm } from '../getAuthForm/getAuthForm';
 
 export const getError = createSelector(
   getAuthForm,
-  (state: AuthSchema) => state?.error || '',
+  (state: AuthSchema | undefined) => state?.error || '',
 );
