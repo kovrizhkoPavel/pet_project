@@ -38,3 +38,8 @@ export type TThunkExtra = {
   api: AxiosInstance;
   navigate: NavigateFunction;
 };
+
+export type TThunkApiConfig<T> = {
+  rejectValue: T;
+  extra: TThunkExtra;
+}

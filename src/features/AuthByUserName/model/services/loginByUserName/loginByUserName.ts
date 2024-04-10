@@ -1,16 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser, userActions } from 'entities/User';
-import { TThunkExtra } from 'shared/types/stateSchema';
-import { Url } from 'shared/constants/api';
+import { TThunkApiConfig } from 'shared/types/stateSchema';
+import { AuthUrl } from 'shared/constants/api';
 
 type TParams = {
   userName: string;
   password: string;
-}
-
-type TThunkApiConfig<T> = {
-  rejectValue: T;
-  extra: TThunkExtra;
 }
 
 export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<string>>(
@@ -19,7 +14,7 @@ export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<
     const { extra, rejectWithValue, dispatch } = thunkAPI;
 
     try {
-      const { data } = await extra.api.post<TUser>(Url.LOGIN, authData);
+      const { data } = await extra.api.post<TUser>(AuthUrl.LOGIN, authData);
 
       if (!data) {
         throw new Error();
