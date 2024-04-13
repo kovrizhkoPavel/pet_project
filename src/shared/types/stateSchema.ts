@@ -3,7 +3,7 @@ import { UserScheme } from 'entities/User';
 import { AuthSchema } from 'features/AuthByUserName';
 import {
   EnhancedStore,
-  Reducer, ReducersMapObject, StateFromReducersMapObject, UnknownAction,
+  Reducer, ReducersMapObject, UnknownAction,
 } from '@reduxjs/toolkit';
 import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
@@ -20,14 +20,13 @@ export type StateSchema = {
 
 export type TStateSchemeKeys = keyof StateSchema;
 
-type CombineReducer<T> = {
+export type CombineReducer<T> = {
   [key in keyof T]: Reducer<T[key], UnknownAction, key extends keyof T ? T[key] : never>;
 }
 
 export type TReducerManager = {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: UnknownAction) =>
-    StateFromReducersMapObject<CombineReducer<StateSchema>>;
+  reduce: Reducer<StateSchema>;
   add: (key: TStateSchemeKeys, reducer: Reducer) => void;
   remove: (key: TStateSchemeKeys) => void;
 }
@@ -36,7 +35,7 @@ export type TReducerWithManager = EnhancedStore<StateSchema> & { reducerManager:
 
 export type TThunkExtra = {
   api: AxiosInstance;
-  navigate: NavigateFunction;
+  navigate?: NavigateFunction;
 };
 
 export type TThunkApiConfig<T> = {

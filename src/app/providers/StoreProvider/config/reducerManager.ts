@@ -2,6 +2,9 @@ import {
   combineReducers, Reducer, ReducersMapObject, UnknownAction,
 } from '@reduxjs/toolkit';
 import { StateSchema, TReducerManager, TStateSchemeKeys } from 'shared/types/stateSchema';
+import { TOptionalLiteralKeys } from 'shared/types/types';
+
+type TState = Omit<StateSchema, TOptionalLiteralKeys<StateSchema>>;
 
 export const createReducerManager = (
   initialReducers: ReducersMapObject<StateSchema>,
@@ -13,11 +16,11 @@ export const createReducerManager = (
   return {
     getReducerMap: () => reducers,
 
-    reduce: (state: StateSchema, action: UnknownAction) => {
+    reduce: (state: TState | undefined, action: UnknownAction) => {
       const updateState = { ...state };
-      if (keysToRemove.length > 0) {
+      if (keysToRemove.length > 0 && state) {
         keysToRemove.forEach((key) => {
-          delete updateState[key];
+          delete updateState[key as keyof typeof updateState];
         });
         keysToRemove = [];
       }

@@ -1,6 +1,6 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateSchema, TThunkExtra } from 'shared/types/stateSchema';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
@@ -19,16 +19,18 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(reducer);
 
-  const store = configureStore<StateSchema>({
+  const extraArgument: TThunkExtra = {
+    api: $api,
+    navigate,
+  };
+
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
-        extraArgument: {
-          api: $api,
-          navigate,
-        },
+        extraArgument,
       },
     }),
   });
