@@ -2,7 +2,7 @@ import { TObjectValue } from 'shared/types/types';
 import { Country, Currency } from 'shared/constants/common';
 
 export type TProfile = {
-  first: string;
+  firstname: string;
   lastname: string;
   age: number,
   currency: TObjectValue<typeof Currency>,

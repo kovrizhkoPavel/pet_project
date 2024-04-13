@@ -13,8 +13,8 @@
       "*": ["./src/*"],
       "entities/*": ["./src/entities/*"]
     },
-    "types": ["@testing-library/jest-dom", "node"]
-    //    "strict": true
+    "types": ["@testing-library/jest-dom", "node"],
+    "strict": true
   },
   "ts-node": {
     "compilerOptions": {

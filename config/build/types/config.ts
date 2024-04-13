@@ -13,10 +13,12 @@ export type TBuildOptions = {
   isDev: boolean;
   isDevAnalysis: boolean;
   port: number;
+  apiUrl:string;
 }
 
 export type TBuildEnv = {
   mode: TBuildMode;
   analysis: boolean;
   port: number;
+  apiUrl: string;
 }

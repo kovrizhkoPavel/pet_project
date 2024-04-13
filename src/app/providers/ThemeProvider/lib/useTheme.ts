@@ -8,13 +8,15 @@ type TUseThemeReturn = {
 }
 
 export const useTheme = (): TUseThemeReturn => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);
   const toggleTheme = () => {
     const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-    setTheme(newTheme);
+    setTheme?.(newTheme);
     document.body.className = newTheme;
   };
+
   document.body.className = theme;
+
   return { theme, toggleTheme };
 };

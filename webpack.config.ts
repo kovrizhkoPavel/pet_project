@@ -4,11 +4,14 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { DEFAULT_PORT, Mode } from './config/build/constants';
 import { TBuildEnv, TBuildPath } from './config/build/types/config';
 
+const DEFAULT_URL = 'http://localhost:8000'
+
 export default (env: TBuildEnv): webpack.Configuration => {
   const mode = env.mode || Mode.DEVELOPMENT;
   const isDev = env.mode === Mode.DEVELOPMENT;
   const isDevAnalysis = Boolean(env.analysis);
   const port = env.port || DEFAULT_PORT;
+  const apiUrl = env.apiUrl || DEFAULT_URL;
 
   const paths: TBuildPath = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -23,5 +26,6 @@ export default (env: TBuildEnv): webpack.Configuration => {
     isDev,
     isDevAnalysis,
     port,
+    apiUrl,
   });
 };
