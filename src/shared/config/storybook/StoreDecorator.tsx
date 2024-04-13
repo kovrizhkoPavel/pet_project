@@ -3,18 +3,19 @@ import { StoryFn } from '@storybook/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { authReducer } from 'features/AuthByUserName';
+import { TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducers: Partial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducers: TReducers = {
   authForm: authReducer,
 };
 
 export const StoreDecorator = (
   initial?: StateSchema,
-  asyncReducer?: ReducersMapObject<StateSchema>,
+  asyncReducer?: TReducers,
 ) => (Story: StoryFn) => (
   <StoreProvider
     initialState={initial}
-    asyncReducers={{ ...defaultAsyncReducers, ...asyncReducer }}
+    asyncReducers={{ ...defaultAsyncReducers, ...asyncReducer } as ReducersMapObject<StateSchema>}
   >
     <Story />
   </StoreProvider>

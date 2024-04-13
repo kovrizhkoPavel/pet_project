@@ -7,7 +7,7 @@ import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router/dist/lib/hooks';
 
 export const createReduxStore = (
-  initialState: StateSchema,
+  initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
   navigate?: NavigateFunction,
 ) => {

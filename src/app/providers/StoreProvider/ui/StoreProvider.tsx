@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { createReduxStore } from '../config/store';
 
 type TStoreProvider = {
-  children?: ReactNode;
   initialState?: StateSchema;
+  children?: ReactNode;
   asyncReducers?: ReducersMapObject<StateSchema>
 }
 

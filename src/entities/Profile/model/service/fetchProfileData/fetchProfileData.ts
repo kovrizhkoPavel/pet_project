@@ -17,7 +17,7 @@ export const fetchProfileData = createAsyncThunk<TProfile, void, TThunkApiConfig
 
       return data;
     } catch (err) {
-      return rejectWithValue(err);
+      return rejectWithValue(`${err}`);
     }
   },
 );
