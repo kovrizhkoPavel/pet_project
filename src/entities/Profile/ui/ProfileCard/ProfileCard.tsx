@@ -1,9 +1,7 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useSelector } from 'react-redux';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import cls from './ProfileCard.module.scss';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 type TProfileCardProps = {
@@ -15,7 +13,7 @@ export const ProfileCard: FC<TProfileCardProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={getClassName(cls.profileCard, {}, [className])}>
+    <div className={className}>
       <p>
         <span>{`${t('translation\:profile_firstname')}: `}</span>
         <span>{profileData?.firstname}</span>
