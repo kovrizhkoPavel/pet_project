@@ -12,12 +12,14 @@ type TProfileCardProps = {
   isLoading?: boolean;
   error?: string;
   readonly?: boolean;
+  onFirstNameChange?: (val:string) => void;
+  onLastNameChange?: (val:string) => void;
 }
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
   const { t } = useTranslation();
   const {
-    data, className, isLoading, error, readonly,
+    data, className, isLoading, error, readonly, onLastNameChange, onFirstNameChange,
   } = props;
 
   if (isLoading) {
@@ -35,11 +37,13 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         value={data?.firstname || ''}
         className={cls.input}
         readonly={!!readonly}
+        onChange={onFirstNameChange}
       />
       <Input
         label={`${t('translation\:profile_lastname')}: `}
         value={data?.lastname || ''}
         readonly={!!readonly}
+        onChange={onLastNameChange}
       />
     </div>
   );

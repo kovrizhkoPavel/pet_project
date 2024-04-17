@@ -14,6 +14,18 @@ const profileSlice = createSlice({
     setReadonly: (state, action) => {
       state.readonly = action.payload;
     },
+
+    changeProfile: (state, action) => {
+      state.form = {
+        ...state.form,
+        ...action.payload,
+      };
+    },
+
+    resetProfile: (state) => {
+      state.form = { ...state.data };
+    },
+
     reset: () => initialState,
   },
 
@@ -28,6 +40,7 @@ const profileSlice = createSlice({
         (state, action: PayloadAction<TProfile>) => {
           state.isLoading = false;
           state.data = action.payload;
+          state.form = action.payload;
         },
       )
       .addCase(fetchProfileData.rejected, (state, action) => {
