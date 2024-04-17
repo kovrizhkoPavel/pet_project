@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { profileActions } from 'pages/ProfilePage/model/slice/profileSlice';
 import { useSelector } from 'react-redux';
 import { ProfileButtonGroup } from 'pages/ProfilePage/ui/ProfileButtonGroup/ProfileButtonGroup';
+import { updateProfileData } from 'pages/ProfilePage/model/service/updateProfileData/updateProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import cls from './ProfilePageHeader.module.scss';
 
@@ -27,7 +28,7 @@ export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) =>
   }, [dispatch]);
 
   const onButtonSubmit = useCallback(() => {
-    dispatch(profileActions.setReadonly(false));
+    dispatch(updateProfileData());
   }, []);
 
   return (

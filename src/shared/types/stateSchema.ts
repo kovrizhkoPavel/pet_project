@@ -37,6 +37,7 @@ export type TThunkExtra = {
 export type TThunkApiConfig<T> = {
   rejectValue: T;
   extra: TThunkExtra;
+  state: StateSchema;
 }
 
 export type TReducers = {
