@@ -12,6 +12,8 @@
   "profile_edit_btn": "Edit profile",
   "profile_firstname": "Name",
   "profile_lastname": "Lastname",
+  "profile_reset_btn": "Reset",
+  "profile_submit_btn": "Submit",
   "title_about": "About",
   "title_error": "Error",
   "title_main": "Main page",

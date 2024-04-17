@@ -4,12 +4,12 @@ import { Country, Currency } from 'shared/constants/common';
 export type TProfile = {
   firstname: string;
   lastname: string;
-  age: number,
-  currency: TObjectValue<typeof Currency>,
-  country: TObjectValue<typeof Country>,
-  city: string,
   username: string;
-  avatar: string
+  age?: number,
+  currency?: TObjectValue<typeof Currency>,
+  country?: TObjectValue<typeof Country>,
+  city?: string,
+  avatar?: string
 }
 
 export type ProfileScheme = {

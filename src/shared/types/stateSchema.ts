@@ -20,10 +20,6 @@ export type StateSchema = {
 
 export type TStateSchemeKeys = keyof StateSchema;
 
-export type CombineReducer<T> = {
-  [key in keyof T]: Reducer<T[key], UnknownAction, key extends keyof T ? T[key] : never>;
-}
-
 export type TReducerManager = {
   getReducerMap: () => ReducersMapObject<StateSchema>;
   reduce: Reducer<StateSchema>;
@@ -41,4 +37,8 @@ export type TThunkExtra = {
 export type TThunkApiConfig<T> = {
   rejectValue: T;
   extra: TThunkExtra;
+}
+
+export type TReducers = {
+  [key in TStateSchemeKeys]?: Reducer;
 }

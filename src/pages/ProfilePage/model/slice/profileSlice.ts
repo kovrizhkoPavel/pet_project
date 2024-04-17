@@ -10,27 +10,31 @@ const initialState: ProfileScheme = {
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly: (state, action) => {
+      state.readonly = action.payload;
+    },
+    reset: () => initialState,
+  },
 
   extraReducers: (builder) => {
-    builder.addCase(fetchProfileData.pending, (state) => {
-      state.isLoading = true;
-      state.error = undefined;
-    });
-
-    builder.addCase(
-      fetchProfileData.fulfilled,
-      (state, action: PayloadAction<TProfile>) => {
+    builder
+      .addCase(fetchProfileData.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(
+        fetchProfileData.fulfilled,
+        (state, action: PayloadAction<TProfile>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+        },
+      )
+      .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.data = action.payload;
-      },
-    );
-
-    builder.addCase(fetchProfileData.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
+        state.error = action.payload;
+      });
   },
 });
 
-export const { reducer: profileReducers, actions: profileActions } = profileSlice;
+export const { reducer: profileReducer, actions: profileActions } = profileSlice;

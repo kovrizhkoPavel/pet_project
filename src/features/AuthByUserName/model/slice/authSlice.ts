@@ -24,19 +24,18 @@ const authSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(loginByUserName.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-
-    builder.addCase(loginByUserName.fulfilled, (state) => {
-      state.isLoading = false;
-    });
-
-    builder.addCase(loginByUserName.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
+    builder
+      .addCase(loginByUserName.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(loginByUserName.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(loginByUserName.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 

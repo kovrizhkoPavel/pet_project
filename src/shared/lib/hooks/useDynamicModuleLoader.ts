@@ -1,24 +1,9 @@
-import { FC, ReactNode, useEffect } from 'react';
-import { TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateSchema';
-import { Reducer } from '@reduxjs/toolkit';
 import { useStore } from 'react-redux';
+import { TReducers, TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateSchema';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useEffect } from 'react';
 
-export type TReducers = {
-  [key in TStateSchemeKeys]?: Reducer;
-}
-
-type TDynamicModuleLoaderProps = {
-  reducers: TReducers;
-  children: ReactNode;
-  remountAfterUnmount?: boolean;
-}
-
-export const DynamicModuleLoader: FC<TDynamicModuleLoaderProps> = (props) => {
-  const {
-    reducers, children, remountAfterUnmount,
-  } = props;
-
+export const useDynamicModuleLoader = (reducers: TReducers, remountAfterUnmount?: boolean) => {
   const store = useStore() as TReducerWithManager;
   const dispatch = useAppDispatch();
 
@@ -37,8 +22,4 @@ export const DynamicModuleLoader: FC<TDynamicModuleLoaderProps> = (props) => {
       }
     };
   }, [dispatch, reducers, remountAfterUnmount, store.reducerManager]);
-
-  return (
-    <>{children}</>
-  );
 };

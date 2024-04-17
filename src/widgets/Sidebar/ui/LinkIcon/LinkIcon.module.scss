@@ -3,6 +3,12 @@
   margin: 0 4px 20px;
   font-size: var(--font-size-l);
   color: var(--font-color-invert);
+  transition: var(--transition);
+}
+
+.link:hover,
+.link:focus {
+  opacity: var(--opacity);
 }
 
 .link_icon {

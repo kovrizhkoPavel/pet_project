@@ -1,6 +1,12 @@
 .button {
   padding: 8px 12px;
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.button:hover,
+.button:focus {
+  opacity: var(--opacity);
 }
 
 .clear {

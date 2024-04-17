@@ -12,6 +12,8 @@
   "profile_edit_btn": "Редактировать профиль",
   "profile_firstname": "Имя",
   "profile_lastname": "Фамилия",
+  "profile_reset_btn": "Отменить",
+  "profile_submit_btn": "Сохранить",
   "title_about": "О компании",
   "title_error": "Ошибка",
   "title_main": "Главная страница",

@@ -1,0 +1,15 @@
+.profilePage {
+  padding: 16px;
+  border: 1px solid var(--primary-color);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.input {
+  margin-bottom: 16px;
+}
