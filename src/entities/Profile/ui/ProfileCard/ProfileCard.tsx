@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Input } from 'shared/ui/Input/Input';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { TProfile } from '../../types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -42,6 +43,11 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
 
   return (
     <div className={getClassName(cls.profilePage, {}, [className])}>
+      {data?.avatar && (
+        <div className={cls.avatar}>
+          <Avatar src={data.avatar} />
+        </div>
+      )}
       <Input
         label={`${t('translation\:profile_firstname')}: `}
         value={data?.firstname || ''}
