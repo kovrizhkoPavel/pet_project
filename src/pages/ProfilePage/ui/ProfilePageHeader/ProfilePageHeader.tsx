@@ -23,7 +23,6 @@ export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) =>
   }, [dispatch]);
 
   const onButtonReset = useCallback(() => {
-    dispatch(profileActions.setReadonly(true));
     dispatch(profileActions.resetProfile());
   }, [dispatch]);
 

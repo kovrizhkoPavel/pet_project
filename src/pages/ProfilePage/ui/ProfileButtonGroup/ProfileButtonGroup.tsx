@@ -17,7 +17,7 @@ export const ProfileButtonGroup: FC<TProfileButtonGroupProps> = memo((props) => 
   return (
     <div className={getClassName(cls.profileButtonGroup, {}, [className])}>
       <Button
-        variant={ButtonVariant.FILL}
+        variant={ButtonVariant.OUTLINE}
         onClick={onReset}
         className={cls.buttonReset}
       >

@@ -23,6 +23,7 @@ const profileSlice = createSlice({
     },
 
     resetProfile: (state) => {
+      state.readonly = true;
       state.form = { ...state.data };
     },
 

@@ -7,7 +7,7 @@ import cls from './Input.module.scss';
 type TInputAttribute = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 type TInputProps = {
   className?: string;
-  value?: string;
+  value?: string | number;
   label?: string;
   onChange?: (value: string) => void;
   isAutoFocus?: boolean;

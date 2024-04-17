@@ -14,12 +14,22 @@ type TProfileCardProps = {
   readonly?: boolean;
   onFirstNameChange?: (val:string) => void;
   onLastNameChange?: (val:string) => void;
+  onCityChange?: (val:string) => void;
+  onAgeChange?: (val:string) => void;
 }
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
   const { t } = useTranslation();
   const {
-    data, className, isLoading, error, readonly, onLastNameChange, onFirstNameChange,
+    data,
+    className,
+    isLoading,
+    error,
+    readonly,
+    onLastNameChange,
+    onFirstNameChange,
+    onAgeChange,
+    onCityChange,
   } = props;
 
   if (isLoading) {
@@ -42,8 +52,23 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
       <Input
         label={`${t('translation\:profile_lastname')}: `}
         value={data?.lastname || ''}
+        className={cls.input}
         readonly={!!readonly}
         onChange={onLastNameChange}
+      />
+      <Input
+        label={`${t('translation\:profile_age')}: `}
+        value={Number(data?.age) || ''}
+        className={cls.input}
+        readonly={!!readonly}
+        onChange={onAgeChange}
+      />
+      <Input
+        label={`${t('translation\:profile_city')}: `}
+        value={data?.city || ''}
+        className={cls.input}
+        readonly={!!readonly}
+        onChange={onCityChange}
       />
     </div>
   );

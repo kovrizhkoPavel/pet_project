@@ -9,6 +9,8 @@
   "nav_about": "About",
   "nav_main": "Main",
   "nav_profile": "Profile",
+  "profile_age": "Age",
+  "profile_city": "City",
   "profile_edit_btn": "Edit profile",
   "profile_firstname": "Name",
   "profile_lastname": "Lastname",

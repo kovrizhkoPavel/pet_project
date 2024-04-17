@@ -8,7 +8,6 @@ import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { getProfileForm } from 'pages/ProfilePage/model/selectors/getProfileForm/getProfileForm';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
-import { getProfileData } from '../model/selectors/getProfileData/getProfileData';
 import cls from './ProfilePage.module.scss';
 import { fetchProfileData } from '../model/service/fetchProfileData/fetchProfileData';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -38,19 +37,28 @@ const ProfilePage: FC = () => {
     dispatch(profileActions.changeProfile({ lastname: value }));
   }, [dispatch]);
 
+  const onAgeChange = useCallback((value: string) => {
+    if (!/^\d+$/.test(value)) return;
+    dispatch(profileActions.changeProfile({ age: Number(value) }));
+  }, [dispatch]);
+
+  const onCityChange = useCallback((value: string) => {
+    dispatch(profileActions.changeProfile({ city: value }));
+  }, [dispatch]);
+
   return (
     <div>
-      <ProfilePageHeader />
-      <div className={cls.profileCard}>
-        <ProfileCard
-          data={profileForm}
-          isLoading={profileIsLoading}
-          error={profileError}
-          readonly={profileReadOnly}
-          onFirstNameChange={onFirstNameChange}
-          onLastNameChange={onLastNameChange}
-        />
-      </div>
+      <ProfilePageHeader className={cls.profilePageHeader} />
+      <ProfileCard
+        data={profileForm}
+        isLoading={profileIsLoading}
+        error={profileError}
+        readonly={profileReadOnly}
+        onFirstNameChange={onFirstNameChange}
+        onLastNameChange={onLastNameChange}
+        onAgeChange={onAgeChange}
+        onCityChange={onCityChange}
+      />
     </div>
   );
 };
