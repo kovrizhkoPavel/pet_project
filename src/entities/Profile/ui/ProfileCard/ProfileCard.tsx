@@ -17,6 +17,7 @@ type TProfileCardProps = {
   onLastNameChange?: (val:string) => void;
   onCityChange?: (val:string) => void;
   onAgeChange?: (val:string) => void;
+  onAvatarChange?: (val:string) => void;
 }
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
@@ -31,6 +32,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     onFirstNameChange,
     onAgeChange,
     onCityChange,
+    onAvatarChange,
   } = props;
 
   if (isLoading) {
@@ -75,6 +77,13 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         className={cls.input}
         readonly={!!readonly}
         onChange={onCityChange}
+      />
+      <Input
+        label={`${t('translation\:profile_avatar')}: `}
+        value={data?.avatar || ''}
+        className={cls.input}
+        readonly={!!readonly}
+        onChange={onAvatarChange}
       />
     </div>
   );

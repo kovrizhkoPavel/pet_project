@@ -46,6 +46,10 @@ const ProfilePage: FC = () => {
     dispatch(profileActions.changeProfile({ city: value }));
   }, [dispatch]);
 
+  const onAvatarChange = useCallback((value: string) => {
+    dispatch(profileActions.changeProfile({ avatar: value }));
+  }, [dispatch]);
+
   return (
     <div>
       <ProfilePageHeader className={cls.profilePageHeader} />
@@ -58,6 +62,7 @@ const ProfilePage: FC = () => {
         onLastNameChange={onLastNameChange}
         onAgeChange={onAgeChange}
         onCityChange={onCityChange}
+        onAvatarChange={onAvatarChange}
       />
     </div>
   );
