@@ -10,9 +10,10 @@ type TSidebarLink = {
   path: TObjectValue<typeof RoutePath>;
   Icon: FC<SVGProps<SVGSVGElement>>;
   label: string;
+  isOnlyAuth?: boolean;
 }
 
-export const getSidebarLinkList = ():TSidebarLink[] => [
+export const sidebarLinkList:TSidebarLink[] = [
   {
     path: RoutePath.main,
     Icon: HomeIcon,
@@ -27,5 +28,6 @@ export const getSidebarLinkList = ():TSidebarLink[] => [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     label: i18n.t('translation\:nav_profile'),
+    isOnlyAuth: true,
   },
 ];
