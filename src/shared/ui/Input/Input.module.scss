@@ -10,13 +10,24 @@
   }
 }
 
-.error input {
-  color: var(--error-color);
-  border-color: var(--error-color);
+.inputWrapper {
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.error {
+  & input {
+    color: var(--error-color);
+    border-color: var(--error-color);
+  }
+
+  & .hint {
+    color: var(--error-color);
+  }
 }
 
 .label {
-  padding: 8px 16px 8px 0;
+  padding: 4px 16px 8px 0;
 }
 
 .readonly {
@@ -25,4 +36,12 @@
 
 .column {
   flex-direction: column;
+}
+
+.hint {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  padding-left: 8px;
+  font-size: var(--font-size-s);
 }

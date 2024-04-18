@@ -16,6 +16,15 @@ type Story = StoryObj<typeof meta>;
 export const Label: Story = {
   args: {
     label: 'test',
+    hint: 'hint',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: 'test',
+    hint: 'hint',
+    isError: true,
   },
 };
 

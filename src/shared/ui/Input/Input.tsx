@@ -14,6 +14,7 @@ type TInputProps = {
   isError?: boolean;
   readonly?: boolean;
   direction?: 'row' | 'column';
+  hint?: string;
 } & TInputAttribute
 
 export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
@@ -26,6 +27,7 @@ export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
     isError,
     readonly,
     direction,
+    hint,
     ...otherProps
   } = props;
 
@@ -54,13 +56,16 @@ export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
     }
     >
       {label && <p className={cls.label}>{label}</p>}
-      <input
-        ref={inputRef}
-        value={value}
-        onChange={onInputChange}
-        readOnly={readonly}
-        {...otherProps}
-      />
+      <div className={cls.inputWrapper}>
+        <input
+          ref={inputRef}
+          value={value}
+          onChange={onInputChange}
+          readOnly={readonly}
+          {...otherProps}
+        />
+        {hint && <p className={cls.hint}>{hint}</p>}
+      </div>
     </div>
   );
 });
