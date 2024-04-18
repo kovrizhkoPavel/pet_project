@@ -12,6 +12,8 @@
   "profile_age": "Возраст",
   "profile_avatar": "Аватар",
   "profile_city": "Город",
+  "profile_country": "Страна",
+  "profile_currency": "Валюта",
   "profile_edit_btn": "Редактировать профиль",
   "profile_firstname": "Имя",
   "profile_lastname": "Фамилия",

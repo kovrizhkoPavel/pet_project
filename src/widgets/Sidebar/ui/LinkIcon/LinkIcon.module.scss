@@ -4,11 +4,15 @@
   font-size: var(--font-size-l);
   color: var(--font-color);
   transition: var(--transition);
-}
 
-.link:hover,
-.link:focus {
-  opacity: var(--opacity);
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
 }
 
 .link_icon {

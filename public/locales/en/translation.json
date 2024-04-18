@@ -12,6 +12,8 @@
   "profile_age": "Age",
   "profile_avatar": "Avatar",
   "profile_city": "City",
+  "profile_country": "Country",
+  "profile_currency": "Currency",
   "profile_edit_btn": "Edit profile",
   "profile_firstname": "Name",
   "profile_lastname": "Lastname",

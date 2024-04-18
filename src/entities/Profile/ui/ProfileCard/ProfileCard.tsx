@@ -4,6 +4,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Input } from 'shared/ui/Input/Input';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
+import { CountrySelect } from 'entities/Country';
 import { TProfile } from '../../types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -18,6 +20,8 @@ type TProfileCardProps = {
   onCityChange?: (val:string) => void;
   onAgeChange?: (val:string) => void;
   onAvatarChange?: (val:string) => void;
+  onCurrencyChange?: (val:string) => void;
+  onCountryChange?: (val:string) => void;
 }
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
@@ -33,6 +37,8 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     onAgeChange,
     onCityChange,
     onAvatarChange,
+    onCountryChange,
+    onCurrencyChange,
   } = props;
 
   if (isLoading) {
@@ -84,6 +90,16 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         className={cls.input}
         readonly={!!readonly}
         onChange={onAvatarChange}
+      />
+      <CurrencySelect
+        className={cls.input}
+        onChange={onCurrencyChange}
+        readonly={readonly}
+      />
+      <CountrySelect
+        className={cls.input}
+        onChange={onCountryChange}
+        readonly={readonly}
       />
     </div>
   );
