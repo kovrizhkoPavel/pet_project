@@ -6,6 +6,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { CountrySelect } from 'entities/Country';
+import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { TProfile } from '../../types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -45,6 +46,19 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     return (
       <div className={getClassName(cls.profilePage, {}, [cls.loading])}>
         <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={getClassName(cls.profilePage, {}, [cls.error])}>
+        <Text
+          title={t('translation\:title_error')}
+          text={t('translation\:title_error')}
+          variant={TextVariant.ERROR}
+          align="center"
+        />
       </div>
     );
   }

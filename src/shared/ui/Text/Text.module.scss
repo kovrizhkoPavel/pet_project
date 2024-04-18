@@ -1,4 +1,4 @@
-.textWrapper {
+.default {
   color: var(--font-color);
 }
 
@@ -13,3 +13,16 @@
 .text {
   font-size: var(--font-size-m);
 }
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
