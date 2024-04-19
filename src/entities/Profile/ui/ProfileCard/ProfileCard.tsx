@@ -7,7 +7,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { CountrySelect } from 'entities/Country';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { TProfile } from '../../types/profile';
+import { ValidatorError } from 'entities/Profile/constants';
+import { TProfile, TProfileValidationError } from '../../types/profile';
 import cls from './ProfileCard.module.scss';
 
 type TProfileCardProps = {
@@ -16,6 +17,7 @@ type TProfileCardProps = {
   isLoading?: boolean;
   error?: string;
   readonly?: boolean;
+  validationError?: TProfileValidationError,
   onFirstNameChange?: (val:string) => void;
   onLastNameChange?: (val:string) => void;
   onCityChange?: (val:string) => void;
@@ -33,6 +35,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     isLoading,
     error,
     readonly,
+    validationError,
     onLastNameChange,
     onFirstNameChange,
     onAgeChange,
@@ -41,6 +44,11 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     onCountryChange,
     onCurrencyChange,
   } = props;
+
+  const validateErrorTranslates = {
+    [ValidatorError.REQUIRED]: t('translation\:profile_required'),
+    [ValidatorError.ONLY_INTEGER]: t('translation\:profile_only_integer'),
+  };
 
   if (isLoading) {
     return (
@@ -76,6 +84,10 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         className={cls.input}
         readonly={!!readonly}
         onChange={onFirstNameChange}
+        isError={!!validationError?.firstname}
+        hint={
+          validationError?.firstname && validateErrorTranslates[validationError.firstname]
+        }
       />
       <Input
         label={`${t('translation\:profile_lastname')}: `}
@@ -83,6 +95,10 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         className={cls.input}
         readonly={!!readonly}
         onChange={onLastNameChange}
+        isError={!!validationError?.lastname}
+        hint={
+          validationError?.lastname && validateErrorTranslates[validationError.lastname]
+        }
       />
       <Input
         label={`${t('translation\:profile_age')}: `}
@@ -90,6 +106,10 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         className={cls.input}
         readonly={!!readonly}
         onChange={onAgeChange}
+        isError={!!validationError?.age}
+        hint={
+          validationError?.age && validateErrorTranslates[validationError.age]
+        }
       />
       <Input
         label={`${t('translation\:profile_city')}: `}
@@ -106,12 +126,12 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         onChange={onAvatarChange}
       />
       <CurrencySelect
-        className={cls.input}
+        className={cls.select}
         onChange={onCurrencyChange}
         readonly={readonly}
       />
       <CountrySelect
-        className={cls.input}
+        className={cls.select}
         onChange={onCountryChange}
         readonly={readonly}
       />

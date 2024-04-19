@@ -29,7 +29,7 @@ export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) =>
 
   const onButtonSubmit = useCallback(() => {
     dispatch(updateProfileData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={getClassName(cls.profilePageHeader, {}, [className])}>

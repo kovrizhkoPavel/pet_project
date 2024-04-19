@@ -17,6 +17,8 @@
   "profile_edit_btn": "Редактировать профиль",
   "profile_firstname": "Имя",
   "profile_lastname": "Фамилия",
+  "profile_only_integer": "Только целые числа",
+  "profile_required": "Обязательное поле",
   "profile_reset_btn": "Отменить",
   "profile_submit_btn": "Сохранить",
   "title_about": "О компании",

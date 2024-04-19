@@ -4,8 +4,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateSchema';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
-import { getProfileForm } from 'pages/ProfilePage/model/selectors/getProfileForm/getProfileForm';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
+import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import cls from './ProfilePage.module.scss';
@@ -22,6 +23,7 @@ const ProfilePage: FC = () => {
   const profileIsLoading = useSelector(getProfileIsLoading);
   const profileError = useSelector(getProfileError);
   const profileReadOnly = useSelector(getProfileReadonly);
+  const profileValidationError = useSelector(getProfileValidationError);
 
   useEffect(() => {
     setTimeout(() => dispatch(fetchProfileData()));
@@ -38,7 +40,6 @@ const ProfilePage: FC = () => {
   }, [dispatch]);
 
   const onAgeChange = useCallback((value: string) => {
-    if (!/^\d+$/.test(value)) return;
     dispatch(profileActions.changeProfile({ age: Number(value) }));
   }, [dispatch]);
 
@@ -66,6 +67,7 @@ const ProfilePage: FC = () => {
         isLoading={profileIsLoading}
         error={profileError}
         readonly={profileReadOnly}
+        validationError={profileValidationError}
         onFirstNameChange={onFirstNameChange}
         onLastNameChange={onLastNameChange}
         onAgeChange={onAgeChange}
