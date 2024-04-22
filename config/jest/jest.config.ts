@@ -47,6 +47,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API__: '',
+    __PROJECT__: 'jest',
   },
 
   // A map from regular expressions to paths to transformers

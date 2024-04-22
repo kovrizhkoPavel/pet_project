@@ -27,5 +27,6 @@ export default (env: TBuildEnv): webpack.Configuration => {
     isDevAnalysis,
     port,
     apiUrl,
+    project: 'frontend',
   });
 };

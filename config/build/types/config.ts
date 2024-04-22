@@ -14,6 +14,7 @@ export type TBuildOptions = {
   isDevAnalysis: boolean;
   port: number;
   apiUrl:string;
+  project: 'storybook' | 'frontend' | 'jest';
 }
 
 export type TBuildEnv = {

@@ -26,6 +26,7 @@ const ProfilePage: FC = () => {
   const profileValidationError = useSelector(getProfileValidationError);
 
   useEffect(() => {
+    if (__PROJECT__ === 'storybook') return;
     setTimeout(() => dispatch(fetchProfileData()));
   }, [dispatch]);
 
