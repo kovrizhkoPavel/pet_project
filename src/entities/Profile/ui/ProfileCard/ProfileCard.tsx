@@ -4,10 +4,10 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Input } from 'shared/ui/Input/Input';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
-import { CountrySelect } from 'entities/Country';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { ValidatorError } from 'entities/Profile/constants';
+import { CurrencySelect } from '../../../Currency';
+import { CountrySelect } from '../../../Country';
 import { TProfile, TProfileValidationError } from '../../types/profile';
 import cls from './ProfileCard.module.scss';
 
