@@ -48,7 +48,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     if (response.meta.requestStatus === 'fulfilled') {
       onSuccess?.();
     }
-  }, [dispatch]);
+  }, [dispatch, userName, password, onSuccess]);
 
   const onKeyDown = useCallback((evt: KeyboardEvent) => {
     if (evt.key === KeyboardKey.ENTER) {
