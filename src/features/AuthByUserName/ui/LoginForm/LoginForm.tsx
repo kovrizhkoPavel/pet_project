@@ -43,18 +43,18 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     dispatch(authActions.setPassword(value));
   }, [dispatch]);
 
-  const onSubmit = async () => {
+  const onSubmit = useCallback(async () => {
     const response = await dispatch(loginByUserName({ userName, password }));
     if (response.meta.requestStatus === 'fulfilled') {
       onSuccess?.();
     }
-  };
+  }, [dispatch]);
 
-  const onKeyDown = (evt: KeyboardEvent) => {
+  const onKeyDown = useCallback((evt: KeyboardEvent) => {
     if (evt.key === KeyboardKey.ENTER) {
       onSubmit();
     }
-  };
+  }, [onSubmit]);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
@@ -62,7 +62,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, []);
+  }, [onKeyDown]);
 
   useDynamicModuleLoader(initialReducer, true);
 
