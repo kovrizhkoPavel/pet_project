@@ -1,10 +1,9 @@
 .app-light-theme {
-  --bg-color: var(--bg-light);
-  --bg-color-secondary: var(--bg-gray);
-  --font-color: var(--font-color-dark);
-  --font-color-invert: var(--font-color-light);
-  --error-color: var(--font-color-red-dark);
-  --primary-color: var(--bg-blue);
-  --secondary-color: var(--bg-blue-light);
+  --bg-color: var(--light-color);
+  --bg-color-secondary: var(--gray-color);
+  --font-color: var(--dark-color);
+  --font-color-invert: var(--light-color);
+  --primary-color: var(--blue-color);
+  --secondary-color: var(--blue-light-color);
 }
 
