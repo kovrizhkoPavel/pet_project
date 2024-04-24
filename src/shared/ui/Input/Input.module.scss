@@ -15,6 +15,14 @@
   padding-bottom: 16px;
 }
 
+.hint {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  padding-left: 8px;
+  font-size: var(--font-size-s);
+}
+
 .error {
   & input {
     color: var(--error-color);
@@ -36,12 +44,4 @@
 
 .column {
   flex-direction: column;
-}
-
-.hint {
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  padding-left: 8px;
-  font-size: var(--font-size-s);
 }
