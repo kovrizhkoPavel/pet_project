@@ -1,9 +1,8 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateSchema, TReducers } from 'shared/types/stateSchema';
 import { StoryFn } from '@storybook/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { authReducer } from 'features/AuthByUserName';
-import { TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: TReducers = {
   authForm: authReducer,

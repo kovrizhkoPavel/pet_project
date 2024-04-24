@@ -1,0 +1,32 @@
+.profilePage {
+  padding: 24px 24px 12px;
+  border: 2px solid var(--secondary-color);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.input {
+  margin-bottom: 4px;
+}
+
+.select {
+  margin-bottom: 16px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}

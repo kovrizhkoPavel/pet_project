@@ -3,7 +3,7 @@
   width: var(--sidebar-width);
   height: 100vh;
   padding-left: 12px;
-  background: var(--bg-color-invert);
+  background: var(--bg-color-secondary);
   transition: width 0.3s;
 }
 
@@ -13,10 +13,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-
-  div {
-    color: var(--font-color-invert);
-  }
 }
 
 .switchers__label {

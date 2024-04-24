@@ -7,8 +7,9 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, TReducers } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { KeyboardKey } from 'shared/constants/common';
+import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { TReducers } from 'shared/types/stateSchema';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
@@ -42,18 +43,18 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     dispatch(authActions.setPassword(value));
   }, [dispatch]);
 
-  const onSubmit = async () => {
+  const onSubmit = useCallback(async () => {
     const response = await dispatch(loginByUserName({ userName, password }));
     if (response.meta.requestStatus === 'fulfilled') {
       onSuccess?.();
     }
-  };
+  }, [dispatch, userName, password, onSuccess]);
 
-  const onKeyDown = (evt: KeyboardEvent) => {
+  const onKeyDown = useCallback((evt: KeyboardEvent) => {
     if (evt.key === KeyboardKey.ENTER) {
       onSubmit();
     }
-  };
+  }, [onSubmit]);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
@@ -61,39 +62,41 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  });
+  }, [onKeyDown]);
+
+  useDynamicModuleLoader(initialReducer, true);
 
   return (
-    <DynamicModuleLoader reducers={initialReducer} remountAfterUnmount>
-      <div className={getClassName(cls.loginForm, {}, [className])}>
-        {isLoading && <ModalLoader />}
-        {error && <Text title={t('translation\:title_error')} variant={TextVariant.ERROR} />}
-        <Input
-          type="text"
-          className={cls.input}
-          label={t('translation\:form_auth_login')}
-          onChange={onUserNameChange}
-          value={userName}
-          isError={Boolean(error)}
-          isAutoFocus
-        />
-        <Input
-          type="text"
-          className={cls.input}
-          label={t('translation\:form_auth_pass')}
-          onChange={onPasswordChange}
-          value={password}
-          isError={Boolean(error)}
-        />
-        <Button
-          className={cls.btn}
-          variant={ButtonVariant.FILL}
-          onClick={onSubmit}
-        >
-          {t('translation\:button_login')}
-        </Button>
-      </div>
-    </DynamicModuleLoader>
+    <div className={getClassName(cls.loginForm, {}, [className])}>
+      {isLoading && <ModalLoader />}
+      {error && <Text title={t('translation\:title_error')} variant={TextVariant.ERROR} />}
+      <Input
+        type="text"
+        className={cls.input}
+        label={t('translation\:form_auth_login')}
+        onChange={onUserNameChange}
+        value={userName}
+        isError={Boolean(error)}
+        isAutoFocus
+        direction="column"
+      />
+      <Input
+        type="text"
+        className={cls.input}
+        label={t('translation\:form_auth_pass')}
+        onChange={onPasswordChange}
+        value={password}
+        isError={Boolean(error)}
+        direction="column"
+      />
+      <Button
+        className={cls.btn}
+        variant={ButtonVariant.FILL}
+        onClick={onSubmit}
+      >
+        {t('translation\:button_login')}
+      </Button>
+    </div>
   );
 };
 

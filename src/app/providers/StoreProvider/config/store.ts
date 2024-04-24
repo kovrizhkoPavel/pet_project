@@ -4,12 +4,10 @@ import { StateSchema, TThunkExtra } from 'shared/types/stateSchema';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
-import { NavigateFunction } from 'react-router/dist/lib/hooks';
 
 export const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: NavigateFunction,
 ) => {
   const reducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -21,7 +19,6 @@ export const createReduxStore = (
 
   const extraArgument: TThunkExtra = {
     api: $api,
-    navigate,
   };
 
   const store = configureStore({

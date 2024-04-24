@@ -5,7 +5,9 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RoutePath } from './constants';
 
-export const routeConfig: RouteProps[] = [
+type TRouteProps = RouteProps & {isOnlyAuth?: boolean}
+
+export const routeConfig: TRouteProps[] = [
   {
     path: RoutePath.main,
     element: <MainPage />,
@@ -17,6 +19,7 @@ export const routeConfig: RouteProps[] = [
   {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    isOnlyAuth: true,
   },
   {
     path: RoutePath.not_found,

@@ -2,7 +2,17 @@
   width: 100%;
   margin: 0 4px 20px;
   font-size: var(--font-size-l);
-  color: var(--font-color-invert);
+  color: var(--font-color);
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
 }
 
 .link_icon {

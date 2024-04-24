@@ -1,5 +1,6 @@
 import { AsyncThunkAction, GetDispatch, GetState } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
+import { StateSchema } from 'shared/types/stateSchema';
 
 type TActionCreator<Return, Args, RejectedValue> =
   (arg: Args) => AsyncThunkAction<Return, Args, { rejectValue: RejectedValue }>
@@ -18,10 +19,13 @@ class TestAsyncThunk<Return, Args, ThunkApiConfig> {
 
   api: jest.MockedFunctionDeep<AxiosStatic>;
 
-  constructor(actionCreator: TActionCreator<Return, Args, ThunkApiConfig>) {
+  constructor(
+    actionCreator: TActionCreator<Return, Args, ThunkApiConfig>,
+    state?: StateSchema,
+  ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn() as unknown as GetDispatch<ThunkApiConfig>;
-    this.getState = jest.fn();
+    this.getState = jest.fn(() => state as GetState<ThunkApiConfig>);
     this.api = mockAxios;
     this.navigate = jest.fn();
   }

@@ -5,6 +5,7 @@ import { TObjectValue } from '../../types/types';
 
 export const TextVariant = {
   ERROR: 'error',
+  DEFAULT: 'default',
 } as const;
 
 type TTextProps = {
@@ -12,16 +13,25 @@ type TTextProps = {
   title?: string;
   text?: string;
   variant?: TObjectValue<typeof TextVariant>;
+  align?: 'left' | 'center' | 'right';
 }
 
 export const Text: FC<TTextProps> = (props) => {
   const {
-    className, title, text, variant,
+    className,
+    title,
+    text,
+    variant = TextVariant.DEFAULT,
+    align = 'left',
   } = props;
+
+  const mod = {
+    [cls[align]]: true,
+  };
 
   return (
     <div className={
-      getClassName(cls.textWrapper, {}, [className, cls[variant || TextVariant.ERROR]])
+      getClassName(cls.textWrapper, mod, [className, cls[variant]])
     }
     >
       {title && <h4 className={cls.title}>{title}</h4>}

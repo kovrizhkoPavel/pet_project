@@ -8,6 +8,16 @@
   padding: 4px 8px;
   cursor: pointer;
   border-radius: 35px;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
 }
 
 .IsLight {
