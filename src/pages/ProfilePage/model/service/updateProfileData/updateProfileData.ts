@@ -14,7 +14,7 @@ export const updateProfileData = createAsyncThunk<
       const { extra, rejectWithValue, getState } = thunkAPI;
 
       const formData = getProfileForm(getState());
-
+      console.log(formData, 'eeee');
       const validateError = validator(formData);
       const isInvalid = Object.values(validateError).some(Boolean);
 
