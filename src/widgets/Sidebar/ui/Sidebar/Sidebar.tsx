@@ -6,6 +6,7 @@ import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import { sidebarLinkList } from 'widgets/Sidebar/model/SidebarLinkList';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/User';
+import { useTranslation } from 'react-i18next';
 import { LinkIcon } from '../LinkIcon/LinkIcon';
 import cls from './Sidebar.module.scss';
 
@@ -16,6 +17,7 @@ type TSidebarProps = {
 export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
+  const { t } = useTranslation();
   const isAuth = useSelector(getAuthData);
 
   return (
@@ -38,7 +40,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
               key={item.path}
               path={item.path}
               Icon={item.Icon}
-              label={!isCollapsed ? item.label : ''}
+              label={!isCollapsed ? t(item.label) : ''}
             />
           ))
         }
