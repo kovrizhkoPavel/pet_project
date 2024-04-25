@@ -57,21 +57,21 @@ jobs:
       - name: unit tests
         run: npm run test:unit
 
-#  ui-test:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node-version: [ 17.x ]
-#    steps:
-#      - name: Checkout Commit
-#        uses: actions/checkout@v2
-#      - name: Use Node.js ${{ matrix.node-version }}
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: ${{ matrix.node-version }}
-#      - name: install modules
-#        run: npm i
-#      - name: build storybook
-#        run: npm run storybook:build
-#      - name: ui test
-#        run: npm run test:ui:ci
+  ui-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm i
+      - name: build storybook
+        run: npm run storybook:build
+      - name: ui test
+        run: npm run test:ui:ci
