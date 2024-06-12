@@ -1,23 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
-import { FC, Suspense } from 'react';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { Suspense } from 'react';
+import { routeConfig, TRouteProps } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
-import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
+import { RequireAuth } from 'app/providers/route/ui/RequireAuth';
 
-const AppRouter: FC = () => {
-  const isAuth = useSelector(getAuthData);
-  const routes = routeConfig.filter((route) => !(!isAuth && route?.isOnlyAuth));
+const renderWithWrapper = ({ path, element, isOnlyAuth }: TRouteProps) => {
+  const Element = isOnlyAuth ? <RequireAuth>{element}</RequireAuth> : element;
 
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {routes.map(({ path, element }) => (
-          <Route key={path} path={path} element={element} />
-        ))}
-      </Routes>
-    </Suspense>
-  );
+  return <Route key={path} path={path} element={Element} />;
 };
+
+const AppRouter = () => (
+  <Suspense fallback={<PageLoader />}>
+    <Routes>
+      {routeConfig.map(renderWithWrapper)}
+    </Routes>
+  </Suspense>
+);
 
 export default AppRouter;

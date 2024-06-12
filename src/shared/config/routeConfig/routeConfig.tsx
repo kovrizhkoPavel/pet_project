@@ -5,7 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { RoutePath } from './constants';
 
-type TRouteProps = RouteProps & {isOnlyAuth?: boolean}
+export type TRouteProps = RouteProps & {isOnlyAuth?: boolean}
 
 export const routeConfig: TRouteProps[] = [
   {
