@@ -4,8 +4,6 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import { sidebarLinkList } from 'widgets/Sidebar/model/SidebarLinkList';
-import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from 'shared/lib/hooks/useAuth';
 import { LinkIcon } from '../LinkIcon/LinkIcon';

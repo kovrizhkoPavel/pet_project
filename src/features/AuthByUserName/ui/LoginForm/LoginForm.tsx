@@ -57,7 +57,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     if (evt.key === KeyboardKey.ENTER) {
       onSubmit().then(() => navigate(RoutePath.profile));
     }
-  }, [onSubmit]);
+  }, [navigate, onSubmit]);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
