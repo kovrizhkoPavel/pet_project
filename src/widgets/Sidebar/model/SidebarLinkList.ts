@@ -4,6 +4,7 @@ import { FC, SVGProps } from 'react';
 import HomeIcon from 'shared/assets/icon/home-icon.svg';
 import AboutIcon from 'shared/assets/icon/about-icon.svg';
 import ProfileIcon from 'shared/assets/icon/profile-icon.svg';
+import ArticleIcon from 'shared/assets/icon/article-icon.svg';
 
 type TSidebarLink = {
   path: TObjectValue<typeof RoutePath>;
@@ -27,6 +28,12 @@ export const sidebarLinkList:TSidebarLink[] = [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     label: 'translation\:nav_profile',
+    isOnlyAuth: true,
+  },
+  {
+    path: RoutePath.articles,
+    Icon: ArticleIcon,
+    label: 'translation\:nav_article',
     isOnlyAuth: true,
   },
 ];

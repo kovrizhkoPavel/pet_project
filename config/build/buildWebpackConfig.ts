@@ -15,6 +15,7 @@ export const buildWebpackConfig = (options: TBuildOptions): webpack.Configuratio
       filename: 'bundle.js',
       path: paths.build,
       clean: true,
+      publicPath: '/'
     },
     plugins: buildPlugins(options),
     module: {
