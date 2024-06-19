@@ -1,13 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import { ArticleDetails } from 'entities/Article';
 
-const ArticleDetailsPage = () => {
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      {t('translation\:title_articles_details')}
-    </div>
-  );
-};
+const ArticleDetailsPage = () => (
+  <div>
+    <ArticleDetails />
+  </div>
+);
 
 export default ArticleDetailsPage;
