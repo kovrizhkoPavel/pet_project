@@ -4,5 +4,6 @@ export type TUser = {
 }
 
 export type UserScheme = {
+  _isInit: boolean;
   authData?: TUser | null;
 }
