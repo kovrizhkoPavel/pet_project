@@ -4,6 +4,7 @@ import { AuthSchema } from 'features/AuthByUserName';
 import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export type StateSchema = {
   counter: CounterScheme;
@@ -12,6 +13,7 @@ export type StateSchema = {
   // async reducers
   authForm?: AuthSchema;
   profile?: ProfileScheme;
+  articleDetails?: ArticleDetailsSchema;
 };
 
 export type TStateSchemeKeys = keyof StateSchema;
