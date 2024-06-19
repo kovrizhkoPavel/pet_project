@@ -9,3 +9,7 @@ export const ArticleBlockType = {
   CODE: 'CODE',
   IMAGE: 'IMAGE',
 };
+
+export const ArticleUrl = {
+  GET_ARTICLE: '/articles',
+};
