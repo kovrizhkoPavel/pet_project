@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
-import { ArticleDetails } from './ArticleDetails';
+import { ArticleCodeBlock } from './ArticleCodeBlock';
 
 const meta = {
-  title: 'entities/ArticleDetails',
-  component: ArticleDetails,
-  args: { id: '1' },
-} satisfies Meta<typeof ArticleDetails>;
+  title: '',
+  component: ArticleCodeBlock,
+} satisfies Meta<typeof ArticleCodeBlock>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
