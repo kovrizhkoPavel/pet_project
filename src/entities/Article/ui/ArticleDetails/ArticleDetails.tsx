@@ -6,11 +6,13 @@ import { TReducers } from 'shared/types/stateSchema';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { TArticle } from '../../model/types/article';
+import { ArticleAvatar } from '../ArticleAvatar/ArticleAvatar';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
 import { getData, getError, getIsLoading } from '../../model/selectors/getArticleDetails';
+import { ArticleInfo } from '../ArticleInfo/ArticleInfo';
 
 type TArticleDetailsProps = {
   id: string;
@@ -26,7 +28,7 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  const data = useSelector(getData);
+  const data: TArticle | null = useSelector(getData);
 
   useDynamicModuleLoader(initialReducer, true);
   useEffect(() => {
@@ -37,20 +39,13 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
     return <Text title={error} variant={TextVariant.ERROR} />;
   }
 
-  if (true) {
-    return (
-      <>
-        <Skeleton width={200} height={200} border="50%" className={cls.skeletonAvatar} />
-        <Skeleton height={300} className={cls.skeleton} />
-        <Skeleton height={200} className={cls.skeleton} />
-        <Skeleton height={200} className={cls.skeleton} />
-      </>
-    );
-  }
-
   return (
     <div className={getClassName(cls.articleDetails, {}, [className])}>
-      {t('translation\:title_articles_details')}
+      <div className={cls.avatarWrapper}>
+        <ArticleAvatar />
+      </div>
+      <ArticleInfo />
+
     </div>
   );
 };

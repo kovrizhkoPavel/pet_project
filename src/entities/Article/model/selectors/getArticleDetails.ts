@@ -10,7 +10,7 @@ export const getIsLoading = createSelector(
 );
 export const getData = createSelector(
   getArticleDetails,
-  (state: ArticleDetailsSchema | undefined) => state?.data || {},
+  (state: ArticleDetailsSchema | undefined) => state?.data || null,
 );
 export const getError = createSelector(
   getArticleDetails,
