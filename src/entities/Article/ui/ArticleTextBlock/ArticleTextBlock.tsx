@@ -1,16 +1,15 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
+import { TArticleBlockText } from '../../model/types/article';
 import cls from './ArticleTextBlock.module.scss';
 
 type TArticleTextBlockProps = {
-  className?: string;
+  content: TArticleBlockText;
 }
 
-export const ArticleTextBlock: FC<TArticleTextBlockProps> = ({ className }) => {
-  const { t } = useTranslation();
-
-  return (
-    <div className={getClassName(cls.articleTextBlock, {}, [className])} />
-  );
-};
+export const ArticleTextBlock: FC<TArticleTextBlockProps> = ({ content }) => (
+  <div className={cls.articleTextBlock}>
+    {content.title && <Text title={content.title} />}
+    {content.paragraphs.map((p) => <Text key={p} text={p} />)}
+  </div>
+);
