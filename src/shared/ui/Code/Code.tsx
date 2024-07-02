@@ -13,7 +13,7 @@ export const Code: FC<TCodeProps> = (props) => {
   const { className, content } = props;
   const onCopy = useCallback(() => {
     navigator.clipboard.writeText(content);
-  }, []);
+  }, [content]);
 
   return (
     <pre className={getClassName(cls.code, {}, [className])}>
