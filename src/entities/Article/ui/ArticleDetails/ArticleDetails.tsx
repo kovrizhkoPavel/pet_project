@@ -28,7 +28,9 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
 
   useDynamicModuleLoader(initialReducer, true);
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   if (error) {

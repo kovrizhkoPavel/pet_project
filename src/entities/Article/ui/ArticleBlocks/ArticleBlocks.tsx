@@ -17,17 +17,15 @@ export const ArticleBlocks = () => {
 
     switch (type) {
     case ArticleBlockType.TEXT:
-      return <ArticleTextBlock content={block} />;
+      return <ArticleTextBlock content={block} key={block.id} />;
     case ArticleBlockType.IMAGE:
-      return <ArticleImageBlock content={block} />;
+      return <ArticleImageBlock content={block} key={block.id} />;
     case ArticleBlockType.CODE:
-      return <ArticleCodeBlock content={block} />;
+      return <ArticleCodeBlock content={block} key={block.id} />;
     default:
       return <></>;
     }
   }, []);
-
-  if (!data?.blocks || !data?.blocks.length) return null;
 
   if (isLoading) {
     return (
@@ -38,6 +36,8 @@ export const ArticleBlocks = () => {
       </>
     );
   }
+
+  if (!data?.blocks || !data?.blocks.length) return null;
 
   return data.blocks.map(renderBlock);
 };
