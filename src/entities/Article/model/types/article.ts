@@ -10,16 +10,18 @@ type TArticleBase = {
 };
 
 export type TArticleBlockText = TArticleBase & {
+  type: 'TEXT';
   title: string;
   paragraphs: string[];
 };
 
 type TArticleBlockCode = TArticleBase & {
+  type: 'CODE';
   code: string;
 };
 
 type TArticleBlockImage = TArticleBase & {
-  code: string;
+  type: 'IMAGE';
   src: string;
   title: string;
 }
