@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateSchema';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -38,7 +37,7 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
   }
 
   return (
-    <div className={getClassName(cls.articleDetails, {}, [className])}>
+    <div className={className}>
       <div className={cls.avatarWrapper}>
         <ArticleAvatar />
       </div>
