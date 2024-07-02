@@ -1,10 +1,12 @@
 import { TArticle, TArticleBlock } from 'entities/Article/model/types/article';
 import { useSelector } from 'react-redux';
-import { getData, getIsLoading } from 'entities/Article/model/selectors/getArticleDetails';
-import { ArticleBlockType } from 'entities/Article/constants';
-import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';
+import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
+import { ArticleBlockType } from '../../constants';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import cls from './ArticleBlocks.module.scss';
 
 export const ArticleBlocks = () => {
@@ -16,10 +18,10 @@ export const ArticleBlocks = () => {
     switch (type) {
     case ArticleBlockType.TEXT:
       return <ArticleTextBlock content={block} />;
-    case ArticleBlockType.CODE:
-      return <></>;
     case ArticleBlockType.IMAGE:
-      return <></>;
+      return <ArticleImageBlock content={block} />;
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlock content={block} />;
     default:
       return <></>;
     }

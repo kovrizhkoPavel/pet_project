@@ -1,16 +1,18 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useTranslation } from 'react-i18next';
+import { Text } from 'shared/ui/Text/Text';
+import { TArticleBlockImage } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 
 type TArticleImageBlockProps = {
-  className?: string;
+  content: TArticleBlockImage;
 }
 
-export const ArticleImageBlock: FC<TArticleImageBlockProps> = ({ className }) => {
-  const { t } = useTranslation();
-
+export const ArticleImageBlock: FC<TArticleImageBlockProps> = ({ content }) => {
+  const { title, src } = content;
   return (
-    <div className={getClassName(cls.articleImageBlock, {}, [className])} />
+    <div className={cls.articleImageBlock}>
+      <img src={src} alt={title} className={cls.img} />
+      {content.title && (<Text title={title} align="center" />)}
+    </div>
   );
 };

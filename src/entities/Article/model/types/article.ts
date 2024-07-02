@@ -15,12 +15,12 @@ export type TArticleBlockText = TArticleBase & {
   paragraphs: string[];
 };
 
-type TArticleBlockCode = TArticleBase & {
+export type TArticleBlockCode = TArticleBase & {
   type: 'CODE';
   code: string;
 };
 
-type TArticleBlockImage = TArticleBase & {
+export type TArticleBlockImage = TArticleBase & {
   type: 'IMAGE';
   src: string;
   title: string;

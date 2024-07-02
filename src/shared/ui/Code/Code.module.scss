@@ -1,0 +1,15 @@
+.code {
+  position: relative;
+  padding: 16px;
+  background-color: var(--bg-color-secondary);
+}
+
+.copyButton {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+
+.copyIcon path {
+  stroke: var(--font-color);
+}

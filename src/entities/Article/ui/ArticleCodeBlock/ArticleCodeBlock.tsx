@@ -1,16 +1,12 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useTranslation } from 'react-i18next';
+import { TArticleBlockCode } from 'entities/Article/model/types/article';
+import { Code } from 'shared/ui/Code/Code';
 import cls from './ArticleCodeBlock.module.scss';
 
 type TArticleCodeBlockProps = {
-  className?: string;
+  content: TArticleBlockCode
 }
 
-export const ArticleCodeBlock: FC<TArticleCodeBlockProps> = ({ className }) => {
-  const { t } = useTranslation();
-
-  return (
-    <div className={getClassName(cls.articleCodeBlock, {}, [className])} />
-  );
-};
+export const ArticleCodeBlock: FC<TArticleCodeBlockProps> = ({ content }) => (
+  <Code content={content.code} className={cls.articleCodeBlock} />
+);

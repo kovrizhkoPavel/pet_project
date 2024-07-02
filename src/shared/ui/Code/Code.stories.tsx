@@ -1,12 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
-import { ArticleImageBlock } from './ArticleImageBlock';
+import { Code } from './Code';
+
+const content = '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;';
 
 const meta = {
-  title: '',
-  component: ArticleImageBlock,
-} satisfies Meta<typeof ArticleImageBlock>;
+  title: 'shared/code',
+  component: Code,
+  args: {
+    content,
+  },
+} satisfies Meta<typeof Code>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
