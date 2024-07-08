@@ -4,6 +4,7 @@
   "button_logout": "Logout",
   "button_reload_page": "Reload page",
   "button_switch_lang": "English",
+  "comments_empty": "No comments yet",
   "form_auth_login": "Login",
   "form_auth_pass": "Password",
   "nav_about": "About",
