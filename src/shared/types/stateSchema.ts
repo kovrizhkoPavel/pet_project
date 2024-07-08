@@ -1,4 +1,3 @@
-import { CounterScheme } from 'entities/Counter';
 import { UserScheme } from 'entities/User';
 import { AuthSchema } from 'features/AuthByUserName';
 import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
@@ -7,7 +6,6 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 
 export type StateSchema = {
-  counter: CounterScheme;
   user: UserScheme;
 
   // async reducers
