@@ -21,13 +21,16 @@ export const CommentItem: FC<TCommentItemProps> = (props) => {
 
   if (isLoading) {
     return (
-      <>
-        <div className={`${cls.header} ${cls.skeletonHeader}`}>
+      <div className={cls.commentItem}>
+        <div className={
+          getClassName(cls.skeletonHeader, {}, [cls.header])
+        }
+        >
           <Skeleton border="50%" className={cls.avatar} width={avatarSize} height={avatarSize} />
           <Skeleton height={avatarSize} width={150} />
         </div>
         <Skeleton />
-      </>
+      </div>
     );
   }
 

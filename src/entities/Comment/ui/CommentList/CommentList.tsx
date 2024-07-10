@@ -8,10 +8,12 @@ import cls from './CommentList.module.scss';
 
 type TCommentListProps = {
   className?: string;
+  isLoading?: boolean;
   comments: TComment[];
 }
 
-export const CommentList: FC<TCommentListProps> = ({ className, comments }) => {
+export const CommentList: FC<TCommentListProps> = (props) => {
+  const { className, comments, isLoading } = props;
   const { t } = useTranslation();
 
   if (comments.length === 0) {
@@ -20,7 +22,13 @@ export const CommentList: FC<TCommentListProps> = ({ className, comments }) => {
 
   return (
     <div className={getClassName(cls.commentList, {}, [className])}>
-      {comments.map((comment) => <CommentItem key={comment.id} comment={comment} />)}
+      {comments.map((comment) => (
+        <CommentItem
+          key={comment.id}
+          comment={comment}
+          isLoading={!!isLoading}
+        />
+      ))}
     </div>
   );
 };
