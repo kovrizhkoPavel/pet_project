@@ -35,3 +35,10 @@ export const Loading: Story = {
     isLoading: true,
   },
 };
+
+export const LoadingDark: Story = {
+  args: {
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
