@@ -5,9 +5,12 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { userActions } from 'entities/User';
+import { useSelector } from 'react-redux';
+import { getIsInit } from 'entities/User/model/selectors/getIsInit/getIsInit';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();
+  const isInit = useSelector(getIsInit);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -21,7 +24,7 @@ const App: FC = () => {
           <div className="content">
             <Navbar />
             <div className="page-wrapper">
-              <AppRouter />
+              {isInit && <AppRouter />}
             </div>
           </div>
         </div>

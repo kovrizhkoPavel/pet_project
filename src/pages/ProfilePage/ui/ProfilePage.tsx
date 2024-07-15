@@ -3,7 +3,7 @@ import { ProfileCard } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateSchema';
+import { TReducers } from 'shared/types/stateScheme';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';
@@ -26,8 +26,9 @@ const ProfilePage: FC = () => {
   const profileValidationError = useSelector(getProfileValidationError);
 
   useEffect(() => {
-    if (__PROJECT__ === 'storybook') return;
-    setTimeout(() => dispatch(fetchProfileData()));
+    if (__PROJECT__ !== 'storybook') {
+      setTimeout(() => dispatch(fetchProfileData()));
+    }
   }, [dispatch]);
 
   useDynamicModuleLoader(initialReducers, true);

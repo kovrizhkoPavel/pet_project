@@ -9,7 +9,9 @@ import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { KeyboardKey } from 'shared/constants/common';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateSchema';
+import { TReducers } from 'shared/types/stateScheme';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
@@ -30,6 +32,7 @@ const initialReducer: TReducers = {
 const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const userName = useSelector(getUserName);
   const password = useSelector(getPassword);
   const isLoading = useSelector(getIsLoading);
@@ -52,9 +55,9 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
 
   const onKeyDown = useCallback((evt: KeyboardEvent) => {
     if (evt.key === KeyboardKey.ENTER) {
-      onSubmit();
+      onSubmit().then(() => navigate(RoutePath.profile));
     }
-  }, [onSubmit]);
+  }, [navigate, onSubmit]);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);

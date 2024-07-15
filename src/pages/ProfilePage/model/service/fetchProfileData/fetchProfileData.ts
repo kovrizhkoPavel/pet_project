@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TThunkApiConfig } from 'shared/types/stateSchema';
+import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { ProfileUrl } from 'shared/constants/api';
 import { TProfile } from 'entities/Profile/types/profile';
 

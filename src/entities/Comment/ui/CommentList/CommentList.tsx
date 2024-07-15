@@ -1,0 +1,32 @@
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { TComment } from 'entities/Comment';
+import { CommentItem } from 'entities/Comment/ui/CommentItem/CommentItem';
+import { Text } from 'shared/ui/Text/Text';
+
+type TCommentListProps = {
+  className?: string;
+  isLoading?: boolean;
+  comments: TComment[];
+}
+
+export const CommentList: FC<TCommentListProps> = (props) => {
+  const { className, comments, isLoading } = props;
+  const { t } = useTranslation();
+
+  if (comments.length === 0 && !isLoading) {
+    return <Text text={t('translation\:comments_empty')} />;
+  }
+
+  return (
+    <div className={className}>
+      {comments.map((comment) => (
+        <CommentItem
+          key={comment.id}
+          comment={comment}
+          isLoading={!!isLoading}
+        />
+      ))}
+    </div>
+  );
+};

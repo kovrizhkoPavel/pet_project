@@ -1,3 +1,3 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 
-export const getUserState = (state: StateSchema) => state.user;
+export const getUserState = (state: StateScheme) => state.user;

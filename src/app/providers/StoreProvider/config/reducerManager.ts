@@ -1,13 +1,13 @@
 import {
   combineReducers, Reducer, ReducersMapObject, UnknownAction,
 } from '@reduxjs/toolkit';
-import { StateSchema, TReducerManager, TStateSchemeKeys } from 'shared/types/stateSchema';
+import { StateScheme, TReducerManager, TStateSchemeKeys } from 'shared/types/stateScheme';
 import { TOptionalLiteralKeys } from 'shared/types/types';
 
-type TState = Omit<StateSchema, TOptionalLiteralKeys<StateSchema>>;
+type TState = Omit<StateScheme, TOptionalLiteralKeys<StateScheme>>;
 
 export const createReducerManager = (
-  initialReducers: ReducersMapObject<StateSchema>,
+  initialReducers: ReducersMapObject<StateScheme>,
 ): TReducerManager => {
   const reducers = { ...initialReducers };
   let combinedReducer = combineReducers(reducers);

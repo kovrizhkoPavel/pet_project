@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { Country, Currency } from 'shared/constants/common';
 import { expect } from '@storybook/test';
 import { getProfileData } from './getProfileData';
@@ -17,12 +17,12 @@ describe('getProfileData', () => {
   test('should get profile data store', () => {
     const state = {
       profile: { data },
-    } as StateSchema;
+    } as StateScheme;
 
     expect(getProfileData(state)).toEqual(data);
   });
 
   test('should work with empty state', () => {
-    expect(getProfileData({} as StateSchema)).toBe(undefined);
+    expect(getProfileData({} as StateScheme)).toBe(undefined);
   });
 });

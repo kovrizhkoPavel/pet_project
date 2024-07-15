@@ -4,9 +4,8 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import { sidebarLinkList } from 'widgets/Sidebar/model/SidebarLinkList';
-import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from 'shared/lib/hooks/useAuth';
 import { LinkIcon } from '../LinkIcon/LinkIcon';
 import cls from './Sidebar.module.scss';
 
@@ -18,7 +17,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
   const { t } = useTranslation();
-  const isAuth = useSelector(getAuthData);
+  const { isUserAuth } = useAuth();
 
   return (
     <div
@@ -35,7 +34,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
           dataTestId="sidebar_button"
         />
         {
-          sidebarLinkList.filter((link) => !(!isAuth && link?.isOnlyAuth)).map((item) => (
+          sidebarLinkList.filter((link) => !(!isUserAuth && link?.isOnlyAuth)).map((item) => (
             <LinkIcon
               key={item.path}
               path={item.path}

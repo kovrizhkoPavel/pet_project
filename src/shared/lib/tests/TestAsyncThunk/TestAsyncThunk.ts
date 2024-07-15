@@ -1,6 +1,6 @@
 import { AsyncThunkAction, GetDispatch, GetState } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 
 type TActionCreator<Return, Args, RejectedValue> =
   (arg: Args) => AsyncThunkAction<Return, Args, { rejectValue: RejectedValue }>
@@ -21,7 +21,7 @@ class TestAsyncThunk<Return, Args, ThunkApiConfig> {
 
   constructor(
     actionCreator: TActionCreator<Return, Args, ThunkApiConfig>,
-    state?: StateSchema,
+    state?: StateScheme,
   ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn() as unknown as GetDispatch<ThunkApiConfig>;

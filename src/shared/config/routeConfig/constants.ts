@@ -4,6 +4,8 @@ const AppRoute = {
   MAIN: 'main',
   ABOUT: 'about',
   PROFILE: 'profile',
+  ARTICLES: 'articles',
+  ARTICLE_DETAILS: 'article_details',
   NOT_FOUND: 'not_found',
 } as const;
 
@@ -13,5 +15,7 @@ export const RoutePath: Record<TAppRouteValues, string> = {
   [AppRoute.MAIN]: '/',
   [AppRoute.ABOUT]: `/${AppRoute.ABOUT}`,
   [AppRoute.PROFILE]: `/${AppRoute.PROFILE}`,
+  [AppRoute.ARTICLES]: `/${AppRoute.ARTICLES}`,
+  [AppRoute.ARTICLE_DETAILS]: `/${AppRoute.ARTICLES}/:id`,
   [AppRoute.NOT_FOUND]: '*',
 };

@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import { ValidatorError } from 'entities/Profile/constants';
 import { getProfileValidationError } from './getProfileValidationError';
@@ -13,12 +13,12 @@ describe('getProfileValidationError', () => {
       profile: {
         validationError,
       },
-    } as StateSchema;
+    } as StateScheme;
 
     expect(getProfileValidationError(state)).toEqual(validationError);
   });
 
   test('should work with empty state', () => {
-    expect(getProfileValidationError({} as StateSchema)).toBe(undefined);
+    expect(getProfileValidationError({} as StateScheme)).toBe(undefined);
   });
 });

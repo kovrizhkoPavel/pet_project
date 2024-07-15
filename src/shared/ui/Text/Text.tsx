@@ -8,12 +8,18 @@ export const TextVariant = {
   DEFAULT: 'default',
 } as const;
 
+const TextSize = {
+  M: 'size_m',
+  L: 'size_l',
+};
+
 type TTextProps = {
   className?: string;
   title?: string;
   text?: string;
   variant?: TObjectValue<typeof TextVariant>;
   align?: 'left' | 'center' | 'right';
+  size?: keyof typeof TextSize;
 }
 
 export const Text: FC<TTextProps> = (props) => {
@@ -23,10 +29,12 @@ export const Text: FC<TTextProps> = (props) => {
     text,
     variant = TextVariant.DEFAULT,
     align = 'left',
+    size = 'M',
   } = props;
 
   const mod = {
     [cls[align]]: true,
+    [cls[TextSize[size]]]: true,
   };
 
   return (
