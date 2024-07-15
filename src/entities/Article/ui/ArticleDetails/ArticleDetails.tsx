@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';

@@ -12,12 +12,13 @@ export const getArticleComments = articleCommentsAdapter.getSelectors<StateSchem
   (state) => state.articleComments || articleCommentsAdapter.getInitialState(),
 );
 
-const initialState: ArticleCommentsScheme = articleCommentsAdapter.getInitialState<ArticleCommentsScheme>({
-  ids: [],
-  entities: {},
-  isLoading: false,
-  error: '',
-});
+const initialState: ArticleCommentsScheme = articleCommentsAdapter
+  .getInitialState<ArticleCommentsScheme>({
+    ids: [],
+    entities: {},
+    isLoading: false,
+    error: '',
+  });
 
 const articleCommentSlice = createSlice({
   name: 'articleCommentSlice',
