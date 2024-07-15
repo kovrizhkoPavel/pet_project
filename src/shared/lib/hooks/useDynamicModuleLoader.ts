@@ -1,5 +1,5 @@
 import { useStore } from 'react-redux';
-import { TReducers, TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateSchema';
+import { TReducers, TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateScheme';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useEffect } from 'react';
 

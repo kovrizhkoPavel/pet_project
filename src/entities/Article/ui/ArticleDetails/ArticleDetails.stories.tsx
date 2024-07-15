@@ -3,7 +3,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { ArticleBlockType, ArticleType } from 'entities/Article/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { TArticle } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
@@ -52,7 +52,7 @@ const meta = {
       data: article,
       isLoading: false,
     },
-  } as StateSchema)],
+  } as StateScheme)],
 } satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
@@ -65,7 +65,7 @@ export const Loading: Story = {
     articleDetails: {
       isLoading: true,
     },
-  } as StateSchema)],
+  } as StateScheme)],
 };
 
 export const Dark: Story = {

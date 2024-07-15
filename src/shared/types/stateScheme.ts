@@ -3,27 +3,29 @@ import { AuthSchema } from 'features/AuthByUserName';
 import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsScheme } from 'entities/Article';
+import { ArticleCommentsScheme } from 'features/ArticleComments';
 
-export type StateSchema = {
+export type StateScheme = {
   user: UserScheme;
 
   // async reducers
   authForm?: AuthSchema;
   profile?: ProfileScheme;
-  articleDetails?: ArticleDetailsSchema;
+  articleDetails?: ArticleDetailsScheme;
+  articleComments?: ArticleCommentsScheme;
 };
 
-export type TStateSchemeKeys = keyof StateSchema;
+export type TStateSchemeKeys = keyof StateScheme;
 
 export type TReducerManager = {
-  getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: Reducer<StateSchema>;
+  getReducerMap: () => ReducersMapObject<StateScheme>;
+  reduce: Reducer<StateScheme>;
   add: (key: TStateSchemeKeys, reducer: Reducer) => void;
   remove: (key: TStateSchemeKeys) => void;
 }
 
-export type TReducerWithManager = EnhancedStore<StateSchema> & { reducerManager: TReducerManager };
+export type TReducerWithManager = EnhancedStore<StateScheme> & { reducerManager: TReducerManager };
 
 export type TThunkExtra = {
   api: AxiosInstance;
@@ -32,7 +34,7 @@ export type TThunkExtra = {
 export type TThunkApiConfig<T> = {
   rejectValue: T;
   extra: TThunkExtra;
-  state: StateSchema;
+  state: StateScheme;
 }
 
 export type TReducers = {

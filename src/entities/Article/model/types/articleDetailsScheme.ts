@@ -1,6 +1,6 @@
 import { TArticle } from './article';
 
-export type ArticleDetailsSchema = {
+export type ArticleDetailsScheme = {
   isLoading: boolean;
   error?: string;
   data?: TArticle

@@ -3,7 +3,7 @@ import { ProfileCard } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateSchema';
+import { TReducers } from 'shared/types/stateScheme';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';

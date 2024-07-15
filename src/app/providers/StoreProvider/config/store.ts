@@ -1,14 +1,14 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
-import { StateSchema, TThunkExtra } from 'shared/types/stateSchema';
+import { StateScheme, TThunkExtra } from 'shared/types/stateScheme';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
 
 export const createReduxStore = (
-  initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
+  initialState?: StateScheme,
+  asyncReducers?: ReducersMapObject<StateScheme>,
 ) => {
-  const reducer: ReducersMapObject<StateSchema> = {
+  const reducer: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     user: userReducer,
   };

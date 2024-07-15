@@ -18,7 +18,7 @@ const avatarSize = 30;
 export const CommentItem: FC<TCommentItemProps> = (props) => {
   const { className, comment, isLoading } = props;
   const { text, user: { userName, avatar } } = comment;
-
+  console.log(avatar);
   if (isLoading) {
     return (
       <div className={cls.commentItem}>

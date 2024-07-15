@@ -9,7 +9,7 @@ import { ModalLoader } from 'widgets/ModalLoader';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { KeyboardKey } from 'shared/constants/common';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateSchema';
+import { TReducers } from 'shared/types/stateScheme';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';

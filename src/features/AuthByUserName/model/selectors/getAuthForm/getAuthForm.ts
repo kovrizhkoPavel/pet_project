@@ -1,3 +1,3 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 
-export const getAuthForm = (store: StateSchema) => store?.authForm;
+export const getAuthForm = (store: StateScheme) => store?.authForm;

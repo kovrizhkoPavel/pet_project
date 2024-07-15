@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import { getAuthForm } from './getAuthForm';
 
@@ -7,7 +7,7 @@ describe('getAuthForm', () => {
     authForm: {
       userName: 'user',
     },
-  } as StateSchema;
+  } as StateScheme;
 
   test('should return authForm store', () => {
     expect(getAuthForm(state)).toEqual({

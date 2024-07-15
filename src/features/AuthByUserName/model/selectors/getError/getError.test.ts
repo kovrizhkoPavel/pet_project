@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import { getError } from './getError';
 
@@ -8,7 +8,7 @@ describe('getError', () => {
       authForm: {
         error: 'error',
       },
-    } as StateSchema;
+    } as StateScheme;
 
     expect(getError(state)).toBe('error');
   });

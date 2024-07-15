@@ -2,7 +2,7 @@ import { Meta, type StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import LoginForm from './LoginForm';
 
 const meta = {
@@ -25,7 +25,7 @@ export const Auth: Story = {
       userName: 'admin',
       password: '123',
     },
-  } as StateSchema)],
+  } as StateScheme)],
 };
 
 export const Error: Story = {
@@ -35,7 +35,7 @@ export const Error: Story = {
       password: '123',
       error: 'Error',
     },
-  } as StateSchema)],
+  } as StateScheme)],
 };
 
 export const Loading: Story = {
@@ -45,6 +45,6 @@ export const Loading: Story = {
       password: '123',
       isLoading: true,
     },
-  } as StateSchema)],
+  } as StateScheme)],
 };
 export default meta;

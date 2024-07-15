@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TUser, userActions } from 'entities/User';
-import { TThunkApiConfig } from 'shared/types/stateSchema';
+import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { AuthUrl } from 'shared/constants/api';
 
 type TParams = {

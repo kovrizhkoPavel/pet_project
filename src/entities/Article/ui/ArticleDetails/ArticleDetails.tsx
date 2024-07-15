@@ -1,10 +1,12 @@
 import { FC, useEffect } from 'react';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateSchema';
+import { TReducers } from 'shared/types/stateScheme';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
 import { ArticleBlocks } from 'entities/Article/ui/ArticleBlocks/ArticleBlocks';
+import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { ArticleComments } from 'features/ArticleComments';
 import { ArticleAvatar } from '../ArticleAvatar/ArticleAvatar';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -26,10 +28,9 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
   const error = useSelector(getError);
 
   useDynamicModuleLoader(initialReducer, true);
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
+
+  useAppUseEffect(() => {
+    dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 
   if (error) {
@@ -43,6 +44,7 @@ export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
       </div>
       <ArticleInfo />
       <ArticleBlocks />
+      <ArticleComments id={id} />
     </div>
   );
 };

@@ -16,7 +16,7 @@ export const CommentList: FC<TCommentListProps> = (props) => {
   const { className, comments, isLoading } = props;
   const { t } = useTranslation();
 
-  if (comments.length === 0) {
+  if (comments.length === 0 && !isLoading) {
     return <Text text={t('translation\:comments_empty')} />;
   }
 

@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import { getUserName } from './getUserName';
 
@@ -7,7 +7,7 @@ describe('getUserName', () => {
     authForm: {
       userName: 'user',
     },
-  } as StateSchema;
+  } as StateScheme;
 
   test('should get user name value', () => {
     expect(getUserName(state)).toBe('user');

@@ -2,7 +2,7 @@ import { expect } from '@storybook/test';
 import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country, Currency } from 'shared/constants/common';
 import { ProfileValidatorError, TProfile } from 'entities/Profile';
-import { StateSchema } from 'shared/types/stateSchema';
+import { StateScheme } from 'shared/types/stateScheme';
 import { updateProfileData } from './updateProfileData';
 
 const data: TProfile = {
@@ -35,7 +35,7 @@ describe('updateProfileData', () => {
   test('success', async () => {
     const Thunk = new TestAsyncThunk(
       updateProfileData,
-      { profile: { form: data } } as StateSchema,
+      { profile: { form: data } } as StateScheme,
     );
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ data }));
@@ -50,7 +50,7 @@ describe('updateProfileData', () => {
   test('login error', async () => {
     const Thunk = new TestAsyncThunk(
       updateProfileData,
-      { profile: { form: invalidData } } as StateSchema,
+      { profile: { form: invalidData } } as StateScheme,
     );
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));

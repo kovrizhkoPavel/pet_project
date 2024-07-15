@@ -1,4 +1,4 @@
-import { StateSchema, TReducers } from 'shared/types/stateSchema';
+import { StateScheme, TReducers } from 'shared/types/stateScheme';
 import { StoryFn } from '@storybook/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
@@ -11,12 +11,12 @@ const defaultAsyncReducers: TReducers = {
 };
 
 export const StoreDecorator = (
-  initial?: StateSchema,
+  initial?: StateScheme,
   asyncReducer?: TReducers,
 ) => (Story: StoryFn) => (
   <StoreProvider
     initialState={initial}
-    asyncReducers={{ ...defaultAsyncReducers, ...asyncReducer } as ReducersMapObject<StateSchema>}
+    asyncReducers={{ ...defaultAsyncReducers, ...asyncReducer } as ReducersMapObject<StateScheme>}
   >
     <Story />
   </StoreProvider>
