@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
 import { CommentList } from 'entities/Comment';
@@ -8,7 +7,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { articleCommentsReducer, getArticleComments } from '../../model/slice/artileCommentSlice';
-import cls from './ArticleComments.module.scss';
 import { getIsLoading } from '../../model/selectors/getArticleComments';
 
 type TArticleCommentsProps = {
@@ -32,7 +30,7 @@ export const ArticleComments: FC<TArticleCommentsProps> = ({ className, id }) =>
   }, [dispatch, id]);
 
   return (
-    <div className={getClassName(cls.articleComments, {}, [className])}>
+    <div className={className}>
       <CommentList comments={comments} isLoading={isLoading} />
     </div>
   );

@@ -1,10 +1,8 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
 import { TComment } from 'entities/Comment';
 import { CommentItem } from 'entities/Comment/ui/CommentItem/CommentItem';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './CommentList.module.scss';
 
 type TCommentListProps = {
   className?: string;
@@ -21,7 +19,7 @@ export const CommentList: FC<TCommentListProps> = (props) => {
   }
 
   return (
-    <div className={getClassName(cls.commentList, {}, [className])}>
+    <div className={className}>
       {comments.map((comment) => (
         <CommentItem
           key={comment.id}
