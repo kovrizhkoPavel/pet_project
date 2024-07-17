@@ -18,6 +18,16 @@ export const CommentList: FC<TCommentListProps> = (props) => {
     return <Text text={t('translation\:comments_empty')} />;
   }
 
+  if (isLoading) {
+    return (
+      <>
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+      </>
+    );
+  }
+
   return (
     <div className={className}>
       {comments.map((comment) => (

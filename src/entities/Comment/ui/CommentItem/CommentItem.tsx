@@ -9,7 +9,7 @@ import cls from './CommentItem.module.scss';
 
 type TCommentItemProps = {
   className?: string;
-  comment: TComment;
+  comment?: TComment;
   isLoading?: boolean;
 }
 
@@ -17,11 +17,10 @@ const avatarSize = 30;
 
 export const CommentItem: FC<TCommentItemProps> = (props) => {
   const { className, comment, isLoading } = props;
-  const { text, user: { userName, avatar } } = comment;
 
   if (isLoading) {
     return (
-      <div className={cls.commentItem}>
+      <div className={getClassName(cls.commentItem, { [cls.borderNone]: isLoading }, [])}>
         <div className={
           getClassName(cls.skeletonHeader, {}, [cls.header])
         }
@@ -33,6 +32,10 @@ export const CommentItem: FC<TCommentItemProps> = (props) => {
       </div>
     );
   }
+
+  if (!comment) return null;
+
+  const { text, user: { userName, avatar } } = comment;
 
   return (
     <div className={getClassName(cls.commentItem, {}, [className])}>
