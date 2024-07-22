@@ -12,7 +12,7 @@ import { getProfileValidationError } from '../model/selectors/getProfileValidati
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import cls from './ProfilePage.module.scss';
-import { fetchProfileData } from '../model/service/fetchProfileData/fetchProfileData';
+import { fetchGetProfileData } from '../model/service/fetchGetProfileData/fetchGetProfileData';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 
@@ -30,7 +30,7 @@ const ProfilePage: FC = () => {
 
   useAppUseEffect(() => {
     if (id) {
-      setTimeout(() => dispatch(fetchProfileData(id)));
+      setTimeout(() => dispatch(fetchGetProfileData(id)));
     }
   }, [dispatch]);
 
