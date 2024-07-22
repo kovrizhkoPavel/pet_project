@@ -3,7 +3,7 @@ import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { ProfileUrl } from 'shared/constants/api';
 import { TProfile } from 'entities/Profile/types/profile';
 
-export const fetchProfileData = createAsyncThunk<TProfile, string, TThunkApiConfig<string>>(
+export const fetchGetProfileData = createAsyncThunk<TProfile, string, TThunkApiConfig<string>>(
   'profile/fetchProfileData',
   async (id, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;

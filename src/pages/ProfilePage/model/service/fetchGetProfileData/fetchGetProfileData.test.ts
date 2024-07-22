@@ -1,7 +1,7 @@
 import { expect } from '@storybook/test';
 import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country, Currency } from 'shared/constants/common';
-import { fetchProfileData } from './fetchProfileData';
+import { fetchGetProfileData } from './fetchGetProfileData';
 
 const data = {
   username: 'username',
@@ -15,7 +15,7 @@ const data = {
 
 describe('fetchProfileData', () => {
   test('fetchProfileData', async () => {
-    const Thunk = new TestAsyncThunk(fetchProfileData);
+    const Thunk = new TestAsyncThunk(fetchGetProfileData);
 
     Thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
@@ -27,7 +27,7 @@ describe('fetchProfileData', () => {
   });
 
   test('login error', async () => {
-    const Thunk = new TestAsyncThunk(fetchProfileData);
+    const Thunk = new TestAsyncThunk(fetchGetProfileData);
 
     Thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await Thunk.callThunk('1');
