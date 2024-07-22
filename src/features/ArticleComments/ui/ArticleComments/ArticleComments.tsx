@@ -5,7 +5,6 @@ import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
-import { CommentItem } from 'entities/Comment/ui/CommentItem/CommentItem';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { articleCommentsReducer, getArticleComments } from '../../model/slice/artileCommentSlice';
 import { getIsLoading } from '../../model/selectors/getArticleComments';
