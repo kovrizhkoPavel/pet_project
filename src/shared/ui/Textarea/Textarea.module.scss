@@ -1,0 +1,48 @@
+.textarea {
+  display: flex;
+
+  textarea {
+    padding: 4px 8px;
+    color: var(--font-color);
+    resize: none;
+    background: var(--bg-color);
+    border: 1px solid var(--bg-color-secondary);
+    border-radius: var(--border-radius-m);
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.hint {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  padding-left: 8px;
+  font-size: var(--font-size-s);
+}
+
+.error {
+  & textarea {
+    color: var(--error-color);
+    border-color: var(--error-color);
+  }
+
+  & .hint {
+    color: var(--error-color);
+  }
+}
+
+.label {
+  padding: 4px 16px 8px 0;
+}
+
+.readonly {
+  opacity: var(--opacity-disabled);
+}
+
+.column {
+  flex-direction: column;
+}
