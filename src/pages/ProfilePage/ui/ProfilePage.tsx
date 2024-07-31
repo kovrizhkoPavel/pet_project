@@ -34,7 +34,7 @@ const ProfilePage: FC = () => {
     }
   }, [dispatch]);
 
-  useDynamicModuleLoader(initialReducers, true);
+  useDynamicModuleLoader(initialReducers);
 
   const onFirstNameChange = useCallback((value: string) => {
     dispatch(profileActions.changeProfile({ firstname: value }));

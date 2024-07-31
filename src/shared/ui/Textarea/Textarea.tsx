@@ -19,13 +19,15 @@ type TTextareaProps = {
   direction?: 'row' | 'column';
   hint?: string;
   onChange?: (value: string) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 } & TTextareaAttribute;
 
 export const Textarea: FC<TTextareaProps> = memo((props) => {
   const {
-    width = 300,
-    height = 50,
     onChange,
+    onFocus,
+    onBlur,
     className,
     value,
     label,
@@ -48,11 +50,6 @@ export const Textarea: FC<TTextareaProps> = memo((props) => {
     [cls.column]: direction === 'column',
   };
 
-  const classSize: CSSProperties = {
-    width,
-    height,
-  };
-
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -66,11 +63,12 @@ export const Textarea: FC<TTextareaProps> = memo((props) => {
       {label && <p className={cls.label}>{label}</p>}
       <div className={cls.wrapper}>
         <textarea
+          onFocus={onFocus}
+          onBlur={onBlur}
           ref={textareaRef}
           onChange={onTextareaChange}
           readOnly={readonly}
           value={value}
-          style={classSize}
           {...otherProps}
         />
         {hint && <p className={cls.hint}>{hint}</p>}

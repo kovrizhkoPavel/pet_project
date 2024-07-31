@@ -67,7 +67,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     };
   }, [onKeyDown]);
 
-  useDynamicModuleLoader(initialReducer, true);
+  useDynamicModuleLoader(initialReducer);
 
   return (
     <div className={getClassName(cls.loginForm, {}, [className])}>
