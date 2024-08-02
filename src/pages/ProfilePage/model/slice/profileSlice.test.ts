@@ -59,10 +59,10 @@ describe('profileSlice', () => {
   });
 
   test('test update profile service pending', async () => expect(
-    profileReducer(state, updateProfileData.pending('')),
+    profileReducer(state, updateProfileData.pending('', '')),
   ).toEqual({ ...state, isLoading: true }));
 
   test('test update profile service fulfilled', async () => expect(
-    profileReducer(state, updateProfileData.fulfilled(data, '')),
+    profileReducer(state, updateProfileData.fulfilled(data, '', '')),
   ).toEqual(state));
 });

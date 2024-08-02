@@ -38,9 +38,9 @@ export const CommentItem: FC<TCommentItemProps> = (props) => {
   if (!comment) return null;
 
   const { text, user: { username, avatar } } = comment;
-  console.log(comment);
+
   return (
-    <div className={getClassName(cls.commentItem, {}, [className])} onClick={() => console.log(comment)}>
+    <div className={getClassName(cls.commentItem, {}, [className])}>
       <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
         <Avatar src={avatar || defaultAvatar} size={avatarSize} className={cls.avatar} />
         <Text title={username} />

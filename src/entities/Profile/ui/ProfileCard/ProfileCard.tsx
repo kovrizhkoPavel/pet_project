@@ -70,7 +70,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
       </div>
     );
   }
-
+  console.log(data);
   return (
     <div className={getClassName(cls.profilePage, {}, [className])}>
       {data?.avatar && (

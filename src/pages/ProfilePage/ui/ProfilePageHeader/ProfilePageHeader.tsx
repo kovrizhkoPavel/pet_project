@@ -1,13 +1,13 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { profileActions } from 'pages/ProfilePage/model/slice/profileSlice';
 import { useSelector } from 'react-redux';
 import { ProfileButtonGroup } from 'pages/ProfilePage/ui/ProfileButtonGroup/ProfileButtonGroup';
 import { updateProfileData } from 'pages/ProfilePage/model/service/updateProfileData/updateProfileData';
 import { getAuthData } from 'entities/User';
+import { useParams } from 'react-router-dom';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import cls from './ProfilePageHeader.module.scss';
@@ -19,6 +19,7 @@ type TProfilePageHeaderProps = {
 export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const { id } = useParams<{id : string}>();
   const authData = useSelector(getAuthData);
   const profile = useSelector(getProfileData);
   const canEdit = authData?.id === profile?.id;
@@ -33,8 +34,10 @@ export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) =>
   }, [dispatch]);
 
   const onButtonSubmit = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    if (id) {
+      dispatch(updateProfileData(id));
+    }
+  }, [dispatch, id]);
 
   return (
     <div className={getClassName(cls.profilePageHeader, {}, [className])}>
