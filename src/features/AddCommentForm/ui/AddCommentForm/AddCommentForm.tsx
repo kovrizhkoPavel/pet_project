@@ -1,14 +1,14 @@
-import { FC, useCallback, useState } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Textarea } from 'shared/ui/Textarea/Textarea';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ButtonGroup } from 'features/AddCommentForm/ui/ButtonGroup/ButtonGroup';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import { getText } from '../../model/selectors/getAddCommentForm';
+import { getIsActive, getIsLoading, getText } from '../../model/selectors/getAddCommentForm';
 
 type TAddCommentFormProps = {
   className?: string;
@@ -20,9 +20,10 @@ const initialReducers: TReducers = {
 };
 
 export const AddCommentForm: FC<TAddCommentFormProps> = ({ className, onSubmit }) => {
-  const [isActive, setIsActive] = useState(false);
   const { t } = useTranslation();
   const text = useSelector(getText);
+  const isActive = useSelector(getIsActive);
+  const isLoading = useSelector(getIsLoading);
   const dispatch = useAppDispatch();
 
   useDynamicModuleLoader(initialReducers);
@@ -32,13 +33,16 @@ export const AddCommentForm: FC<TAddCommentFormProps> = ({ className, onSubmit }
   }, [dispatch]);
 
   const onFocus = useCallback(() => {
-    setIsActive(true);
-  }, []);
+    dispatch(addCommentFormActions.setIsActive(true));
+  }, [dispatch]);
 
   const onReset = useCallback(() => {
-    setIsActive(false);
     dispatch(addCommentFormActions.reset());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <Skeleton height={100} className={className} />;
+  }
 
   return (
     <div className={className}>

@@ -18,3 +18,8 @@ export const getError = createSelector(
   getAddCommentForm,
   (state: AddCommentFormScheme | undefined) => state?.error || '',
 );
+
+export const getIsActive = createSelector(
+  getAddCommentForm,
+  (state: AddCommentFormScheme | undefined) => !!state?.isActive,
+);

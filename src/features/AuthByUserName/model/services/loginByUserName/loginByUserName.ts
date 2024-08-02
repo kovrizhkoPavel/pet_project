@@ -17,7 +17,7 @@ export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<
       const { data } = await extra.api.post<TUser>(AuthUrl.LOGIN, authData);
 
       if (!data) {
-        throw new Error();
+        return rejectWithValue('error');
       }
 
       dispatch(userActions.setAuthData(data));

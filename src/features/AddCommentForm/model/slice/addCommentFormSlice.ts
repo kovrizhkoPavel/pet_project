@@ -1,12 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AddCommentFormScheme } from 'features/AddCommentForm/model/types/AddCommentFormScheme';
 
-const initialState: AddCommentFormScheme = {};
+const initialState: AddCommentFormScheme = {
+  isActive: false,
+  isLoading: false,
+};
 
 export const addCommentFormSlice = createSlice({
   name: 'addCommentForm',
   initialState,
   reducers: {
+    setIsActive(state, action) {
+      state.isActive = action.payload;
+    },
+
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
+
     setText(state, action: PayloadAction<string>) {
       state.text = action.payload;
     },
@@ -14,15 +25,6 @@ export const addCommentFormSlice = createSlice({
     reset() {
       return initialState;
     },
-  },
-  extraReducers: (builder) => {
-    // builder
-    //   .addCase(.pending, (state) => {
-    //   })
-    //   .addCase(.fulfilled, (state, action: PayloadAction<TArticle>) => {
-    //   })
-    //   .addCase(fetchArticleById.rejected, (state, action) => {
-    //   });
   },
 });
 
