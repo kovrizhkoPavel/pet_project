@@ -33,7 +33,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const userName = useSelector(getUserName);
+  const username = useSelector(getUserName);
   const password = useSelector(getPassword);
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
@@ -47,11 +47,11 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   }, [dispatch]);
 
   const onSubmit = useCallback(async () => {
-    const response = await dispatch(loginByUserName({ userName, password }));
+    const response = await dispatch(loginByUserName({ username, password }));
     if (response.meta.requestStatus === 'fulfilled') {
       onSuccess?.();
     }
-  }, [dispatch, userName, password, onSuccess]);
+  }, [dispatch, username, password, onSuccess]);
 
   const onKeyDown = useCallback((evt: KeyboardEvent) => {
     if (evt.key === KeyboardKey.ENTER) {
@@ -78,7 +78,7 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
         className={cls.input}
         label={t('translation\:form_auth_login')}
         onChange={onUserNameChange}
-        value={userName}
+        value={username}
         isError={Boolean(error)}
         isAutoFocus
         direction="column"

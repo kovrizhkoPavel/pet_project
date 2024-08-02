@@ -4,6 +4,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import defaultAvatar from 'shared/assets/tests/avatar.jpeg';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import { TComment } from '../../model/types/comment';
 import cls from './CommentItem.module.scss';
 
@@ -35,14 +37,14 @@ export const CommentItem: FC<TCommentItemProps> = (props) => {
 
   if (!comment) return null;
 
-  const { text, user: { userName, avatar } } = comment;
-
+  const { text, user: { username, avatar } } = comment;
+  console.log(comment);
   return (
-    <div className={getClassName(cls.commentItem, {}, [className])}>
-      <div className={cls.header}>
+    <div className={getClassName(cls.commentItem, {}, [className])} onClick={() => console.log(comment)}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
         <Avatar src={avatar || defaultAvatar} size={avatarSize} className={cls.avatar} />
-        <Text title={userName} />
-      </div>
+        <Text title={username} />
+      </AppLink>
       <Text text={text} />
     </div>
   );

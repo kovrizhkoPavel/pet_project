@@ -3,7 +3,7 @@ import { AuthSchema } from '../types/authSchema';
 import { loginByUserName } from '../services/loginByUserName/loginByUserName';
 
 const initialState: AuthSchema = {
-  userName: '',
+  username: '',
   password: '',
   isLoading: false,
 };
@@ -13,7 +13,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUserName: (state, actions: PayloadAction<string>) => {
-      state.userName = actions.payload;
+      state.username = actions.payload;
     },
 
     setPassword: (state, actions: PayloadAction<string>) => {

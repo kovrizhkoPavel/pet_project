@@ -4,8 +4,8 @@ import { userActions } from 'entities/User';
 import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('loginByUserName', () => {
-  const userValue = { id: 1, userName: 'admin' };
-  const reqParams = { userName: 'admin', password: '123' };
+  const userValue = { id: 1, username: 'admin' };
+  const reqParams = { username: 'admin', password: '123' };
 
   test('login success', async () => {
     const Thunk = new TestAsyncThunk(loginByUserName);

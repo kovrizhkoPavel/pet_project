@@ -22,7 +22,7 @@ export const Dark: Story = {
 export const Auth: Story = {
   decorators: [StoreDecorator({
     authForm: {
-      userName: 'admin',
+      username: 'admin',
       password: '123',
     },
   } as StateScheme)],
@@ -31,7 +31,7 @@ export const Auth: Story = {
 export const Error: Story = {
   decorators: [StoreDecorator({
     authForm: {
-      userName: 'admin',
+      username: 'admin',
       password: '123',
       error: 'Error',
     },
@@ -41,7 +41,7 @@ export const Error: Story = {
 export const Loading: Story = {
   decorators: [StoreDecorator({
     authForm: {
-      userName: 'admin',
+      username: 'admin',
       password: '123',
       isLoading: true,
     },

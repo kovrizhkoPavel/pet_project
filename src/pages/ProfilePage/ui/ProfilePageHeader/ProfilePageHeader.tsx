@@ -7,6 +7,8 @@ import { profileActions } from 'pages/ProfilePage/model/slice/profileSlice';
 import { useSelector } from 'react-redux';
 import { ProfileButtonGroup } from 'pages/ProfilePage/ui/ProfileButtonGroup/ProfileButtonGroup';
 import { updateProfileData } from 'pages/ProfilePage/model/service/updateProfileData/updateProfileData';
+import { getAuthData } from 'entities/User';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import cls from './ProfilePageHeader.module.scss';
 
@@ -17,6 +19,9 @@ type TProfilePageHeaderProps = {
 export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const authData = useSelector(getAuthData);
+  const profile = useSelector(getProfileData);
+  const canEdit = authData?.id === profile?.id;
   const isReadonly = useSelector(getProfileReadonly);
 
   const onEditButtonClick = useCallback(() => {
@@ -34,14 +39,14 @@ export const ProfilePageHeader: FC<TProfilePageHeaderProps> = ({ className }) =>
   return (
     <div className={getClassName(cls.profilePageHeader, {}, [className])}>
       <h1>{t('translation\:title_profile')}</h1>
-      {isReadonly ? (
-        <Button
-          variant={ButtonVariant.FILL}
-          onClick={onEditButtonClick}
-        >
-          {t('translation\:profile_edit_btn')}
-        </Button>
-      ) : <ProfileButtonGroup onSubmit={onButtonSubmit} onReset={onButtonReset} />}
+      {canEdit && (
+        <ProfileButtonGroup
+          isReadonly={isReadonly}
+          onEdit={onEditButtonClick}
+          onSubmit={onButtonSubmit}
+          onReset={onButtonReset}
+        />
+      )}
     </div>
   );
 };

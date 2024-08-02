@@ -26,7 +26,7 @@ export const ClearLightAuth: Story = {
       user: {
         authData: {
           id: 1,
-          userName: 'admin',
+          username: 'admin',
         },
       },
     } as StateScheme),

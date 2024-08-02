@@ -95,74 +95,20 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "123",
-      "id": "gwNWZMP"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "1234",
-      "id": "c-uBXXe"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "pAiK3vc"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "KPVk86e"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "MSNnu-9"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "xpJqvGe"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "vGigaK2"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "12345",
-      "id": "5KxgQbD"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "244",
-      "id": "W211bXM"
+      "userId": "2"
     }
   ],
   "users": [
     {
       "id": "1",
-      "userName": "admin",
+      "username": "admin",
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
     },
     {
       "id": "2",
-      "userName": "user",
+      "username": "user",
       "password": "123",
       "role": "USER",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
@@ -177,7 +123,7 @@
       "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
-      "userName": "admin213",
+      "username": "admin213",
       "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
     },
     {
@@ -188,7 +134,7 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "userName": "Ivan",
+      "username": "Ivan",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ]

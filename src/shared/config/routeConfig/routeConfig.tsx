@@ -19,7 +19,7 @@ export const routeConfig: TRouteProps[] = [
     element: <AboutPage />,
   },
   {
-    path: RoutePath.profile,
+    path: `${RoutePath.profile}:id`,
     element: <ProfilePage />,
     isOnlyAuth: true,
   }, {
@@ -27,7 +27,7 @@ export const routeConfig: TRouteProps[] = [
     element: <ArticlesPage />,
     isOnlyAuth: true,
   }, {
-    path: RoutePath.article_details,
+    path: `${RoutePath.article_details}:id`,
     element: <ArticleDetailsPage />,
     isOnlyAuth: true,
   },

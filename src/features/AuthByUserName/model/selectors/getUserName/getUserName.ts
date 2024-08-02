@@ -4,5 +4,5 @@ import { AuthSchema } from '../../types/authSchema';
 
 export const getUserName = createSelector(
   getAuthForm,
-  (store: AuthSchema | undefined) => store?.userName || '',
+  (store: AuthSchema | undefined) => store?.username || '',
 );
