@@ -9,7 +9,7 @@ const comment: TComment = {
   text: 'storybook',
   user: {
     id: 11,
-    userName: 'user1',
+    username: 'user1',
   },
 };
 

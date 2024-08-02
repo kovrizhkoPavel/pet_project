@@ -5,6 +5,7 @@ import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsScheme } from 'entities/Article';
 import { ArticleCommentsScheme } from 'features/ArticleComments';
+import { AddCommentFormScheme } from 'features/AddCommentForm';
 
 export type StateScheme = {
   user: UserScheme;
@@ -14,6 +15,7 @@ export type StateScheme = {
   profile?: ProfileScheme;
   articleDetails?: ArticleDetailsScheme;
   articleComments?: ArticleCommentsScheme;
+  addCommentForm?: AddCommentFormScheme;
 };
 
 export type TStateSchemeKeys = keyof StateScheme;

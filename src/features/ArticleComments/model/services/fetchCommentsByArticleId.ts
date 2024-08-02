@@ -17,7 +17,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<
     }
 
     try {
-      const response = await extra.api.get<TComment[]>(ArticleUrl.GET_COMMENTS, {
+      const response = await extra.api.get<TComment[]>(ArticleUrl.COMMENTS, {
         params: {
           articleId,
           _expand: 'user',

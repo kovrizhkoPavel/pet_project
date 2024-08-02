@@ -95,13 +95,7 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     }
   ],
   "users": [
@@ -110,7 +104,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://cdn.fishki.net/upload/users/2022/06/11/522352/106bcf64acfd76ecb813b834df4a3725.jpg"
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/c/cf/IoannIV_reconstruction_by_Gerasimov02.jpg"
     },
     {
       "id": "2",
@@ -120,14 +114,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://cdn.fishki.net/upload/users/2022/06/11/522352/106bcf64acfd76ecb813b834df4a3725.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "jgh2",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/c/cf/IoannIV_reconstruction_by_Gerasimov02.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Ivan",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "Ivan",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ]
 }

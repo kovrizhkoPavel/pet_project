@@ -3,7 +3,7 @@ import { TReducers, TReducerWithManager, TStateSchemeKeys } from 'shared/types/s
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useEffect } from 'react';
 
-export const useDynamicModuleLoader = (reducers: TReducers, remountAfterUnmount?: boolean) => {
+export const useDynamicModuleLoader = (reducers: TReducers, remountAfterUnmount = true) => {
   const store = useStore() as TReducerWithManager;
   const dispatch = useAppDispatch();
 

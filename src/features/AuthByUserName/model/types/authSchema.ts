@@ -1,5 +1,5 @@
 export type AuthSchema = {
-  userName: string;
+  username: string;
   password: string;
   isLoading?: boolean;
   error?: string | null;

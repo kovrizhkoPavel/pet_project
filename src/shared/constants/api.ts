@@ -7,6 +7,6 @@ export const ProfileUrl = <const>{
 };
 
 export const ArticleUrl = <const>{
-  GET_COMMENTS: '/comments',
-  GET_ARTICLE: '/articles',
+  COMMENTS: '/comments',
+  ARTICLE: '/articles',
 };

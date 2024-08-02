@@ -4,7 +4,7 @@ import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { AuthUrl } from 'shared/constants/api';
 
 type TParams = {
-  userName: string;
+  username: string;
   password: string;
 }
 
@@ -17,7 +17,7 @@ export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<
       const { data } = await extra.api.post<TUser>(AuthUrl.LOGIN, authData);
 
       if (!data) {
-        throw new Error();
+        return rejectWithValue('error');
       }
 
       dispatch(userActions.setAuthData(data));

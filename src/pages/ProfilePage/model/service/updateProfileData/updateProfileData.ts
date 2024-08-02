@@ -7,10 +7,10 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 
 export const updateProfileData = createAsyncThunk<
   TProfile,
-  void,
+  string,
   TThunkApiConfig<TProfileValidationError | string>>(
     'profile/updateProfileData',
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
       const { extra, rejectWithValue, getState } = thunkAPI;
 
       const formData = getProfileForm(getState());
@@ -22,7 +22,10 @@ export const updateProfileData = createAsyncThunk<
       }
 
       try {
-        const { data } = await extra.api.put(ProfileUrl.GET_DATA, getProfileForm(getState()));
+        const { data } = await extra.api.put(
+          `${ProfileUrl.GET_DATA}/${profileId}`,
+          getProfileForm(getState()),
+        );
 
         if (!data) {
           throw new Error();

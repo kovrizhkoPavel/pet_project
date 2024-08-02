@@ -19,7 +19,7 @@ const initialReducer: TReducers = {
 };
 
 export const ArticleComments: FC<TArticleCommentsProps> = ({ className, id }) => {
-  useDynamicModuleLoader(initialReducer, true);
+  useDynamicModuleLoader(initialReducer);
 
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getIsLoading);

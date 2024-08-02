@@ -7,18 +7,18 @@ describe('authSlice', () => {
 
   beforeEach(() => {
     state = {
-      userName: '',
+      username: '',
       password: '',
     };
   });
 
   test('should set user name', () => {
     expect(authReducer(state, authActions.setUserName('test1')))
-      .toEqual({ userName: 'test1', password: '' });
+      .toEqual({ username: 'test1', password: '' });
   });
 
   test('should set password', () => {
     expect(authReducer(state, authActions.setPassword('test1')))
-      .toEqual({ userName: '', password: 'test1' });
+      .toEqual({ username: '', password: 'test1' });
   });
 });

@@ -4,12 +4,14 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import defaultAvatar from 'shared/assets/tests/avatar.jpeg';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import { TComment } from '../../model/types/comment';
 import cls from './CommentItem.module.scss';
 
 type TCommentItemProps = {
   className?: string;
-  comment: TComment;
+  comment?: TComment;
   isLoading?: boolean;
 }
 
@@ -17,11 +19,10 @@ const avatarSize = 30;
 
 export const CommentItem: FC<TCommentItemProps> = (props) => {
   const { className, comment, isLoading } = props;
-  const { text, user: { userName, avatar } } = comment;
 
   if (isLoading) {
     return (
-      <div className={cls.commentItem}>
+      <div className={getClassName(cls.commentItem, { [cls.borderNone]: isLoading }, [])}>
         <div className={
           getClassName(cls.skeletonHeader, {}, [cls.header])
         }
@@ -34,12 +35,16 @@ export const CommentItem: FC<TCommentItemProps> = (props) => {
     );
   }
 
+  if (!comment) return null;
+
+  const { text, user: { username, avatar } } = comment;
+
   return (
     <div className={getClassName(cls.commentItem, {}, [className])}>
-      <div className={cls.header}>
+      <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
         <Avatar src={avatar || defaultAvatar} size={avatarSize} className={cls.avatar} />
-        <Text title={userName} />
-      </div>
+        <Text title={username} />
+      </AppLink>
       <Text text={text} />
     </div>
   );

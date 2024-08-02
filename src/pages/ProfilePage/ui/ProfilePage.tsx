@@ -1,16 +1,18 @@
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback } from 'react';
 import { ProfileCard } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
+import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import cls from './ProfilePage.module.scss';
-import { fetchProfileData } from '../model/service/fetchProfileData/fetchProfileData';
+import { fetchGetProfileData } from '../model/service/fetchGetProfileData/fetchGetProfileData';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 
@@ -24,14 +26,15 @@ const ProfilePage: FC = () => {
   const profileError = useSelector(getProfileError);
   const profileReadOnly = useSelector(getProfileReadonly);
   const profileValidationError = useSelector(getProfileValidationError);
+  const { id } = useParams<{id : string}>();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      setTimeout(() => dispatch(fetchProfileData()));
+  useAppUseEffect(() => {
+    if (id) {
+      setTimeout(() => dispatch(fetchGetProfileData(id)));
     }
   }, [dispatch]);
 
-  useDynamicModuleLoader(initialReducers, true);
+  useDynamicModuleLoader(initialReducers);
 
   const onFirstNameChange = useCallback((value: string) => {
     dispatch(profileActions.changeProfile({ firstname: value }));

@@ -3,6 +3,7 @@ import { Country, Currency } from 'shared/constants/common';
 import { ValidatorError } from '../constants';
 
 export type TProfile = {
+  id?: string;
   firstname?: string;
   lastname?: string;
   username?: string;

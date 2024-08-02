@@ -6,6 +6,7 @@ import { StateScheme } from 'shared/types/stateScheme';
 import { updateProfileData } from './updateProfileData';
 
 const data: TProfile = {
+  id: '1',
   username: 'username',
   firstname: 'firstname',
   lastname: 'lastname',
@@ -31,6 +32,8 @@ const validateError = {
   age: ProfileValidatorError.ONLY_INTEGER,
 };
 
+const PROFILE_ID = '1';
+
 describe('updateProfileData', () => {
   test('success', async () => {
     const Thunk = new TestAsyncThunk(
@@ -40,7 +43,7 @@ describe('updateProfileData', () => {
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
-    const result = await Thunk.callThunk();
+    const result = await Thunk.callThunk(PROFILE_ID);
 
     await expect(Thunk.api.put).toHaveBeenCalled();
     await expect(result.meta.requestStatus).toBe('fulfilled');
@@ -54,7 +57,7 @@ describe('updateProfileData', () => {
     );
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await Thunk.callThunk();
+    const result = await Thunk.callThunk(PROFILE_ID);
 
     await expect(result.meta.requestStatus).toBe('rejected');
     await expect(result.payload).toEqual(validateError);

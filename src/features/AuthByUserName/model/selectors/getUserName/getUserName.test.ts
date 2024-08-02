@@ -5,7 +5,7 @@ import { getUserName } from './getUserName';
 describe('getUserName', () => {
   const state = {
     authForm: {
-      userName: 'user',
+      username: 'user',
     },
   } as StateScheme;
 
