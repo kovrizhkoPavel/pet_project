@@ -6,6 +6,7 @@ import { StateScheme } from 'shared/types/stateScheme';
 import { updateProfileData } from './updateProfileData';
 
 const data: TProfile = {
+  id: '1',
   username: 'username',
   firstname: 'firstname',
   lastname: 'lastname',
