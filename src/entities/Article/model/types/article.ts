@@ -1,7 +1,8 @@
 import { TObjectValue } from 'shared/types/types';
-import { ArticleBlockType, ArticleType } from '../../constants';
+import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 
 type TArticleType = TObjectValue<typeof ArticleType>;
+export type TArticlesView = TObjectValue<typeof ArticlesView>;
 export type TArticleBlockType = TObjectValue<typeof ArticleBlockType>;
 
 type TArticleBase = {

@@ -1,0 +1,50 @@
+.cardSmall {
+  position: relative;
+  width: 210px;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.01);
+    opacity: var(--opacity-hover);
+
+    .date {
+      display: block;
+    }
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
+}
+
+.img {
+  width: 100%;
+  height: 181px;
+  object-fit: fill;
+}
+
+.date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.eyeIcon {
+  margin-right: 2px;
+  padding-top: 4px;
+  fill: var(--font-color)
+}
+
+.categories {
+  width: 115px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.categoriesWrap {
+  display: flex;
+  justify-content: space-between;
+}

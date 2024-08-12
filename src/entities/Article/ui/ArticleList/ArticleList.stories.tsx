@@ -1,6 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider/constants';
 import { TArticle } from 'entities/Article/model/types/article';
 import { ArticleBlockType, ArticlesView, ArticleType } from 'entities/Article/constants';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from './ArticleList';
 
 const article: TArticle = {
   id: '1',
@@ -9,7 +12,7 @@ const article: TArticle = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: [ArticleType.IT],
+  type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
   blocks: [
     {
       id: '1',
@@ -38,10 +41,20 @@ const article: TArticle = {
   ],
 };
 
-const ArticlesPage = () => (
-  <div>
-    <ArticleList view={ArticlesView.TILE} articles={[article]} />
-  </div>
-);
+const meta = {
+  title: 'entities/ArticleList',
+  component: ArticleList,
+  args: {
+    articles: [article],
+    view: ArticlesView.TILE,
+  },
+} satisfies Meta<typeof ArticleList>;
 
-export default ArticlesPage;
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Light: Story = {};
+
+export const Dark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

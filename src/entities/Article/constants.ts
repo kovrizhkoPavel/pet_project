@@ -9,3 +9,8 @@ export const ArticleBlockType = <const>{
   CODE: 'CODE',
   IMAGE: 'IMAGE',
 };
+
+export const ArticlesView = <const>{
+  TILE: 'TILE',
+  LIST: 'LIST',
+};
