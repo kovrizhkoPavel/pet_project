@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
+import { CardBig } from 'entities/Article/ui/ArticleList/CardBig/CardBig';
 import { SkeletonList } from './SkeletonList/SkeletonList';
 import { ArticlesView } from '../../constants';
 import { CardSmall } from './CardSmall/CardSmall';
@@ -28,7 +29,10 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
 
   return (
     <div className={getClassName(cls.articleList, mods, [className])}>
-      {new Array(20).fill(articles[0]).map((article) => <CardSmall className={cls.tileCard} article={article} />)}
+      {articles.map((article) => (view === ArticlesView.LIST
+        ? <CardBig className={cls.listCard} article={article} key={article.id} />
+        : <CardSmall className={cls.tileCard} article={article} key={article.id} />
+      ))}
     </div>
   );
 };

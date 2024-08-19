@@ -10,6 +10,11 @@ const article: TArticle = {
   views: 1022,
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
+  user: {
+    id: 1,
+    username: 'User',
+    avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+  },
   blocks: [
     {
       id: '1',
@@ -40,7 +45,7 @@ const article: TArticle = {
 
 const ArticlesPage = () => (
   <div>
-    <ArticleList view={ArticlesView.TILE} articles={[article]} />
+    <ArticleList view={ArticlesView.LIST} articles={[article]} />
   </div>
 );
 

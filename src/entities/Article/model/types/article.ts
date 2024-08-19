@@ -1,4 +1,5 @@
 import { TObjectValue } from 'shared/types/types';
+import { TUser } from 'entities/User';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 
 type TArticleType = TObjectValue<typeof ArticleType>;
@@ -36,6 +37,7 @@ export type TArticle = {
   img: string;
   views: number;
   createdAt: string;
+  user: TUser;
   type: TArticleType[];
   blocks: TArticleBlock[];
 }

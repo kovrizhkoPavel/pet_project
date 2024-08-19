@@ -12,6 +12,10 @@ const article: TArticle = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
+  user: {
+    id: 1,
+    username: 'User',
+  },
   type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
   blocks: [
     {
@@ -45,7 +49,7 @@ const meta = {
   title: 'entities/ArticleList',
   component: ArticleList,
   args: {
-    articles: [article],
+    articles: [article, article],
     view: ArticlesView.TILE,
   },
 } satisfies Meta<typeof ArticleList>;
@@ -53,8 +57,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {};
+export const LightTail: Story = {};
 
-export const Dark: Story = {
+export const DarkTail: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const LightList: Story = {
+  args: {
+    articles: [article],
+    view: ArticlesView.LIST,
+  },
+};
+
+export const DarkList: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+  args: {
+    articles: [article],
+    view: ArticlesView.LIST,
+  },
 };
