@@ -21,7 +21,6 @@ export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<
       }
 
       dispatch(userActions.setAuthData(data));
-      console.log('1');
       return data;
     } catch (err) {
       return rejectWithValue('error');

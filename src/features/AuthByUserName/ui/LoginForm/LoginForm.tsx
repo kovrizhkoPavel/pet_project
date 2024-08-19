@@ -11,7 +11,6 @@ import { KeyboardKey } from 'shared/constants/common';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
 import { useNavigate } from 'react-router-dom';
-import { getAuthData, TUser } from 'entities/User';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
