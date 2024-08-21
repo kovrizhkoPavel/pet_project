@@ -32,7 +32,9 @@ export const articlePageSlice = createSlice({
     },
 
     initViewState(state) {
-      state.view = localStorage.getItem(LocalStorageKey.ARTICLE_VIEW) as TArticlesView || ArticlesView.TILE;
+      state.view = localStorage.getItem(
+        LocalStorageKey.ARTICLE_VIEW,
+      ) as TArticlesView || ArticlesView.TILE;
     },
   },
   extraReducers: (builder) => {
