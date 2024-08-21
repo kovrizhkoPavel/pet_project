@@ -32,7 +32,7 @@ export const articlePageSlice = createSlice({
         state.error = '';
       })
       .addCase(fetchGetArticleList.fulfilled, (state, action: PayloadAction<TArticle[]>) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.error = '';
         articlePageAdapter.setAll(state, action.payload);
       })
@@ -43,5 +43,5 @@ export const articlePageSlice = createSlice({
   },
 });
 
-export const { actions: Actions } = articlePageSlice;
-export const { reducer: Reducer } = articlePageSlice;
+export const { actions: articlePageActions } = articlePageSlice;
+export const { reducer: articlePageReducer } = articlePageSlice;
