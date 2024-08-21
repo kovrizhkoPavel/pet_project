@@ -1,4 +1,3 @@
-import { ArticlesView } from 'entities/Article/constants';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { TReducers } from 'shared/types/stateScheme';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';

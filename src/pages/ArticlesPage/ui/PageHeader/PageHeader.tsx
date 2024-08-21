@@ -35,7 +35,11 @@ export const PageHeader: FC<TPageHeaderProps> = ({ className }) => {
           />
           <ButtonIcon
             className={cls.button}
-            iconClassName={getClassName(cls.icon, { [cls.active]: view === ArticlesView.LIST }, [cls.iconList])}
+            iconClassName={getClassName(
+              cls.icon,
+              { [cls.active]: view === ArticlesView.LIST },
+              [cls.iconList],
+            )}
             onClick={onClick(ArticlesView.LIST)}
             Icon={ListIcon}
           />
