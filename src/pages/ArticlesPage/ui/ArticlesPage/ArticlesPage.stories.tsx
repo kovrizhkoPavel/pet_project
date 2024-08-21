@@ -1,11 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { ArticlesView } from 'entities/Article/constants';
+import { StateScheme } from 'shared/types/stateScheme';
 import ArticlesPage from './ArticlesPage';
 
 const meta = {
   title: 'pages/Articles',
   component: ArticlesPage,
+  decorators: [StoreDecorator({
+    articles: {
+      view: ArticlesView.TILE,
+      isLoading: false,
+    },
+  } as StateScheme)],
 } satisfies Meta<typeof ArticlesPage>;
 
 export default meta;

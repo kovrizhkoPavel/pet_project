@@ -1,7 +1,8 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TArticle } from 'entities/Article/model/types/article';
+import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
+import { LocalStorageKey } from 'shared/constants/localstorage';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
@@ -24,7 +25,16 @@ const initialState: ArticlesPageSchema = {
 export const articlePageSlice = createSlice({
   name: 'articlePageSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    setView(state, action) {
+      state.view = action.payload;
+      localStorage.setItem(LocalStorageKey.ARTICLE_VIEW, action.payload);
+    },
+
+    initViewState(state) {
+      state.view = localStorage.getItem(LocalStorageKey.ARTICLE_VIEW) as TArticlesView || ArticlesView.TILE;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchGetArticleList.pending, (state) => {

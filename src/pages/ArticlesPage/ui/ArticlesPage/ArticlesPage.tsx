@@ -5,9 +5,11 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
-import { fetchGetArticleList } from '../model/services/fetchGetArticleList/fetchGetArticleList';
-import { getIsLoading } from '../model/services/selectors/getArticles';
-import { articlePageReducer, getArticles } from '../model/slice/articlePageSlice';
+import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
+import { getIsLoading, getView } from '../../model/services/selectors/getArticles';
+import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { PageHeader } from '../PageHeader/PageHeader';
+import cls from './ArticlePage.module.scss';
 
 const initialReducer: TReducers = {
   articles: articlePageReducer,
@@ -18,16 +20,19 @@ const ArticlesPage = () => {
 
   const articleList = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getIsLoading);
+  const view = useSelector(getView);
   const dispatch = useAppDispatch();
 
   useAppUseEffect(() => {
     dispatch(fetchGetArticleList());
+    dispatch(articlePageActions.initViewState());
   }, [dispatch]);
 
   return (
     <div>
+      <PageHeader className={cls.header} />
       <ArticleList
-        view={ArticlesView.LIST}
+        view={view}
         articles={articleList}
         isLoading={isLoading}
       />
