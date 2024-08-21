@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import TileIcon from 'shared/assets/icon/tile-icon.svg';
@@ -15,7 +15,7 @@ type TPageHeaderProps = {
   className?: string;
 }
 
-export const PageHeader: FC<TPageHeaderProps> = ({ className }) => {
+export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getView);
 
@@ -47,4 +47,4 @@ export const PageHeader: FC<TPageHeaderProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});

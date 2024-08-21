@@ -6,17 +6,21 @@ import { LocalStorageKey } from 'shared/constants/localstorage';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
+const adapterInitialState = {
+  ids: [],
+  entities: {},
+};
+
 const articlePageAdapter = createEntityAdapter({
   selectId: (article: TArticle) => article.id,
 });
 
 export const getArticles = articlePageAdapter.getSelectors<StateScheme>(
-  (state) => state.articles || articlePageAdapter.getInitialState(),
+  (state) => state.articles || adapterInitialState,
 );
 
 const initialState: ArticlesPageSchema = {
-  ids: [],
-  entities: {},
+  ...adapterInitialState,
   isLoading: false,
   error: '',
   view: ArticlesView.TILE,
