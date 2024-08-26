@@ -3,6 +3,7 @@ import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
 import { LocalStorageKey } from 'shared/constants/localstorage';
+import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
@@ -24,6 +25,9 @@ const initialState: ArticlesPageSchema = {
   isLoading: false,
   error: '',
   view: ArticlesView.TILE,
+  pageNum: DEFAULT_PAGE_NUM,
+  limit: PageLimit.TILE,
+  hasMore: true,
 };
 
 export const articlePageSlice = createSlice({
@@ -35,10 +39,18 @@ export const articlePageSlice = createSlice({
       localStorage.setItem(LocalStorageKey.ARTICLE_VIEW, action.payload);
     },
 
+    setPageNum(state, action) {
+      state.pageNum = action.payload;
+    },
+
     initViewState(state) {
       state.view = localStorage.getItem(
         LocalStorageKey.ARTICLE_VIEW,
       ) as TArticlesView || ArticlesView.TILE;
+
+      state.limit = state.view === ArticlesView.TILE
+        ? PageLimit.TILE
+        : PageLimit.LIST;
     },
   },
   extraReducers: (builder) => {
@@ -50,7 +62,7 @@ export const articlePageSlice = createSlice({
       .addCase(fetchGetArticleList.fulfilled, (state, action: PayloadAction<TArticle[]>) => {
         state.isLoading = false;
         state.error = '';
-        articlePageAdapter.setAll(state, action.payload);
+        articlePageAdapter.addMany(state, action.payload);
       })
       .addCase(fetchGetArticleList.rejected, (state, action) => {
         state.isLoading = false;
