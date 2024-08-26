@@ -13,6 +13,9 @@ const meta = {
     articles: {
       view: ArticlesView.TILE,
       isLoading: false,
+      limit: 1,
+      pageNum: 1,
+      hasMore: false,
     },
   } as StateScheme)],
 } satisfies Meta<typeof ArticlesPage>;
