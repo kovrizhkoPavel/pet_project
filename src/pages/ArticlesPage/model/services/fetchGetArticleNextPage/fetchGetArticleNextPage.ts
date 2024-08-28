@@ -19,7 +19,7 @@ export const fetchGetArticleNextPage = createAsyncThunk<
 
     if (isLoading || !hasMore) return;
 
-    dispatch(fetchGetArticleList({ pageNum }));
     dispatch(articlePageActions.setPageNum(pageNum));
+    dispatch(fetchGetArticleList());
   },
 );

@@ -2,22 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { ArticleUrl } from 'shared/constants/api';
 import { TArticle } from 'entities/Article/model/types/article';
-import { getLimit } from '../../selectors/getArticles';
-
-type TFetchGetArticlesParams = {
-  pageNum: number;
-};
+import { getLimit, getPageNum } from '../../selectors/getArticles';
 
 export const fetchGetArticleList = createAsyncThunk<
   TArticle[],
-  TFetchGetArticlesParams,
+  void,
   TThunkApiConfig<string>
 >(
   'ArticlePage/fetchGetArticleList',
-  async ({ pageNum }, thinkAPI) => {
+  async (_, thinkAPI) => {
     const { extra, rejectWithValue, getState } = thinkAPI;
 
     const limit = getLimit(getState());
+    const pageNum = getPageNum(getState());
 
     try {
       const response = await extra.api.get<TArticle[]>(ArticleUrl.ARTICLE, {
