@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect } from 'react';
 
 type TProps = {
-  rootRef: MutableRefObject<HTMLElement | null | undefined>;
+  rootRef: MutableRefObject<HTMLElement | null | undefined> | null;
   observeRef: MutableRefObject<HTMLElement | null | undefined>;
   cb: VoidFunction;
 }
@@ -14,9 +14,9 @@ export const useIntersectionObserver = (props: TProps) => {
     const rootElm = rootRef?.current;
     let observer: IntersectionObserver;
 
-    if (observeElm && rootElm) {
+    if (observeElm) {
       const options = {
-        // root: rootElm,
+        root: rootElm,
         rootMargin: '0px',
         threshold: 1.0,
       };

@@ -32,7 +32,7 @@ const ArticlesPage = () => {
 
   const onLoadNextPageNum = useCallback(() => {
     dispatch(fetchGetArticleNextPage());
-  }, []);
+  }, [dispatch, fetchGetArticleNextPage]);
 
   useAppUseEffect(() => {
     dispatch(articlePageActions.initViewState());

@@ -12,17 +12,16 @@ type TInfinityScrollProps = {
 
 export const InfinityScroll: FC<TInfinityScrollProps> = (props) => {
   const { cb, className, children } = props;
-  const rootRef = useRef<HTMLDivElement | null>(null);
   const observeRef = useRef<HTMLDivElement | null>(null);
 
   useIntersectionObserver({
-    rootRef,
+    rootRef: null,
     observeRef,
     cb,
   });
 
   return (
-    <div ref={rootRef} className={className}>
+    <div className={className}>
       {children}
       <div ref={observeRef} />
     </div>
