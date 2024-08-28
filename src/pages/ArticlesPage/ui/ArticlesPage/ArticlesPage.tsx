@@ -5,13 +5,11 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
-import { getPageNum } from 'pages/ArticlesPage/model/selectors/getArticles';
 import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 import {
   fetchGetArticleNextPage,
 } from 'pages/ArticlesPage/model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
-import { useIntersectionObserver } from 'shared/lib/hooks/useIntersectionObserver';
 import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
 import { getIsLoading, getView } from '../../model/services/selectors/getArticles';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
