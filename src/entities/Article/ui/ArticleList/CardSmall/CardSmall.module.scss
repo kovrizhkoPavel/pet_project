@@ -1,0 +1,50 @@
+.date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.cardSmall {
+  position: relative;
+  width: 210px;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+    transform: scale(1.01);
+
+    .date {
+      display: block;
+    }
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
+}
+
+.img {
+  width: 100%;
+  height: 181px;
+  object-fit: fill;
+}
+
+.eyeIcon {
+  padding-top: 4px;
+  margin-right: 2px;
+  fill: var(--font-color);
+}
+
+.categories {
+  width: 115px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.categoriesWrap {
+  display: flex;
+  justify-content: space-between;
+}

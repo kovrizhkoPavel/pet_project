@@ -21,10 +21,3 @@ body {
 .content {
   width: 100%;
 }
-
-.page-wrapper {
-  flex-grow: 1;
-  height: calc(100vh - var(--navbar-height));
-  padding: 20px;
-  overflow-y: auto;
-}

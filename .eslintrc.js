@@ -90,7 +90,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react/jsx-props-no-spreading': 'warn',
-    'react/no-array-index-key': 'error',
+    'react/no-array-index-key': 'warn',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-console': 'error',

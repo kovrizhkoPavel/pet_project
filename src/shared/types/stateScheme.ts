@@ -6,6 +6,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsScheme } from 'entities/Article';
 import { ArticleCommentsScheme } from 'features/ArticleComments';
 import { AddCommentFormScheme } from 'features/AddCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export type StateScheme = {
   user: UserScheme;
@@ -13,6 +14,7 @@ export type StateScheme = {
   // async reducers
   authForm?: AuthSchema;
   profile?: ProfileScheme;
+  articles?: ArticlesPageSchema;
   articleDetails?: ArticleDetailsScheme;
   articleComments?: ArticleCommentsScheme;
   addCommentForm?: AddCommentFormScheme;

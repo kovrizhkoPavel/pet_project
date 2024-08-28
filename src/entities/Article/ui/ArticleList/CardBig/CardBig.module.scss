@@ -1,0 +1,53 @@
+.header,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.footer {
+  margin-bottom: 0;
+}
+
+.userContainer {
+  display: flex;
+}
+
+.username {
+  padding-top: 4px;
+  padding-left: 8px;
+}
+
+.textBlock {
+  display: -webkit-box;
+  height: 120px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.img {
+  width: 100%;
+  height: 250px;
+  margin: 16px 0;
+  object-fit: cover;
+}
+
+.skeletonCard {
+  padding: 4px;
+
+  .username {
+    margin: 8px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+  }
+
+  .view {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+  }
+}

@@ -1,13 +1,13 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
 
-const MainPage: FC = () => {
+const MainPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      {t('translation\:title_main')}
-    </div>
+    <PageContainer>
+      <h1>{t('translation\:title_main')}</h1>
+    </PageContainer>
   );
 };
 

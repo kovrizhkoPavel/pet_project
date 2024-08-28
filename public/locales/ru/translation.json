@@ -2,6 +2,7 @@
   "authorization_title": "Авторизация",
   "button_login": "Войти",
   "button_logout": "Выйти",
+  "button_read_mode": "Читать далее...",
   "button_reload_page": "Перезагрузить страницу",
   "button_switch_lang": "Русский",
   "comment_form_label": "Комментарий",

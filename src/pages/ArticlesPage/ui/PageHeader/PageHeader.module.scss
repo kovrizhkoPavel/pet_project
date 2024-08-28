@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.viewButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 56px;
+}
+
+.button {
+  width: 24px;
+  height: 24px;
+}
+
+.iconList {
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  fill: var(--font-color);
+  stroke: var(--font-color);
+}
+
+.active {
+  fill: var(--secondary-color);
+  stroke: var(--secondary-color);
+}
