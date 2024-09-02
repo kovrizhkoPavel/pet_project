@@ -5,7 +5,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { ArticleComments } from 'features/ArticleComments';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+import { PageContainer } from 'widgets/PageContainer';
 import { fetchAddArticleComment } from '../model/services/fetchAddArticleComment';
 import cls from './ArticleDetailsPage.module.scss';
 
