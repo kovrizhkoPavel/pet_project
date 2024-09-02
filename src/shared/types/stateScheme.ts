@@ -7,9 +7,11 @@ import { ArticleDetailsScheme } from 'entities/Article';
 import { ArticleCommentsScheme } from 'features/ArticleComments';
 import { AddCommentFormScheme } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollPositionSchema } from 'features/SaveScrollPosition/model/types/ScrollPositionSchema';
 
 export type StateScheme = {
   user: UserScheme;
+  scrollPosition: ScrollPositionSchema;
 
   // async reducers
   authForm?: AuthSchema;

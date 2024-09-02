@@ -3,6 +3,7 @@ import { StateScheme, TThunkExtra } from 'shared/types/stateScheme';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
+import { scrollPositionReducer } from 'features/SaveScrollPosition';
 
 export const createReduxStore = (
   initialState?: StateScheme,
@@ -11,6 +12,7 @@ export const createReduxStore = (
   const reducer: ReducersMapObject<StateScheme> = {
     ...asyncReducers,
     user: userReducer,
+    scrollPosition: scrollPositionReducer,
   };
 
   const reducerManager = createReducerManager(reducer);
