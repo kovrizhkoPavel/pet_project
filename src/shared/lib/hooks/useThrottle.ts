@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-export const useThrottle = (cb: Function, delay: number) => {
+export const useThrottle = (cb: (...args: unknown[]) => unknown, delay: number) => {
   const canCall = useRef(true);
 
   return useCallback((...args: unknown[]) => {
