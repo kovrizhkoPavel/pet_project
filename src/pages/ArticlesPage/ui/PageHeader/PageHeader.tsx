@@ -7,9 +7,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { TArticlesView } from 'entities/Article/model/types/article';
 import { ArticlesView } from 'entities/Article/constants';
-import { getView } from '../../model/services/selectors/getArticles';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './PageHeader.module.scss';
+import { getView } from '../../model/selectors/getArticles';
 
 type TPageHeaderProps = {
   className?: string;

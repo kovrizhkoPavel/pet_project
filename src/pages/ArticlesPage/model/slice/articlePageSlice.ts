@@ -23,6 +23,7 @@ export const getArticles = articlePageAdapter.getSelectors<StateScheme>(
 const initialState: ArticlesPageSchema = {
   ...adapterInitialState,
   isLoading: false,
+  isInitialized: false,
   error: '',
   view: ArticlesView.TILE,
   pageNum: DEFAULT_PAGE_NUM,
@@ -51,6 +52,8 @@ export const articlePageSlice = createSlice({
       state.limit = state.view === ArticlesView.TILE
         ? PageLimit.TILE
         : PageLimit.LIST;
+
+      state.isInitialized = true;
     },
   },
   extraReducers: (builder) => {

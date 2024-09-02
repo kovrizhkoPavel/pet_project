@@ -17,6 +17,7 @@ const articles = {
   isLoading: false,
   hasMore: true,
   view: ArticlesView.TILE,
+  isInitialized: false,
 } as ArticlesPageSchema;
 
 const state = { articles } as StateScheme;

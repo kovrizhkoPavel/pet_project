@@ -7,21 +7,19 @@ import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
 import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
-import {
-  fetchGetArticleNextPage,
-} from 'pages/ArticlesPage/model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
-import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
-import { getIsLoading, getView } from '../../model/services/selectors/getArticles';
-import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { fetchGetArticleNextPage } from '../../model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
+import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
 import { PageHeader } from '../PageHeader/PageHeader';
 import cls from './ArticlePage.module.scss';
+import { getIsLoading, getView } from '../../model/selectors/getArticles';
+import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 
 const initialReducer: TReducers = {
   articles: articlePageReducer,
 };
 
 const ArticlesPage = () => {
-  useDynamicModuleLoader(initialReducer);
+  useDynamicModuleLoader(initialReducer, false);
 
   const articleList = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getIsLoading);
@@ -33,8 +31,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useAppUseEffect(() => {
-    dispatch(articlePageActions.initViewState());
-    dispatch(fetchGetArticleList());
+    initArticlePage();
   }, [dispatch]);
 
   return (
