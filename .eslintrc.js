@@ -95,6 +95,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-console': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    '@typescript-eslint/no-explicit-any': 'warn',
     // 'sort-imports': ['error', {
     //   ignoreCase: false,
     //   ignoreDeclarationSort: false,

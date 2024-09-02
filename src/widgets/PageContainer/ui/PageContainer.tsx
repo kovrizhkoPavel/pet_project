@@ -1,5 +1,5 @@
 import {
-  ChangeEvent, FC, ReactNode, UIEvent, useRef,
+  FC, ReactNode, UIEvent, useRef,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useLocation } from 'react-router-dom';
