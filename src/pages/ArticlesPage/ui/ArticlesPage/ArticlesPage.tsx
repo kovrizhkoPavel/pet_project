@@ -31,7 +31,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useAppUseEffect(() => {
-    initArticlePage();
+    dispatch(initArticlePage());
   }, [dispatch]);
 
   return (

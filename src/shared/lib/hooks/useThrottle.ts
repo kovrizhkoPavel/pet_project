@@ -1,15 +1,15 @@
 import { useCallback, useRef } from 'react';
 
-export const useThrottle = (cb: (...args: unknown[]) => unknown, delay: number) => {
+export const useThrottle = (cb: (...args: any[]) => any, delay: number) => {
   const canCall = useRef(true);
 
-  return useCallback((...args: unknown[]) => {
+  return useCallback((...args: any[]) => {
     if (canCall.current) {
-      cb(args);
+      cb(...args);
       canCall.current = false;
 
       setTimeout(() => {
-        canCall.current = false;
+        canCall.current = true;
       }, delay);
     }
   }, [cb, delay]);

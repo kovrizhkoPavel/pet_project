@@ -1,7 +1,7 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
-import { DEFAULT_PAGE_NUM, PageLimit } from 'pages/ArticlesPage/constants';
 import { ArticlesView } from 'entities/Article/constants';
+import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
 const getArticles = (state: StateScheme) => state?.articles;
