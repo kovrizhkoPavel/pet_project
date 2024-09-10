@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Select, TSelectOption } from 'shared/ui/Select/Select';
 import { TObjectValue, TSortOrder } from 'shared/types/types';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { articlesSortActions } from 'features/ArticlesSort';
+import { articlesSortActions } from '../../model/slice/articleSortSlice';
 import { SortField, SortOrder } from '../../constants';
 import cls from './ArticleSort.module.scss';
 
