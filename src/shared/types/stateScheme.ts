@@ -9,6 +9,7 @@ import { AddCommentFormScheme } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollPositionSchema } from 'features/SaveScrollPosition/model/types/ScrollPositionSchema';
 import { ArticlesSortScheme } from 'features/ArticlesSort/model/types/ArticlesSortScheme';
+import { ArticlesSearchScheme } from 'features/ArticlesSearch/model/types/ArticlesSearchScheme';
 
 export type StateScheme = {
   user: UserScheme;
@@ -22,6 +23,7 @@ export type StateScheme = {
   articleComments?: ArticleCommentsScheme;
   addCommentForm?: AddCommentFormScheme;
   articlesSort?: ArticlesSortScheme;
+  articlesSearch?: ArticlesSearchScheme;
 };
 
 export type TStateSchemeKeys = keyof StateScheme;

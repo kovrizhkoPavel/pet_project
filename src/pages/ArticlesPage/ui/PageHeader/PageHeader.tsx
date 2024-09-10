@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { TArticlesView } from 'entities/Article/model/types/article';
 import { ArticlesView } from 'entities/Article/constants';
 import { ArticleSort } from 'features/ArticlesSort';
+import { ArticlesSearch } from 'features/ArticlesSearch/ui/ArticlesSearch/ArticlesSearch';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
@@ -51,6 +52,7 @@ export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
           />
         </div>
       </div>
+      <ArticlesSearch onChange={onFiltersChange} />
     </div>
   );
 });
