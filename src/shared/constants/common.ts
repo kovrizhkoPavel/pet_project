@@ -3,16 +3,18 @@ export const KeyboardKey = <const>{
   ESCAPE: 'Escape',
 };
 
-export const Currency = {
+export const Currency = <const>{
   RUB: 'RUB',
   EU: 'EU',
   USD: 'USD',
 };
 
-export const Country = {
+export const Country = <const>{
   Russia: 'Russia',
   Belarus: 'Belarus',
   Ukraine: 'Ukraine',
   Kazakhstan: 'Kazakhstan',
   Armenia: 'Armenia',
 };
+
+export const I18N_NS = 'pet_project';
