@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Select, TSelectOption } from 'shared/ui/Select/Select';
 import { TObjectValue, TSortOrder } from 'shared/types/types';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { articleSortActions } from 'features/ArticlesSort';
+import { articlesSortActions } from 'features/ArticlesSort';
 import { SortField, SortOrder } from '../../constants';
 import cls from './ArticleSort.module.scss';
 
@@ -46,12 +46,12 @@ export const ArticleSort: FC<TArticleSortProps> = (props) => {
   ];
 
   const onSelectOrderChange = useCallback((value:TSortOrder) => {
-    dispatch(articleSortActions.setSortOrder(value));
+    dispatch(articlesSortActions.setSortOrder(value));
     onSortChange();
   }, [dispatch, onSortChange]);
 
   const onSelectFieldChange = useCallback((value:TSortField) => {
-    dispatch(articleSortActions.setSortField(value));
+    dispatch(articlesSortActions.setSortField(value));
     onSortChange();
   }, [dispatch, onSortChange]);
 
