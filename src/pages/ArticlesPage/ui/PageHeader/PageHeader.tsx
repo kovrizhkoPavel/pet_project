@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { TArticlesView } from 'entities/Article/model/types/article';
 import { ArticlesView } from 'entities/Article/constants';
+import { ArticleSort } from 'features/ArticlesSort';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
@@ -26,6 +27,7 @@ export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   return (
     <div className={getClassName(cls.pageHeader, {}, [className])}>
       <div className={cls.container}>
+        <ArticleSort />
         <div className={cls.viewButtons}>
           <ButtonIcon
             className={cls.button}
