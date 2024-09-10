@@ -21,6 +21,5 @@ export const renderComponent = (component: ReactNode, options: TOptions = {}) =>
         </I18nextProvider>
       </StoreProvider>
     </MemoryRouter>,
-
   );
 };

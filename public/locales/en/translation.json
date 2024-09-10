@@ -27,6 +27,8 @@
   "profile_required": "Required field",
   "profile_reset_btn": "Reset",
   "profile_submit_btn": "Submit",
+  "sort-desc": "descending",
+  "sort-asc": "Ascending",
   "title_about": "About",
   "title_articles": "Articles",
   "title_articles_details": "Article",
