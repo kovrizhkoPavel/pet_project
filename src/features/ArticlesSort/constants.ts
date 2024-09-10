@@ -5,7 +5,7 @@ export const SortOrder: Record<Uppercase<TSortOrder>, TSortOrder> = <const>{
   DESC: 'desc',
 };
 
-export const SortField = {
+export const SortField = <const>{
   VIEWS: 'views',
   CREATED: 'created',
   TITLE: 'title',

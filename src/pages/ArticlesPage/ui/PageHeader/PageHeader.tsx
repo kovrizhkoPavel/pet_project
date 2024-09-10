@@ -24,10 +24,14 @@ export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
     dispatch(articlePageActions.setView(value));
   };
 
+  const onControlChange = () => {
+    console.log('change');
+  };
+
   return (
     <div className={getClassName(cls.pageHeader, {}, [className])}>
       <div className={cls.container}>
-        <ArticleSort />
+        <ArticleSort onSortChange={onControlChange} />
         <div className={cls.viewButtons}>
           <ButtonIcon
             className={cls.button}

@@ -9,7 +9,7 @@ type TCurrencySelectProps = {
   onChange?: (val: string) => void;
 }
 
-const options: TSelectOption[] = Object.entries(Currency).map(([value, label]) => ({
+const options: TSelectOption<string>[] = Object.entries(Currency).map(([value, label]) => ({
   value,
   label,
 }));
