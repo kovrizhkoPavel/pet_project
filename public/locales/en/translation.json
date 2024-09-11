@@ -1,5 +1,10 @@
 {
   "article_search": "Search...",
+  "articles_filter_economics": "Economics",
+  "articles_filter_it": "IT",
+  "articles_filter_natural_science": "Natural science",
+  "articles_filter_policy": "Policy",
+  "articles_filter_science": "Science",
   "authorization_title": "Authorization",
   "button_login": "Log in",
   "button_logout": "Logout",

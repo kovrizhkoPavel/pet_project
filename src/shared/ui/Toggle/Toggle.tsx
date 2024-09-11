@@ -8,18 +8,18 @@ type TToggleProps = {
   children: ReactNode;
   isActive?: boolean;
   className?: string;
-  onChange?: VoidFunction;
+  onChangeHandler?: (isActive: boolean) => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Toggle: FC<TToggleProps> = (props) => {
   const {
-    className, children, isActive = false, onChange,
+    className, children, isActive = false, onChangeHandler,
   } = props;
   const [active, setActive] = useState(isActive);
 
   const onButtonClick = () => {
     setActive(!active);
-    onChange?.();
+    onChangeHandler?.(!active);
   };
 
   return (

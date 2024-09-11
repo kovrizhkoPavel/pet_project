@@ -8,6 +8,9 @@ import { profileReducer } from 'pages/ProfilePage/model/slice/profileSlice';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { articleCommentsReducer } from 'features/ArticleComments/model/slice/artileCommentSlice';
 import { articlePageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesFilterReducer } from 'features/ArticlesFilter';
+import { articlesSortReducer } from 'features/ArticlesSort';
+import { articlesSearchReducer } from 'features/ArticlesSearch';
 
 const defaultAsyncReducers: TReducers = {
   authForm: authReducer,
@@ -16,6 +19,9 @@ const defaultAsyncReducers: TReducers = {
   profile: profileReducer,
   addCommentForm: addCommentFormReducer,
   articles: articlePageReducer,
+  articlesSort: articlesSortReducer,
+  articlesSearch: articlesSearchReducer,
+  articlesFilter: articlesFilterReducer,
 };
 
 export const StoreDecorator = (

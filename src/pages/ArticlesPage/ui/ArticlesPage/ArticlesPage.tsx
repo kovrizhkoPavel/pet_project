@@ -7,15 +7,21 @@ import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { PageContainer } from 'widgets/PageContainer';
 import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
+import { articlesSearchReducer } from 'features/ArticlesSearch';
+import { articlesSortReducer } from 'features/ArticlesSort';
+import { articlesFilterReducer } from 'features/ArticlesFilter';
 import { fetchGetArticleNextPage } from '../../model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
 import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
-import { PageHeader } from '../PageHeader/PageHeader';
+import { ArticlesHeader } from '../ArticlesHeader/ArticlesHeader';
 import cls from './ArticlePage.module.scss';
 import { getIsLoading, getView } from '../../model/selectors/getArticles';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 
 const initialReducer: TReducers = {
   articles: articlePageReducer,
+  articlesSort: articlesSortReducer,
+  articlesSearch: articlesSearchReducer,
+  articlesFilter: articlesFilterReducer,
 };
 
 const ArticlesPage = () => {
@@ -36,7 +42,7 @@ const ArticlesPage = () => {
 
   return (
     <PageContainer>
-      <PageHeader className={cls.header} />
+      <ArticlesHeader className={cls.header} />
       <InfinityScroll cb={onLoadNextPageNum}>
         <ArticleList
           view={view}

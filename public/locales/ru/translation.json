@@ -1,5 +1,10 @@
 {
   "article_search": "Поиск...",
+  "articles_filter_economics": "Экономика",
+  "articles_filter_it": "ИТ",
+  "articles_filter_natural_science": "Естествознание",
+  "articles_filter_policy": "Политика",
+  "articles_filter_science": "Наука",
   "authorization_title": "Авторизация",
   "button_login": "Войти",
   "button_logout": "Выйти",

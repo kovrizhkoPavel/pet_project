@@ -9,6 +9,7 @@ import { TArticlesView } from 'entities/Article/model/types/article';
 import { ArticlesView } from 'entities/Article/constants';
 import { ArticleSort } from 'features/ArticlesSort';
 import { ArticlesSearch } from 'features/ArticlesSearch';
+import { ArticlesFilter } from 'features/ArticlesFilter';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
@@ -17,7 +18,7 @@ type TPageHeaderProps = {
   className?: string;
 }
 
-export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
+export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getView);
 
@@ -53,6 +54,7 @@ export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
         </div>
       </div>
       <ArticlesSearch onChange={onFiltersChange} />
+      <ArticlesFilter onChange={onFiltersChange} />
     </div>
   );
 });
