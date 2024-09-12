@@ -13,6 +13,7 @@ import { ArticlesFilter } from 'features/ArticlesFilter';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
+import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
 
 type TPageHeaderProps = {
   className?: string;
@@ -27,7 +28,8 @@ export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   };
 
   const onFiltersChange = () => {
-    console.log('change');
+    dispatch(articlePageActions.resetPageNum());
+    dispatch(fetchGetArticleList({ replace: true }));
   };
 
   return (

@@ -1,4 +1,4 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
@@ -55,6 +55,10 @@ export const articlePageSlice = createSlice({
 
       state.isInitialized = true;
     },
+
+    resetPageNum(state) {
+      state.pageNum = DEFAULT_PAGE_NUM;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -62,10 +66,15 @@ export const articlePageSlice = createSlice({
         state.isLoading = true;
         state.error = '';
       })
-      .addCase(fetchGetArticleList.fulfilled, (state, action: PayloadAction<TArticle[]>) => {
+      .addCase(fetchGetArticleList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = '';
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length === state.limit;
+
+        if (action.meta.arg?.replace) {
+          articlePageAdapter.setAll(state, action.payload);
+          return;
+        }
 
         articlePageAdapter.addMany(state, action.payload);
       })

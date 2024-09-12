@@ -12,5 +12,5 @@ export const getSortOrder = createSelector(
 
 export const getSortField = createSelector(
   getArticleSort,
-  (state: ArticlesSortScheme | undefined) => state?.order || SortField.CREATED,
+  (state: ArticlesSortScheme | undefined) => state?.field || SortField.CREATED,
 );
