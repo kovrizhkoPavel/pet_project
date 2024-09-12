@@ -4,5 +4,5 @@ import { FilterType } from '../../constants';
 export type TFilterType = TObjectValue<typeof FilterType>;
 
 export type ArticlesFilterScheme = {
-  filterTypes: TFilterType[];
+  filterType?: TFilterType;
 }

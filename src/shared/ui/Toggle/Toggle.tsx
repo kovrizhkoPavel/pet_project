@@ -13,9 +13,9 @@ type TToggleProps = {
 
 export const Toggle: FC<TToggleProps> = (props) => {
   const {
-    className, children, isActive = false, onChangeHandler,
+    className, children, isActive, onChangeHandler,
   } = props;
-  const [active, setActive] = useState(isActive);
+  const [active, setActive] = useState(isActive ?? false);
 
   const onButtonClick = () => {
     setActive(!active);
@@ -28,7 +28,7 @@ export const Toggle: FC<TToggleProps> = (props) => {
       onClick={onButtonClick}
       className={getClassName(
         cls.toggle,
-        { [cls.active]: active },
+        { [cls.active]: isActive ?? active },
         [className],
       )}
     >

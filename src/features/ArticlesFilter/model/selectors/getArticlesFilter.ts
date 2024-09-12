@@ -6,5 +6,5 @@ const getArticlesFilter = (state: StateScheme) => state.articlesFilter;
 
 export const getFilterTypes = createSelector(
   getArticlesFilter,
-  (state: ArticlesFilterScheme | undefined) => state?.filterTypes || [],
+  (state: ArticlesFilterScheme | undefined) => state?.filterType,
 );

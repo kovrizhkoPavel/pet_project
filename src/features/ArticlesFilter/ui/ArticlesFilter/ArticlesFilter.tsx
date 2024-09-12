@@ -23,32 +23,30 @@ export const ArticlesFilter: FC<TArticlesFilterProps> = (props) => {
   const toggleListConfig = [
     {
       type: FilterType.IT,
-      isActive: filterTypes.includes(FilterType.IT),
+      isActive: FilterType.IT === filterTypes,
       text: t('translation\:articles_filter_it'),
     },
     {
       type: FilterType.POLICY,
-      isActive: filterTypes.includes(FilterType.POLICY),
+      isActive: FilterType.POLICY === filterTypes,
       text: t('translation\:articles_filter_policy'),
     },
     {
       type: FilterType.ECONOMICS,
-      isActive: filterTypes.includes(FilterType.ECONOMICS),
+      isActive: FilterType.ECONOMICS === filterTypes,
       text: t('translation\:articles_filter_economics'),
     },
     {
       type: FilterType.SCIENCE,
-      isActive: filterTypes.includes(FilterType.SCIENCE),
+      isActive: FilterType.SCIENCE === filterTypes,
       text: t('translation\:articles_filter_science'),
     },
   ];
 
-  const onToggleChange = (type: TFilterType) => (isActive: boolean) => {
-    if (isActive) {
-      dispatch(articlesFilterActions.addFilterTypes(type));
-    } else {
-      dispatch(articlesFilterActions.deleteFilterTypes(type));
-    }
+  const onToggleChange = (type: TFilterType) => () => {
+    dispatch(articlesFilterActions.setFilterType(
+      type === filterTypes ? undefined : type,
+    ));
     onChange();
   };
 
