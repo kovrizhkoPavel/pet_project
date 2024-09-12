@@ -14,11 +14,11 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news",
+      "title": "Javascript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "26.04.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -89,7 +89,7 @@
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?w=1600&ssl=1",
-      "views": 1022,
+      "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -110,11 +110,11 @@
     },
     {
       "id": "3",
-      "title": "Kotlin news",
+      "title": "Kotlin news 2019",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
+      "views": 94002,
+      "createdAt": "26.02.2019",
       "userId": "1",
       "type": [
         "IT"
@@ -134,11 +134,11 @@
     },
     {
       "id": "4",
-      "title": "Python news",
+      "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?w=1600&ssl=1",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://infostart.ru/upload/iblock/7cd/7cd7ae5c2f228b2f5259d5edc2aa6ad3.png",
+      "views": 10222,
+      "createdAt": "24.01.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -158,11 +158,11 @@
     },
     {
       "id": "5",
-      "title": "Kotlin news",
+      "title": "Golang news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "data:image/png;base64,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",
+      "views": 10222,
+      "createdAt": "26.02.2020",
       "userId": "1",
       "type": [
         "IT"
@@ -182,9 +182,9 @@
     },
     {
       "id": "6",
-      "title": "Python news",
+      "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?w=1600&ssl=1",
+      "img": "https://andreyex.ru/wp-content/uploads/2018/05/Kak-ustanovit-Java-s-apt-na-Ubuntu-18.04.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -206,11 +206,11 @@
     },
     {
       "id": "7",
-      "title": "Kotlin news",
+      "title": "Ruby news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--oqV3akcU--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/pgnw91fs7tpxn0wyeqh2.jpg",
+      "views": 100,
+      "createdAt": "21.02.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -230,10 +230,10 @@
     },
     {
       "id": "8",
-      "title": "Python news",
+      "title": "TypeScript news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?w=1600&ssl=1",
-      "views": 1022,
+      "img": "data:image/png;base64,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",
+      "views": 102222,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
@@ -256,7 +256,7 @@
       "id": "9",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -304,7 +304,7 @@
       "id": "11",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -352,7 +352,7 @@
       "id": "13",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -400,7 +400,7 @@
       "id": "15",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -448,12 +448,60 @@
       "id": "17",
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://habrastorage.org/getpro/habr/upload_files/c34/4c5/9f8/c344c59f81efa338f5dd4324a8411696.jpeg",
+      "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
         "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Экономическая статья - ИНФЛЯЦИЯ!",
+      "subtitle": "Экономика",
+      "img": "https://www.mirea.ru/upload/iblock/7cf/vvp_rf2018_1.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "ECONOMICS"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Научная статья - Биология",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -555,7 +603,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://upload.wikimedia.org/wikipedia/commons/c/cf/IoannIV_reconstruction_by_Gerasimov02.jpg"
+      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
     },
     {
       "id": "2",
@@ -575,17 +623,17 @@
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://upload.wikimedia.org/wikipedia/commons/c/cf/IoannIV_reconstruction_by_Gerasimov02.jpg"
+      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
     },
     {
       "id": "2",
-      "first": "ivan",
+      "first": "Ivan",
       "lastname": "asf",
       "age": 465,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "ivan",
+      "username": "Ivan",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ]
