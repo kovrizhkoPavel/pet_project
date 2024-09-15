@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
