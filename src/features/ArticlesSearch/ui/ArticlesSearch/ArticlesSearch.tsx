@@ -18,10 +18,10 @@ export const ArticlesSearch: FC<TArticlesSearchProps> = ({ className, onChange }
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const onSearchChange = useCallback(debounce((value: string) => {
+  const onSearchChange = debounce((value: string) => {
     dispatch(articlesSearchActions.setSearch(value));
     onChange();
-  }, DELAY), [dispatch, onChange]);
+  }, DELAY);
 
   return (
     <div className={getClassName(cls.articlesSearch, {}, [className])}>
