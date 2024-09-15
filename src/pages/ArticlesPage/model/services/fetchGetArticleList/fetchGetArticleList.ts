@@ -6,6 +6,7 @@ import { getArticlesSearchValue } from 'features/ArticlesSearch';
 import { getArticlesSortField, getArticlesSortOrder } from 'features/ArticlesSort';
 import { getArticlesFilterTypes } from 'features/ArticlesFilter';
 import { addQueryParams } from 'shared/lib/utils/addQueryParams/addQueryParams';
+import { TQuerySearchKeys } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import { getLimit, getPageNum } from '../../selectors/getArticles';
 
 type TFetchGetArticleListArg = {
@@ -28,13 +29,15 @@ export const fetchGetArticleList = createAsyncThunk<
     const sortOrder = getArticlesSortOrder(getState());
     const filterType = getArticlesFilterTypes(getState());
 
-    addQueryParams({
+    const queryParams: Record<TQuerySearchKeys, string | undefined> = {
       page: `${pageNum}`,
       sort: sortField,
       order: sortOrder,
       type: filterType,
       search,
-    });
+    };
+
+    addQueryParams(queryParams);
 
     try {
       const response = await extra.api.get<TArticle[]>(ArticleUrl.ARTICLE, {

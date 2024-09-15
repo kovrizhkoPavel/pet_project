@@ -4,6 +4,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useSearchParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
 import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
@@ -27,6 +28,7 @@ const initialReducer: TReducers = {
 const ArticlesPage = () => {
   useDynamicModuleLoader(initialReducer, false);
 
+  const [searchParams] = useSearchParams();
   const articleList = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getIsLoading);
   const view = useSelector(getView);
@@ -37,7 +39,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useAppUseEffect(() => {
-    dispatch(initArticlePage());
+    dispatch(initArticlePage(searchParams));
   }, [dispatch]);
 
   return (

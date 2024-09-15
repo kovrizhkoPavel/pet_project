@@ -1,11 +1,12 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
 import { LocalStorageKey } from 'shared/constants/localstorage';
+import { TOptionalRecord } from 'shared/types/types';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { ArticlesPageSchema, TQuerySearchKeys } from '../types/articlesPageSchema';
 
 const adapterInitialState = {
   ids: [],
@@ -42,6 +43,16 @@ export const articlePageSlice = createSlice({
 
     setPageNum(state, action) {
       state.pageNum = action.payload;
+    },
+
+    setPageBySearchParamsNum(
+      state,
+      action: PayloadAction<TOptionalRecord<TQuerySearchKeys, string>>,
+    ) {
+      const pageNum = action.payload?.page;
+      if (!pageNum) return;
+
+      state.pageNum = Number.isNaN(+pageNum) ? DEFAULT_PAGE_NUM : +pageNum;
     },
 
     initViewState(state) {

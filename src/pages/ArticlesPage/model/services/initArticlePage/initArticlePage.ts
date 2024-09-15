@@ -1,21 +1,32 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { fetchGetArticleList } from 'pages/ArticlesPage/model/services/fetchGetArticleList/fetchGetArticleList';
-import { articlePageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesFilterActions } from 'features/ArticlesFilter';
+import { articlesSearchActions } from 'features/ArticlesSearch';
+import { articlesSortActions } from 'features/ArticlesSort';
+import { getQuerySearchParams } from 'pages/ArticlesPage/utils/utils';
+import { fetchGetArticleList } from '../fetchGetArticleList/fetchGetArticleList';
+import { articlePageActions } from '../../slice/articlePageSlice';
 import { getIsInitialized } from '../../selectors/getArticles';
 
 export const initArticlePage = createAsyncThunk<
   void,
-  void,
+  URLSearchParams,
   TThunkApiConfig<string>
 >(
   '/initArticlePage',
-  async (_, thinkAPI) => {
+  async (searchParams, thinkAPI) => {
     const { dispatch, getState } = thinkAPI;
 
     const isInitialized = getIsInitialized(getState());
 
     if (isInitialized) return;
+
+    const params = getQuerySearchParams(searchParams);
+
+    dispatch(articlesFilterActions.setFilterTypeBySearchParams(params));
+    dispatch(articlesSearchActions.setSearchBySearchParams(params));
+    dispatch(articlesSortActions.setSortBySearchParams(params));
+    dispatch(articlePageActions.setPageBySearchParamsNum(params));
 
     dispatch(articlePageActions.initViewState());
     dispatch(fetchGetArticleList());

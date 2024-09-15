@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TOptionalRecord } from 'shared/types/types';
+import { TQuerySearchKeys } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import { ArticlesSearchScheme } from '../types/ArticlesSearchScheme';
 
 const initialState: ArticlesSearchScheme = {
@@ -11,6 +13,14 @@ export const ArticlesSearchSlice = createSlice({
   reducers: {
     setSearch: (state, actions: PayloadAction<string>) => {
       state.value = actions.payload;
+    },
+
+    setSearchBySearchParams: (
+      state,
+      action: PayloadAction<TOptionalRecord<TQuerySearchKeys, string>>,
+    ) => {
+      const searchParamsValue = action.payload?.search;
+      state.value = searchParamsValue ?? '';
     },
 
     reset: () => initialState,

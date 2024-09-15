@@ -13,3 +13,5 @@ export interface ArticlesPageSchema extends EntityState<TArticle, string> {
   limit: number;
   hasMore: boolean;
 }
+
+export type TQuerySearchKeys = 'page'| 'sort' | 'order' | 'type' | 'search'

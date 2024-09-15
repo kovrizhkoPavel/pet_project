@@ -13,8 +13,6 @@ describe('shared/getQueryParams', () => {
     expect(param).toBe('?test=11&test2=22&test3=33');
   });
   test('test with one param undefined', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     const param = getQueryParams({ test: '11', test2: undefined });
 
     expect(param).toBe('?test=11');
