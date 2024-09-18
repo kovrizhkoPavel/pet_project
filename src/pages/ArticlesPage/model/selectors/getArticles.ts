@@ -4,7 +4,7 @@ import { ArticlesView } from 'entities/Article/constants';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
-const getArticles = (state: StateScheme) => state?.articles;
+const getArticles = (state: StateScheme) => state?.articlesPage?.articles;
 
 export const getPageNum = createSelector(
   getArticles,

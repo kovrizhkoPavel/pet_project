@@ -13,12 +13,12 @@ const adapterInitialState = {
   entities: {},
 };
 
-const articlePageAdapter = createEntityAdapter({
+const articlesPageAdapter = createEntityAdapter({
   selectId: (article: TArticle) => article.id,
 });
 
-export const getArticles = articlePageAdapter.getSelectors<StateScheme>(
-  (state) => state.articles || adapterInitialState,
+export const getArticles = articlesPageAdapter.getSelectors<StateScheme>(
+  (state) => state?.articlesPage?.articles || adapterInitialState,
 );
 
 const initialState: ArticlesPageSchema = {
@@ -32,8 +32,8 @@ const initialState: ArticlesPageSchema = {
   hasMore: true,
 };
 
-export const articlePageSlice = createSlice({
-  name: 'articlePageSlice',
+export const articlesPageSlice = createSlice({
+  name: 'articlesPageSlice',
   initialState,
   reducers: {
     setView(state, action) {
@@ -83,11 +83,11 @@ export const articlePageSlice = createSlice({
         state.hasMore = action.payload.length === state.limit;
 
         if (action.meta.arg?.replace) {
-          articlePageAdapter.setAll(state, action.payload);
+          articlesPageAdapter.setAll(state, action.payload);
           return;
         }
 
-        articlePageAdapter.addMany(state, action.payload);
+        articlesPageAdapter.addMany(state, action.payload);
       })
       .addCase(fetchGetArticleList.rejected, (state, action) => {
         state.isLoading = false;
@@ -96,5 +96,5 @@ export const articlePageSlice = createSlice({
   },
 });
 
-export const { actions: articlePageActions } = articlePageSlice;
-export const { reducer: articlePageReducer } = articlePageSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer } = articlesPageSlice;

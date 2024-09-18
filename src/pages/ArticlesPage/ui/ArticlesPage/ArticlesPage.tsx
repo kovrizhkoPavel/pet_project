@@ -8,21 +8,16 @@ import { useSearchParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
 import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
-import { articlesSearchReducer } from 'features/ArticlesSearch';
-import { articlesSortReducer } from 'features/ArticlesSort';
-import { articlesFilterReducer } from 'features/ArticlesFilter';
+import { articlesPageMainReducer } from '../../model/reducers/articlesPageMainReducer';
 import { fetchGetArticleNextPage } from '../../model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
-import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { getArticles } from '../../model/slice/articlesPageSlice';
 import { ArticlesHeader } from '../ArticlesHeader/ArticlesHeader';
 import cls from './ArticlePage.module.scss';
 import { getIsLoading, getView } from '../../model/selectors/getArticles';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 
 const initialReducer: TReducers = {
-  articles: articlePageReducer,
-  articlesSort: articlesSortReducer,
-  articlesSearch: articlesSearchReducer,
-  articlesFilter: articlesFilterReducer,
+  articlesPage: articlesPageMainReducer,
 };
 
 const ArticlesPage = () => {

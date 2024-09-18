@@ -5,7 +5,7 @@ import { articlesSearchActions } from 'features/ArticlesSearch';
 import { articlesSortActions } from 'features/ArticlesSort';
 import { getQuerySearchParams } from 'pages/ArticlesPage/utils/utils';
 import { fetchGetArticleList } from '../fetchGetArticleList/fetchGetArticleList';
-import { articlePageActions } from '../../slice/articlePageSlice';
+import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { getIsInitialized } from '../../selectors/getArticles';
 
 export const initArticlePage = createAsyncThunk<
@@ -26,9 +26,9 @@ export const initArticlePage = createAsyncThunk<
     dispatch(articlesFilterActions.setFilterTypeBySearchParams(params));
     dispatch(articlesSearchActions.setSearchBySearchParams(params));
     dispatch(articlesSortActions.setSortBySearchParams(params));
-    dispatch(articlePageActions.setPageBySearchParamsNum(params));
+    dispatch(articlesPageActions.setPageBySearchParamsNum(params));
 
-    dispatch(articlePageActions.initViewState());
+    dispatch(articlesPageActions.initViewState());
     dispatch(fetchGetArticleList());
   },
 );

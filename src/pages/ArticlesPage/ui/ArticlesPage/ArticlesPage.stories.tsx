@@ -10,12 +10,14 @@ const meta = {
   title: 'pages/Articles',
   component: ArticlesPage,
   decorators: [StoreDecorator({
-    articles: {
-      view: ArticlesView.TILE,
-      isLoading: false,
-      limit: 1,
-      pageNum: 1,
-      hasMore: false,
+    articlesPage: {
+      articles: {
+        view: ArticlesView.TILE,
+        isLoading: false,
+        limit: 1,
+        pageNum: 1,
+        hasMore: false,
+      },
     },
   } as StateScheme)],
 } satisfies Meta<typeof ArticlesPage>;

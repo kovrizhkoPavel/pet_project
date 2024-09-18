@@ -10,7 +10,7 @@ import { ArticlesView } from 'entities/Article/constants';
 import { ArticleSort } from 'features/ArticlesSort';
 import { ArticlesSearch } from 'features/ArticlesSearch';
 import { ArticlesFilter } from 'features/ArticlesFilter';
-import { articlePageActions } from '../../model/slice/articlePageSlice';
+import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
 import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
@@ -24,11 +24,11 @@ export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   const view = useSelector(getView);
 
   const onClick = (value: TArticlesView) => () => {
-    dispatch(articlePageActions.setView(value));
+    dispatch(articlesPageActions.setView(value));
   };
 
   const onFiltersChange = () => {
-    dispatch(articlePageActions.resetPageNum());
+    dispatch(articlesPageActions.resetPageNum());
     dispatch(fetchGetArticleList({ replace: true }));
   };
 

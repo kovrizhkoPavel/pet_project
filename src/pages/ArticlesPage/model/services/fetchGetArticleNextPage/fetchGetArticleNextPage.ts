@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { fetchGetArticleList } from 'pages/ArticlesPage/model/services/fetchGetArticleList/fetchGetArticleList';
-import { articlePageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 import {
   getHasMore, getIsInitialized, getIsLoading, getPageNum,
 } from '../../selectors/getArticles';
@@ -22,7 +22,7 @@ export const fetchGetArticleNextPage = createAsyncThunk<
 
     if (isLoading || !hasMore || !isInitialized) return;
 
-    dispatch(articlePageActions.setPageNum(pageNum));
+    dispatch(articlesPageActions.setPageNum(pageNum));
     dispatch(fetchGetArticleList());
   },
 );
