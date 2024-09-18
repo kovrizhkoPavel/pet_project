@@ -52,9 +52,11 @@ const meta = {
   component: ArticleDetails,
   args: { id: '1' },
   decorators: [StoreDecorator({
-    articleDetails: {
-      data: article,
-      isLoading: false,
+    articleDetailsPage: {
+      details: {
+        data: article,
+        isLoading: false,
+      },
     },
   } as StateScheme)],
 } satisfies Meta<typeof ArticleDetails>;
@@ -66,8 +68,10 @@ export const Light: Story = {};
 
 export const Loading: Story = {
   decorators: [StoreDecorator({
-    articleDetails: {
-      isLoading: true,
+    articleDetailsPage: {
+      details: {
+        isLoading: true,
+      },
     },
   } as StateScheme)],
 };

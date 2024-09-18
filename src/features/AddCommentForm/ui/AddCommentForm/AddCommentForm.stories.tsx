@@ -9,8 +9,10 @@ const meta = {
   title: 'features/AddCommentForm',
   component: AddCommentForm,
   decorators: [StoreDecorator({
-    addCommentForm: {
-      text: 'text',
+    articleDetailsPage: {
+      addComment: {
+        text: 'text',
+      },
     },
   } as StateScheme)],
 } satisfies Meta<typeof AddCommentForm>;

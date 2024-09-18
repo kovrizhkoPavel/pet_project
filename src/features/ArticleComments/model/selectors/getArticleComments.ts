@@ -2,7 +2,7 @@ import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
 import { ArticleCommentsScheme } from 'features/ArticleComments';
 
-const getArticleComments = (state: StateScheme) => state.articleComments;
+const getArticleComments = (state: StateScheme) => state.articleDetailsPage?.comments;
 
 export const getIsLoading = createSelector(
   getArticleComments,
