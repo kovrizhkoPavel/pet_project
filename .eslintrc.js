@@ -97,6 +97,7 @@ module.exports = {
     'no-console': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     '@typescript-eslint/no-explicit-any': 'warn',
+    'max-len': 'off',
     // 'sort-imports': ['error', {
     //   ignoreCase: false,
     //   ignoreDeclarationSort: false,
