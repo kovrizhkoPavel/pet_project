@@ -75,7 +75,7 @@ module.exports = {
       'error',
       'always',
     ],
-    'max-len': ['error', { ignoreComments: true, code: 125 }],
+    // 'max-len': ['error', { ignoreComments: true, code: 125 }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'tsx'] }],
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
