@@ -9,6 +9,9 @@ import { PageContainer } from 'widgets/PageContainer';
 import { TReducers } from 'shared/types/stateScheme';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useSelector } from 'react-redux';
+import {
+  ArticlesRecommendations,
+} from 'features/ArticlesRecommendations/ui/ArticlesRecommendations/ArticlesRecommendations';
 import { articleDetailsPageMainReducer } from '../model/reducers/articleDetailsPageMainReducer';
 import { fetchAddArticleComment } from '../model/services/fetchAddArticleComment';
 import cls from './ArticleDetailsPage.module.scss';
@@ -42,6 +45,7 @@ const ArticleDetailsPage = () => {
   return (
     <PageContainer>
       <ArticleDetails id={id} />
+      <ArticlesRecommendations />
       <AddCommentForm
         className={cls.addCommentForm}
         onSubmit={onAddCommentFormSubmit}
