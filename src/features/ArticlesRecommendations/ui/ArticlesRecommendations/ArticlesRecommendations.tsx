@@ -1,10 +1,9 @@
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { ArticlesView } from 'entities/Article/constants';
 import { useEffect } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { ArticlesList } from '../ArticlesList/ArticlesList';
 import cls from './ArticlesReccomendations.module.scss';
 import {
   fetchGetArticlesRecommendations,
@@ -28,12 +27,7 @@ export const ArticlesRecommendations = () => {
         className={cls.title}
         text={t('translation\:article_recommendation_title')}
       />
-      <ArticleList
-        view={ArticlesView.TILE}
-        articles={articles}
-        isLoading={isLoading}
-      />
-
+      <ArticlesList isLoading={!!isLoading} articles={articles} />
     </>
   );
 };

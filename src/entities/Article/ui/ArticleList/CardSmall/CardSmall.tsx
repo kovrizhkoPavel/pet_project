@@ -8,11 +8,12 @@ import cls from './CardSmall.module.scss';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
 
 type TCardSmallProps = {
-  className?: string;
   article: TArticle;
+  className?: string;
+  target?: '_blank' | '_self'
 }
 
-export const CardSmall: FC<TCardSmallProps> = ({ className, article }) => {
+export const CardSmall: FC<TCardSmallProps> = ({ className, article, target }) => {
   const {
     createdAt,
     type,
@@ -22,7 +23,7 @@ export const CardSmall: FC<TCardSmallProps> = ({ className, article }) => {
   } = article;
 
   return (
-    <AppLink to={`${RoutePath.article_details}${article.id}`}>
+    <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
       <Card className={getClassName(cls.cardSmall, {}, [className])}>
         <img className={cls.img} src={img} alt="logo" />
         <div className={cls.date}>{createdAt}</div>
