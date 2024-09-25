@@ -25,8 +25,5 @@
     "./config/jest/jest-setup.ts",
     "src/**/*"
   ],
-  "files": [
-    "./src/app/types/global.d.ts",
-    "./storybook-static/sb-preview/runtime.js"
-  ]
+  "files": ["./src/app/types/global.d.ts"]
 }
