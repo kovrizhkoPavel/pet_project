@@ -27,6 +27,6 @@
   ],
   "files": [
     "./src/app/types/global.d.ts",
-    "storybook-static/sb-preview/runtime.js"
+    "./storybook-static/sb-preview/runtime.js"
   ]
 }
