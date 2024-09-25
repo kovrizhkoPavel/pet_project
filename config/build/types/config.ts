@@ -5,6 +5,8 @@ export type TBuildPath = {
   build: string;
   html: string;
   src: string;
+  locales: string;
+  buildLocales: string;
 }
 
 export type TBuildOptions = {
