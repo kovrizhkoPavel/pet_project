@@ -51,8 +51,10 @@ const meta = {
   title: 'pages/ArticlesDetails',
   component: ArticleDetailsPage,
   decorators: [StoreDecorator({
-    articleDetails: {
-      data: article,
+    articleDetailsPage: {
+      details: {
+        data: article,
+      },
     },
   } as StateScheme)],
 } satisfies Meta<typeof ArticleDetailsPage>;

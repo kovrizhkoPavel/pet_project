@@ -75,6 +75,7 @@ module.exports = {
       'error',
       'always',
     ],
+    // 'max-len': ['error', { ignoreComments: true, code: 125 }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'tsx'] }],
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
@@ -95,6 +96,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-console': 'error',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    '@typescript-eslint/no-explicit-any': 'warn',
+    'max-len': 'off',
     // 'sort-imports': ['error', {
     //   ignoreCase: false,
     //   ignoreDeclarationSort: false,

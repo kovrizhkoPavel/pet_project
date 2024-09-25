@@ -17,9 +17,10 @@ const articles = {
   isLoading: false,
   hasMore: true,
   view: ArticlesView.TILE,
+  isInitialized: true,
 } as ArticlesPageSchema;
 
-const state = { articles } as StateScheme;
+const state = { articlesPage: { articles } } as StateScheme;
 
 jest.mock('../fetchGetArticleList/fetchGetArticleList');
 
@@ -38,7 +39,11 @@ describe('fetchGetArticleNextPage', () => {
   test('fetch no call', async () => {
     const Thunk = new TestAsyncThunk(
       fetchGetArticleNextPage,
-      { articles: { ...state.articles, hasMore: false } } as StateScheme,
+      {
+        articlesPage: {
+          articles: { ...state?.articlesPage?.articles, hasMore: false },
+        },
+      } as StateScheme,
     );
 
     await Thunk.callThunk();

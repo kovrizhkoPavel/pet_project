@@ -1,13 +1,11 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Textarea } from 'shared/ui/Textarea/Textarea';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateScheme';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import { addCommentFormActions } from '../../model/slice/addCommentFormSlice';
 import { getIsActive, getIsLoading, getText } from '../../model/selectors/getAddCommentForm';
 
 type TAddCommentFormProps = {
@@ -15,18 +13,12 @@ type TAddCommentFormProps = {
   onSubmit: VoidFunction;
 }
 
-const initialReducers: TReducers = {
-  addCommentForm: addCommentFormReducer,
-};
-
 export const AddCommentForm: FC<TAddCommentFormProps> = ({ className, onSubmit }) => {
   const { t } = useTranslation();
   const text = useSelector(getText);
   const isActive = useSelector(getIsActive);
   const isLoading = useSelector(getIsLoading);
   const dispatch = useAppDispatch();
-
-  useDynamicModuleLoader(initialReducers);
 
   const onTextareaChange = useCallback((value: string) => {
     dispatch(addCommentFormActions.setText(value));

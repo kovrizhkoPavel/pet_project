@@ -1,24 +1,24 @@
-import {
-  ChangeEvent, FC, useCallback, useMemo,
-} from 'react';
+import { ChangeEvent, useCallback, useMemo } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import cls from './Select.module.scss';
 
-export type TSelectOption = {
+type TSelectValue = string | number;
+
+export type TSelectOption<T extends TSelectValue> = {
   label: string;
-  value: string | number;
+  value: T;
 }
 
-type TSelectProps = {
+type TSelectProps<T extends TSelectValue> = {
   className?: string;
   label?: string;
   direction?: 'row' | 'column';
-  options: TSelectOption[];
-  onChange?: (value: string) => void;
+  options: TSelectOption<T>[];
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-export const Select: FC<TSelectProps> = (props) => {
+export const Select = <T extends TSelectValue>(props: TSelectProps<T>) => {
   const {
     className,
     label,
@@ -35,7 +35,7 @@ export const Select: FC<TSelectProps> = (props) => {
 
   const onSelectChange = useCallback((evt: ChangeEvent<HTMLSelectElement>) => {
     const { value } = evt.target;
-    onChange?.(value);
+    onChange?.(value as T);
   }, [onChange]);
 
   const Options = useMemo(() => (options.map(({ label, value }) => (

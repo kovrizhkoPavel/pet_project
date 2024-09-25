@@ -9,7 +9,7 @@ type TCountrySelectProps = {
   onChange?: (val: string) => void;
 }
 
-const options: TSelectOption[] = Object.entries(Country).map(([value, label]) => ({
+const options: TSelectOption<string>[] = Object.entries(Country).map(([value, label]) => ({
   value,
   label,
 }));

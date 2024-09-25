@@ -7,25 +7,35 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { TArticlesView } from 'entities/Article/model/types/article';
 import { ArticlesView } from 'entities/Article/constants';
-import { getView } from '../../model/services/selectors/getArticles';
-import { articlePageActions } from '../../model/slice/articlePageSlice';
+import { ArticleSort } from 'features/ArticlesSort';
+import { ArticlesSearch } from 'features/ArticlesSearch';
+import { ArticlesFilter } from 'features/ArticlesFilter';
+import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import cls from './PageHeader.module.scss';
+import { getView } from '../../model/selectors/getArticles';
+import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
 
 type TPageHeaderProps = {
   className?: string;
 }
 
-export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
+export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getView);
 
   const onClick = (value: TArticlesView) => () => {
-    dispatch(articlePageActions.setView(value));
+    dispatch(articlesPageActions.setView(value));
+  };
+
+  const onFiltersChange = () => {
+    dispatch(articlesPageActions.resetPageNum());
+    dispatch(fetchGetArticleList({ replace: true }));
   };
 
   return (
     <div className={getClassName(cls.pageHeader, {}, [className])}>
       <div className={cls.container}>
+        <ArticleSort onSortChange={onFiltersChange} />
         <div className={cls.viewButtons}>
           <ButtonIcon
             className={cls.button}
@@ -45,6 +55,8 @@ export const PageHeader: FC<TPageHeaderProps> = memo(({ className }) => {
           />
         </div>
       </div>
+      <ArticlesSearch onChange={onFiltersChange} />
+      <ArticlesFilter onChange={onFiltersChange} />
     </div>
   );
 });

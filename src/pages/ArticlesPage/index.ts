@@ -1,2 +1,3 @@
 export { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage/ArticlesPage.async';
-export { ArticlesPageSchema } from './model/types/articlesPageSchema';
+export { ArticlesMainScheme } from './model/types/articlesPageSchema';
+export { articlesPageMainReducer } from './model/reducers/articlesPageMainReducer';

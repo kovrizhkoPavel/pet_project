@@ -8,3 +8,9 @@ export type TOptionalLiteralKeys<T> = keyof {
   [K in keyof T as string extends K ? never : number extends K ? never :
   NonNullable<unknown> extends Pick<T, K> ? K : never]: 0
 }
+
+export type TOptionalRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};
+
+export type TSortOrder = 'asc' | 'desc';

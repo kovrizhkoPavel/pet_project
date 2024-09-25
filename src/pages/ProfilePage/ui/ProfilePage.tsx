@@ -6,7 +6,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { TReducers } from 'shared/types/stateScheme';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { useParams } from 'react-router-dom';
-import { PageContainer } from 'shared/ui/PageContainer/PageContainer';
+import { PageContainer } from 'widgets/PageContainer';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';

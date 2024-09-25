@@ -1,0 +1,23 @@
+.toggle {
+  padding: 8px 12px;
+  color: var(--font-color);
+  cursor: pointer;
+  background: var(--bg-color-secondary);
+  border-radius: var(--border-radius-m);
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
+
+  &.active {
+    color: var(--font-color);
+    background: var(--secondary-color);
+  }
+}

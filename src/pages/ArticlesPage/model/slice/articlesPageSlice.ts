@@ -3,26 +3,28 @@ import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
 import { LocalStorageKey } from 'shared/constants/localstorage';
+import { TOptionalRecord } from 'shared/types/types';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
-import { ArticlesPageSchema } from '../types/articlesPageSchema';
+import { ArticlesPageSchema, TQuerySearchKeys } from '../types/articlesPageSchema';
 
 const adapterInitialState = {
   ids: [],
   entities: {},
 };
 
-const articlePageAdapter = createEntityAdapter({
+const articlesPageAdapter = createEntityAdapter({
   selectId: (article: TArticle) => article.id,
 });
 
-export const getArticles = articlePageAdapter.getSelectors<StateScheme>(
-  (state) => state.articles || adapterInitialState,
+export const getArticles = articlesPageAdapter.getSelectors<StateScheme>(
+  (state) => state?.articlesPage?.articles || adapterInitialState,
 );
 
 const initialState: ArticlesPageSchema = {
   ...adapterInitialState,
   isLoading: false,
+  isInitialized: false,
   error: '',
   view: ArticlesView.TILE,
   pageNum: DEFAULT_PAGE_NUM,
@@ -30,8 +32,8 @@ const initialState: ArticlesPageSchema = {
   hasMore: true,
 };
 
-export const articlePageSlice = createSlice({
-  name: 'articlePageSlice',
+export const articlesPageSlice = createSlice({
+  name: 'articlesPageSlice',
   initialState,
   reducers: {
     setView(state, action) {
@@ -43,6 +45,16 @@ export const articlePageSlice = createSlice({
       state.pageNum = action.payload;
     },
 
+    setPageBySearchParamsNum(
+      state,
+      action: PayloadAction<TOptionalRecord<TQuerySearchKeys, string>>,
+    ) {
+      const pageNum = action.payload?.page;
+      if (!pageNum) return;
+
+      state.pageNum = Number.isNaN(+pageNum) ? DEFAULT_PAGE_NUM : +pageNum;
+    },
+
     initViewState(state) {
       state.view = localStorage.getItem(
         LocalStorageKey.ARTICLE_VIEW,
@@ -51,6 +63,12 @@ export const articlePageSlice = createSlice({
       state.limit = state.view === ArticlesView.TILE
         ? PageLimit.TILE
         : PageLimit.LIST;
+
+      state.isInitialized = true;
+    },
+
+    resetPageNum(state) {
+      state.pageNum = DEFAULT_PAGE_NUM;
     },
   },
   extraReducers: (builder) => {
@@ -59,12 +77,17 @@ export const articlePageSlice = createSlice({
         state.isLoading = true;
         state.error = '';
       })
-      .addCase(fetchGetArticleList.fulfilled, (state, action: PayloadAction<TArticle[]>) => {
+      .addCase(fetchGetArticleList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = '';
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length === state.limit;
 
-        articlePageAdapter.addMany(state, action.payload);
+        if (action.meta.arg?.replace) {
+          articlesPageAdapter.setAll(state, action.payload);
+          return;
+        }
+
+        articlesPageAdapter.addMany(state, action.payload);
       })
       .addCase(fetchGetArticleList.rejected, (state, action) => {
         state.isLoading = false;
@@ -73,5 +96,5 @@ export const articlePageSlice = createSlice({
   },
 });
 
-export const { actions: articlePageActions } = articlePageSlice;
-export const { reducer: articlePageReducer } = articlePageSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer } = articlesPageSlice;
