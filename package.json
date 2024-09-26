@@ -15,7 +15,7 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-    "build:prod": "webpack --env mode=production",
+    "build:prod": "webpack --env mode=production apiUrl=https://json-server-3u5yglzxw-pavels-projects-eaf5c0d1.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "loki": "npx loki test",
     "lint": "eslint \"**/*.{ts,tsx}\"",
