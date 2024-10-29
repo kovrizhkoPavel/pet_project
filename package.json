@@ -89,14 +89,14 @@
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
-    "webpack": "5.90.3",
+    "webpack": "5.95.0",
     "webpack-bundle-analyzer": "4.10.1",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "^4.15.2"
   },
   "dependencies": {
     "@reduxjs/toolkit": "2.2.1",
-    "axios": "1.6.8",
+    "axios": "1.7.7",
     "i18next": "23.10.0",
     "i18next-browser-languagedetector": "7.2.0",
     "i18next-http-backend": "2.5.0",
