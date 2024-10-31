@@ -26,7 +26,6 @@ export const initArticlePage = createAsyncThunk<
     dispatch(articlesFilterActions.setFilterTypeBySearchParams(params));
     dispatch(articlesSearchActions.setSearchBySearchParams(params));
     dispatch(articlesSortActions.setSortBySearchParams(params));
-    dispatch(articlesPageActions.setPageBySearchParamsNum(params));
 
     dispatch(articlesPageActions.initViewState());
     dispatch(fetchGetArticleList());

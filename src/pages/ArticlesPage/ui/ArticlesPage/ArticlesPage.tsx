@@ -38,15 +38,15 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   return (
-    <PageContainer>
-      <ArticlesHeader className={cls.header} />
-      <InfinityScroll cb={onLoadNextPageNum}>
-        <ArticleList
-          view={view}
-          articles={articleList}
-          isLoading={isLoading}
-        />
-      </InfinityScroll>
+    <PageContainer className={cls.pageContainer}>
+      <ArticlesHeader />
+      {/* <InfinityScroll cb={onLoadNextPageNum}> */}
+      <ArticleList
+        view={view}
+        articles={articleList}
+        isLoading={isLoading}
+      />
+      {/* </InfinityScroll> */}
     </PageContainer>
   );
 };

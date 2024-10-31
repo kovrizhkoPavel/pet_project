@@ -1,0 +1,5 @@
+.virtualazer {
+  width: 100%;
+  height: calc(100vh - var(--navbar-height) - var(--article-header-height));
+  overflow: auto;
+}
