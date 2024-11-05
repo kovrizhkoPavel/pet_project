@@ -6,7 +6,7 @@ import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 
 type TVirtualazerProps = {
   itemsCount: number;
-  itemSize: number;
+  estimateSize: number;
   itemsOverscan?: number;
   children: (item: VirtualItem) => ReactNode;
   fetchNextPage: VoidFunction;
@@ -18,7 +18,7 @@ const defaultItemsOverscan = 5;
 export const Virtualizer: FC<TVirtualazerProps> = (props) => {
   const [shouldReset, setShouldReset] = useState(false);
   const {
-    itemSize,
+    estimateSize,
     itemsCount,
     itemsOverscan = defaultItemsOverscan,
     children,
@@ -29,7 +29,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
   const { getTotalSize, getVirtualItems } = useVirtualizer({
     count: itemsCount,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => itemSize,
+    estimateSize: () => estimateSize,
     gap: 24,
     overscan: itemsOverscan,
     enabled: shouldReset,
@@ -49,6 +49,8 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     if (parentRef.current) {
       setShouldReset(true);
     }
+
+    return () => setShouldReset(false);
   }, [parentRef]);
 
   return (

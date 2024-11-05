@@ -1,9 +1,10 @@
 import { FC, useRef } from 'react';
-import { CardBig } from 'entities/Article/ui/ArticleList/CardBig/CardBig';
 import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
-import { CARD_BIG_HEIGHT } from 'entities/Article/ui/ArticleList/constants';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useScrollPosition } from 'shared/lib/hooks/useScrollPosition';
+import { CardSmall } from 'entities/Article/ui/ArticleList/CardSmall/CardSmall';
+import { CARD_BIG_HEIGHT } from './constants';
+import { CardBig } from './CardBig/CardBig';
 import { SkeletonList } from './SkeletonList/SkeletonList';
 import { ArticlesView } from '../../constants';
 import cls from './ArticleList.module.scss';
@@ -20,13 +21,14 @@ type TArticleListProps = {
 export const ArticleList: FC<TArticleListProps> = (props) => {
   const parentRef = useRef(null);
   const onScroll = useScrollPosition(parentRef);
-
   const {
     className, view, articles, isLoading, fetchNextPage,
   } = props;
+  const isViewList = view === ArticlesView.TILE;
+  const estimateSize = isViewList ? CARD_BIG_HEIGHT : 300;
 
   const mods = {
-    [cls.viewTile]: view === ArticlesView.TILE,
+    [cls.viewTile]: !isViewList,
   };
 
   if (isLoading && articles.length === 0) {
@@ -43,20 +45,21 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
       {/*  ? <CardBig className={cls.listCard} article={article} key={article.id} /> */}
       {/*  : <CardSmall className={cls.tileCard} article={article} key={article.id} /> */}
       {/* ))} */}
-      {/* <RowVirtualizerFixed /> */}
       <Virtualizer
         itemsCount={articles.length}
-        itemSize={CARD_BIG_HEIGHT}
+        estimateSize={estimateSize}
         fetchNextPage={fetchNextPage}
         parentRef={parentRef}
       >
         {({ index }) => (
-          <CardBig
-            isLoading={!!isLoading && index === articles.length - 1}
-            height={CARD_BIG_HEIGHT}
-            className={cls.listCard}
-            article={articles[index]}
-          />
+          isViewList ? (
+            <CardBig
+              isLoading={!!isLoading && index === articles.length - 1}
+              height={CARD_BIG_HEIGHT}
+              className={cls.listCard}
+              article={articles[index]}
+            />
+          ) : <CardSmall className={cls.tileCard} article={articles[index]} />
         )}
       </Virtualizer>
     </div>
