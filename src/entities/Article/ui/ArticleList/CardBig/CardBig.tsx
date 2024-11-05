@@ -15,9 +15,10 @@ import cls from './CardBig.module.scss';
 type TCardBigProps = {
   className?: string;
   article: TArticle;
+  height: number;
 }
 
-export const CardBig: FC<TCardBigProps> = ({ className, article }) => {
+export const CardBig: FC<TCardBigProps> = ({ className, article, height }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const {
@@ -39,7 +40,7 @@ export const CardBig: FC<TCardBigProps> = ({ className, article }) => {
   }, [article, navigate]);
 
   return (
-    <article className={getClassName(cls.cardBig, {}, [className])}>
+    <article style={{ height }} className={getClassName(cls.cardBig, {}, [className])}>
       <div className={cls.header}>
         <AppLink className={cls.userContainer} to={`${RoutePath.profile}${user.id}`}>
           <Avatar size={30} src={`${user.avatar}`} alt="avatar" />

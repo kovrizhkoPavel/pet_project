@@ -2,6 +2,7 @@ import { FC, useRef } from 'react';
 import { CardBig } from 'entities/Article/ui/ArticleList/CardBig/CardBig';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
+import { CARD_BIG_HEIGHT } from 'entities/Article/ui/ArticleList/constants';
 import { SkeletonList } from './SkeletonList/SkeletonList';
 import { ArticlesView } from '../../constants';
 import cls from './ArticleList.module.scss';
@@ -87,8 +88,14 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
       {/*  : <CardSmall className={cls.tileCard} article={article} key={article.id} /> */}
       {/* ))} */}
       {/* <RowVirtualizerFixed /> */}
-      <Virtualizer className={cls.virtualizer} itemsCount={articles.length} itemSize={576}>
-        {({ indexItem }) => (<CardBig className={cls.listCard} article={articles[indexItem]} />)}
+      <Virtualizer className={cls.virtualizer} itemsCount={articles.length} itemSize={CARD_BIG_HEIGHT}>
+        {({ indexItem }) => (
+          <CardBig
+            height={CARD_BIG_HEIGHT}
+            className={cls.listCard}
+            article={articles[indexItem]}
+          />
+        )}
       </Virtualizer>
     </div>
   );
