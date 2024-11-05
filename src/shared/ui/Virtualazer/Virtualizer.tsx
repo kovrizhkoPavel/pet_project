@@ -1,32 +1,30 @@
-import { FC, ReactNode, useRef } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import {
+  FC, ReactNode, RefObject, useEffect, useState,
+} from 'react';
 import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
-import { useScrollPosition } from 'shared/lib/hooks/useScrollPosition';
-import cls from './Virtualazer.module.scss';
 
 type TVirtualazerProps = {
   itemsCount: number;
   itemSize: number;
   itemsOverscan?: number;
-  className?: string;
   children: (item: VirtualItem) => ReactNode;
   fetchNextPage: VoidFunction;
+  parentRef: RefObject<HTMLElement>;
 }
 
 const defaultItemsOverscan = 5;
 
 export const Virtualizer: FC<TVirtualazerProps> = (props) => {
+  const [shouldReset, setShouldReset] = useState(false);
   const {
-    className,
     itemSize,
     itemsCount,
     itemsOverscan = defaultItemsOverscan,
     children,
     fetchNextPage,
+    parentRef,
   } = props;
-
-  const parentRef = useRef(null);
 
   const { getTotalSize, getVirtualItems } = useVirtualizer({
     count: itemsCount,
@@ -34,6 +32,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     estimateSize: () => itemSize,
     gap: 24,
     overscan: itemsOverscan,
+    enabled: shouldReset,
   });
 
   useAppUseEffect(() => {
@@ -46,37 +45,35 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     }
   }, [fetchNextPage, itemsCount, getVirtualItems()]);
 
-  const onScroll = useScrollPosition(parentRef);
+  useEffect(() => {
+    if (parentRef.current) {
+      setShouldReset(true);
+    }
+  }, [parentRef]);
 
   return (
     <div
-      ref={parentRef}
-      className={getClassName(cls.virtualazer, {}, [className])}
-      onScroll={onScroll}
+      style={{
+        height: `${getTotalSize()}px`,
+        width: '100%',
+        position: 'relative',
+      }}
     >
-      <div
-        style={{
-          height: `${getTotalSize()}px`,
-          width: '100%',
-          position: 'relative',
-        }}
-      >
-        {getVirtualItems().map((item) => (
-          <div
-            key={item.index}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: `${item.size}px`,
-              transform: `translateY(${item.start}px)`,
-            }}
-          >
-            {children(item)}
-          </div>
-        ))}
-      </div>
+      {getVirtualItems().map((item) => (
+        <div
+          key={item.index}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: `${item.size}px`,
+            transform: `translateY(${item.start}px)`,
+          }}
+        >
+          {children(item)}
+        </div>
+      ))}
     </div>
   );
 };
