@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
+import { SkeletonList } from 'entities/Article/ui/ArticleList/SkeletonList/SkeletonList';
+import { SkeletonCard } from 'entities/Article/ui/ArticleList/CardBig/SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
 import { ArticleBlockType } from '../../../constants';
 import { ArticleTextBlock } from '../../ArticleTextBlock/ArticleTextBlock';
@@ -14,11 +16,15 @@ import cls from './CardBig.module.scss';
 
 type TCardBigProps = {
   className?: string;
+  isLoading: boolean;
   article: TArticle;
   height: number;
 }
 
-export const CardBig: FC<TCardBigProps> = ({ className, article, height }) => {
+export const CardBig: FC<TCardBigProps> = (props) => {
+  const {
+    className, article, height, isLoading,
+  } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
   const {
@@ -38,6 +44,12 @@ export const CardBig: FC<TCardBigProps> = ({ className, article, height }) => {
   const onReadMoreClick = useCallback(() => {
     navigate(`${RoutePath.article_details}${article.id}`);
   }, [article, navigate]);
+
+  if (isLoading) {
+    return (
+      <SkeletonCard className={cls.skeletonCard} />
+    );
+  }
 
   return (
     <article style={{ height }} className={getClassName(cls.cardBig, {}, [className])}>

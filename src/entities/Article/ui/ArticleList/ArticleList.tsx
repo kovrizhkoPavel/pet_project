@@ -13,73 +13,21 @@ type TArticleListProps = {
   isLoading?: boolean;
   view: TArticlesView;
   articles: TArticle[];
-  fetchNestPage: VoidFunction;
-}
-
-const data = new Array(500).fill('').map((_, i) => i);
-
-function RowVirtualizerFixed() {
-  const parentRef = useRef(null);
-
-  const rowVirtualizer = useVirtualizer({
-    count: data.length,
-    getScrollElement: () => parentRef.current,
-    estimateSize: () => 100,
-    overscan: 5,
-  });
-
-  return (
-    <>
-      <div
-        ref={parentRef}
-        style={{
-          height: '500px',
-          width: '400px',
-          overflow: 'auto',
-        }}
-      >
-        <div
-          style={{
-            height: `${rowVirtualizer.getTotalSize()}px`,
-            width: '100%',
-            position: 'relative',
-          }}
-        >
-          {rowVirtualizer.getVirtualItems().map((virtualRow) => (
-            <div
-              key={virtualRow.index}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: `${virtualRow.size}px`,
-                transform: `translateY(${virtualRow.start}px)`,
-              }}
-            >
-              <div className={cls.test}>
-                <h1>{data[virtualRow.index]}</h1>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
-  );
+  fetchNextPage: VoidFunction;
 }
 
 export const ArticleList: FC<TArticleListProps> = (props) => {
   const parentRef = useRef(null);
   const {
-    className, view, articles, isLoading, fetchNestPage,
+    className, view, articles, isLoading, fetchNextPage,
   } = props;
 
   const mods = {
     [cls.viewTile]: view === ArticlesView.TILE,
   };
 
-  if (isLoading) {
-    return <SkeletonList className={className} view={view} />;
+  if (isLoading && articles.length === 0) {
+    return <SkeletonList className={cls.skeletonList} view={view} />;
   }
 
   return (
@@ -93,10 +41,11 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
         className={cls.virtualizer}
         itemsCount={articles.length}
         itemSize={CARD_BIG_HEIGHT}
-        fetchNextPage={fetchNestPage}
+        fetchNextPage={fetchNextPage}
       >
         {({ index }) => (
           <CardBig
+            isLoading={!!isLoading && index === articles.length - 1}
             height={CARD_BIG_HEIGHT}
             className={cls.listCard}
             article={articles[index]}

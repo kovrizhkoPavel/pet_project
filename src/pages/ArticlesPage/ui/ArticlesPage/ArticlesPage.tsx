@@ -6,7 +6,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { useSearchParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
-import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
 import { articlesPageMainReducer } from '../../model/reducers/articlesPageMainReducer';
 import { fetchGetArticleNextPage } from '../../model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
@@ -50,7 +49,7 @@ const ArticlesPage = () => {
         articles={articleList}
         isLoading={isLoading}
         className={cls.articleList}
-        fetchNestPage={fetchNextPage}
+        fetchNextPage={fetchNextPage}
       />
       {/* </InfinityScroll> */}
     </PageContainer>

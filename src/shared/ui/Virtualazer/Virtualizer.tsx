@@ -1,8 +1,8 @@
 import { FC, ReactNode, useRef } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useScrollPosition } from 'shared/lib/hooks/useScrollPosition';
 import cls from './Virtualazer.module.scss';
 
 type TVirtualazerProps = {
@@ -46,10 +46,13 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     }
   }, [fetchNextPage, itemsCount, getVirtualItems()]);
 
+  const onScroll = useScrollPosition(parentRef);
+
   return (
     <div
       ref={parentRef}
       className={getClassName(cls.virtualazer, {}, [className])}
+      onScroll={onScroll}
     >
       <div
         style={{

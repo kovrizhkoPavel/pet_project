@@ -4,8 +4,8 @@ import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticlesMainScheme } from 'pages/ArticlesPage';
-import { ScrollPositionSchema } from 'features/SaveScrollPosition/model/types/ScrollPositionSchema';
-import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsScheme';
+import { ScrollPositionSchema } from 'shared/models/SaveScrollPosition';
+import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage';
 
 export type StateScheme = {
   user: UserScheme;
