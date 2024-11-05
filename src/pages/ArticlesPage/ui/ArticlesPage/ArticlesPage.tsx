@@ -45,6 +45,7 @@ const ArticlesPage = () => {
         view={view}
         articles={articleList}
         isLoading={isLoading}
+        className={cls.articleList}
       />
       {/* </InfinityScroll> */}
     </PageContainer>

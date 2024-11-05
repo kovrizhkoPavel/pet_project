@@ -1,11 +1,9 @@
 import { FC, useRef } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { CardBig } from 'entities/Article/ui/ArticleList/CardBig/CardBig';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
 import { SkeletonList } from './SkeletonList/SkeletonList';
 import { ArticlesView } from '../../constants';
-import { CardSmall } from './CardSmall/CardSmall';
 import cls from './ArticleList.module.scss';
 import { TArticle, TArticlesView } from '../../model/types/article';
 
@@ -79,17 +77,17 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
   };
 
   if (isLoading) {
-    return <SkeletonList view={view} />;
+    return <SkeletonList className={className} view={view} />;
   }
 
   return (
-    <div className={getClassName(cls.articleList, mods, [className])} ref={parentRef}>
+    <div className={className} ref={parentRef}>
       {/* {articles.map((article) => (view === ArticlesView.LIST */}
       {/*  ? <CardBig className={cls.listCard} article={article} key={article.id} /> */}
       {/*  : <CardSmall className={cls.tileCard} article={article} key={article.id} /> */}
       {/* ))} */}
       {/* <RowVirtualizerFixed /> */}
-      <Virtualizer itemsCount={articles.length} itemSize={576}>
+      <Virtualizer className={cls.virtualizer} itemsCount={articles.length} itemSize={576}>
         {({ indexItem }) => (<CardBig className={cls.listCard} article={articles[indexItem]} />)}
       </Virtualizer>
     </div>

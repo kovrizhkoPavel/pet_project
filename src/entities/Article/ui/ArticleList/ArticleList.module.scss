@@ -11,3 +11,7 @@
   margin-right: 12px;
   margin-bottom: 12px;
 }
+
+.virtualizer {
+  height: calc(100vh - var(--navbar-height) - var(--article-header-height));
+}
