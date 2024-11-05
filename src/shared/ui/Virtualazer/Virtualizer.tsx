@@ -1,6 +1,8 @@
 import { FC, ReactNode, useRef } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useVirtualizer } from '@tanstack/react-virtual';
+import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import cls from './Virtualazer.module.scss';
 
 type TVirtualazerProps = {
@@ -8,7 +10,8 @@ type TVirtualazerProps = {
   itemSize: number;
   itemsOverscan?: number;
   className?: string;
-  children: ({ indexItem }: {indexItem: number}) => ReactNode;
+  children: (item: VirtualItem) => ReactNode;
+  fetchNextPage: VoidFunction;
 }
 
 const defaultItemsOverscan = 5;
@@ -20,6 +23,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     itemsCount,
     itemsOverscan = defaultItemsOverscan,
     children,
+    fetchNextPage,
   } = props;
 
   const parentRef = useRef(null);
@@ -31,6 +35,16 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     gap: 24,
     overscan: itemsOverscan,
   });
+
+  useAppUseEffect(() => {
+    const lastItem = getVirtualItems().at(-1);
+
+    if (!lastItem) return;
+
+    if (lastItem.index >= itemsCount - 1) {
+      fetchNextPage();
+    }
+  }, [fetchNextPage, itemsCount, getVirtualItems()]);
 
   return (
     <div
@@ -44,19 +58,19 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
           position: 'relative',
         }}
       >
-        {getVirtualItems().map(({ index, size, start }) => (
+        {getVirtualItems().map((item) => (
           <div
-            key={index}
+            key={item.index}
             style={{
               position: 'absolute',
               top: 0,
               left: 0,
               width: '100%',
-              height: `${size}px`,
-              transform: `translateY(${start}px)`,
+              height: `${item.size}px`,
+              transform: `translateY(${item.start}px)`,
             }}
           >
-            {children({ indexItem: index })}
+            {children(item)}
           </div>
         ))}
       </div>

@@ -29,12 +29,16 @@ const ArticlesPage = () => {
   const view = useSelector(getView);
   const dispatch = useAppDispatch();
 
-  const onLoadNextPageNum = useCallback(() => {
-    dispatch(fetchGetArticleNextPage());
-  }, [dispatch]);
+  // const onLoadNextPageNum = useCallback(() => {
+  //   dispatch(fetchGetArticleNextPage());
+  // }, [dispatch]);
 
   useAppUseEffect(() => {
     dispatch(initArticlePage(searchParams));
+  }, [dispatch]);
+
+  const fetchNextPage = useCallback(() => {
+    dispatch(fetchGetArticleNextPage());
   }, [dispatch]);
 
   return (
@@ -46,6 +50,7 @@ const ArticlesPage = () => {
         articles={articleList}
         isLoading={isLoading}
         className={cls.articleList}
+        fetchNestPage={fetchNextPage}
       />
       {/* </InfinityScroll> */}
     </PageContainer>

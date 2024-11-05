@@ -13,6 +13,7 @@ type TArticleListProps = {
   isLoading?: boolean;
   view: TArticlesView;
   articles: TArticle[];
+  fetchNestPage: VoidFunction;
 }
 
 const data = new Array(500).fill('').map((_, i) => i);
@@ -70,7 +71,7 @@ function RowVirtualizerFixed() {
 export const ArticleList: FC<TArticleListProps> = (props) => {
   const parentRef = useRef(null);
   const {
-    className, view, articles, isLoading,
+    className, view, articles, isLoading, fetchNestPage,
   } = props;
 
   const mods = {
@@ -88,12 +89,17 @@ export const ArticleList: FC<TArticleListProps> = (props) => {
       {/*  : <CardSmall className={cls.tileCard} article={article} key={article.id} /> */}
       {/* ))} */}
       {/* <RowVirtualizerFixed /> */}
-      <Virtualizer className={cls.virtualizer} itemsCount={articles.length} itemSize={CARD_BIG_HEIGHT}>
-        {({ indexItem }) => (
+      <Virtualizer
+        className={cls.virtualizer}
+        itemsCount={articles.length}
+        itemSize={CARD_BIG_HEIGHT}
+        fetchNextPage={fetchNestPage}
+      >
+        {({ index }) => (
           <CardBig
             height={CARD_BIG_HEIGHT}
             className={cls.listCard}
-            article={articles[indexItem]}
+            article={articles[index]}
           />
         )}
       </Virtualizer>
