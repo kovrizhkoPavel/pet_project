@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
-import { SkeletonList } from 'entities/Article/ui/ArticleList/SkeletonList/SkeletonList';
 import { SkeletonCard } from 'entities/Article/ui/ArticleList/CardBig/SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
 import { ArticleBlockType } from '../../../constants';

@@ -25,6 +25,7 @@ export const useScrollPosition = (ref: RefObject<HTMLElement>) => {
 
   useAppUseEffect(() => {
     if (ref.current) {
+      // eslint-disable-next-line no-param-reassign
       ref.current.scrollTop = scrollPosition;
     }
   }, []);
