@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, RefObject, useEffect, useState,
+  CSSProperties, FC, ReactNode, RefObject, useEffect, useState,
 } from 'react';
 import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
@@ -8,9 +8,11 @@ type TVirtualazerProps = {
   itemsCount: number;
   estimateSize: number;
   itemsOverscan?: number;
+  lanes?: number;
   children: (item: VirtualItem) => ReactNode;
   fetchNextPage: VoidFunction;
   parentRef: RefObject<HTMLElement>;
+  itemStyles: (item: VirtualItem) => CSSProperties;
 }
 
 const defaultItemsOverscan = 5;
@@ -24,6 +26,8 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     children,
     fetchNextPage,
     parentRef,
+    lanes,
+    itemStyles,
   } = props;
 
   const { getTotalSize, getVirtualItems } = useVirtualizer({
@@ -33,6 +37,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     gap: 24,
     overscan: itemsOverscan,
     enabled: shouldReset,
+    lanes,
   });
 
   useAppUseEffect(() => {
@@ -49,9 +54,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
     if (parentRef.current) {
       setShouldReset(true);
     }
-
-    return () => setShouldReset(false);
-  }, [parentRef]);
+  }, [parentRef, lanes]);
 
   return (
     <div
@@ -62,17 +65,7 @@ export const Virtualizer: FC<TVirtualazerProps> = (props) => {
       }}
     >
       {getVirtualItems().map((item) => (
-        <div
-          key={item.index}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: `${item.size}px`,
-            transform: `translateY(${item.start}px)`,
-          }}
-        >
+        <div key={item.index} style={itemStyles(item)}>
           {children(item)}
         </div>
       ))}

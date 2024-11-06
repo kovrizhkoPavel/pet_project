@@ -28,10 +28,6 @@ const ArticlesPage = () => {
   const view = useSelector(getView);
   const dispatch = useAppDispatch();
 
-  // const onLoadNextPageNum = useCallback(() => {
-  //   dispatch(fetchGetArticleNextPage());
-  // }, [dispatch]);
-
   useAppUseEffect(() => {
     dispatch(initArticlePage(searchParams));
   }, [dispatch]);
@@ -43,7 +39,6 @@ const ArticlesPage = () => {
   return (
     <PageContainer className={cls.pageContainer}>
       <ArticlesHeader />
-      {/* <InfinityScroll cb={onLoadNextPageNum}> */}
       <ArticleList
         view={view}
         articles={articleList}
@@ -51,7 +46,6 @@ const ArticlesPage = () => {
         className={cls.articleList}
         fetchNextPage={fetchNextPage}
       />
-      {/* </InfinityScroll> */}
     </PageContainer>
   );
 };
