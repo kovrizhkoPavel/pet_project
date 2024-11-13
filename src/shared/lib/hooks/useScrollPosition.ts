@@ -1,11 +1,11 @@
 import { RefObject, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { StateScheme } from 'shared/types/stateScheme';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { getScrollPosition, scrollPositionActions } from 'shared/models/SaveScrollPosition';
+import { useAppDispatch } from './useAppDispatch';
+import { useThrottle } from './useThrottle';
+import { useAppUseEffect } from './useAppUseEffect';
 
 const DELAY = 500;
 

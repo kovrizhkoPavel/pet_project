@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import LanguageIcon from 'shared/assets/icon/language-icon.svg';
+import { ButtonIcon } from '../ButtonIcon/ButtonIcon';
 import cls from './LangSwitcher.module.scss';
 
 type TLangSwitcherProps = {

@@ -2,8 +2,8 @@ import {
   FC, ReactNode, MouseEvent, useCallback, useEffect, useState,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import Portal from 'shared/ui/Portal/Portal';
 import { KeyboardKey } from 'shared/constants/common';
+import Portal from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 type TModalProps = {

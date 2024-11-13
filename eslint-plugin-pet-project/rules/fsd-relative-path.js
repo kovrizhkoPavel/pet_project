@@ -5,10 +5,11 @@ const path = require('path');
 const layers = {
   'entities': 'entities',
   'features': 'features',
-  'shared': 'shared',
   'pages': 'pages',
   'widgets': 'widgets',
 }
+
+const MESSAGE = 'Within a single slice, all paths must be relative'
 
 module.exports = {
   meta: {
@@ -17,7 +18,7 @@ module.exports = {
       description: 'feature sliced relative path checker',
       recommended: false,
     },
-    fixable: null, // Or `code` or `whitespace`
+    fixable: 'code', // Or `code` or `whitespace`
     schema: [], // Add a schema if the rule has options
   },
 
@@ -31,7 +32,14 @@ module.exports = {
         const filePath = context.filename;
         
         if (checkIsPathInvalid(filePath, importPath)) {
-          context.report(node, 'Within a single slice, all paths must be relative')
+          context.report({
+            node,
+            message: MESSAGE,
+            // fix: (fixer) => {
+            //   return fixer.replaceText(importPath, 'foo')
+            //   console.log(fixer);
+            // }
+          })
         }
       }
     };
@@ -42,7 +50,9 @@ function checkIsPathInvalid(from, to) {
   if (checkIsPathRelative(to)) return false;
   
   const [importedLayer, importedSlice] = to.split('/');
-  
+  if (importedLayer === 'shared') {
+    console.log(importedLayer in layers)
+  }
   if (!importedLayer in layers) return false;
   
   const [,normalizedPath] = path.toNamespacedPath(from).split('src'); // '/entities/Article/ui/ArticleInfo/ArticleInfo.tsx'

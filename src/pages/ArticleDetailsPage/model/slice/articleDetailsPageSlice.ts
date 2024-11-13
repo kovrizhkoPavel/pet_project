@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ArticlePageScheme } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsScheme';
+import { ArticlePageScheme } from '../types/ArticleDetailsScheme';
 
 const initialState: ArticlePageScheme = {
   _isInit: false,

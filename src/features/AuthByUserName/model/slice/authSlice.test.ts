@@ -1,6 +1,6 @@
-import { authReducer, AuthSchema } from 'features/AuthByUserName';
-import { authActions } from 'features/AuthByUserName/model/slice/authSlice';
 import { expect } from '@storybook/test';
+import { AuthSchema } from '../types/authSchema';
+import { authActions, authReducer } from './authSlice';
 
 describe('authSlice', () => {
   let state: AuthSchema;

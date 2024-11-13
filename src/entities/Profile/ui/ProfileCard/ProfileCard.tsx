@@ -5,7 +5,7 @@ import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Input } from 'shared/ui/Input/Input';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { ValidatorError } from 'entities/Profile/constants';
+import { ValidatorError } from '../../constants';
 import { CurrencySelect } from '../../../Currency';
 import { CountrySelect } from '../../../Country';
 import { TProfile, TProfileValidationError } from '../../types/profile';

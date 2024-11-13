@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TComment } from 'entities/Comment';
-import { CommentItem } from 'entities/Comment/ui/CommentItem/CommentItem';
 import { Text } from 'shared/ui/Text/Text';
+import { CommentItem } from '../CommentItem/CommentItem';
+import { TComment } from '../../model/types/comment';
 
 type TCommentListProps = {
   className?: string;

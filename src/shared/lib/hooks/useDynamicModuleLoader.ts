@@ -1,7 +1,7 @@
 import { useStore } from 'react-redux';
 import { TReducers, TReducerWithManager, TStateSchemeKeys } from 'shared/types/stateScheme';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useEffect } from 'react';
+import { useAppDispatch } from './useAppDispatch';
 
 export const useDynamicModuleLoader = (reducers: TReducers, remountAfterUnmount = true) => {
   const store = useStore() as TReducerWithManager;

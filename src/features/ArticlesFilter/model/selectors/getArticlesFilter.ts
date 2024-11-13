@@ -1,6 +1,6 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
-import { ArticlesFilterScheme } from 'features/ArticlesFilter/model/types/ArticlesFilterScheme';
+import { ArticlesFilterScheme } from '../types/ArticlesFilterScheme';
 
 const getArticlesFilter = (state: StateScheme) => state.articlesPage?.filter;
 

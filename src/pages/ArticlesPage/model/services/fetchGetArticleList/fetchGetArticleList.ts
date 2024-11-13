@@ -6,7 +6,7 @@ import { getArticlesSearchValue } from 'features/ArticlesSearch';
 import { getArticlesSortField, getArticlesSortOrder } from 'features/ArticlesSort';
 import { getArticlesFilterTypes } from 'features/ArticlesFilter';
 import { addQueryParams } from 'shared/lib/utils/addQueryParams/addQueryParams';
-import { TQuerySearchKeys } from 'pages/ArticlesPage/model/types/articlesPageSchema';
+import { TQuerySearchKeys } from '../../types/articlesPageSchema';
 import { getLimit, getPageNum } from '../../selectors/getArticles';
 
 type TFetchGetArticleListArg = {
