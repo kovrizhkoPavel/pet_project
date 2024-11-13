@@ -1,8 +1,8 @@
 import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
-import { CardBig } from 'entities/Article/ui/ArticleList/CardBig/CardBig';
 import { CSSProperties, RefObject } from 'react';
 import { VirtualItem } from '@tanstack/react-virtual';
-import { TArticle } from 'entities/Article/model/types/article';
+import { CardBig } from './CardBig';
+import { TArticle } from '../../../model/types/article';
 
 type VirtualizedCardBigProps = {
   fetchNextPage: VoidFunction;

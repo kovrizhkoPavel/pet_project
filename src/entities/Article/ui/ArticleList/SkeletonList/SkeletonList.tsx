@@ -1,8 +1,8 @@
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { TArticlesView } from 'entities/Article/model/types/article';
-import { ArticlesView } from 'entities/Article/constants';
-import { SkeletonCard } from 'entities/Article/ui/ArticleList/CardBig/SkeletonCard';
 import { getClassName } from 'shared/lib/classNames/getClassName';
+import { TArticlesView } from '../../../model/types/article';
+import { ArticlesView } from '../../../constants';
+import { SkeletonCard } from '../CardBig/SkeletonCard';
 import cls from './SkeletonList.module.scss';
 
 const TILE_COUNT = 20;

@@ -1,7 +1,7 @@
-import { TArticle, TArticleBlock } from 'entities/Article/model/types/article';
 import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';
+import { TArticle, TArticleBlock } from '../../model/types/article';
 import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
 import { ArticleBlockType } from '../../constants';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';

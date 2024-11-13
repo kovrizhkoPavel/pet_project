@@ -1,6 +1,6 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
-import { ArticleDetailsScheme } from 'entities/Article';
+import { ArticleDetailsScheme } from '../types/articleDetailsScheme';
 
 const getArticleDetails = (store: StateScheme) => store.articleDetailsPage?.details;
 

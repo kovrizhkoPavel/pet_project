@@ -1,13 +1,13 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TArticle, TArticleBlockText } from 'entities/Article/model/types/article';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
-import { SkeletonCard } from 'entities/Article/ui/ArticleList/CardBig/SkeletonCard';
+import { TArticle, TArticleBlockText } from '../../../model/types/article';
+import { SkeletonCard } from './SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
 import { ArticleBlockType } from '../../../constants';
 import { ArticleTextBlock } from '../../ArticleTextBlock/ArticleTextBlock';
