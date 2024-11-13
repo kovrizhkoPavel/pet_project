@@ -50,11 +50,9 @@ function checkIsPathInvalid(from, to) {
   if (checkIsPathRelative(to)) return false;
   
   const [importedLayer, importedSlice] = to.split('/');
-  if (importedLayer === 'shared') {
-    console.log(importedLayer in layers)
-  }
-  if (!importedLayer in layers) return false;
   
+  if (!importedLayer[layers]) return false;
+
   const [,normalizedPath] = path.toNamespacedPath(from).split('src'); // '/entities/Article/ui/ArticleInfo/ArticleInfo.tsx'
   const [,layer, slice] = normalizedPath.split(path.sep); // [ '', 'entities', 'Article', 'ui', 'ArticleInfo', 'ArticleInfo.tsx' ]
   
