@@ -1,18 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
 import { Flex } from './Flex';
 
 const meta = {
-  title: '',
+  title: 'shared/Flex',
   component: Flex,
+  args: {
+    direction: 'row',
+    children: <>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+              </>,
+  },
 } satisfies Meta<typeof Flex>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {};
-
-export const Dark: Story = {
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
+export const Row: Story = {};

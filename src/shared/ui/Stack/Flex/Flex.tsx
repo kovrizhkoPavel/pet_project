@@ -5,7 +5,7 @@ import {
   TFlexAlign, TFlexDirections, TFlexGap, TFlexJustify, TFlexWrap,
 } from './types';
 
-type TFlexProps = {
+export type TFlexProps = {
   direction: TFlexDirections;
   stretch?: boolean;
   className?: string;
