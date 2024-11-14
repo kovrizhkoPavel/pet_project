@@ -5,6 +5,7 @@ import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Input } from 'shared/ui/Input/Input';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text, TextVariant } from 'shared/ui/Text/Text';
+import { HStack } from 'shared/ui/Stack';
 import { ValidatorError } from '../../constants';
 import { CurrencySelect } from '../../../Currency';
 import { CountrySelect } from '../../../Country';
@@ -52,31 +53,39 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={getClassName(cls.profilePage, {}, [cls.loading])}>
+      <HStack
+        align="center"
+        justify="center"
+        className={getClassName(cls.loading, {}, [cls.profilePage])}
+      >
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={getClassName(cls.profilePage, {}, [cls.error])}>
+      <HStack
+        align="center"
+        justify="center"
+        className={getClassName(cls.error, {}, [cls.profilePage])}
+      >
         <Text
           title={t('translation\:title_error')}
           text={t('translation\:title_error')}
           variant={TextVariant.ERROR}
           align="center"
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
     <div className={getClassName(cls.profilePage, {}, [className])}>
       {data?.avatar && (
-        <div className={cls.avatar}>
+        <HStack className={cls.avatar} align="center" justify="center">
           <Avatar src={data.avatar} />
-        </div>
+        </HStack>
       )}
       <Input
         label={`${t('translation\:profile_firstname')}: `}
