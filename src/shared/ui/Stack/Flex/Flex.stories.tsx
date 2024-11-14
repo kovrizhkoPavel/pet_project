@@ -1,17 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Flex } from './Flex';
 
+const StoryComponent = () => (
+  <>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </>
+);
+
 const meta = {
   title: 'shared/Flex',
   component: Flex,
   args: {
     direction: 'row',
-    children: <>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-              </>,
+    children: <StoryComponent />,
   },
 } satisfies Meta<typeof Flex>;
 
