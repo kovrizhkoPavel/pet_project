@@ -76,10 +76,10 @@
     "jest-environment-jsdom": "29.7.0",
     "json-server": "^0.17.4",
     "jsx-runtime": "1.2.0",
-    "loki": "0.34.0",
+    "loki": "0.18.1",
     "mini-css-extract-plugin": "2.8.1",
     "react-refresh": "0.14.0",
-    "reg-cli": "0.18.1",
+    "reg-cli": "0.15.5",
     "sass": "1.71.1",
     "sass-loader": "14.1.1",
     "storybook": "^7.6.17",
@@ -96,6 +96,7 @@
     "webpack-dev-server": "^4.15.2"
   },
   "dependencies": {
+    "@headlessui/react": "2.2.0",
     "@reduxjs/toolkit": "2.2.1",
     "@tanstack/react-virtual": "3.10.8",
     "axios": "1.7.7",
