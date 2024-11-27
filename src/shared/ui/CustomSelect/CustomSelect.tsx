@@ -18,7 +18,6 @@ type TCustomSelectProps<T extends TValue> = {
   options: TSelectOption<T>[];
   className?: string;
   label?: string;
-  // direction?: 'row' | 'column';
   width?: number;
   onChange?: (value: T) => void;
   readonly?: boolean;
@@ -34,7 +33,7 @@ export const CustomSelect = <T extends TValue>(props: TCustomSelectProps<T>) => 
     width,
   } = props;
 
-  const [selectedOption, setSelectedOption] = useState<T>(options[0].value);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
 
   const disabledMod = {
     [cls.buttonDisabled]: !!readonly,
@@ -44,9 +43,9 @@ export const CustomSelect = <T extends TValue>(props: TCustomSelectProps<T>) => 
     width,
   };
 
-  const onSelectChange = useCallback((value:T) => {
-    setSelectedOption(value);
-    onChange?.(value);
+  const onSelectChange = useCallback((selectedOption:TSelectOption<T>) => {
+    setSelectedOption(selectedOption);
+    onChange?.(selectedOption.value);
   }, [onChange]);
 
   return (
@@ -60,7 +59,6 @@ export const CustomSelect = <T extends TValue>(props: TCustomSelectProps<T>) => 
         disabled={readonly}
         value={selectedOption}
         onChange={onSelectChange}
-        by="value"
       >
         {({ open }) => (
           <>
@@ -68,7 +66,7 @@ export const CustomSelect = <T extends TValue>(props: TCustomSelectProps<T>) => 
               className={getClassName(cls.button, disabledMod, [className])}
               style={style}
             >
-              {selectedOption}
+              {selectedOption.label}
               <IconArrow className={getClassName(cls.icon, { [cls.iconRotate]: open })} />
             </ListboxButton>
             <ListboxOptions
@@ -76,14 +74,18 @@ export const CustomSelect = <T extends TValue>(props: TCustomSelectProps<T>) => 
               anchor="bottom"
               className={cls.listOptions}
             >
-              {options.map(({ label, value }) => (
-                <ListboxOption key={value} value={value} className={cls.option}>
-                  {(p) => {
-                    console.log(p);
-                    return (
-                      <div>{label}</div>
-                    );
-                  }}
+              {options.map((option) => (
+                <ListboxOption
+                  key={option.value}
+                  value={option}
+                  className={
+                    getClassName(
+                      cls.option,
+                      { [cls.selected]: option.value === selectedOption.value },
+                    )
+                  }
+                >
+                  {option.label}
                 </ListboxOption>
               ))}
             </ListboxOptions>
