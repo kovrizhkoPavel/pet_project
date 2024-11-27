@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { Select, TSelectOption } from 'shared/ui/Select/Select';
+import { TSelectOption } from 'shared/ui/Select/Select';
 import { Country } from 'shared/constants/common';
 import { useTranslation } from 'react-i18next';
+import { CustomSelect } from 'shared/ui/CustomSelect/CustomSelect';
 
 type TCountrySelectProps = {
   className?: string;
@@ -19,11 +20,12 @@ export const CountrySelect: FC<TCountrySelectProps> = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Select
-      className={className}
-      options={options}
-      onChange={onChange}
+    <CustomSelect
       readonly={readonly}
+      width={160}
+      options={options}
+      className={className}
+      onChange={onChange}
       label={t('translation\:profile_country')}
     />
   );
