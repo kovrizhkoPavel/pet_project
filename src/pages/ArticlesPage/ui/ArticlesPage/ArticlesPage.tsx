@@ -23,7 +23,7 @@ const ArticlesPage = () => {
   useDynamicModuleLoader(initialReducer, false);
 
   const [searchParams] = useSearchParams();
-  const articleList = useSelector(getArticles.selectAll);
+  const articleList = useSelector(getArticles.selectAll) || [];
   const isLoading = useSelector(getIsLoading);
   const view = useSelector(getView);
   const dispatch = useAppDispatch();
