@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { TSelectOption } from 'shared/ui/Select/Select';
 import { Currency } from 'shared/constants/common';
 import { useTranslation } from 'react-i18next';
 import { CustomSelect } from 'shared/ui/CustomSelect/CustomSelect';
@@ -10,7 +9,7 @@ type TCurrencySelectProps = {
   onChange?: (val: string) => void;
 }
 
-const options: TSelectOption<string>[] = Object.entries(Currency).map(([value, label]) => ({
+const options = Object.entries(Currency).map(([value, label]) => ({
   value,
   label,
 }));

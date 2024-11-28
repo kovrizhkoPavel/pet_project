@@ -9,7 +9,7 @@ import cls from './CustomSelect.module.scss';
 
 type TValue = string | number;
 
-type TSelectOption<T extends TValue> = {
+export type TSelectOption<T extends TValue> = {
   label: T;
   value: T;
 }
