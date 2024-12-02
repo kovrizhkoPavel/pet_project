@@ -10,7 +10,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { DEFAULT_IMAGE } from 'shared/constants/assets';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import cls from './Navbar.module.scss';
 
@@ -24,7 +23,6 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
   const authData = useSelector(getAuthData);
   const isAuthData = Boolean(authData);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const logInClickHandler = () => {
     setIsAuthOpen(true);
