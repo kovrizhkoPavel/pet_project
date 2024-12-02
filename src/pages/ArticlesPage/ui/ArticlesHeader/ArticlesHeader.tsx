@@ -15,11 +15,11 @@ import cls from './PageHeader.module.scss';
 import { getView } from '../../model/selectors/getArticles';
 import { fetchGetArticleList } from '../../model/services/fetchGetArticleList/fetchGetArticleList';
 
-type TPageHeaderProps = {
+type TArticlesHeaderProps = {
   className?: string;
 }
 
-export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
+export const ArticlesHeader: FC<TArticlesHeaderProps> = memo(({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getView);
 
@@ -33,7 +33,7 @@ export const ArticlesHeader: FC<TPageHeaderProps> = memo(({ className }) => {
   };
 
   return (
-    <div className={getClassName(cls.pageHeader, {}, [className])}>
+    <div className={getClassName(cls.articleHeader, {}, [className])}>
       <div className={cls.container}>
         <ArticleSort onSortChange={onFiltersChange} />
         <div className={cls.viewButtons}>

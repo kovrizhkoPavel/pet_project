@@ -1,7 +1,7 @@
-import { loginByUserName } from 'features/AuthByUserName/model/services/loginByUserName/loginByUserName';
 import { expect } from '@storybook/test';
 import { userActions } from 'entities/User';
 import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName', () => {
   const userValue = { id: 1, username: 'admin' };

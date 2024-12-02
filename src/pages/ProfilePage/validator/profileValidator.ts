@@ -1,7 +1,7 @@
 import { TProfile } from 'entities/Profile';
-import { validateFirstname } from 'pages/ProfilePage/validator/validateFirstname';
-import { validateLastname } from 'pages/ProfilePage/validator/validateLastname';
-import { validateAge } from 'pages/ProfilePage/validator/validateAge';
+import { validateFirstname } from './validateFirstname';
+import { validateLastname } from './validateLastname';
+import { validateAge } from './validateAge';
 
 export const profileValidator = (profileData?: TProfile) => ({
   ...validateFirstname(profileData?.firstname),

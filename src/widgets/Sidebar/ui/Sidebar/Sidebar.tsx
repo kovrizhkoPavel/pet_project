@@ -21,7 +21,7 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
 
   return (
-    <div
+    <aside
       className={
         getClassName(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])
       }
@@ -48,6 +48,6 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
       <div className={cls.switcher}>
         <LangSwitcher hasLabel={!isCollapsed} />
       </div>
-    </div>
+    </aside>
   );
 };

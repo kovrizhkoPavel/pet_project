@@ -3,11 +3,11 @@ import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
 import { Toggle } from 'shared/ui/Toggle/Toggle';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { TFilterType } from 'features/ArticlesFilter/model/types/ArticlesFilterScheme';
-import { FilterType } from 'features/ArticlesFilter/constants';
-import { articlesFilterActions } from 'features/ArticlesFilter';
 import { useSelector } from 'react-redux';
-import { getFilterTypes } from 'features/ArticlesFilter/model/selectors/getArticlesFilter';
+import { TFilterType } from '../../model/types/ArticlesFilterScheme';
+import { FilterType } from '../../constants';
+import { articlesFilterActions } from '../../model/slice/articlesFilterSlice';
+import { getFilterTypes } from '../../model/selectors/getArticlesFilter';
 import cls from './ArticlesFilter.module.scss';
 
 type TArticlesFilterProps = {

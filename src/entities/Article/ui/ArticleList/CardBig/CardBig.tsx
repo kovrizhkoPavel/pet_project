@@ -1,12 +1,13 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TArticle, TArticleBlockText } from 'entities/Article/model/types/article';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
+import { TArticle, TArticleBlockText } from '../../../model/types/article';
+import { SkeletonCard } from './SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
 import { ArticleBlockType } from '../../../constants';
 import { ArticleTextBlock } from '../../ArticleTextBlock/ArticleTextBlock';
@@ -14,10 +15,15 @@ import cls from './CardBig.module.scss';
 
 type TCardBigProps = {
   className?: string;
+  isLoading: boolean;
   article: TArticle;
+  height: number;
 }
 
-export const CardBig: FC<TCardBigProps> = ({ className, article }) => {
+export const CardBig: FC<TCardBigProps> = (props) => {
+  const {
+    className, article, height, isLoading,
+  } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
   const {
@@ -38,8 +44,14 @@ export const CardBig: FC<TCardBigProps> = ({ className, article }) => {
     navigate(`${RoutePath.article_details}${article.id}`);
   }, [article, navigate]);
 
+  if (isLoading) {
+    return (
+      <SkeletonCard className={cls.skeletonCard} />
+    );
+  }
+
   return (
-    <article className={getClassName(cls.cardBig, {}, [className])}>
+    <article style={{ height }} className={getClassName(cls.cardBig, {}, [className])}>
       <div className={cls.header}>
         <AppLink className={cls.userContainer} to={`${RoutePath.profile}${user.id}`}>
           <Avatar size={30} src={`${user.avatar}`} alt="avatar" />

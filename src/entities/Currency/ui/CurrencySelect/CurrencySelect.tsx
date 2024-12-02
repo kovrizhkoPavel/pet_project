@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Select, TSelectOption } from 'shared/ui/Select/Select';
 import { Currency } from 'shared/constants/common';
 import { useTranslation } from 'react-i18next';
+import { CustomSelect } from 'shared/ui/CustomSelect/CustomSelect';
 
 type TCurrencySelectProps = {
   className?: string;
@@ -9,7 +9,7 @@ type TCurrencySelectProps = {
   onChange?: (val: string) => void;
 }
 
-const options: TSelectOption<string>[] = Object.entries(Currency).map(([value, label]) => ({
+const options = Object.entries(Currency).map(([value, label]) => ({
   value,
   label,
 }));
@@ -19,11 +19,12 @@ export const CurrencySelect: FC<TCurrencySelectProps> = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Select
-      className={className}
-      options={options}
-      onChange={onChange}
+    <CustomSelect
       readonly={readonly}
+      width={160}
+      options={options}
+      className={className}
+      onChange={onChange}
       label={t('translation\:profile_currency')}
     />
   );

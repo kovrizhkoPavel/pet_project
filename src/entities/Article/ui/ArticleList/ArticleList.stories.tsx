@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
-import { TArticle } from 'entities/Article/model/types/article';
-import { ArticleBlockType, ArticlesView, ArticleType } from 'entities/Article/constants';
+import { TArticle } from '../../model/types/article';
+import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 import { ArticleList } from './ArticleList';
 
 const article: TArticle = {

@@ -7,6 +7,10 @@ import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { DEFAULT_IMAGE } from 'shared/constants/assets';
+import { RoutePath } from 'shared/config/routeConfig/constants';
 import cls from './Navbar.module.scss';
 
 type TNavbarProps = {
@@ -16,7 +20,8 @@ type TNavbarProps = {
 export const Navbar: FC<TNavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [isAuthOpen, setIsAuthOpen] = useState(false);
-  const isAuthData = Boolean(useSelector(getAuthData));
+  const authData = useSelector(getAuthData);
+  const isAuthData = Boolean(authData);
   const dispatch = useAppDispatch();
 
   const logInClickHandler = () => {
@@ -31,22 +36,41 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
     setIsAuthOpen(false);
   }, []);
 
-  const btnText = isAuthData
-    ? t('translation\:button_logout')
-    : t('translation\:button_login');
-
-  const onButtonClick = isAuthData ? logoutClickHandler : logInClickHandler;
-
-  return (
-    <div className={getClassName(cls.navbar, {}, [className])}>
-      <ThemeSwitcher />
+  const Content = isAuthData ? (
+    <>
+      <Dropdown
+        content={<Avatar size={50} src={authData?.avatar || DEFAULT_IMAGE} />}
+        position="bottom-left"
+        items={[
+          {
+            content: t('translation\:button_logout'),
+            onClick: logoutClickHandler,
+          },
+          {
+            content: t('translation\:title_profile'),
+            href: RoutePath.profile + authData!.id,
+          },
+        ]}
+      />
+    </>
+  ) : (
+    <>
       <Button
         className={cls.button__auth}
         variant={ButtonVariant.FILL}
-        onClick={onButtonClick}
+        onClick={logInClickHandler}
       >
-        {btnText}
+        {t('translation\:button_login')}
       </Button>
+    </>
+  );
+
+  return (
+    <div className={getClassName(cls.navbar, {}, [className])}>
+      <div className={cls.themeSwitcher}>
+        <ThemeSwitcher />
+      </div>
+      {Content}
       {!isAuthData
         && (
           <LoginModal

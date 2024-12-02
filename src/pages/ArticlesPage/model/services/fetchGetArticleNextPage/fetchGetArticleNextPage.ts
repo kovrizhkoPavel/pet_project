@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { fetchGetArticleList } from 'pages/ArticlesPage/model/services/fetchGetArticleList/fetchGetArticleList';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { fetchGetArticleList } from '../fetchGetArticleList/fetchGetArticleList';
+import { articlesPageActions } from '../../slice/articlesPageSlice';
 import {
   getHasMore, getIsInitialized, getIsLoading, getPageNum,
 } from '../../selectors/getArticles';

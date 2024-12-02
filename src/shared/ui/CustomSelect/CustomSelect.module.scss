@@ -1,0 +1,67 @@
+.button {
+  position: relative;
+  padding: 4px 24px 4px 8px;
+  color: var(--font-color);
+  text-align: start;
+  cursor: pointer;
+  background: var(--font-color-invert);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-m);
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    opacity: var(--opacity-hover);
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
+}
+
+.buttonDisabled {
+  opacity: var(--opacity-disabled);
+}
+
+.icon {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  fill: var(--primary-color);
+  transition: var(--transition);
+}
+
+.iconRotate {
+  transform: rotate(180deg);
+}
+
+.listOptions {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-m);
+}
+
+.option {
+  padding: 4px 24px 4px 8px;
+  cursor: pointer;
+  background: var(--bg-color);
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background: var(--secondary-color);
+  }
+
+  &:active {
+    opacity: var(--opacity-active);
+  }
+}
+
+.label {
+  padding-right: 12px;
+}
+
+.selected {
+  background: var(--secondary-color);
+}

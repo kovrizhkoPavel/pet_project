@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Button } from 'shared/ui/Button/Button';
 import CopyIcon from 'shared/assets/icon/copy-icon.svg';
+import { Button } from '../Button/Button';
 import cls from './Code.module.scss';
 
 type TCodeProps = {

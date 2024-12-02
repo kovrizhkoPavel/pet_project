@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { TThunkApiConfig } from 'shared/types/stateScheme';
 import { ProfileUrl } from 'shared/constants/api';
 import { TProfile, TProfileValidationError } from 'entities/Profile/types/profile';
-import { profileValidator } from 'pages/ProfilePage/validator/profileValidator';
+import { profileValidator } from '../../../validator/profileValidator';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 
 export const updateProfileData = createAsyncThunk<

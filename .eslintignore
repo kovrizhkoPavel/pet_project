@@ -1,4 +1,5 @@
 /build
 /config
 /json-server
+/eslint-plugin-pet-project
 webpack.config.ts

@@ -1,7 +1,7 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
-import { ArticlesSortScheme } from 'features/ArticlesSort/model/types/ArticlesSortScheme';
-import { SortField, SortOrder } from 'features/ArticlesSort/constants';
+import { SortField, SortOrder } from '../../constants';
+import { ArticlesSortScheme } from '../types/ArticlesSortScheme';
 
 const getArticleSort = (state: StateScheme) => state.articlesPage?.sort;
 

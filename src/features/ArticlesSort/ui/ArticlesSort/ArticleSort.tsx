@@ -1,9 +1,9 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { Select, TSelectOption } from 'shared/ui/Select/Select';
 import { TObjectValue, TSortOrder } from 'shared/types/types';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { CustomSelect, TSelectOption } from 'shared/ui/CustomSelect/CustomSelect';
 import { articlesSortActions } from '../../model/slice/articleSortSlice';
 import { SortField, SortOrder } from '../../constants';
 import cls from './ArticleSort.module.scss';
@@ -57,12 +57,12 @@ export const ArticleSort: FC<TArticleSortProps> = (props) => {
 
   return (
     <div className={getClassName(cls.articleSort, {}, [className])}>
-      <Select
+      <CustomSelect
         options={OrderOptions}
         onChange={onSelectOrderChange}
         label={t('translation\:sort_label')}
       />
-      <Select
+      <CustomSelect
         options={FieldOptions}
         onChange={onSelectFieldChange}
       />

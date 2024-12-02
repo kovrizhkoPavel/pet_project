@@ -1,16 +1,22 @@
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { TArticlesView } from 'entities/Article/model/types/article';
-import { ArticlesView } from 'entities/Article/constants';
-import { SkeletonCard } from 'entities/Article/ui/ArticleList/CardBig/SkeletonCard';
+import { getClassName } from 'shared/lib/classNames/getClassName';
+import { TArticlesView } from '../../../model/types/article';
+import { ArticlesView } from '../../../constants';
+import { SkeletonCard } from '../CardBig/SkeletonCard';
 import cls from './SkeletonList.module.scss';
 
-const TILE_COUNT = 7;
+const TILE_COUNT = 20;
 const LIST_COUNT = 3;
 
-export const SkeletonList = ({ view }: {view: TArticlesView}) => {
+type TSkeletonList = {
+  view: TArticlesView;
+  className?: string;
+};
+
+export const SkeletonList = ({ view, className }: TSkeletonList) => {
   if (view === ArticlesView.TILE) {
     return (
-      <div className={cls.skeletonList}>
+      <div className={getClassName(cls.skeletonList, {}, [className])}>
         {
           new Array(TILE_COUNT)
             .fill('')
@@ -34,7 +40,7 @@ export const SkeletonList = ({ view }: {view: TArticlesView}) => {
           .fill('')
           .map((_, i) => (
             <SkeletonCard
-              className={cls.skeletonCard}
+              className={getClassName(cls.skeletonCard, {}, [className])}
               key={i}
             />
           ))

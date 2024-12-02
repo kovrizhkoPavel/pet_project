@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { TArticleBlockCode } from 'entities/Article/model/types/article';
 import { Code } from 'shared/ui/Code/Code';
+import { TArticleBlockCode } from '../../model/types/article';
 import cls from './ArticleCodeBlock.module.scss';
 
 type TArticleCodeBlockProps = {

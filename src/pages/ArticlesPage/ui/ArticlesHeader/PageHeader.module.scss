@@ -1,3 +1,13 @@
+.articleHeader {
+  height: 156px;
+  padding: 20px 20px 0;
+  margin-bottom: 24px;
+}
+
+:root {
+  --article-header-height: 180px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;

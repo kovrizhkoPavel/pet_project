@@ -57,8 +57,10 @@ module.exports = {
     '@typescript-eslint',
     'react',
     'i18next',
+    'pet-project',
   ],
   rules: {
+    'pet-project/fsd-relative-path': 'error',
     indent: [
       'error',
       2,

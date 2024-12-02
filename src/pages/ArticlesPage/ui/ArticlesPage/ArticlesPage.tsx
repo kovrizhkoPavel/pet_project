@@ -6,7 +6,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { useSearchParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
-import { InfinityScroll } from 'shared/ui/InfinityScroll/InfinityScroll';
 import { useCallback } from 'react';
 import { articlesPageMainReducer } from '../../model/reducers/articlesPageMainReducer';
 import { fetchGetArticleNextPage } from '../../model/services/fetchGetArticleNextPage/fetchGetArticleNextPage';
@@ -24,29 +23,29 @@ const ArticlesPage = () => {
   useDynamicModuleLoader(initialReducer, false);
 
   const [searchParams] = useSearchParams();
-  const articleList = useSelector(getArticles.selectAll);
+  const articleList = useSelector(getArticles.selectAll) || [];
   const isLoading = useSelector(getIsLoading);
   const view = useSelector(getView);
   const dispatch = useAppDispatch();
-
-  const onLoadNextPageNum = useCallback(() => {
-    dispatch(fetchGetArticleNextPage());
-  }, [dispatch]);
 
   useAppUseEffect(() => {
     dispatch(initArticlePage(searchParams));
   }, [dispatch]);
 
+  const fetchNextPage = useCallback(() => {
+    dispatch(fetchGetArticleNextPage());
+  }, [dispatch]);
+
   return (
-    <PageContainer>
-      <ArticlesHeader className={cls.header} />
-      <InfinityScroll cb={onLoadNextPageNum}>
-        <ArticleList
-          view={view}
-          articles={articleList}
-          isLoading={isLoading}
-        />
-      </InfinityScroll>
+    <PageContainer className={cls.pageContainer}>
+      <ArticlesHeader />
+      <ArticleList
+        view={view}
+        articles={articleList}
+        isLoading={isLoading}
+        className={cls.articleList}
+        fetchNextPage={fetchNextPage}
+      />
     </PageContainer>
   );
 };

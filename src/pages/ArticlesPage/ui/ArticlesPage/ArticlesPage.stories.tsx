@@ -4,10 +4,11 @@ import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticlesView } from 'entities/Article/constants';
 import { StateScheme } from 'shared/types/stateScheme';
+import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import ArticlesPage from './ArticlesPage';
 
 const meta = {
-  title: 'pages/Articles',
+  title: 'pages/ArticlesPage',
   component: ArticlesPage,
   decorators: [StoreDecorator({
     articlesPage: {
@@ -17,7 +18,8 @@ const meta = {
         limit: 1,
         pageNum: 1,
         hasMore: false,
-      },
+        ids: [],
+      } as unknown as ArticlesPageSchema,
     },
   } as StateScheme)],
 } satisfies Meta<typeof ArticlesPage>;
