@@ -1,0 +1,49 @@
+.dropdown {
+  position: relative;
+}
+
+.items {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius-l);
+}
+
+.item {
+  padding: 4px 0;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  padding: 0 12px;
+  text-decoration: none;
+}
+
+.button {
+  width: 100%;
+  padding: 0 12px;
+  color: var(--font-color);
+  text-align: start;
+}
+
+.itemBottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.itemBottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.itemTopRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.itemTopLeft {
+  right: 0;
+  bottom: 100%;
+}
