@@ -1,6 +1,6 @@
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Menu } from '@headlessui/react';
-import { CSSProperties, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import cls from './Dropdown.module.scss';
