@@ -51,7 +51,7 @@ export const Dropdown = (props: TDropdownProps) => {
                 <Button
                   className={cls.button}
                   variant={ButtonVariant.CLEAR}
-                  onChange={item.onClick}
+                  onClick={item.onClick}
                 >
                   {item.content}
                 </Button>

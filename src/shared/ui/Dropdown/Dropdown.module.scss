@@ -1,5 +1,6 @@
 .dropdown {
   position: relative;
+  z-index: var(--z-index-modal);
 }
 
 .items {
@@ -8,6 +9,7 @@
   flex-direction: column;
   border: 1px solid var(--primary-color);
   border-radius: var(--border-radius-l);
+  background: var(--bg-color);
 }
 
 .item {
