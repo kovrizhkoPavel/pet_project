@@ -50,7 +50,7 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
           },
           {
             content: t('translation\:title_profile'),
-            href: RoutePath.profile + authData?.id,
+            href: RoutePath.profile + authData!.id,
           },
         ]}
       />
