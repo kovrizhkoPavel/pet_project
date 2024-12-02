@@ -7,9 +7,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  background: var(--bg-color);
   border: 1px solid var(--primary-color);
   border-radius: var(--border-radius-l);
-  background: var(--bg-color);
 }
 
 .item {
