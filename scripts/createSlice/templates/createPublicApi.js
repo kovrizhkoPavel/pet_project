@@ -3,11 +3,12 @@ const { resolveRoot, makeFirstCharUpperCase } = require('../utils');
 
 module.exports = async (layer, sliceName) => {
   const componentName = makeFirstCharUpperCase(sliceName);
-  const schemaName = `${sliceName}Schema`;
+  const schemaName = `${sliceName}Scheme`;
   
   try {
     const template = `export { ${componentName} } from './ui/${componentName}/${componentName}';
-    export { ${makeFirstCharUpperCase(schemaName)} } from './model/types/${schemaName}';`
+export { ${makeFirstCharUpperCase(schemaName)} } from './model/types/${schemaName}';
+`
     
     await writeFile(
       resolveRoot('src', layer, sliceName, 'index.ts'),

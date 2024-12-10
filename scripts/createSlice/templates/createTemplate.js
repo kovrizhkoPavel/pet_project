@@ -1,5 +1,5 @@
 const { mkdir } = require('fs/promises');
-const { resolveRoot } = require('../utils');
+const { resolveRoot, makeFirstCharUpperCase } = require('../utils');
 const createModel = require('./createModel');
 const createUi = require('./createUi');
 const createPublicApi = require('./createPublicApi');
@@ -7,7 +7,7 @@ const createPublicApi = require('./createPublicApi');
 module.exports = async (layer, sliceName) => {
   try {
     await mkdir(
-      resolveRoot('src', layer, sliceName),
+      resolveRoot('src', layer, makeFirstCharUpperCase(sliceName)),
     );
   } catch (err) {
     console.error(`Не удалось создать директорию для слайса ${sliceName}`, err);
