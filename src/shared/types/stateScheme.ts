@@ -6,10 +6,12 @@ import { AxiosInstance } from 'axios';
 import { ArticlesMainScheme } from 'pages/ArticlesPage';
 import { ScrollPositionSchema } from 'shared/models/SaveScrollPosition';
 import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export type StateScheme = {
   user: UserScheme;
   scrollPosition: ScrollPositionSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   authForm?: AuthSchema;
