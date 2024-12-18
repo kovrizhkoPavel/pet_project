@@ -16,7 +16,7 @@ const form = {
 describe('getProfileForm', () => {
   test('should get profile form store', () => {
     const state = {
-      profile: { form },
+      profile: { formData: form },
     } as StateScheme;
 
     expect(getProfileForm(state)).toEqual(form);

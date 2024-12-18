@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TOptionalRecord } from 'shared/types/types';
+import { TOptionalRecord } from 'shared/types/utils';
 import { TQuerySearchKeys } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import { ArticlesSearchScheme } from '../types/ArticlesSearchScheme';
 

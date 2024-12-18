@@ -1,8 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import {
+  BaseQueryFn, createApi, FetchArgs, fetchBaseQuery,
+} from '@reduxjs/toolkit/query/react';
 import { LocalStorageKey } from 'shared/constants/localstorage';
+import { TCustomError } from 'shared/types/api';
+
+type TBaseQuery = BaseQueryFn<string | FetchArgs, unknown, TCustomError>;
 
 export const rtkApi = createApi({
-  reducerPath: 'pokemonApi',
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: __API__,
     prepareHeaders: (headers) => {
@@ -12,6 +17,6 @@ export const rtkApi = createApi({
       }
       return headers;
     },
-  }),
+  }) as TBaseQuery,
   endpoints: () => ({}),
 });

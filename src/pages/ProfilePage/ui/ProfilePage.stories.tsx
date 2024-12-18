@@ -10,7 +10,7 @@ const meta = {
   component: ProfilePage,
   decorators: [StoreDecorator({
     profile: {
-      form: {
+      formData: {
         username: 'user',
         firstname: 'name',
         lastname: 'lastname',

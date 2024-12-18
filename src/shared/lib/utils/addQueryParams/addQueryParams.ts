@@ -1,4 +1,4 @@
-import { TOptionalRecord } from 'shared/types/types';
+import { TOptionalRecord } from 'shared/types/utils';
 import { getQueryParams } from './getQueryParams';
 
 export const addQueryParams = (params: TOptionalRecord<string, string>) => {

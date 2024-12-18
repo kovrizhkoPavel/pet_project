@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TOptionalRecord, TSortOrder } from 'shared/types/types';
+import { TOptionalRecord, TSortOrder } from 'shared/types/utils';
 import { TQuerySearchKeys } from 'pages/ArticlesPage/model/types/articlesPageSchema';
 import { checkSortField, checkSortOrder } from '../../utils/utils';
 import { ArticlesSortScheme } from '../types/ArticlesSortScheme';

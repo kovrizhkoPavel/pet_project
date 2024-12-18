@@ -14,7 +14,7 @@ describe('profileSlice', () => {
       validationError: undefined,
       error: undefined,
       readonly: true,
-      form: data,
+      formData: data,
       data,
     } as ProfileScheme;
 

@@ -1,21 +1,18 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { ProfileCard } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
 import { useParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
+import { useGetProfileDataQuery } from 'pages/ProfilePage/model/api/profileApi';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import cls from './ProfilePage.module.scss';
-import { fetchGetProfileData } from '../model/service/fetchGetProfileData/fetchGetProfileData';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 
 const initialReducers: TReducers = {
   profile: profileReducer,
@@ -23,17 +20,16 @@ const initialReducers: TReducers = {
 const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
   const profileForm = useSelector(getProfileForm);
-  const profileIsLoading = useSelector(getProfileIsLoading);
-  const profileError = useSelector(getProfileError);
   const profileReadOnly = useSelector(getProfileReadonly);
   const profileValidationError = useSelector(getProfileValidationError);
   const { id } = useParams<{id : string}>();
 
-  useAppUseEffect(() => {
-    if (id) {
-      setTimeout(() => dispatch(fetchGetProfileData(id)));
-    }
-  }, [dispatch]);
+  const { data, isFetching, isError } = useGetProfileDataQuery(`${id}`, { skip: !id });
+
+  useEffect(() => {
+    if (!data || data?.length < 1) return;
+    dispatch(profileActions.setInitialData(data[0]));
+  }, [dispatch, data]);
 
   useDynamicModuleLoader(initialReducers);
 
@@ -70,8 +66,8 @@ const ProfilePage: FC = () => {
       <ProfilePageHeader className={cls.profilePageHeader} />
       <ProfileCard
         data={profileForm}
-        isLoading={profileIsLoading}
-        error={profileError}
+        isLoading={isFetching}
+        error={isError}
         readonly={profileReadOnly}
         validationError={profileValidationError}
         onFirstNameChange={onFirstNameChange}

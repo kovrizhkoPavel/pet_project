@@ -4,5 +4,5 @@ import { getProfileState } from '../getProfileState/getProfileState';
 
 export const getProfileForm = createSelector(
   getProfileState,
-  (state: ProfileScheme | undefined) => state?.form,
+  (state: ProfileScheme | undefined) => state?.formData,
 );

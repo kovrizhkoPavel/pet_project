@@ -38,7 +38,7 @@ describe('updateProfileData', () => {
   test('success', async () => {
     const Thunk = new TestAsyncThunk(
       updateProfileData,
-      { profile: { form: data } } as StateScheme,
+      { profile: { formData: data } } as StateScheme,
     );
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ data }));
@@ -53,7 +53,7 @@ describe('updateProfileData', () => {
   test('login error', async () => {
     const Thunk = new TestAsyncThunk(
       updateProfileData,
-      { profile: { form: invalidData } } as StateScheme,
+      { profile: { formData: invalidData } } as StateScheme,
     );
 
     Thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));

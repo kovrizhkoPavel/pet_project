@@ -3,7 +3,7 @@ import { Country, Currency } from 'shared/constants/common';
 import { expect } from '@storybook/test';
 import { getProfileData } from './getProfileData';
 
-const data = {
+const initialData = {
   username: 'username',
   firstname: 'firstname',
   lastname: 'lastname',
@@ -16,10 +16,10 @@ const data = {
 describe('getProfileData', () => {
   test('should get profile data store', () => {
     const state = {
-      profile: { data },
+      profile: { initialData },
     } as StateScheme;
 
-    expect(getProfileData(state)).toEqual(data);
+    expect(getProfileData(state)).toEqual(initialData);
   });
 
   test('should work with empty state', () => {

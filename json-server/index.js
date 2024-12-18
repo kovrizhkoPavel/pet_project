@@ -36,7 +36,6 @@ server.post('/login', (req, res) => {
 
     return res.status(403).json({ message: 'User not found' });
   } catch (e) {
-    console.log(e);
     return res.status(500).json({ message: e.message });
   }
 });
@@ -54,5 +53,5 @@ server.use(router);
 
 // запуск сервера
 server.listen(8000, () => {
-  console.log('server is running on 8000 port');
+  console.info('server is running on 8000 port');
 });

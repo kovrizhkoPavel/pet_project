@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/types';
+import { TObjectValue } from 'shared/types/utils';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { FC, SVGProps } from 'react';
 
