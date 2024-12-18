@@ -1,17 +1,17 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
-import { getProfileReadonly } from './getProfileReadonly';
+import { getProfileFormReadonly } from './getProfileFormReadonly';
 
-describe('getProfileReadonly', () => {
+describe('getProfileFormReadonly', () => {
   test('should get profile is readonly state', () => {
     const state = {
       profile: { readonly: true },
     } as StateScheme;
 
-    expect(getProfileReadonly(state)).toBe(true);
+    expect(getProfileFormReadonly(state)).toBe(true);
   });
 
   test('should work with empty state', () => {
-    expect(getProfileReadonly({} as StateScheme)).toBe(false);
+    expect(getProfileFormReadonly({} as StateScheme)).toBe(false);
   });
 });

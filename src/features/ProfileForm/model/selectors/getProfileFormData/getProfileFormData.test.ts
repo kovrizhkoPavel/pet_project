@@ -1,7 +1,7 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { Country, Currency } from 'shared/constants/common';
 import { expect } from '@storybook/test';
-import { getProfileFormState } from './getProfileFormState';
+import { getProfileFormData } from './getProfileFormData';
 
 const initialData = {
   username: 'username',
@@ -13,16 +13,16 @@ const initialData = {
   currency: Currency.RUB,
 };
 
-describe('getProfileFormState', () => {
-  test('should get profile store', () => {
+describe('getProfileFormData', () => {
+  test('should get profile data store', () => {
     const state = {
-      profileForm: { initialData },
+      profile: { initialData },
     } as StateScheme;
 
-    expect(getProfileFormState(state)).toEqual({ data: initialData });
+    expect(getProfileFormData(state)).toEqual(initialData);
   });
 
   test('should work with empty state', () => {
-    expect(getProfileFormState({} as StateScheme)).toBe(undefined);
+    expect(getProfileFormData({} as StateScheme)).toBe(undefined);
   });
 });

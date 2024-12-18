@@ -1,7 +1,7 @@
 import { StateScheme } from 'shared/types/stateScheme';
 import { Country, Currency } from 'shared/constants/common';
 import { expect } from '@storybook/test';
-import { getProfileData } from './getProfileData';
+import { getProfileInitialData } from './getProfileInitialData';
 
 const initialData = {
   username: 'username',
@@ -19,10 +19,10 @@ describe('getProfileData', () => {
       profile: { initialData },
     } as StateScheme;
 
-    expect(getProfileData(state)).toEqual(initialData);
+    expect(getProfileInitialData(state)).toEqual(initialData);
   });
 
   test('should work with empty state', () => {
-    expect(getProfileData({} as StateScheme)).toBe(undefined);
+    expect(getProfileInitialData({} as StateScheme)).toBe(undefined);
   });
 });

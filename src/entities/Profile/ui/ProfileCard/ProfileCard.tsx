@@ -45,7 +45,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
     onCountryChange,
     onCurrencyChange,
   } = props;
-  console.log(data);
+
   const validateErrorTranslates = {
     [ValidatorError.REQUIRED]: t('translation\:profile_required'),
     [ValidatorError.ONLY_INTEGER]: t('translation\:profile_only_integer'),
