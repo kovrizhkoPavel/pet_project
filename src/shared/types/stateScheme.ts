@@ -7,6 +7,7 @@ import { ArticlesMainScheme } from 'pages/ArticlesPage';
 import { ScrollPositionSchema } from 'shared/models/SaveScrollPosition';
 import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileFormScheme } from 'features/ProfileForm';
 
 export type StateScheme = {
   user: UserScheme;
@@ -16,6 +17,7 @@ export type StateScheme = {
   // async reducers
   authForm?: AuthSchema;
   profile?: ProfileScheme;
+  profileForm?: ProfileFormScheme;
   articleDetailsPage?: ArticleDetailsPageScheme;
   articlesPage?: ArticlesMainScheme;
 };

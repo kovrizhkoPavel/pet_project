@@ -7,6 +7,7 @@ import { TReducers } from 'shared/types/stateScheme';
 import { useParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
 import { useGetProfileDataQuery } from 'pages/ProfilePage/model/api/profileApi';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidationError } from '../model/selectors/getProfileValidationError/getProfileValidationError';
@@ -18,6 +19,7 @@ const initialReducers: TReducers = {
   profile: profileReducer,
 };
 const ProfilePage: FC = () => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const profileForm = useSelector(getProfileForm);
   const profileReadOnly = useSelector(getProfileReadonly);
@@ -63,6 +65,7 @@ const ProfilePage: FC = () => {
 
   return (
     <PageContainer>
+      <h1>{t('translation\:title_profile')}</h1>
       <ProfilePageHeader className={cls.profilePageHeader} />
       <ProfileCard
         data={profileForm}
