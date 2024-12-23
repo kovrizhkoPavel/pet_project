@@ -19,7 +19,7 @@ describe('getProfileFormState', () => {
       profileForm: { initialData },
     } as StateScheme;
 
-    expect(getProfileFormState(state)).toEqual({ data: initialData });
+    expect(getProfileFormState(state)).toEqual({ initialData });
   });
 
   test('should work with empty state', () => {

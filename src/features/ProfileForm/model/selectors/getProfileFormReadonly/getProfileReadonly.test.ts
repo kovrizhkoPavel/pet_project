@@ -5,7 +5,7 @@ import { getProfileFormReadonly } from './getProfileFormReadonly';
 describe('getProfileFormReadonly', () => {
   test('should get profile is readonly state', () => {
     const state = {
-      profile: { readonly: true },
+      profileForm: { readonly: true },
     } as StateScheme;
 
     expect(getProfileFormReadonly(state)).toBe(true);

@@ -16,7 +16,7 @@ const initialData = {
 describe('getProfileData', () => {
   test('should get profile data store', () => {
     const state = {
-      profile: { initialData },
+      profileForm: { initialData },
     } as StateScheme;
 
     expect(getProfileInitialData(state)).toEqual(initialData);

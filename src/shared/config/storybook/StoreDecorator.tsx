@@ -3,13 +3,13 @@ import { StoryFn } from '@storybook/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { authReducer } from 'features/AuthByUserName';
-import { profileReducer } from 'pages/ProfilePage/model/slice/profileSlice';
 import { articleDetailsPageMainReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageMainReducer } from 'pages/ArticlesPage';
+import { profileFormReducer } from 'features/ProfileForm';
 
 const defaultAsyncReducers: TReducers = {
   authForm: authReducer,
-  profile: profileReducer,
+  profileForm: profileFormReducer,
   articleDetailsPage: articleDetailsPageMainReducer,
   articlesPage: articlesPageMainReducer,
 };

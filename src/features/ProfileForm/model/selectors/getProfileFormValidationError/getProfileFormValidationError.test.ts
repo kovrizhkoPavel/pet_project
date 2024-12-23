@@ -10,7 +10,7 @@ const validationError = {
 describe('getProfileFormValidationError', () => {
   test('should get profile validation error', () => {
     const state = {
-      profile: {
+      profileForm: {
         validationError,
       },
     } as StateScheme;
