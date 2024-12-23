@@ -1,13 +1,14 @@
 import { ProfileCard, TProfile } from 'entities/Profile';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useEffect } from 'react';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { TReducers } from 'shared/types/stateScheme';
-import { useProfileForm } from 'features/ProfileForm/hooks/useProfileForm';
+import { useProfileForm } from '../../hooks/useProfileForm';
+import {
+  getProfileFormValidationError,
+} from '../../model/selectors/getProfileFormValidationError/getProfileFormValidationError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { ProfileFormHeader } from '../ProfileFormHeader/ProfileFormHeader';
-import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
+import { profileFormReducer } from '../../model/slice/profileFormSlice';
 import { getProfileFormReadonly } from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 
 type TEditProfileFormProps = {
@@ -28,6 +29,7 @@ export const EditProfileForm = (props: TEditProfileFormProps) => {
 
   const formData = useSelector(getProfileFormData);
   const isReadOnly = useSelector(getProfileFormReadonly);
+  const validationError = useSelector(getProfileFormValidationError);
 
   useDynamicModuleLoader(initialReducers);
 
@@ -49,7 +51,7 @@ export const EditProfileForm = (props: TEditProfileFormProps) => {
         isLoading={isLoading}
         error={isError}
         readonly={isReadOnly}
-        validationError={{ firstname: '', lastname: '', age: '1' }}
+        validationError={validationError}
         onFirstNameChange={onFirstNameChange}
         onLastNameChange={onLastNameChange}
         onAgeChange={onAgeChange}
