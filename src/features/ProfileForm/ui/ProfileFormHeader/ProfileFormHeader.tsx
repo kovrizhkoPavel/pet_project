@@ -17,10 +17,6 @@ type TProfilePageHeaderProps = {
   className?: string;
 }
 
-const initialReducers: TReducers = {
-  profileForm: profileFormReducer,
-};
-
 export const ProfileFormHeader = ({ className }: TProfilePageHeaderProps) => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{id : string}>();
@@ -28,7 +24,6 @@ export const ProfileFormHeader = ({ className }: TProfilePageHeaderProps) => {
   const profile = useSelector(getProfileInitialData);
   const canEdit = authData?.id === profile?.id;
   const isReadonly = useSelector(getProfileFormReadonly);
-  useDynamicModuleLoader(initialReducers);
 
   const onEditButtonClick = useCallback(() => {
     dispatch(profileFormActions.setReadonly(false));

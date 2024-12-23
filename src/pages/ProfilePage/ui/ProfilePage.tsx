@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { PageContainer } from 'widgets/PageContainer';
-import { useGetProfileDataQuery } from 'pages/ProfilePage/model/api/profileApi';
 import { useTranslation } from 'react-i18next';
 import { EditProfileForm } from 'features/ProfileForm';
+import { useGetProfileDataQuery } from '../model/api/profileApi';
 
 const ProfilePage = () => {
   const { t } = useTranslation();

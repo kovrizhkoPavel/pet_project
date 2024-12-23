@@ -1,13 +1,14 @@
 import { ProfileCard, TProfile } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { TReducers } from 'shared/types/stateScheme';
+import { useProfileForm } from 'features/ProfileForm/hooks/useProfileForm';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { ProfileFormHeader } from '../ProfileFormHeader/ProfileFormHeader';
-import { profileFormActions } from '../../model/slice/profileFormSlice';
-import {
-  getProfileFormReadonly,
-} from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
+import { profileFormActions, profileFormReducer } from '../../model/slice/profileFormSlice';
+import { getProfileFormReadonly } from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 
 type TEditProfileFormProps = {
   className?: string;
@@ -16,47 +17,29 @@ type TEditProfileFormProps = {
   isError: boolean;
 }
 
+const initialReducers: TReducers = {
+  profileForm: profileFormReducer,
+};
+
 export const EditProfileForm = (props: TEditProfileFormProps) => {
   const {
     className, initialData, isLoading, isError,
   } = props;
 
-  const dispatch = useAppDispatch();
   const formData = useSelector(getProfileFormData);
   const isReadOnly = useSelector(getProfileFormReadonly);
 
-  useEffect(() => {
-    if (!initialData) return;
-    dispatch(profileFormActions.setInitialData(initialData));
-  }, [initialData, dispatch]);
+  useDynamicModuleLoader(initialReducers);
 
-  const onFirstNameChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ firstname: value }));
-  }, [dispatch]);
-
-  const onLastNameChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ lastname: value }));
-  }, [dispatch]);
-
-  const onAgeChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ age: Number(value) }));
-  }, [dispatch]);
-
-  const onCityChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ city: value }));
-  }, [dispatch]);
-
-  const onAvatarChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ avatar: value }));
-  }, [dispatch]);
-
-  const onCurrencyChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ currency: value }));
-  }, [dispatch]);
-
-  const onCountryChange = useCallback((value: string) => {
-    dispatch(profileFormActions.changeProfile({ country: value }));
-  }, [dispatch]);
+  const {
+    onLastNameChange,
+    onFirstNameChange,
+    onAgeChange,
+    onCityChange,
+    onCurrencyChange,
+    onCountryChange,
+    onAvatarChange,
+  } = useProfileForm(initialData);
 
   return (
     <div className={className}>
