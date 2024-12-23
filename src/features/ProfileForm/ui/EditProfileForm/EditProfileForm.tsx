@@ -41,15 +41,18 @@ export const EditProfileForm = (props: TEditProfileFormProps) => {
     onCurrencyChange,
     onCountryChange,
     onAvatarChange,
+    onButtonSubmit,
+    isLoading: isFormLoading,
+    isError: isFormError,
   } = useProfileForm(initialData);
 
   return (
     <div className={className}>
-      <ProfileFormHeader />
+      <ProfileFormHeader onSubmit={onButtonSubmit} />
       <ProfileCard
         data={formData}
-        isLoading={isLoading}
-        error={isError}
+        isLoading={isLoading || isFormLoading}
+        error={isError || isFormError}
         readonly={isReadOnly}
         validationError={validationError}
         onFirstNameChange={onFirstNameChange}

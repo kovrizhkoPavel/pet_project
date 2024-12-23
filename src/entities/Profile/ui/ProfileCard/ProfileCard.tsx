@@ -89,7 +89,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
       )}
       <Input
         label={`${t('translation\:profile_firstname')}: `}
-        value={data?.username || ''}
+        value={data?.firstname || ''}
         className={cls.input}
         readonly={!!readonly}
         onChange={onFirstNameChange}

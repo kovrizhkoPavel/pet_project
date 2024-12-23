@@ -1,16 +1,16 @@
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { HStack } from 'shared/ui/Stack';
 import { useProfileFormHeader } from '../../hooks/useProfileFormHeader';
 import { ProfileButtonGroup } from '../ProfileButtonGroup/ProfileButtonGroup';
 import cls from './ProfilePageHeader.module.scss';
 
 type TProfilePageHeaderProps = {
   className?: string;
+  onSubmit: () => void;
 }
 
-export const ProfileFormHeader = ({ className }: TProfilePageHeaderProps) => {
+export const ProfileFormHeader = ({ className, onSubmit }: TProfilePageHeaderProps) => {
   const {
-    onButtonSubmit, onButtonReset, onEditButtonClick, canEdit, isReadonly,
+    onButtonReset, onEditButtonClick, canEdit, isReadonly,
   } = useProfileFormHeader();
 
   return (
@@ -19,7 +19,7 @@ export const ProfileFormHeader = ({ className }: TProfilePageHeaderProps) => {
         <ProfileButtonGroup
           isReadonly={isReadonly}
           onEdit={onEditButtonClick}
-          onSubmit={onButtonSubmit}
+          onSubmit={onSubmit}
           onReset={onButtonReset}
         />
       )}
