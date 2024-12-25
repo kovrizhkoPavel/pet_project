@@ -1,7 +1,6 @@
 import { UserScheme } from 'entities/User';
 import { AuthSchema } from 'features/AuthByUserName';
 import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { ProfileScheme } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticlesMainScheme } from 'pages/ArticlesPage';
 import { ScrollPositionSchema } from 'shared/models/SaveScrollPosition';
@@ -16,7 +15,6 @@ export type StateScheme = {
 
   // async reducers
   authForm?: AuthSchema;
-  profile?: ProfileScheme;
   profileForm?: ProfileFormScheme;
   articleDetailsPage?: ArticleDetailsPageScheme;
   articlesPage?: ArticlesMainScheme;

@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { ProfileScheme } from 'entities/Profile';
+import { ProfileFormScheme } from '../../types/profileFormScheme';
 import { getProfileFormState } from '../getProfileFormState/getProfileFormState';
 
 export const getProfileFormReadonly = createSelector(
   getProfileFormState,
-  (state: ProfileScheme | undefined) => !!state?.readonly,
+  (state: ProfileFormScheme | undefined) => !!state?.readonly,
 );

@@ -19,11 +19,3 @@ export type TProfileValidationError = {
   lastname?: TObjectValue<typeof ValidatorError>;
   age?: TObjectValue<typeof ValidatorError>;
 }
-
-export type ProfileScheme = {
-  initialData?: TProfile,
-  formData?: TProfile,
-  error?: string;
-  validationError?: TProfileValidationError;
-  readonly: boolean;
-}

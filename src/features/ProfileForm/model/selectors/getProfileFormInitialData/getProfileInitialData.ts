@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { ProfileScheme } from 'entities/Profile';
 import { getProfileFormState } from '../getProfileFormState/getProfileFormState';
+import { ProfileFormScheme } from '../../types/profileFormScheme';
 
 export const getProfileInitialData = createSelector(
   getProfileFormState,
-  (state: ProfileScheme | undefined) => state?.initialData,
+  (state: ProfileFormScheme | undefined) => state?.initialData,
 );

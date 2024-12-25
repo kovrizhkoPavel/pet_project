@@ -1,6 +1,7 @@
 /build
 /storybook-static
 node_modules/
+/reports
 
 .idea
 .vscode
