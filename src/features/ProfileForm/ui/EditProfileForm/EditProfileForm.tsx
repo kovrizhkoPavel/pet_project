@@ -47,7 +47,7 @@ export const EditProfileForm = (props: TEditProfileFormProps) => {
   } = useProfileForm(initialData);
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="edit-profile-form">
       <ProfileFormHeader onSubmit={onButtonSubmit} />
       <ProfileCard
         data={formData}

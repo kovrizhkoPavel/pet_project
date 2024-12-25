@@ -4,7 +4,7 @@ import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName', () => {
-  const userValue = { id: 1, username: 'admin' };
+  const userValue = { id: '1', username: 'admin' };
   const reqParams = { username: 'admin', password: '123' };
 
   test('login success', async () => {

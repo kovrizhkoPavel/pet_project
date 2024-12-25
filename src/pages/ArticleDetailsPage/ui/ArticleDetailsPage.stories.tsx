@@ -16,7 +16,7 @@ const article: TArticle = {
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
   user: {
-    id: 1,
+    id: '1',
     username: 'User',
   },
   blocks: [

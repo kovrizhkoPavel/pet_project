@@ -13,7 +13,7 @@ const article: TArticle = {
   views: 1022,
   createdAt: '26.02.2022',
   user: {
-    id: 1,
+    id: '1',
     username: 'User',
   },
   type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],

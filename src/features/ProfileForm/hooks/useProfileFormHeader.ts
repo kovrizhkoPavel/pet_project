@@ -11,6 +11,7 @@ export const useProfileFormHeader = () => {
   const authData = useSelector(getAuthData);
   const profile = useSelector(getProfileInitialData);
   const canEdit = authData?.id === profile?.id;
+
   const isReadonly = useSelector(getProfileFormReadonly);
 
   const onEditButtonClick = useCallback(() => {

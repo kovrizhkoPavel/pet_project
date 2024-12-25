@@ -44,17 +44,18 @@ export const useProfileForm = (initialData: TProfile | null) => {
   const onButtonSubmit = useCallback(() => {
     if (!id) return;
     const validateError = profileValidator(formData);
+
     const isInvalid = Object.values(validateError).some(Boolean);
     if (isInvalid) {
-      profileFormActions.setValidationErrors(validateError);
+      dispatch(profileFormActions.setValidationErrors(validateError));
       return;
     }
-    profileFormActions.setValidationErrors(undefined);
+    dispatch(profileFormActions.setValidationErrors(undefined));
     trigger({
       ...formData,
       id,
     });
-  }, [id, formData, trigger]);
+  }, [id, formData, trigger, dispatch]);
 
   useEffect(() => {
     if (!initialData) return;

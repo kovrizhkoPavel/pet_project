@@ -8,7 +8,7 @@ const comment: TComment = {
   id: '1',
   text: 'storybook',
   user: {
-    id: 11,
+    id: '11',
     username: 'user1',
   },
 };

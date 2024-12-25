@@ -88,6 +88,7 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         </HStack>
       )}
       <Input
+        data-testid="edit-profile-form-firstname-input"
         label={`${t('translation\:profile_firstname')}: `}
         value={data?.firstname || ''}
         className={cls.input}
