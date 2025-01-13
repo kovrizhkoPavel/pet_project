@@ -14,9 +14,9 @@ const staticLinks: TSidebarLink[] = [
     label: 'translation\:nav_main',
   },
   {
-    path: RoutePath.about,
+    path: RoutePath.admin,
     Icon: AboutIcon,
-    label: 'translation\:nav_about',
+    label: 'translation\:nav_admin',
   },
 ];
 
