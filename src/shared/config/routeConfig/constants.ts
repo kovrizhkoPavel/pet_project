@@ -6,6 +6,7 @@ const AppRoute = {
   PROFILE: 'profile',
   ARTICLES: 'articles',
   ARTICLE_DETAILS: 'article_details',
+  FORBIDDEN: 'forbidden',
   NOT_FOUND: 'not_found',
 } as const;
 
@@ -17,5 +18,6 @@ export const RoutePath: Record<TAppRouteValues, string> = {
   [AppRoute.PROFILE]: `/${AppRoute.PROFILE}/`,
   [AppRoute.ARTICLES]: `/${AppRoute.ARTICLES}`,
   [AppRoute.ARTICLE_DETAILS]: `/${AppRoute.ARTICLES}/`,
+  [AppRoute.FORBIDDEN]: `/${AppRoute.FORBIDDEN}/`,
   [AppRoute.NOT_FOUND]: '*',
 };
