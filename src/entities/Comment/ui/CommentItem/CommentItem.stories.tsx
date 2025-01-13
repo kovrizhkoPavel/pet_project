@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
+import { UserRole } from 'entities/User';
 import { CommentItem } from './CommentItem';
 import { TComment } from '../../model/types/comment';
 
@@ -10,6 +11,7 @@ const comment: TComment = {
   user: {
     id: '11',
     username: 'user1',
+    roles: [UserRole.USER],
   },
 };
 

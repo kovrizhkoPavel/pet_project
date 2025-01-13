@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
+import { UserRole } from 'entities/User';
 import { TArticle } from '../../model/types/article';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 import { ArticleList } from './ArticleList';
@@ -15,6 +16,7 @@ const article: TArticle = {
   user: {
     id: '1',
     username: 'User',
+    roles: [UserRole.USER],
   },
   type: [ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE],
   blocks: [

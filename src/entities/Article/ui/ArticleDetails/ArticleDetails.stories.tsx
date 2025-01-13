@@ -3,6 +3,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { StateScheme } from 'shared/types/stateScheme';
+import { UserRole } from 'entities/User';
 import { ArticleBlockType, ArticleType } from '../../constants';
 import { TArticle } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
@@ -18,6 +19,7 @@ const article: TArticle = {
   user: {
     id: '1',
     username: 'User',
+    roles: [UserRole.USER],
   },
   blocks: [
     {
