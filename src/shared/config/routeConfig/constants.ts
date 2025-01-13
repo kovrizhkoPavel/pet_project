@@ -2,7 +2,7 @@ import { TObjectValue } from 'shared/types/utils';
 
 const AppRoute = {
   MAIN: 'main',
-  ABOUT: 'about',
+  ADMIN: 'admin',
   PROFILE: 'profile',
   ARTICLES: 'articles',
   ARTICLE_DETAILS: 'article_details',
@@ -13,7 +13,7 @@ type TAppRouteValues = TObjectValue<typeof AppRoute>
 
 export const RoutePath: Record<TAppRouteValues, string> = {
   [AppRoute.MAIN]: '/',
-  [AppRoute.ABOUT]: `/${AppRoute.ABOUT}`,
+  [AppRoute.ADMIN]: `/${AppRoute.ADMIN}`,
   [AppRoute.PROFILE]: `/${AppRoute.PROFILE}/`,
   [AppRoute.ARTICLES]: `/${AppRoute.ARTICLES}`,
   [AppRoute.ARTICLE_DETAILS]: `/${AppRoute.ARTICLES}/`,

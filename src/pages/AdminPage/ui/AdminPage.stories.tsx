@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import AboutPage from './AboutPage';
+import AdminPage from './AdminPage';
 
 const meta = {
   title: 'pages/AboutPage',
-  component: AboutPage,
+  component: AdminPage,
   decorators: [StoreDecorator()],
-} satisfies Meta<typeof AboutPage>;
+} satisfies Meta<typeof AdminPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
