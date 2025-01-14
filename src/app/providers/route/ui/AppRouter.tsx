@@ -4,8 +4,10 @@ import { routeConfig, TRouteProps } from 'shared/config/routeConfig/routeConfig'
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
-const renderWithWrapper = ({ path, element, isOnlyAuth }: TRouteProps) => {
-  const Element = isOnlyAuth ? <RequireAuth>{element}</RequireAuth> : element;
+const renderWithWrapper = ({
+  path, element, isOnlyAuth, roles,
+}: TRouteProps) => {
+  const Element = isOnlyAuth ? <RequireAuth roles={roles}>{element}</RequireAuth> : element;
 
   return <Route key={path} path={path} element={Element} />;
 };

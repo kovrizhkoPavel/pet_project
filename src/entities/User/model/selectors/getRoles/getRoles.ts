@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserState, UserRole } from 'entities/User';
 
-const getUserRoles = createSelector(getUserState, (state) => state.authData?.roles || []);
+export const getUserRoles = createSelector(getUserState, (state) => state.authData?.roles || []);
 
 export const getIsUserAdmin = createSelector(
   getUserRoles,

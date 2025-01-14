@@ -6,9 +6,13 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { TUserRole, UserRole } from 'entities/User';
 import { RoutePath } from './constants';
 
-export type TRouteProps = RouteProps & {isOnlyAuth?: boolean}
+export type TRouteProps = RouteProps & {
+  isOnlyAuth?: boolean;
+  roles?: TUserRole[]
+}
 
 export const routeConfig: TRouteProps[] = [
   {
@@ -19,9 +23,10 @@ export const routeConfig: TRouteProps[] = [
     path: RoutePath.admin,
     element: <AdminPage />,
     isOnlyAuth: true,
+    roles: [UserRole.ADMIN],
   },
   {
-    path: RoutePath.admin,
+    path: RoutePath.forbidden,
     element: <ForbiddenPage />,
   },
   {
