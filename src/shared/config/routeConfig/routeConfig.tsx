@@ -18,6 +18,7 @@ export const routeConfig: TRouteProps[] = [
   {
     path: RoutePath.admin,
     element: <AdminPage />,
+    isOnlyAuth: true,
   },
   {
     path: RoutePath.admin,
