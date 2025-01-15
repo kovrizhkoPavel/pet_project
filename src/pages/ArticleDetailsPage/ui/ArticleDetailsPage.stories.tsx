@@ -19,7 +19,7 @@ const article: TArticle = {
   user: {
     id: '1',
     username: 'User',
-    roles: [UserRole.USER],
+    roles: [UserRole.ADMIN],
   },
   blocks: [
     {
