@@ -51,7 +51,7 @@ function checkIsPathInvalid(from, to) {
   
   const [importedLayer, importedSlice] = to.split('/');
   
-  if (!importedLayer[layers]) return false;
+  if (!layers[importedLayer]) return false;
 
   const [,normalizedPath] = path.toNamespacedPath(from).split('src'); // '/entities/Article/ui/ArticleInfo/ArticleInfo.tsx'
   const [,layer, slice] = normalizedPath.split(path.sep); // [ '', 'entities', 'Article', 'ui', 'ArticleInfo', 'ArticleInfo.tsx' ]

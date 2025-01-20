@@ -1,3 +1,3 @@
+export type { StateScheme } from 'shared/types/stateScheme';
 export { StoreProvider } from './ui/StoreProvider';
-export { StateScheme } from '../../../shared/types/stateScheme';
 export { createReduxStore } from './config/store';

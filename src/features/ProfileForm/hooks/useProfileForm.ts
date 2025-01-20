@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { TProfile } from 'entities/Profile';
-import { profileValidator } from 'features/ProfileForm/validator/profileValidator';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { profileValidator } from '../validator/profileValidator';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
 import { useEditProfileMutation } from '../model/api/profileFormApi';
 import { profileFormActions } from '../model/slice/profileFormSlice';

@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider/constants';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticlesView } from 'entities/Article/constants';
 import { StateScheme } from 'shared/types/stateScheme';
-import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/articlesPageSchema';
+import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 import ArticlesPage from './ArticlesPage';
 
 const meta = {
