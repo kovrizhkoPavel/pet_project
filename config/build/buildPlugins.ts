@@ -42,11 +42,8 @@ export const buildPlugins = (options: TBuildOptions): webpack.WebpackPluginInsta
       ],
     }),
     new CircularDependencyPlugin({
-      exclude: /a\.js|node_modules/,
-      include: /dir/,
+      exclude: /node_modules/,
       failOnError: true,
-      allowAsyncCycles: false,
-      cwd: process.cwd(),
     }),
     ...devPlugins,
   ];
