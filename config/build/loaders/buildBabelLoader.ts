@@ -11,7 +11,6 @@ export const buildBabelLoader = ({isTsx, isDev}: TOptions) => ({
     options: {
       presets: ['@babel/preset-env'],
       plugins: [
-        'i18next-extract',
         '@babel/plugin-transform-runtime',
         [
           '@babel/plugin-transform-typescript',
