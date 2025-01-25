@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TObjectValue } from 'shared/types/types';
+import { TObjectValue } from 'shared/types/utils';
 import cls from './Button.module.scss';
 
 export const ButtonVariant = {

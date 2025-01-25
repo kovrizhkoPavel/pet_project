@@ -10,3 +10,5 @@ export const ArticleUrl = <const>{
   COMMENTS: '/comments',
   ARTICLE: '/articles',
 };
+
+export const DEFAULT_ERROR_TEXT = 'Error';

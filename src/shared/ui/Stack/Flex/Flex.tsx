@@ -1,5 +1,5 @@
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TWithChildren } from 'shared/types/types';
+import { TWithChildren } from 'shared/types/utils';
 import cls from './Flex.module.scss';
 import {
   TFlexAlign, TFlexDirections, TFlexGap, TFlexJustify, TFlexWrap,

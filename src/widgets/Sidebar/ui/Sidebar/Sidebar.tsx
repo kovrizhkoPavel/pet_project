@@ -4,10 +4,9 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
 import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
-import { LinkIcon } from '../LinkIcon/LinkIcon';
+import { useSidebarLinks } from '../../hooks/useSidebarLinks';
 import cls from './Sidebar.module.scss';
+import { LinkIcon } from '../LinkIcon/LinkIcon';
 
 type TSidebarProps = {
   className?: string;
@@ -16,7 +15,8 @@ type TSidebarProps = {
 export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { t } = useTranslation();
-  const sidebarLinkList = useSelector(getSidebarLinks);
+
+  const sidebarLinkList = useSidebarLinks();
 
   const onButtonClick = () => setIsCollapsed(!isCollapsed);
 

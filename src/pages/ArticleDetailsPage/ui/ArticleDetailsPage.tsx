@@ -35,10 +35,9 @@ const ArticleDetailsPage = () => {
     dispatch(articleDetailsPageActions.init());
   }, [dispatch]);
 
-  if (!id) {
-    return <NotFoundPage />;
-  }
-  if (!isInit) return <></>;
+  if (!id) return <NotFoundPage />;
+
+  if (!isInit) return null;
 
   return (
     <PageContainer>

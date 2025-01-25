@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {};
 
 export const Error: Story = {
-  args: { error: 'error' },
+  args: { error: true },
 };
 
 export const Dark: Story = {

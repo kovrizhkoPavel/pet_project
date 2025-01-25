@@ -4,4 +4,4 @@ export {
   getSortField as getArticlesSortField,
   getSortOrder as getArticlesSortOrder,
 } from './model/selectors/getArticleSort';
-export { ArticlesSortScheme } from './model/types/ArticlesSortScheme';
+export type { ArticlesSortScheme } from './model/types/ArticlesSortScheme';

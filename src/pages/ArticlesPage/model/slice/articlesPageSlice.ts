@@ -3,7 +3,7 @@ import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
 import { StateScheme } from 'shared/types/stateScheme';
 import { ArticlesView } from 'entities/Article/constants';
 import { LocalStorageKey } from 'shared/constants/localstorage';
-import { TOptionalRecord } from 'shared/types/types';
+import { TOptionalRecord } from 'shared/types/utils';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
 import { ArticlesPageSchema, TQuerySearchKeys } from '../types/articlesPageSchema';

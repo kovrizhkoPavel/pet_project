@@ -13,6 +13,14 @@ type TOptions = {
 export const renderComponent = (component: ReactNode, options: TOptions = {}) => {
   const { route = '/', initialState } = options;
 
+  // for @headlessui selects
+  window.ResizeObserver = window.ResizeObserver
+    || jest.fn().mockImplementation(() => ({
+      disconnect: jest.fn(),
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+    }));
+
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider initialState={initialState}>

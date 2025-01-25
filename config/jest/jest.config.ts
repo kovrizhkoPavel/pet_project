@@ -50,6 +50,16 @@ export default {
     __PROJECT__: 'jest',
   },
 
+  reporters: [
+    "default",
+    ["jest-html-reporters", {
+      publicPath: "<rootDir>/reports/unit/html-report",
+      filename: "report.html",
+      openReport: false,
+      inlineSource: true
+    }]
+  ],
+
   // A map from regular expressions to paths to transformers
   // transform: {
   //   '^.+\\.tsx?$': 'babel-jest',

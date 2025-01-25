@@ -866,14 +866,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrsCRsWZNnmDAAqUAQdPiW_s9xcozSwftgA&s"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "MANAGER",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -881,13 +888,14 @@
     {
       "id": "1",
       "first": "jghwer",
-      "lastname": "asfewr",
-      "age": 465,
-      "currency": "RUB",
+      "lastname": "asfewr22",
+      "age": 46522,
+      "currency": "EU",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrsCRsWZNnmDAAqUAQdPiW_s9xcozSwftgA&s"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrsCRsWZNnmDAAqUAQdPiW_s9xcozSwftgA&s",
+      "firstname": "admin2131"
     },
     {
       "id": "2",

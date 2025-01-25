@@ -2,7 +2,7 @@ import { FC, memo, SVGProps } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { RoutePath } from 'shared/config/routeConfig/constants';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { TObjectValue } from 'shared/types/types';
+import { TObjectValue } from 'shared/types/utils';
 import cls from './LinkIcon.module.scss';
 
 type TLinkIconProps = {

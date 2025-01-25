@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/types';
+import { TObjectValue } from 'shared/types/utils';
 import { TUser } from 'entities/User';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 

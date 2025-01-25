@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/types';
+import { TObjectValue } from 'shared/types/utils';
 import { Country, Currency } from 'shared/constants/common';
 import { ValidatorError } from '../constants';
 
@@ -18,13 +18,4 @@ export type TProfileValidationError = {
   firstname?: TObjectValue<typeof ValidatorError>;
   lastname?: TObjectValue<typeof ValidatorError>;
   age?: TObjectValue<typeof ValidatorError>;
-}
-
-export type ProfileScheme = {
-  data?: TProfile,
-  form?: TProfile,
-  error?: string;
-  validationError?: TProfileValidationError;
-  isLoading: boolean;
-  readonly: boolean;
 }

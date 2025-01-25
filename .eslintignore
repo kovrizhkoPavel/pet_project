@@ -2,4 +2,5 @@
 /config
 /json-server
 /eslint-plugin-pet-project
+/scripts
 webpack.config.ts

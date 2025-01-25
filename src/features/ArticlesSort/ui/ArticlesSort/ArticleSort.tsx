@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { TObjectValue, TSortOrder } from 'shared/types/types';
+import { TObjectValue, TSortOrder } from 'shared/types/utils';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { CustomSelect, TSelectOption } from 'shared/ui/CustomSelect/CustomSelect';
 import { articlesSortActions } from '../../model/slice/articleSortSlice';

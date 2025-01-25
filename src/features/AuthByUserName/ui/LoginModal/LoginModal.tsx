@@ -4,7 +4,7 @@ import { Modal } from 'shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
 import { ModalLoader } from 'widgets/ModalLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { authActions } from 'features/AuthByUserName/model/slice/authSlice';
+import { authActions } from '../../model/slice/authSlice';
 import { LoginFormAsync as LoginForm } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 

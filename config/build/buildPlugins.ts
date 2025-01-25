@@ -5,6 +5,8 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from "copy-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { TBuildOptions } from './types/config';
+import CircularDependencyPlugin from 'circular-dependency-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 type TPlugins =  (ReactRefreshWebpackPlugin | webpack.HotModuleReplacementPlugin | BundleAnalyzerPlugin)[];
 export const buildPlugins = (options: TBuildOptions): webpack.WebpackPluginInstance[] => {
@@ -39,6 +41,19 @@ export const buildPlugins = (options: TBuildOptions): webpack.WebpackPluginInsta
       patterns: [
         { from: paths.locales, to: paths.buildLocales },
       ],
+    }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
     }),
     ...devPlugins,
   ];

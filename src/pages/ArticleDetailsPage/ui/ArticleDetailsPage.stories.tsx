@@ -5,6 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { TArticle } from 'entities/Article/model/types/article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/constants';
 import { StateScheme } from 'shared/types/stateScheme';
+import { UserRole } from 'entities/User';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const article: TArticle = {
@@ -16,8 +17,9 @@ const article: TArticle = {
   createdAt: '26.02.2022',
   type: [ArticleType.IT],
   user: {
-    id: 1,
+    id: '1',
     username: 'User',
+    roles: [UserRole.ADMIN],
   },
   blocks: [
     {

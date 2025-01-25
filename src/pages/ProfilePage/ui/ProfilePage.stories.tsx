@@ -9,8 +9,8 @@ const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   decorators: [StoreDecorator({
-    profile: {
-      form: {
+    profileForm: {
+      formData: {
         username: 'user',
         firstname: 'name',
         lastname: 'lastname',
