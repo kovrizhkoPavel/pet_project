@@ -11,4 +11,8 @@ export const ArticleUrl = <const>{
   ARTICLE: '/articles',
 };
 
+export const Notifications = <const>{
+  GET_NOTIFICATIONS: '/notifications',
+};
+
 export const DEFAULT_ERROR_TEXT = 'Error';

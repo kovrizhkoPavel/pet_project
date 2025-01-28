@@ -1,8 +1,8 @@
 .navbar {
   display: flex;
+  gap: 20px;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
   width: 100%;
   height: var(--navbar-height);
   padding: 20px;
