@@ -5,7 +5,7 @@ import { TSvgIcon } from 'shared/types/utils';
 import cls from './ButtonIcon.module.scss';
 
 type TButtonIconProps = {
-  onClick: VoidFunction;
+  onClick?: VoidFunction;
   Icon: TSvgIcon;
   className?: string;
   iconClassName?: string;

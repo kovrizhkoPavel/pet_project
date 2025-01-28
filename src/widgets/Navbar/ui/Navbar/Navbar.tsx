@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
 import { getAuthData } from 'entities/User';
+import { NotificationButton } from 'features/NotificationButton';
 import { AuthDropdown } from '../AuthDropdown/AuthDropdown';
 import cls from './Navbar.module.scss';
 
@@ -29,9 +30,8 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
 
   return (
     <div className={getClassName(cls.navbar, {}, [className])}>
-      <div className={cls.themeSwitcher}>
-        <ThemeSwitcher />
-      </div>
+      <ThemeSwitcher />
+      {isAuthData && <NotificationButton />}
       <AuthDropdown />
       {!isAuthData && (
         <>
