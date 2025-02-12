@@ -16,3 +16,5 @@ export type TOptionalRecord<K extends keyof any, T> = {
 export type TSortOrder = 'asc' | 'desc';
 
 export type TWithChildren = { children: ReactNode };
+
+export type TStyleMod = Record<string, boolean | string>;

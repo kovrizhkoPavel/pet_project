@@ -1,8 +1,8 @@
-type TMod = Record<string, boolean | string>;
+import { TStyleMod } from 'shared/types/utils';
 
 export const getClassName = (
   cls: string,
-  mod: TMod = {},
+  mod: TStyleMod = {},
   additional: Array<string | undefined> = [],
 ): string => {
   const mods = Object.entries(mod)
