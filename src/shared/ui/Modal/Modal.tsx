@@ -1,9 +1,10 @@
 import {
-  FC, ReactNode, MouseEvent, useCallback, useEffect, useState,
+  FC, ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { KeyboardKey } from 'shared/constants/common';
 import Portal from 'shared/ui/Portal/Portal';
+import { Overlay } from 'shared/ui/Overlay/Overlay';
 import cls from './Modal.module.scss';
 
 type TModalProps = {
@@ -28,10 +29,6 @@ export const Modal: FC<TModalProps> = (props) => {
     }
   }, [onClose]);
 
-  const onContentClick = (evt: MouseEvent<HTMLDivElement>) => {
-    evt.stopPropagation();
-  };
-
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
 
@@ -54,12 +51,11 @@ export const Modal: FC<TModalProps> = (props) => {
         getClassName(cls.modal, { [cls.opened]: isOpen }, [className])
       }
       >
-        <div className={cls.overlay} onClick={onClose}>
-          <div className={cls.content} onClick={onContentClick}>
-            {title && <h4>{title}</h4>}
-            <div className={getClassName('', {}, [contentClass])}>
-              {children}
-            </div>
+        <Overlay onclick={onClose} />
+        <div className={cls.content}>
+          {title && <h4>{title}</h4>}
+          <div className={getClassName('', {}, [contentClass])}>
+            {children}
           </div>
         </div>
       </div>
