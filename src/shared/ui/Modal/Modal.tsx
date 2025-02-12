@@ -1,10 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
 import { getClassName } from 'shared/lib/classNames/getClassName';
-import { KeyboardKey } from 'shared/constants/common';
 import Portal from 'shared/ui/Portal/Portal';
 import { Overlay } from 'shared/ui/Overlay/Overlay';
 import { TWithChildren } from 'shared/types/utils';
-import { useAnimationCloseHandler } from 'shared/lib/hooks/useAnimationCloseHandler';
+import { useModal } from 'shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 
 type TModalProps = {
@@ -17,32 +15,14 @@ type TModalProps = {
 } & TWithChildren;
 
 export const Modal = (props: TModalProps) => {
-  const [isMounted, setIsMounted] = useState(false);
   const {
     className, contentClass, title, children, isOpen, lazy, onClose,
   } = props;
 
-  const [isClosing, closeHandler] = useAnimationCloseHandler(onClose);
-
-  const onKeyDown = useCallback((evt: KeyboardEvent) => {
-    if (evt.key === KeyboardKey.ESCAPE) {
-      closeHandler();
-    }
-  }, [closeHandler]);
-
-  useEffect(() => {
-    document.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-    };
-  }, [onKeyDown]);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
+  const { isMounted, isClosing, closeHandler } = useModal({
+    isOpen,
+    onClose,
+  });
 
   if (!isMounted && lazy) return null;
 
