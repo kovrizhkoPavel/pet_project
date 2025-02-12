@@ -1,7 +1,7 @@
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Popover } from 'shared/ui/Popover/Popover';
 import { TWithChildren } from 'shared/types/utils';
-import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { NotificationsList } from '../NotificationsList';
 import cls from './Notifications.module.scss';
 import { TNotification } from '../../model/types/TNotification';
 
@@ -16,17 +16,7 @@ export const Notifications = (props: TNotificationProps) => {
   return (
     <div className={getClassName(cls.notification, {}, [className])}>
       <Popover trigger={children}>
-        <div className={cls.notificationList}>
-          {notifications.map(
-            (notification: TNotification) => (
-              <NotificationItem
-                className={cls.notificationItem}
-                key={notification.id}
-                notification={notification}
-              />
-            ),
-          )}
-        </div>
+        <NotificationsList notifications={notifications} />
       </Popover>
     </div>
   );
