@@ -7,6 +7,7 @@ import { useModal } from 'shared/lib/hooks/useModal';
 import { a, config, useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 import { useCallback, useEffect } from 'react';
+import { useAnimationLibs } from 'shared/lib/Providers/AnimationProvider';
 import cls from './Drawer.module.scss';
 
 type TDrawerProps = {
@@ -18,7 +19,7 @@ type TDrawerProps = {
 
 const height = window.innerHeight;
 
-export const Drawer = (props: TDrawerProps) => {
+const DrawerContent = (props: TDrawerProps) => {
   const {
     className, children, isOpen, lazy, onClose,
   } = props;
@@ -37,10 +38,9 @@ export const Drawer = (props: TDrawerProps) => {
   };
 
   useEffect(() => {
-    if (isOpen) {
-      openDrawer();
-    }
-  }, [api, isOpen, openDrawer]);
+    if (!isOpen) return;
+    openDrawer();
+  }, [isOpen, openDrawer]);
 
   const bind = useDrag(
     ({
@@ -52,15 +52,14 @@ export const Drawer = (props: TDrawerProps) => {
     }) => {
       if (oy < -70) cancel();
 
-      if (last) {
-        if (oy > height * 0.5 || (vy > 0.5 && dy > 0)) {
-          close(vy);
-        } else {
-          openDrawer();
-        }
-      } else {
-        openDrawer();
+      if (!last) openDrawer();
+
+      if (oy > height * 0.5 || (vy > 0.5 && dy > 0)) {
+        close(vy);
+        return;
       }
+
+      openDrawer();
     },
     {
       from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
@@ -80,10 +79,20 @@ export const Drawer = (props: TDrawerProps) => {
 
   return (
     <div className={getClassName(cls.drawer, mods, [className, theme])}>
-      <Overlay onclick={close} />
+      <Overlay onclick={() => {
+        close();
+      }}
+      />
       <a.div className={cls.content} {...bind()} style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}>
         {children}
       </a.div>
     </div>
   );
+};
+
+export const Drawer = (props: TDrawerProps) => {
+  const { isLoaded } = useAnimationLibs();
+  if (!isLoaded) return null;
+
+  return <DrawerContent {...props} />;
 };
