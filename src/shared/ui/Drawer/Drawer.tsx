@@ -16,12 +16,14 @@ type TDrawerProps = {
   onClose: VoidFunction;
 } & TWithChildren
 
-const height = window.innerHeight - 100;
+const height = window.innerHeight;
 
 export const Drawer = (props: TDrawerProps) => {
   const {
     className, children, isOpen, lazy, onClose,
   } = props;
+
+  const { isMounted, isClosing, closeHandler } = useModal({ isOpen, onClose });
 
   const [{ y }, api] = useSpring(() => ({ y: height }));
 
@@ -31,6 +33,7 @@ export const Drawer = (props: TDrawerProps) => {
 
   const close = (velocity = 0) => {
     api.start({ y: height, immediate: false, config: { ...config.stiff, velocity } });
+    closeHandler();
   };
 
   useEffect(() => {
@@ -66,8 +69,6 @@ export const Drawer = (props: TDrawerProps) => {
 
   const { theme } = useTheme();
 
-  const { isMounted, isClosing, closeHandler } = useModal({ isOpen, onClose });
-
   if (lazy && !isMounted) return null;
 
   const display = y.to((py) => (py < height ? 'block' : 'none'));
@@ -79,8 +80,8 @@ export const Drawer = (props: TDrawerProps) => {
 
   return (
     <div className={getClassName(cls.drawer, mods, [className, theme])}>
-      <Overlay onclick={closeHandler} />
-      <a.div className={cls.content} {...bind()} style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}>
+      <Overlay onclick={close} />
+      <a.div className={cls.content} {...bind()} style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}>
         {children}
       </a.div>
     </div>
