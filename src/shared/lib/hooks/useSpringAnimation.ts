@@ -1,6 +1,7 @@
 import { useAnimationLibs } from 'shared/lib/Providers/AnimationProvider';
 import { useCallback, useEffect } from 'react';
 import { ANIMATION_DURATION } from 'shared/constants/assets';
+import { useAnimationCloseHandler } from 'shared/lib/hooks/useAnimationCloseHandler';
 
 type TProps = {
   isOpen: boolean;
@@ -15,6 +16,8 @@ export const useAnimation = (props: TProps) => {
     Spring: { a, config, useSpring },
   } = useAnimationLibs();
 
+  const [, close] = useAnimationCloseHandler(onClose);
+
   const [{ y }, api] = useSpring(() => ({ y: height }));
 
   const openHandler = useCallback(() => {
@@ -23,7 +26,7 @@ export const useAnimation = (props: TProps) => {
 
   const closeHandler = (velocity = 0) => {
     api.start({ y: height, immediate: false, config: { ...config.stiff, velocity } });
-    setTimeout(() => onClose(), ANIMATION_DURATION);
+    close();
   };
 
   const bind = useDrag(
