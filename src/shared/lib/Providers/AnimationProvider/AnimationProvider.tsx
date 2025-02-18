@@ -30,8 +30,8 @@ export const AnimationProvider = ({ children }: TWithChildren) => {
     getAsyncAnimationModules().then(([Spring, Gesture]) => {
       springRef.current = Spring;
       gestureRef.current = Gesture;
+      setIsLoaded(true);
     });
-    setIsLoaded(true);
   }, []);
 
   const value = useMemo<TAnimationProviderProps>(() => ({

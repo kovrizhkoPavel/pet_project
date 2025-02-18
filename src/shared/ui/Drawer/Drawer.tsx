@@ -4,8 +4,6 @@ import { TStyleMod, TWithChildren } from 'shared/types/utils';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Overlay } from 'shared/ui/Overlay/Overlay';
 import { useModal } from 'shared/lib/hooks/useModal';
-import { a, config, useSpring } from '@react-spring/web';
-import { useDrag } from '@use-gesture/react';
 import { useCallback, useEffect } from 'react';
 import { useAnimationLibs } from 'shared/lib/Providers/AnimationProvider';
 import cls from './Drawer.module.scss';
@@ -25,6 +23,10 @@ const DrawerContent = (props: TDrawerProps) => {
   } = props;
 
   const { isMounted, isClosing, closeHandler } = useModal({ isOpen, onClose });
+  const {
+    Gesture: { useDrag },
+    Spring: { a, config, useSpring },
+  } = useAnimationLibs();
 
   const [{ y }, api] = useSpring(() => ({ y: height }));
 
