@@ -20,8 +20,6 @@
   background: var(--bg-color);
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  transition: 0.3s transform;
-  transform: translateY(100%);
 }
 
 .content::before {
@@ -40,14 +38,4 @@
   z-index: var(--z-index-modal);
   pointer-events: auto;
   opacity: 1;
-
-  .content {
-    transform: translateY(0%);
-  }
-}
-
-.closed {
-  .content {
-    transform: translateY(100%);
-  }
 }
