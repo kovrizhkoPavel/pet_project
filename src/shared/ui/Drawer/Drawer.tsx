@@ -3,7 +3,7 @@ import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { TStyleMod, TWithChildren } from '@/shared/types/utils';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { Overlay } from '@/shared/ui/Overlay/Overlay';
-import { useAnimationLibs } from '@/shared/lib/Providers/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/Providers/AnimationProvider';
 import { useAnimation } from '@/shared/lib/hooks/useSpringAnimation';
 import cls from './Drawer.module.scss';
 
@@ -37,16 +37,22 @@ const DrawerContent = (props: TDrawerProps) => {
         closeHandler();
       }}
       />
-      <a.div className={cls.content} {...bind()} style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}>
+      <a.div
+        className={cls.content}
+        {...bind()}
+        style={{ display, bottom: `calc(-100vh + ${height}px)`, y }}
+      >
         {children}
       </a.div>
     </div>
   );
 };
 
-export const Drawer = (props: TDrawerProps) => {
+const DrawerAsync = (props: TDrawerProps) => {
   const { isLoaded } = useAnimationLibs();
   if (!isLoaded) return null;
 
   return <DrawerContent {...props} />;
 };
+
+export const Drawer = (props: TDrawerProps) => <AnimationProvider><DrawerAsync {...props} /></AnimationProvider>;
