@@ -22,6 +22,8 @@ export default ({config}: {config: webpack.Configuration}) => {
 
   config.resolve?.extensions?.push('.tsx', '.ts');
   config.resolve?.modules?.unshift(paths)
+  config.resolve!.alias = { '@': paths }
+
   config.module?.rules?.push(styleLoader, svgLoader);
 
   config!.plugins!.push(new DefinePlugin({
