@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/utils';
+import { TObjectValue } from '@/shared/types/utils';
 import { UserRole } from '../constatnts';
 
 export type TUserRole = TObjectValue<typeof UserRole>;

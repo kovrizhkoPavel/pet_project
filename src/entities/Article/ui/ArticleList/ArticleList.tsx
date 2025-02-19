@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useScrollPosition } from 'shared/lib/hooks/useScrollPosition';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { useScrollPosition } from '@/shared/lib/hooks/useScrollPosition';
 import { VirtualizedCardBig } from './CardBig/VirtualizedCardBig';
 import { VirtualizedCardSmall } from './CardSmall/VirtualizedCardSmall';
 import { SkeletonList } from './SkeletonList/SkeletonList';

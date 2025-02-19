@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Button } from 'shared/ui/Button/Button';
-import { TSvgIcon } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Button } from '@/shared/ui/Button/Button';
+import { TSvgIcon } from '@/shared/types/utils';
 import cls from './ButtonIcon.module.scss';
 
 type TButtonIconProps = {

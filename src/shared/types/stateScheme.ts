@@ -1,12 +1,12 @@
-import { UserScheme } from 'entities/User';
-import { AuthSchema } from 'features/AuthByUserName';
 import { EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticlesMainScheme } from 'pages/ArticlesPage';
-import { ScrollPositionSchema } from 'shared/models/SaveScrollPosition';
-import { ArticleDetailsPageScheme } from 'pages/ArticleDetailsPage';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileFormScheme } from 'features/ProfileForm';
+import { UserScheme } from '@/entities/User';
+import { AuthSchema } from '@/features/AuthByUserName';
+import { ArticlesMainScheme } from '@/pages/ArticlesPage';
+import { ScrollPositionSchema } from '@/shared/models/SaveScrollPosition';
+import { ArticleDetailsPageScheme } from '@/pages/ArticleDetailsPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileFormScheme } from '@/features/ProfileForm';
 
 export type StateScheme = {
   user: UserScheme;

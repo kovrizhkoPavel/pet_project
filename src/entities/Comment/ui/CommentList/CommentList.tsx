@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { TComment } from '../../model/types/comment';
 

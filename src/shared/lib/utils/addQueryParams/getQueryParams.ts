@@ -1,4 +1,4 @@
-import { TOptionalRecord } from 'shared/types/utils';
+import { TOptionalRecord } from '@/shared/types/utils';
 
 export const getQueryParams = (params: TOptionalRecord<string, string>):string => {
   const searchParams = new URLSearchParams(window.location.search);

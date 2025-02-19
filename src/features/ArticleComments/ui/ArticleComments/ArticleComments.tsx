@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useAppUseEffect } from '@/shared/lib/hooks/useAppUseEffect';
+import { Text } from '@/shared/ui/Text/Text';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/artileCommentSlice';
 import { getIsLoading } from '../../model/selectors/getArticleComments';

@@ -1,7 +1,7 @@
-import { ProfileCard, TProfile } from 'entities/Profile';
 import { useSelector } from 'react-redux';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateScheme';
+import { ProfileCard, TProfile } from '@/entities/Profile';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { TReducers } from '@/shared/types/stateScheme';
 import { useProfileForm } from '../../hooks/useProfileForm';
 import {
   getProfileFormValidationError,

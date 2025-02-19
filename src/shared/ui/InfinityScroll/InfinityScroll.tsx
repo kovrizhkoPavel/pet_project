@@ -1,5 +1,5 @@
 import { FC, ReactNode, useRef } from 'react';
-import { useIntersectionObserver } from 'shared/lib/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/shared/lib/hooks/useIntersectionObserver';
 
 type TInfinityScrollProps = {
   className?: string;

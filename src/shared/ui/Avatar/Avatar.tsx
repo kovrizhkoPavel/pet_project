@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Avatar.module.scss';
 
 type TAvatarProps = {

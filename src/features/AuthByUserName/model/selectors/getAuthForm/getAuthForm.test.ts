@@ -1,5 +1,5 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { getAuthForm } from './getAuthForm';
 
 describe('getAuthForm', () => {

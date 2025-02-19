@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { KeyboardKey } from 'shared/constants/common';
+import { KeyboardKey } from '@/shared/constants/common';
 import { useAnimationCloseHandler } from './useAnimationCloseHandler';
 
 type TUseModalProps = {

@@ -1,7 +1,7 @@
 import {
   ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef,
 } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Input.module.scss';
 
 type TInputAttribute = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>

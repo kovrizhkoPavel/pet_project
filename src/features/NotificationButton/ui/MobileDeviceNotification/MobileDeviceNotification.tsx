@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { TNotification } from 'entities/Notifications';
-import NotificationIcon from 'shared/assets/icon/notification-icon.svg';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import { NotificationsList } from 'entities/Notifications/ui/NotificationsList';
+import { TNotification } from '@/entities/Notifications';
+import NotificationIcon from '@/shared/assets/icon/notification-icon.svg';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { NotificationsList } from '@/entities/Notifications/ui/NotificationsList';
 import cls from '../NotificationButton/NotificationButton.module.scss';
 
 type TMobileDeviceNotificationProps = {

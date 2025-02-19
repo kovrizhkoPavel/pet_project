@@ -1,6 +1,6 @@
-import { TObjectValue } from 'shared/types/utils';
-import { RoutePath } from 'shared/config/routeConfig/constants';
 import { FC, SVGProps } from 'react';
+import { TObjectValue } from '@/shared/types/utils';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
 
 export type TSidebarLink = {
   path: TObjectValue<typeof RoutePath>;

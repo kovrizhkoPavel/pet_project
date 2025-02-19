@@ -1,4 +1,4 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import type { TNotification } from '../../model/types/TNotification';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import cls from './NotificationsList.module.scss';

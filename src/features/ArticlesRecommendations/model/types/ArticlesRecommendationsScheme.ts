@@ -1,4 +1,4 @@
-import { TArticle } from 'entities/Article/model/types/article';
+import { TArticle } from '@/entities/Article/model/types/article';
 
 export type ArticlesRecommendationsScheme = {
   articles: TArticle[]

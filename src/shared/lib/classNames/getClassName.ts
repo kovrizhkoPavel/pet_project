@@ -1,4 +1,4 @@
-import { TStyleMod } from 'shared/types/utils';
+import { TStyleMod } from '@/shared/types/utils';
 
 export const getClassName = (
   cls: string,

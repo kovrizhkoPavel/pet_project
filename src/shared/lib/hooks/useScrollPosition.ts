@@ -1,8 +1,8 @@
 import { RefObject, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StateScheme } from 'shared/types/stateScheme';
-import { getScrollPosition, scrollPositionActions } from 'shared/models/SaveScrollPosition';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { getScrollPosition, scrollPositionActions } from '@/shared/models/SaveScrollPosition';
 import { useAppDispatch } from './useAppDispatch';
 import { useThrottle } from './useThrottle';
 import { useAppUseEffect } from './useAppUseEffect';

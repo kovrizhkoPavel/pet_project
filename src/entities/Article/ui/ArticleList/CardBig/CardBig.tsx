@@ -1,11 +1,11 @@
 import { FC, useCallback } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { TArticle, TArticleBlockText } from '../../../model/types/article';
 import { SkeletonCard } from './SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';

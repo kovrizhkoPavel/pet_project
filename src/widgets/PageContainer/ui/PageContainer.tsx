@@ -1,6 +1,6 @@
 import { FC, ReactNode, useRef } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { useScrollPosition } from 'shared/lib/hooks/useScrollPosition';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { useScrollPosition } from '@/shared/lib/hooks/useScrollPosition';
 import cls from './PageContainer.module.scss';
 
 type TPageContainerProps = {

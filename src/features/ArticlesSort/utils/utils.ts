@@ -1,4 +1,4 @@
-import { TSortOrder } from 'shared/types/utils';
+import { TSortOrder } from '@/shared/types/utils';
 import { TSortField } from '../model/types/ArticlesSortScheme';
 import { SortField, SortOrder } from '../constants';
 

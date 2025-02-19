@@ -1,12 +1,12 @@
 import { FC, Suspense, useEffect } from 'react';
 import './styles/index.scss';
-import { AppRouter } from 'app/providers/route';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { userActions } from 'entities/User';
 import { useSelector } from 'react-redux';
-import { getIsInit } from 'entities/User/model/selectors/getIsInit/getIsInit';
+import { AppRouter } from '@/app/providers/route';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { userActions } from '@/entities/User';
+import { getIsInit } from '@/entities/User/model/selectors/getIsInit/getIsInit';
 
 const App: FC = () => {
   const dispatch = useAppDispatch();

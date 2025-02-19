@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { TArticle, TArticleBlock } from '../../model/types/article';
 import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
 import { ArticleBlockType } from '../../constants';

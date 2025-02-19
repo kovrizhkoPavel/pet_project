@@ -1,9 +1,9 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from 'shared/lib/hooks/useAuth';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { TWithChildren } from 'shared/types/utils';
-import { TUserRole, getUserRoles } from 'entities/User';
 import { useSelector } from 'react-redux';
+import { useAuth } from '@/shared/lib/hooks/useAuth';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { TWithChildren } from '@/shared/types/utils';
+import { TUserRole, getUserRoles } from '@/entities/User';
 
 type TRequireAuthProps = {
   roles?: TUserRole[]

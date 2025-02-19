@@ -1,7 +1,7 @@
-import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ArticlesView } from 'entities/Article/constants';
-import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
+import TestAsyncThunk from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { ArticlesView } from '@/entities/Article/constants';
+import { StateScheme } from '@/shared/types/stateScheme';
 import {
   fetchGetArticleNextPage,
 } from './fetchGetArticleNextPage';

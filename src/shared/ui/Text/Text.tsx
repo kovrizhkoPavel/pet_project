@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Text.module.scss';
 import { TObjectValue } from '../../types/utils';
 

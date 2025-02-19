@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TStyleMod, TWithChildren } from 'shared/types/utils';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
-import { useAnimationLibs } from 'shared/lib/Providers/AnimationProvider';
-import { useAnimation } from 'shared/lib/hooks/useSpringAnimation';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { TStyleMod, TWithChildren } from '@/shared/types/utils';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { useAnimationLibs } from '@/shared/lib/Providers/AnimationProvider';
+import { useAnimation } from '@/shared/lib/hooks/useSpringAnimation';
 import cls from './Drawer.module.scss';
 
 type TDrawerProps = {

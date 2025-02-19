@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getAuthData } from 'entities/User';
-import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { ArticleUrl } from 'shared/constants/api';
-import { TComment } from 'entities/Comment';
-import { getArticleDetailsData } from 'entities/Article';
-import { addCommentFormActions, getAddFormCommentText } from 'features/AddCommentForm';
-import { fetchCommentsByArticleId } from 'features/ArticleComments';
+import { getAuthData } from '@/entities/User';
+import { TThunkApiConfig } from '@/shared/types/stateScheme';
+import { ArticleUrl } from '@/shared/constants/api';
+import { TComment } from '@/entities/Comment';
+import { getArticleDetailsData } from '@/entities/Article';
+import { addCommentFormActions, getAddFormCommentText } from '@/features/AddCommentForm';
+import { fetchCommentsByArticleId } from '@/features/ArticleComments';
 
 export const fetchAddArticleComment = createAsyncThunk<TComment, void, TThunkApiConfig<string>>(
   'articleDetails/addCommentForm',

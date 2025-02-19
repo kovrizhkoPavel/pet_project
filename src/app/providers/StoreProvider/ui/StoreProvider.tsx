@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { StateScheme } from 'shared/types/stateScheme';
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { createReduxStore } from '../config/store';
 
 type TStoreProvider = {

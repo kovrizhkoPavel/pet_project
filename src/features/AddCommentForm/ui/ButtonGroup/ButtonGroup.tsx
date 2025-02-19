@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import cls from './ButtonGroup.module.scss';
 
 type TButtonGroupProps = {

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { ArticleUrl } from 'shared/constants/api';
-import { TArticle } from 'entities/Article/model/types/article';
+import { TThunkApiConfig } from '@/shared/types/stateScheme';
+import { ArticleUrl } from '@/shared/constants/api';
+import { TArticle } from '@/entities/Article/model/types/article';
 
 const LIMIT = 5;
 

@@ -1,6 +1,6 @@
-import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
 import { CSSProperties, RefObject } from 'react';
 import { VirtualItem } from '@tanstack/react-virtual';
+import { Virtualizer } from '@/shared/ui/Virtualazer/Virtualizer';
 import { CardBig } from './CardBig';
 import { TArticle } from '../../../model/types/article';
 

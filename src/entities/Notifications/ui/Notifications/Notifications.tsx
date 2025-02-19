@@ -1,6 +1,6 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Popover } from 'shared/ui/Popover/Popover';
-import { TWithChildren } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Popover } from '@/shared/ui/Popover/Popover';
+import { TWithChildren } from '@/shared/types/utils';
 import { NotificationsList } from '../NotificationsList';
 import cls from './Notifications.module.scss';
 import { TNotification } from '../../model/types/TNotification';

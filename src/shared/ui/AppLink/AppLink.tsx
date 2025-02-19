@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Link, LinkProps } from 'react-router-dom';
-import { TObjectValue } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { TObjectValue } from '@/shared/types/utils';
 import cls from './AppLink.module.scss';
 
 export const AppLinkTheme = {

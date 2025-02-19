@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
-import Icon from 'shared/assets/icon/home-icon.svg';
+import { ButtonIcon } from '@/shared/ui/ButtonIcon/ButtonIcon';
+import Icon from '@/shared/assets/icon/home-icon.svg';
 
 const dataTestId = 'testId;';
 

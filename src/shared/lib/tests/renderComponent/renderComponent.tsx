@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { StateScheme, StoreProvider } from 'app/providers/StoreProvider';
+import { StateScheme, StoreProvider } from '@/app/providers/StoreProvider';
 import i18nForTest from '../../../config/i18n/i18nForTest';
 
 type TOptions = {

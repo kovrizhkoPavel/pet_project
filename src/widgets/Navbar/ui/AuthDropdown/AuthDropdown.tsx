@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { DEFAULT_IMAGE } from 'shared/constants/assets';
-import { RoutePath } from 'shared/config/routeConfig/constants';
 import { useSelector } from 'react-redux';
-import { getAuthData, getIsUserAdmin, userActions } from 'entities/User';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { DEFAULT_IMAGE } from '@/shared/constants/assets';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { getAuthData, getIsUserAdmin, userActions } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
 
 export const AuthDropdown = () => {
   const { t } = useTranslation();

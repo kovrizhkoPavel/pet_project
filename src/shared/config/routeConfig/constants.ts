@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/utils';
+import { TObjectValue } from '@/shared/types/utils';
 
 const AppRoute = {
   MAIN: 'main',

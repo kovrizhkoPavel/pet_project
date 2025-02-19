@@ -1,6 +1,6 @@
-import { StateScheme } from 'shared/types/stateScheme';
-import { Country, Currency } from 'shared/constants/common';
 import { expect } from '@storybook/test';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { Country, Currency } from '@/shared/constants/common';
 import { getProfileFormState } from './getProfileFormState';
 
 const initialData = {

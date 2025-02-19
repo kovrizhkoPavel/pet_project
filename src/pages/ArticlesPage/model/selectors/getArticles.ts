@@ -1,6 +1,6 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
-import { ArticlesView } from 'entities/Article/constants';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { ArticlesView } from '@/entities/Article/constants';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 

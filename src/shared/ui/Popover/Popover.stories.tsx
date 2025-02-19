@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import { Popover } from './Popover';
 
 const meta = {

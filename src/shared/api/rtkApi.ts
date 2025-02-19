@@ -1,8 +1,8 @@
 import {
   BaseQueryFn, createApi, FetchArgs, fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
-import { LocalStorageKey } from 'shared/constants/localstorage';
-import { TCustomError } from 'shared/types/api';
+import { LocalStorageKey } from '@/shared/constants/localstorage';
+import { TCustomError } from '@/shared/types/api';
 
 type TBaseQuery = BaseQueryFn<string | FetchArgs, unknown, TCustomError>;
 

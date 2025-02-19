@@ -1,7 +1,7 @@
 import {
   FC, ReactNode, useMemo, useState,
 } from 'react';
-import { LocalStorageKey } from 'shared/constants/localstorage';
+import { LocalStorageKey } from '@/shared/constants/localstorage';
 import { ThemeContext } from '../lib/ThemeContext';
 import { Theme } from '../constants';
 

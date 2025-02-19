@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { TArticleBlockImage } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 

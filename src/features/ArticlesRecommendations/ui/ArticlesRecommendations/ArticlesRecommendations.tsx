@@ -1,8 +1,8 @@
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { Text } from '@/shared/ui/Text/Text';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { ArticlesList } from '../ArticlesList/ArticlesList';
 import cls from './ArticlesReccomendations.module.scss';
 import {

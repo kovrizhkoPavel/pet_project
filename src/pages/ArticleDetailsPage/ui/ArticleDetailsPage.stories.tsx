@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { TArticle } from 'entities/Article/model/types/article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/constants';
-import { StateScheme } from 'shared/types/stateScheme';
-import { UserRole } from 'entities/User';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { TArticle } from '@/entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '@/entities/Article/constants';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { UserRole } from '@/entities/User';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const article: TArticle = {

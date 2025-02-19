@@ -1,8 +1,8 @@
-import NotificationIcon from 'shared/assets/icon/notification-icon.svg';
-import { Notifications } from 'entities/Notifications';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { useDevice } from 'shared/lib/hooks/useDevice';
-import { AnimationProvider } from 'shared/lib/Providers/AnimationProvider';
+import NotificationIcon from '@/shared/assets/icon/notification-icon.svg';
+import { Notifications } from '@/entities/Notifications';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { useDevice } from '@/shared/lib/hooks/useDevice';
+import { AnimationProvider } from '@/shared/lib/Providers/AnimationProvider';
 import { MobileDeviceNotification } from '../MobileDeviceNotification';
 import { useGetNotificationsQuery } from '../../model/api/notificationApi';
 import cls from './NotificationButton.module.scss';

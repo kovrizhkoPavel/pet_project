@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Code } from 'shared/ui/Code/Code';
+import { Code } from '@/shared/ui/Code/Code';
 import { TArticleBlockCode } from '../../model/types/article';
 import cls from './ArticleCodeBlock.module.scss';
 

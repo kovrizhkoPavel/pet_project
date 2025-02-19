@@ -1,8 +1,8 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { Menu } from '@headlessui/react';
 import { ReactNode } from 'react';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import cls from './Dropdown.module.scss';
 
 type TItem = {

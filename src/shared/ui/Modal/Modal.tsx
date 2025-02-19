@@ -1,8 +1,8 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import Portal from 'shared/ui/Portal/Portal';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
-import { TWithChildren } from 'shared/types/utils';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import Portal from '@/shared/ui/Portal/Portal';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { TWithChildren } from '@/shared/types/utils';
+import { useModal } from '@/shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 
 type TModalProps = {

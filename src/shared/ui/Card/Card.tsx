@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Card.module.scss';
 
 type TCardProps = {

@@ -1,5 +1,5 @@
-import { TObjectValue } from 'shared/types/utils';
-import { TUser } from 'entities/User';
+import { TObjectValue } from '@/shared/types/utils';
+import { TUser } from '@/entities/User';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 
 type TArticleType = TObjectValue<typeof ArticleType>;

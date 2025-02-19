@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TArticle } from 'entities/Article/model/types/article';
+import { TArticle } from '@/entities/Article/model/types/article';
 import {
   fetchGetArticlesRecommendations,
 } from '../services/fetchGetArticlesRecommendations/fetchGetArticlesRecommendations';

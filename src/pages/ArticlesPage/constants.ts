@@ -1,4 +1,4 @@
-import { ArticlesView } from 'entities/Article/constants';
+import { ArticlesView } from '@/entities/Article/constants';
 
 export const DEFAULT_PAGE_NUM = 1;
 

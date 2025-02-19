@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TThunkApiConfig } from 'shared/types/stateScheme';
+import { TThunkApiConfig } from '@/shared/types/stateScheme';
 import { fetchGetArticleList } from '../fetchGetArticleList/fetchGetArticleList';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import {

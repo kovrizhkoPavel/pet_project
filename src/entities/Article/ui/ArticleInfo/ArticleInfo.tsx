@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
-import EyeIcon from 'shared/assets/icon/eye-icon.svg';
-import DateIcon from 'shared/assets/icon/clarity_date-icon.svg';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Text } from '@/shared/ui/Text/Text';
+import EyeIcon from '@/shared/assets/icon/eye-icon.svg';
+import DateIcon from '@/shared/assets/icon/clarity_date-icon.svg';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
 import { TArticle } from '../../model/types/article';
 import cls from './ArticleInfo.module.scss';

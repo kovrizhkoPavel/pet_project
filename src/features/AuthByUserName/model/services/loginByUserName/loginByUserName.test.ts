@@ -1,6 +1,6 @@
 import { expect } from '@storybook/test';
-import { userActions, UserRole } from 'entities/User';
-import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { userActions, UserRole } from '@/entities/User';
+import TestAsyncThunk from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName', () => {

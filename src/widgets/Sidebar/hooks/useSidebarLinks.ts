@@ -1,10 +1,10 @@
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import HomeIcon from 'shared/assets/icon/home-icon.svg';
-import AboutIcon from 'shared/assets/icon/about-icon.svg';
-import ProfileIcon from 'shared/assets/icon/profile-icon.svg';
-import ArticleIcon from 'shared/assets/icon/article-icon.svg';
 import { useSelector } from 'react-redux';
-import { getAuthData, getIsUserAdmin } from 'entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import HomeIcon from '@/shared/assets/icon/home-icon.svg';
+import AboutIcon from '@/shared/assets/icon/about-icon.svg';
+import ProfileIcon from '@/shared/assets/icon/profile-icon.svg';
+import ArticleIcon from '@/shared/assets/icon/article-icon.svg';
+import { getAuthData, getIsUserAdmin } from '@/entities/User';
 import { TSidebarLink } from '../model/types/sidebarLink';
 
 const staticLinks: TSidebarLink[] = [

@@ -1,9 +1,9 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Textarea } from 'shared/ui/Textarea/Textarea';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Textarea } from '@/shared/ui/Textarea/Textarea';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { ButtonGroup } from '../ButtonGroup/ButtonGroup';
 import { addCommentFormActions } from '../../model/slice/addCommentFormSlice';
 import { getIsActive, getIsLoading, getText } from '../../model/selectors/getAddCommentForm';

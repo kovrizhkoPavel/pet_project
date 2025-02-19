@@ -1,8 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import { Notifications } from './Notifications';
 
 const notifications = [{

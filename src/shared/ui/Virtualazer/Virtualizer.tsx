@@ -2,7 +2,7 @@ import {
   CSSProperties, FC, ReactNode, RefObject, useEffect, useState,
 } from 'react';
 import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useAppUseEffect } from '@/shared/lib/hooks/useAppUseEffect';
 
 type TVirtualazerProps = {
   itemsCount: number;

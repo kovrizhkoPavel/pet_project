@@ -1,4 +1,4 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Overlay.module.scss';
 
 type TOverlayProps = {

@@ -1,6 +1,6 @@
 import { expect } from '@storybook/test';
-import { TProfile } from 'entities/Profile';
-import { ValidatorError } from 'entities/Profile/constants';
+import { TProfile } from '@/entities/Profile';
+import { ValidatorError } from '@/entities/Profile/constants';
 import { profileValidator } from './profileValidator';
 
 const data: TProfile = {

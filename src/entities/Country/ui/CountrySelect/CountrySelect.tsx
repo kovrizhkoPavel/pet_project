@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Country } from 'shared/constants/common';
 import { useTranslation } from 'react-i18next';
-import { CustomSelect } from 'shared/ui/CustomSelect/CustomSelect';
+import { Country } from '@/shared/constants/common';
+import { CustomSelect } from '@/shared/ui/CustomSelect/CustomSelect';
 
 type TCountrySelectProps = {
   className?: string;

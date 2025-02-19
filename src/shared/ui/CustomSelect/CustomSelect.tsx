@@ -1,10 +1,10 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import {
   Field, Label,
   Listbox, ListboxButton, ListboxOption, ListboxOptions,
 } from '@headlessui/react';
-import IconArrow from 'shared/assets/icon/arrow-icon.svg';
 import { CSSProperties, useCallback, useState } from 'react';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import IconArrow from '@/shared/assets/icon/arrow-icon.svg';
 import cls from './CustomSelect.module.scss';
 
 type TValue = string | number;

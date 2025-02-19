@@ -1,7 +1,7 @@
-import { useAnimationLibs } from 'shared/lib/Providers/AnimationProvider';
 import { useCallback, useEffect } from 'react';
-import { ANIMATION_DURATION } from 'shared/constants/assets';
-import { useAnimationCloseHandler } from 'shared/lib/hooks/useAnimationCloseHandler';
+import { useAnimationLibs } from '@/shared/lib/Providers/AnimationProvider';
+import { ANIMATION_DURATION } from '@/shared/constants/assets';
+import { useAnimationCloseHandler } from '@/shared/lib/hooks/useAnimationCloseHandler';
 
 type TProps = {
   isOpen: boolean;

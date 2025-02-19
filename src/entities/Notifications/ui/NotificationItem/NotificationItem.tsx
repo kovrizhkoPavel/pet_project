@@ -1,5 +1,5 @@
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { TNotification } from '../../model/types/TNotification';
 import cls from './NotificationItem.module.scss';
 

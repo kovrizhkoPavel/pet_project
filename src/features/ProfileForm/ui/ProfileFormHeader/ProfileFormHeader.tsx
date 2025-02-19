@@ -1,4 +1,4 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { useProfileFormHeader } from '../../hooks/useProfileFormHeader';
 import { ProfileButtonGroup } from '../ProfileButtonGroup/ProfileButtonGroup';
 import cls from './ProfilePageHeader.module.scss';

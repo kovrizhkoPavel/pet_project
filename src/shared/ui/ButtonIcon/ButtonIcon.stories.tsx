@@ -1,7 +1,7 @@
 import { Meta, type StoryObj } from '@storybook/react';
-import HomeIcon from 'shared/assets/icon/home-icon.svg';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
+import HomeIcon from '@/shared/assets/icon/home-icon.svg';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
 import { ButtonIcon } from './ButtonIcon';
 
 const meta = {

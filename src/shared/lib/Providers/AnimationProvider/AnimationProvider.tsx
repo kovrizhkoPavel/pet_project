@@ -1,7 +1,7 @@
 import {
   createContext, useContext, useEffect, useMemo, useRef, useState,
 } from 'react';
-import { TWithChildren } from 'shared/types/utils';
+import { TWithChildren } from '@/shared/types/utils';
 
 type TSpring = typeof import('@react-spring/web');
 type TGesture = typeof import('@use-gesture/react');

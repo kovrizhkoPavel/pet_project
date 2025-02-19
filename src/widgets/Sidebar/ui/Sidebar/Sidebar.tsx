@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import BurgerMenuIcon from 'shared/assets/icon/burger-menu.svg';
-import { ButtonIcon } from 'shared/ui/ButtonIcon/ButtonIcon';
 import { useTranslation } from 'react-i18next';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
+import BurgerMenuIcon from '@/shared/assets/icon/burger-menu.svg';
+import { ButtonIcon } from '@/shared/ui/ButtonIcon/ButtonIcon';
 import { useSidebarLinks } from '../../hooks/useSidebarLinks';
 import cls from './Sidebar.module.scss';
 import { LinkIcon } from '../LinkIcon/LinkIcon';

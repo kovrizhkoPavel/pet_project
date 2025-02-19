@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Card } from 'shared/ui/Card/Card';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Card } from '@/shared/ui/Card/Card';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { TArticle } from '../../../model/types/article';
 import cls from './CardSmall.module.scss';
 import { ViewsCount } from '../ViewsCount/ViewsCount';

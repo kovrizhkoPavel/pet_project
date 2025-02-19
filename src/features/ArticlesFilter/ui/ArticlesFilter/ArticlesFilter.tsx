@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { Toggle } from 'shared/ui/Toggle/Toggle';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Toggle } from '@/shared/ui/Toggle/Toggle';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { TFilterType } from '../../model/types/ArticlesFilterScheme';
 import { FilterType } from '../../constants';
 import { articlesFilterActions } from '../../model/slice/articlesFilterSlice';

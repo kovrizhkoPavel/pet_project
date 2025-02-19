@@ -1,7 +1,7 @@
 import {
   ButtonHTMLAttributes, FC, ReactNode, useState,
 } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Toggle.module.scss';
 
 type TToggleProps = {

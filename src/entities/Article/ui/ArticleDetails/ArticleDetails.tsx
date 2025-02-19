@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Text, TextVariant } from '@/shared/ui/Text/Text';
+import { useAppUseEffect } from '@/shared/lib/hooks/useAppUseEffect';
 import { ArticleBlocks } from '../ArticleBlocks/ArticleBlocks';
 import { ArticleAvatar } from '../ArticleAvatar/ArticleAvatar';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';

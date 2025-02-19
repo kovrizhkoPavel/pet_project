@@ -1,10 +1,10 @@
-import { TProfile } from 'entities/Profile';
-import { renderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import * as Router from 'react-router';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
+import { TProfile } from '@/entities/Profile';
 import { EditProfileForm } from './EditProfileForm';
 import * as query from '../../model/api/profileFormApi';
 

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
 import { TArticle } from '../../model/types/article';
 import cls from './ArticleAvatar.module.scss';

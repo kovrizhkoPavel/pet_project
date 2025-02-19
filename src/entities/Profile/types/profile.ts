@@ -1,5 +1,5 @@
-import { TObjectValue } from 'shared/types/utils';
-import { Country, Currency } from 'shared/constants/common';
+import { TObjectValue } from '@/shared/types/utils';
+import { Country, Currency } from '@/shared/constants/common';
 import { ValidatorError } from '../constants';
 
 export type TProfile = {

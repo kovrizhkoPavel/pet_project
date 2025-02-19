@@ -1,4 +1,4 @@
-import { TObjectValue, TSortOrder } from 'shared/types/utils';
+import { TObjectValue, TSortOrder } from '@/shared/types/utils';
 import { SortField } from '../../constants';
 
 export type TSortField = TObjectValue<typeof SortField>

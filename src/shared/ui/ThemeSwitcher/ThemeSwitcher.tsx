@@ -1,5 +1,5 @@
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Theme } from 'app/providers/ThemeProvider/constants';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
 import cls from './ThemeSwitcher.module.scss';
 
 export const ThemeSwitcher = () => {

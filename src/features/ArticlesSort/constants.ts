@@ -1,4 +1,4 @@
-import { TSortOrder } from 'shared/types/utils';
+import { TSortOrder } from '@/shared/types/utils';
 
 export const SortOrder: Record<Uppercase<TSortOrder>, TSortOrder> = <const>{
   ASC: 'asc',

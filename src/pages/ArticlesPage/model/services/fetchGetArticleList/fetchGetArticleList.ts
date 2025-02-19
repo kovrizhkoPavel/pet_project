@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { ArticleUrl } from 'shared/constants/api';
-import { TArticle } from 'entities/Article/model/types/article';
-import { getArticlesSearchValue } from 'features/ArticlesSearch';
-import { getArticlesSortField, getArticlesSortOrder } from 'features/ArticlesSort';
-import { getArticlesFilterTypes } from 'features/ArticlesFilter';
-import { addQueryParams } from 'shared/lib/utils/addQueryParams/addQueryParams';
+import { TThunkApiConfig } from '@/shared/types/stateScheme';
+import { ArticleUrl } from '@/shared/constants/api';
+import { TArticle } from '@/entities/Article/model/types/article';
+import { getArticlesSearchValue } from '@/features/ArticlesSearch';
+import { getArticlesSortField, getArticlesSortOrder } from '@/features/ArticlesSort';
+import { getArticlesFilterTypes } from '@/features/ArticlesFilter';
+import { addQueryParams } from '@/shared/lib/utils/addQueryParams/addQueryParams';
 import { TQuerySearchKeys } from '../../types/articlesPageSchema';
 import { getLimit, getPageNum } from '../../selectors/getArticles';
 

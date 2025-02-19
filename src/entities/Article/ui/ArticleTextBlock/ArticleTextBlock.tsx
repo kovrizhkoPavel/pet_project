@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Text } from 'shared/ui/Text/Text';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { Text } from '@/shared/ui/Text/Text';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { TArticleBlockText } from '../../model/types/article';
 import cls from './ArticleTextBlock.module.scss';
 

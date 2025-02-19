@@ -1,8 +1,8 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
-import { ArticlesSortScheme } from 'features/ArticlesSort';
-import { ArticlesFilterScheme } from 'features/ArticlesFilter';
-import { ArticlesSearchScheme } from 'features/ArticlesSearch';
+import { TArticle, TArticlesView } from '@/entities/Article/model/types/article';
+import { ArticlesSortScheme } from '@/features/ArticlesSort';
+import { ArticlesFilterScheme } from '@/features/ArticlesFilter';
+import { ArticlesSearchScheme } from '@/features/ArticlesSearch';
 
 export interface ArticlesPageSchema extends EntityState<TArticle, string> {
   error?: string;

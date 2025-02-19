@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { TComment } from 'entities/Comment';
-import { TThunkApiConfig } from 'shared/types/stateScheme';
-import { ArticleUrl } from 'shared/constants/api';
+import { TComment } from '@/entities/Comment';
+import { TThunkApiConfig } from '@/shared/types/stateScheme';
+import { ArticleUrl } from '@/shared/constants/api';
 
 export const fetchCommentsByArticleId = createAsyncThunk<
   TComment[],

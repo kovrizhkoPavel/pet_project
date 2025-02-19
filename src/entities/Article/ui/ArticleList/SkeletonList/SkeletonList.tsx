@@ -1,5 +1,5 @@
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { TArticlesView } from '../../../model/types/article';
 import { ArticlesView } from '../../../constants';
 import { SkeletonCard } from '../CardBig/SkeletonCard';
