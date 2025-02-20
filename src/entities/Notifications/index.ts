@@ -1,2 +1,2 @@
-export { Notifications } from 'entities/Notifications/ui/Notifications/Notifications';
+export { Notifications } from '../Notifications/ui/Notifications/Notifications';
 export type { TNotification } from './model/types/TNotification';

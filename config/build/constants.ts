@@ -4,3 +4,4 @@ export const Mode = <const>{
 };
 
 export const DEFAULT_PORT = 3000;
+export const DEFAULT_URL = 'http://localhost:8000'
