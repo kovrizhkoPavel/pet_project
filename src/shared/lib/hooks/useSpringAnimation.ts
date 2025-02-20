@@ -1,6 +1,5 @@
 import { useCallback, useEffect } from 'react';
 import { useAnimationLibs } from '@/shared/lib/Providers/AnimationProvider';
-import { ANIMATION_DURATION } from '@/shared/constants/assets';
 import { useAnimationCloseHandler } from '@/shared/lib/hooks/useAnimationCloseHandler';
 
 type TProps = {
