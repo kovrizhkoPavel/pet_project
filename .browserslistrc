@@ -1,8 +1,4 @@
-[production]
-> 1%
-not dead
-
-[modern]
-last 1 chrome version
-last 1 firefox version
-
+last 2 chrome versions
+last 2 edge versions
+last 2 firefox versions
+last 2 safari versions

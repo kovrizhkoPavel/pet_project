@@ -23,10 +23,14 @@ export const Button: FC<TButtonProps> = (props) => {
     ...otherProps
   } = props;
 
+  const mod = {
+    [cls.no_hover_active]: variant === ButtonVariant.CLEAR,
+  };
+
   return (
     <button
       type="button"
-      className={getClassName(cls.button, {}, [className, cls[variant]])}
+      className={getClassName(cls.button, mod, [className, cls[variant]])}
       {...otherProps}
     >
       {children}
