@@ -80,7 +80,10 @@ export const Flex = (props: TFlexProps) => {
   };
 
   return (
-    <div className={getClassName(cls.flex, mod, classes)}>
+    <div
+      {...props}
+      className={getClassName(cls.flex, mod, classes)}
+    >
       {children}
     </div>
   );

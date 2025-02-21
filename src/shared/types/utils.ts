@@ -1,4 +1,6 @@
-import { FC, ReactNode, SVGProps } from 'react';
+import {
+  DetailedHTMLProps, FC, HTMLAttributes, ReactNode, SVGProps,
+} from 'react';
 
 export type TObjectValue<T extends object> = T[keyof T];
 
@@ -18,3 +20,5 @@ export type TSortOrder = 'asc' | 'desc';
 export type TWithChildren = { children: ReactNode };
 
 export type TStyleMod = Record<string, boolean | string>;
+
+export type TDivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
