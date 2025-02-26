@@ -11,7 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "entities/*": ["./src/entities/*"]
+      "entities/*": ["./src/@/entities/*"]
     },
     "types": ["@testing-library/jest-dom", "node"],
     "strict": true,

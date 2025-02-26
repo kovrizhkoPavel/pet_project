@@ -61,7 +61,7 @@ export const Flex = (props: TFlexProps) => {
     wrap = 'wrap',
     direction = 'row',
     justify = 'start',
-    stretch,
+    stretch = false,
     gap,
     children,
   } = props;
@@ -76,7 +76,7 @@ export const Flex = (props: TFlexProps) => {
   ];
 
   const mod = {
-    [cls.stretch]: !!stretch,
+    [cls.stretch]: stretch,
   };
 
   return (

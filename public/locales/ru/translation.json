@@ -36,6 +36,8 @@
   "profile_required": "Обязательное поле",
   "profile_reset_btn": "Отменить",
   "profile_submit_btn": "Сохранить",
+  "rating_reset_btn": "закрыть",
+  "rating_submit_btn": "отправить",
   "sort-asc": "По возрастанию",
   "sort-desc": "по убыванию",
   "sort-field-created": "по дате создания",

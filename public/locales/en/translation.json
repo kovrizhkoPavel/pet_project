@@ -36,6 +36,8 @@
   "profile_required": "Required field",
   "profile_reset_btn": "Reset",
   "profile_submit_btn": "Submit",
+  "rating_reset_btn": "close",
+  "rating_submit_btn": "submit",
   "sort-asc": "Ascending",
   "sort-desc": "descending",
   "sort-field-created": "by date of creation",

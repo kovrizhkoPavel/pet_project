@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/Button/Button';
 
 type TRatingProps = {
   className?: string;
-  selectedStars?: number;
+  defaultValue?: number;
   onChange?: (value: number) => void;
 }
 
@@ -17,12 +17,10 @@ const STARS = new Array(STARS_COUNT)
   .map((_, i) => i + 1);
 
 export const Rating = (props: TRatingProps) => {
-  const { className, onChange, selectedStars = 0 } = props;
-  const [selectedStar, setSelectedStar] = useState(selectedStars);
+  const { className, onChange, defaultValue = 0 } = props;
   const [hoveredStar, setHoveredStar] = useState(0);
 
   const onButtonStarClick = (star: number) => () => {
-    setSelectedStar(star);
     onChange?.(star);
   };
 
@@ -38,7 +36,7 @@ export const Rating = (props: TRatingProps) => {
     const mod = {
       [cls.iconSelected]: hoveredStar > 0
         ? star <= hoveredStar
-        : star <= selectedStar,
+        : star <= defaultValue,
     };
 
     return getClassName(cls.icon, mod);

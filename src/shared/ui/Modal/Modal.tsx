@@ -39,7 +39,7 @@ export const Modal = (props: TModalProps) => {
       >
         <Overlay onclick={closeHandler} />
         <div className={cls.content}>
-          {title && <h4>{title}</h4>}
+          {title && <h4 className={cls.title}>{title}</h4>}
           <div className={getClassName('', {}, [contentClass])}>
             {children}
           </div>
