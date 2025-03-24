@@ -1,15 +1,15 @@
-import { Suspense, useCallback, useReducer } from 'react';
+import { useCallback, useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './RatingCard.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Rating } from '@/shared/ui/Rating';
 import { Text } from '@/shared/ui/Text/Text';
-import { Modal } from '@/shared/ui/Modal/Modal';
-import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import { ModalLoader } from '@/widgets/ModalLoader';
-import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import { RatingActionType, ratingReducer } from './ratingReducer';
+import { RatingModal } from './RatingModal';
+import { Textarea } from '@/shared/ui/Textarea/Textarea';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { RatingDrawer } from '@/entities/Rating/RatingCard/RatingDrawer';
 
 type TRatingCardProps = {
   className?: string;
@@ -30,13 +30,13 @@ export const RatingCard = (props: TRatingCardProps) => {
     submitRatingHandler,
   } = props;
 
+  const { t } = useTranslation();
+
   const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(ratingReducer, {
     tempRating: defaultValue,
     isModalOpen: false,
     feedback: '',
   });
-
-  const { t } = useTranslation();
 
   const onModalClose = () => {
     dispatch({
@@ -82,34 +82,24 @@ export const RatingCard = (props: TRatingCardProps) => {
         <HStack justify="center">
           <Rating defaultValue={tempRating} onChange={onRatingChange} />
         </HStack>
-        <Modal
+        {/* <RatingModal */}
+        {/*  isOpen={isModalOpen} */}
+        {/*  rating={tempRating} */}
+        {/*  title={modalTitle} */}
+        {/*  onClose={onModalClose} */}
+        {/*  onButtonSubmit={onButtonSubmit} */}
+        {/*  onRatingChange={onRatingChange} */}
+        {/*  onTextareaChange={onTextareaChange} */}
+        {/* /> */}
+        <RatingDrawer
+          feedback={feedback}
           isOpen={isModalOpen}
+          rating={tempRating}
+          onRatingChange={onRatingChange}
           onClose={onModalClose}
-          title={modalTitle}
-          contentClass={cls.modalContent}
-          lazy
-        >
-          <Suspense fallback={<ModalLoader />}>
-            <VStack gap="12" align="center">
-              <Rating defaultValue={tempRating} onChange={onRatingChange} />
-              <Textarea isAutoFocus value={feedback} onChange={onTextareaChange} />
-              <HStack justify="end" gap="8" className={cls.buttonContainer}>
-                <Button
-                  variant={ButtonVariant.OUTLINE}
-                  onClick={onModalClose}
-                >
-                  {t('translation\:rating_reset_btn')}
-                </Button>
-                <Button
-                  variant={ButtonVariant.FILL}
-                  onClick={onButtonSubmit}
-                >
-                  {t('translation\:rating_submit_btn')}
-                </Button>
-              </HStack>
-            </VStack>
-          </Suspense>
-        </Modal>
+          onButtonSubmit={onButtonSubmit}
+          onTextareaChange={onTextareaChange}
+        />
       </VStack>
     </div>
   );
