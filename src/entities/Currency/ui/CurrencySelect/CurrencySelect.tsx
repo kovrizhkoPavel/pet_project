@@ -7,7 +7,7 @@ type TCurrencySelectProps = {
   className?: string;
   readonly?: boolean;
   onChange?: (val: string) => void;
-}
+};
 
 const options = Object.entries(Currency).map(([value, label]) => ({
   value,

@@ -10,7 +10,10 @@ const meta = {
   args: {
     content: <div>Story</div>,
     items: [
-      { content: 'item1', href: 'http://localhost:6006/?path=/story/shared-dropdown--light' },
+      {
+        content: 'item1',
+        href: 'http://localhost:6006/?path=/story/shared-dropdown--light',
+      },
       { content: <div>item2</div>, onClick: () => alert('storybook') },
     ],
   },

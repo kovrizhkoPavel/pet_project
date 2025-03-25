@@ -12,29 +12,15 @@ type TCardSmallProps = {
   article: TArticle;
   isLoading?: boolean;
   className?: string;
-  target?: '_blank' | '_self'
-}
+  target?: '_blank' | '_self';
+};
 
 export const CardSmall: FC<TCardSmallProps> = (props) => {
-  const {
-    className, article, target, isLoading,
-  } = props;
-  const {
-    createdAt,
-    type,
-    views,
-    title,
-    img,
-  } = article;
+  const { className, article, target, isLoading } = props;
+  const { createdAt, type, views, title, img } = article;
 
   if (isLoading) {
-    return (
-      <Skeleton
-        className={cls.skeleton}
-        width={210}
-        height={230}
-      />
-    );
+    return <Skeleton className={cls.skeleton} width={210} height={230} />;
   }
 
   return (

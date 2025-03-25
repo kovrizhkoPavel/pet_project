@@ -8,16 +8,18 @@ import ProfilePage from './ProfilePage';
 const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  decorators: [StoreDecorator({
-    profileForm: {
-      formData: {
-        username: 'user',
-        firstname: 'name',
-        lastname: 'lastname',
-        age: 22,
+  decorators: [
+    StoreDecorator({
+      profileForm: {
+        formData: {
+          username: 'user',
+          firstname: 'name',
+          lastname: 'lastname',
+          age: 22,
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;

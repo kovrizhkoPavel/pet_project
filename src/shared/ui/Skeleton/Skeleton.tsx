@@ -7,12 +7,10 @@ type TSkeletonProps = {
   height?: string | number;
   width?: string | number;
   border?: string;
-}
+};
 
 export const Skeleton: FC<TSkeletonProps> = (props) => {
-  const {
-    className, width, height, border,
-  } = props;
+  const { className, width, height, border } = props;
 
   const style: CSSProperties = {
     width,
@@ -21,6 +19,9 @@ export const Skeleton: FC<TSkeletonProps> = (props) => {
   };
 
   return (
-    <div className={getClassName(cls.skeleton, {}, [className])} style={style} />
+    <div
+      className={getClassName(cls.skeleton, {}, [className])}
+      style={style}
+    />
   );
 };

@@ -6,7 +6,6 @@
   &:hover,
   &:focus {
     opacity: var(--opacity-hover);
-
   }
 
   &:active {
@@ -15,8 +14,8 @@
 }
 
 .no_hover_active {
-  &:hover ,
-  &:focus ,
+  &:hover,
+  &:focus,
   &:active {
     opacity: 1;
   }
@@ -43,4 +42,3 @@
   background: var(--secondary-color);
   border-radius: var(--border-radius-m);
 }
-

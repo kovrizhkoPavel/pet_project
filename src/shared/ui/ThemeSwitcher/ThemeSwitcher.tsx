@@ -13,11 +13,7 @@ export const ThemeSwitcher = () => {
       title={isDark ? 'Activate light mode' : 'Activate dark mode'}
       aria-label={isDark ? 'Activate light mode' : 'Activate dark mode'}
     >
-      <input
-        type="checkbox"
-        defaultChecked={!isDark}
-        onChange={toggleTheme}
-      />
+      <input type="checkbox" defaultChecked={!isDark} onChange={toggleTheme} />
       <div />
     </label>
   );

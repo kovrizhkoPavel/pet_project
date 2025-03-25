@@ -20,7 +20,10 @@ export const profileFormSlice = createSlice({
       state.readonly = action.payload;
     },
 
-    setValidationErrors: (state, action: PayloadAction<TProfileValidationError | undefined>) => {
+    setValidationErrors: (
+      state,
+      action: PayloadAction<TProfileValidationError | undefined>,
+    ) => {
       state.validationError = action.payload;
     },
 

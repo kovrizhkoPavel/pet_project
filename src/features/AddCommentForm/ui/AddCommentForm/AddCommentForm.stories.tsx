@@ -8,13 +8,15 @@ import { AddCommentForm } from './AddCommentForm';
 const meta = {
   title: 'features/AddCommentForm',
   component: AddCommentForm,
-  decorators: [StoreDecorator({
-    articleDetailsPage: {
-      addComment: {
-        text: 'text',
+  decorators: [
+    StoreDecorator({
+      articleDetailsPage: {
+        addComment: {
+          text: 'text',
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof AddCommentForm>;
 
 export default meta;

@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
 import { ANIMATION_DURATION } from '@/shared/constants/assets';
 
-export const useAnimationCloseHandler = (onClose: VoidFunction): [boolean, VoidFunction] => {
+export const useAnimationCloseHandler = (
+  onClose: VoidFunction,
+): [boolean, VoidFunction] => {
   const [isClosing, setIsClosing] = useState(false);
 
   const closeHandler = useCallback(() => {

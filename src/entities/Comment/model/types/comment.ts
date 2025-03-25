@@ -4,4 +4,4 @@ export type TComment = {
   id: string | number;
   text: string;
   user: TUser;
-}
+};

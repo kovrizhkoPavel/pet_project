@@ -1,5 +1,4 @@
 import { useCallback, useReducer } from 'react';
-import { useTranslation } from 'react-i18next';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './RatingCard.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -7,9 +6,8 @@ import { Rating } from '@/shared/ui/Rating';
 import { Text } from '@/shared/ui/Text/Text';
 import { RatingActionType, ratingReducer } from './ratingReducer';
 import { RatingModal } from './RatingModal';
-import { Textarea } from '@/shared/ui/Textarea/Textarea';
-import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import { RatingDrawer } from '@/entities/Rating/RatingCard/RatingDrawer';
+import { useDevice } from '@/shared/lib/hooks/useDevice';
 
 type TRatingCardProps = {
   className?: string;
@@ -17,8 +15,8 @@ type TRatingCardProps = {
   modalTitle?: string;
   defaultValue?: number;
   closeModalHandler?: () => void;
-  submitRatingHandler: (params: {rating: number; feedback?: string}) => void;
-}
+  submitRatingHandler: (params: { rating: number; feedback?: string }) => void;
+};
 
 export const RatingCard = (props: TRatingCardProps) => {
   const {
@@ -30,13 +28,16 @@ export const RatingCard = (props: TRatingCardProps) => {
     submitRatingHandler,
   } = props;
 
-  const { t } = useTranslation();
+  const isMobile = useDevice();
 
-  const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(ratingReducer, {
-    tempRating: defaultValue,
-    isModalOpen: false,
-    feedback: '',
-  });
+  const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(
+    ratingReducer,
+    {
+      tempRating: defaultValue,
+      isModalOpen: false,
+      feedback: '',
+    },
+  );
 
   const onModalClose = () => {
     dispatch({
@@ -82,15 +83,15 @@ export const RatingCard = (props: TRatingCardProps) => {
         <HStack justify="center">
           <Rating defaultValue={tempRating} onChange={onRatingChange} />
         </HStack>
-        {/* <RatingModal */}
-        {/*  isOpen={isModalOpen} */}
-        {/*  rating={tempRating} */}
-        {/*  title={modalTitle} */}
-        {/*  onClose={onModalClose} */}
-        {/*  onButtonSubmit={onButtonSubmit} */}
-        {/*  onRatingChange={onRatingChange} */}
-        {/*  onTextareaChange={onTextareaChange} */}
-        {/* /> */}
+        <RatingModal
+          isOpen={isModalOpen}
+          rating={tempRating}
+          title={modalTitle}
+          onClose={onModalClose}
+          onButtonSubmit={onButtonSubmit}
+          onRatingChange={onRatingChange}
+          onTextareaChange={onTextareaChange}
+        />
         <RatingDrawer
           feedback={feedback}
           isOpen={isModalOpen}

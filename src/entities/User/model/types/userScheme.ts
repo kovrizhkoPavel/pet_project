@@ -7,10 +7,10 @@ export type TUser = {
   id: string;
   username: string;
   avatar?: string;
-  roles: TUserRole[]
-}
+  roles: TUserRole[];
+};
 
 export type UserScheme = {
   _isInit: boolean;
   authData?: TUser | null;
-}
+};

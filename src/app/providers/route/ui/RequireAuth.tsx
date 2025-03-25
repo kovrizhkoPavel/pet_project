@@ -6,7 +6,7 @@ import { TWithChildren } from '@/shared/types/utils';
 import { TUserRole, getUserRoles } from '@/entities/User';
 
 type TRequireAuthProps = {
-  roles?: TUserRole[]
+  roles?: TUserRole[];
 } & TWithChildren;
 
 export const RequireAuth = ({ children, roles }: TRequireAuthProps) => {
@@ -19,9 +19,11 @@ export const RequireAuth = ({ children, roles }: TRequireAuthProps) => {
   }
   if (isUserAuth && roles) {
     const hasRequiredRole = roles.some((role) => userRoles.includes(role));
-    return hasRequiredRole
-      ? children
-      : <Navigate replace to={RoutePath.forbidden} state={{ from: location }} />;
+    return hasRequiredRole ? (
+      children
+    ) : (
+      <Navigate replace to={RoutePath.forbidden} state={{ from: location }} />
+    );
   }
 
   return children;

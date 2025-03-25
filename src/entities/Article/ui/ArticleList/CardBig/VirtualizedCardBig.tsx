@@ -10,7 +10,7 @@ type VirtualizedCardBigProps = {
   isLoading: boolean;
   articles: TArticle[];
   className?: string;
-}
+};
 
 const getItemStyles = (item: VirtualItem): CSSProperties => ({
   position: 'absolute',
@@ -24,9 +24,7 @@ const getItemStyles = (item: VirtualItem): CSSProperties => ({
 export const CARD_BIG_HEIGHT = 576;
 
 export const VirtualizedCardBig = (props: VirtualizedCardBigProps) => {
-  const {
-    parentRef, isLoading, articles, className, fetchNextPage,
-  } = props;
+  const { parentRef, isLoading, articles, className, fetchNextPage } = props;
 
   return (
     <Virtualizer

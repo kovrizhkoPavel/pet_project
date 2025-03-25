@@ -1,6 +1,8 @@
 const { makeFirstCharLowerCase } = require('../utils');
 
-module.exports = (componentName) => `import { useTranslation } from 'react-i18next';
+module.exports = (
+  componentName,
+) => `import { useTranslation } from 'react-i18next';
 import { getClassName } from 'shared/lib/classNames/getClassName';
 import cls from './${componentName}.module.scss';
 

@@ -20,31 +20,37 @@ export const Dark: Story = {
 };
 
 export const Auth: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+      },
+    } as StateScheme),
+  ],
 };
 
 export const Error: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-      error: 'Error',
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+        error: 'Error',
+      },
+    } as StateScheme),
+  ],
 };
 
 export const Loading: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-      isLoading: true,
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+        isLoading: true,
+      },
+    } as StateScheme),
+  ],
 };
 export default meta;

@@ -5,19 +5,21 @@ import { Theme } from '@/app/providers/ThemeProvider/constants';
 import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
 import { Notifications } from './Notifications';
 
-const notifications = [{
-  id: '1',
-  title: 'Уведомление 1',
-  description: 'Произошло какое-то событие',
-  userId: '1',
-},
-{
-  id: '2',
-  title: 'Уведомление 2',
-  description: 'Произошло какое-то событие',
-  userId: '1',
-  href: 'http://localhost:3000/admin',
-}];
+const notifications = [
+  {
+    id: '1',
+    title: 'Уведомление 1',
+    description: 'Произошло какое-то событие',
+    userId: '1',
+  },
+  {
+    id: '2',
+    title: 'Уведомление 2',
+    description: 'Произошло какое-то событие',
+    userId: '1',
+    href: 'http://localhost:3000/admin',
+  },
+];
 
 const meta = {
   title: 'entities/Notifications',

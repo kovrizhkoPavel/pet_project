@@ -21,7 +21,7 @@ const initialReducer: TReducers = {
 };
 
 const ArticleDetailsPage = () => {
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const isInit = useSelector(getIsInit);
 

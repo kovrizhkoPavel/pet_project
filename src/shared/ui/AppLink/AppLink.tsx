@@ -12,7 +12,7 @@ export const AppLinkTheme = {
 type TAppLinkProps = {
   className?: string;
   theme?: TObjectValue<typeof AppLinkTheme>;
-}
+};
 
 export const AppLink: FC<TAppLinkProps & LinkProps> = (props) => {
   const {

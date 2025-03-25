@@ -5,7 +5,7 @@ import { useAnimationCloseHandler } from '@/shared/lib/hooks/useAnimationCloseHa
 type TProps = {
   isOpen: boolean;
   onClose: VoidFunction;
-}
+};
 
 export const useAnimation = (props: TProps) => {
   const height = window.innerHeight;
@@ -24,18 +24,16 @@ export const useAnimation = (props: TProps) => {
   }, [api]);
 
   const closeHandler = (velocity = 0) => {
-    api.start({ y: height, immediate: false, config: { ...config.stiff, velocity } });
+    api.start({
+      y: height,
+      immediate: false,
+      config: { ...config.stiff, velocity },
+    });
     close();
   };
 
   const bind = useDrag(
-    ({
-      last,
-      velocity: [, vy],
-      direction: [, dy],
-      offset: [, oy],
-      cancel,
-    }) => {
+    ({ last, velocity: [, vy], direction: [, dy], offset: [, oy], cancel }) => {
       if (oy < -70) cancel();
 
       if (!last) openHandler();
@@ -48,7 +46,10 @@ export const useAnimation = (props: TProps) => {
       openHandler();
     },
     {
-      from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true,
     },
   );
 

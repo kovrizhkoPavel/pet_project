@@ -1,5 +1,10 @@
 import {
-  createContext, useContext, useEffect, useMemo, useRef, useState,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from 'react';
 import { TWithChildren } from '@/shared/types/utils';
 
@@ -14,12 +19,11 @@ type TAnimationProviderProps = {
 
 const AnimationContext = createContext<TAnimationProviderProps>({});
 
-const getAsyncAnimationModules = async () => Promise.all([
-  import('@react-spring/web'),
-  import('@use-gesture/react'),
-]);
+const getAsyncAnimationModules = async () =>
+  Promise.all([import('@react-spring/web'), import('@use-gesture/react')]);
 
-export const useAnimationLibs = () => useContext(AnimationContext) as Required<TAnimationProviderProps>;
+export const useAnimationLibs = () =>
+  useContext(AnimationContext) as Required<TAnimationProviderProps>;
 
 export const AnimationProvider = ({ children }: TWithChildren) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -34,11 +38,14 @@ export const AnimationProvider = ({ children }: TWithChildren) => {
     });
   }, []);
 
-  const value = useMemo<TAnimationProviderProps>(() => ({
-    Spring: springRef.current,
-    Gesture: gestureRef.current,
-    isLoaded,
-  }), [isLoaded]);
+  const value = useMemo<TAnimationProviderProps>(
+    () => ({
+      Spring: springRef.current,
+      Gesture: gestureRef.current,
+      isLoaded,
+    }),
+    [isLoaded],
+  );
 
   return (
     <AnimationContext.Provider value={value}>

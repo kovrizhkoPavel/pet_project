@@ -6,9 +6,11 @@ import { useGetProfileDataQuery } from '../model/api/profileApi';
 
 const ProfilePage = () => {
   const { t } = useTranslation();
-  const { id } = useParams<{id : string}>();
+  const { id } = useParams<{ id: string }>();
 
-  const { data, isFetching, isError } = useGetProfileDataQuery(`${id}`, { skip: !id });
+  const { data, isFetching, isError } = useGetProfileDataQuery(`${id}`, {
+    skip: !id,
+  });
 
   return (
     <PageContainer>

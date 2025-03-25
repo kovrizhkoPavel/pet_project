@@ -6,8 +6,8 @@ import cls from './Code.module.scss';
 
 type TCodeProps = {
   className?: string;
-  content: string
-}
+  content: string;
+};
 
 export const Code: FC<TCodeProps> = (props) => {
   const { className, content } = props;

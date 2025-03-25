@@ -5,7 +5,7 @@ import cls from './PageLoader.module.scss';
 
 type TPageLoaderProps = {
   className?: string;
-}
+};
 
 export const PageLoader: FC<TPageLoaderProps> = ({ className }) => (
   <div className={getClassName(cls.pageLoader, {}, [className])}>

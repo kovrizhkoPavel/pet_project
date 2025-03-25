@@ -5,10 +5,8 @@ import cls from './Card.module.scss';
 type TCardProps = {
   className?: string;
   children?: ReactNode;
-}
+};
 
 export const Card: FC<TCardProps> = ({ className, children }) => (
-  <div className={getClassName(cls.card, {}, [className])}>
-    {children}
-  </div>
+  <div className={getClassName(cls.card, {}, [className])}>{children}</div>
 );

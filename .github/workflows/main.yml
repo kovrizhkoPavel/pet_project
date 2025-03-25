@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
@@ -56,7 +56,6 @@ jobs:
         run: npm i
       - name: unit tests
         run: npm run test:unit
-
 #  ui-test:
 #    runs-on: ubuntu-latest
 #    strategy:

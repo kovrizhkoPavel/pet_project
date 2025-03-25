@@ -16,14 +16,14 @@ export const ArticleBlocks = () => {
     const { type } = block;
 
     switch (type) {
-    case ArticleBlockType.TEXT:
-      return <ArticleTextBlock content={block} key={block.id} />;
-    case ArticleBlockType.IMAGE:
-      return <ArticleImageBlock content={block} key={block.id} />;
-    case ArticleBlockType.CODE:
-      return <ArticleCodeBlock content={block} key={block.id} />;
-    default:
-      return <></>;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlock content={block} key={block.id} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlock content={block} key={block.id} />;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlock content={block} key={block.id} />;
+      default:
+        return <></>;
     }
   }, []);
 

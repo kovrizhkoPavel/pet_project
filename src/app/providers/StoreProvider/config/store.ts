@@ -27,11 +27,12 @@ export const createReduxStore = (
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument,
-      },
-    }).concat(rtkApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }).concat(rtkApi.middleware),
   });
 
   return { ...store, reducerManager };

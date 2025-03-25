@@ -6,24 +6,25 @@ import { AuthUrl } from '@/shared/constants/api';
 type TParams = {
   username: string;
   password: string;
-}
+};
 
-export const loginByUserName = createAsyncThunk<TUser, TParams, TThunkApiConfig<string>>(
-  'login/loginByUserName',
-  async (authData, thunkAPI) => {
-    const { extra, rejectWithValue, dispatch } = thunkAPI;
+export const loginByUserName = createAsyncThunk<
+  TUser,
+  TParams,
+  TThunkApiConfig<string>
+>('login/loginByUserName', async (authData, thunkAPI) => {
+  const { extra, rejectWithValue, dispatch } = thunkAPI;
 
-    try {
-      const { data } = await extra.api.post<TUser>(AuthUrl.LOGIN, authData);
+  try {
+    const { data } = await extra.api.post<TUser>(AuthUrl.LOGIN, authData);
 
-      if (!data) {
-        return rejectWithValue('error');
-      }
-
-      dispatch(userActions.setAuthData(data));
-      return data;
-    } catch (err) {
+    if (!data) {
       return rejectWithValue('error');
     }
-  },
-);
+
+    dispatch(userActions.setAuthData(data));
+    return data;
+  } catch (err) {
+    return rejectWithValue('error');
+  }
+});

@@ -14,14 +14,17 @@ const defaultAsyncReducers: TReducers = {
   articlesPage: articlesPageMainReducer,
 };
 
-export const StoreDecorator = (
-  initial?: StateScheme,
-  asyncReducer?: TReducers,
-) => (Story: StoryFn) => (
-  <StoreProvider
-    initialState={initial}
-    asyncReducers={{ ...defaultAsyncReducers, ...asyncReducer } as ReducersMapObject<StateScheme>}
-  >
-    <Story />
-  </StoreProvider>
-);
+export const StoreDecorator =
+  (initial?: StateScheme, asyncReducer?: TReducers) => (Story: StoryFn) => (
+    <StoreProvider
+      initialState={initial}
+      asyncReducers={
+        {
+          ...defaultAsyncReducers,
+          ...asyncReducer,
+        } as ReducersMapObject<StateScheme>
+      }
+    >
+      <Story />
+    </StoreProvider>
+  );

@@ -8,7 +8,8 @@ export const $api = axios.create({
 $api.interceptors.request.use((config) => {
   if (config.headers) {
     // eslint-disable-next-line no-param-reassign
-    config.headers.Authorization = localStorage.getItem(LocalStorageKey.AUTH_DATA) || '';
+    config.headers.Authorization =
+      localStorage.getItem(LocalStorageKey.AUTH_DATA) || '';
   }
 
   return config;

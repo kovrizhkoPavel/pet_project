@@ -12,8 +12,14 @@ export const ArticleAvatar = memo(() => {
   const isLoading = useSelector(getIsLoading);
   const data: TArticle | null = useSelector(getData);
 
-  return isLoading
-    ? <Skeleton width={AVATAR_SIZE} height={AVATAR_SIZE} border="50%" className={cls.skeleton} /> : (
-      <Avatar src={`${data?.img}`} alt="article avatar" size={200} />
-    );
+  return isLoading ? (
+    <Skeleton
+      width={AVATAR_SIZE}
+      height={AVATAR_SIZE}
+      border="50%"
+      className={cls.skeleton}
+    />
+  ) : (
+    <Avatar src={`${data?.img}`} alt="article avatar" size={200} />
+  );
 });

@@ -6,7 +6,7 @@ const schemeTypeTemplate = require('./schemeTypeTemplate');
 module.exports = async (layer, sliceName) => {
   const resolveModelPath = (...segments) =>
     resolveRoot('src', layer, sliceName, 'model', ...segments);
-  
+
   const createModelStructure = async () => {
     try {
       await mkdir(resolveModelPath());
@@ -15,33 +15,36 @@ module.exports = async (layer, sliceName) => {
       await mkdir(resolveModelPath('selectors'));
       await mkdir(resolveModelPath('services'));
     } catch (err) {
-      console.error(`Не удалось создать model сегмент для слайса ${sliceName}`, err);
+      console.error(
+        `Не удалось создать model сегмент для слайса ${sliceName}`,
+        err,
+      );
     }
   };
-  
+
   const createReduxSlice = async () => {
     try {
       await writeFile(
         resolveModelPath('slice', `${sliceName}Slice.ts`),
-        reduxSliceTemplate(sliceName)
+        reduxSliceTemplate(sliceName),
       );
     } catch (err) {
       console.error('Не удалось создать редакс слайс', err);
     }
-  }
-  
+  };
+
   const createSchemeType = async () => {
     try {
       await writeFile(
         resolveModelPath('types', `${sliceName}Scheme.ts`),
-        schemeTypeTemplate(sliceName)
-      )
+        schemeTypeTemplate(sliceName),
+      );
     } catch (err) {
       console.error('Не удалось создать тип схемы стейта', err);
     }
-  }
-  
+  };
+
   await createModelStructure();
   await createReduxSlice();
   await createSchemeType();
-}
+};

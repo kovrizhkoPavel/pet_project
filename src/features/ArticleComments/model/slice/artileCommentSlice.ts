@@ -8,12 +8,15 @@ const articleCommentsAdapter = createEntityAdapter({
   selectId: (comment: TComment) => comment.id,
 });
 
-export const getArticleComments = articleCommentsAdapter.getSelectors<StateScheme>(
-  (state) => state.articleDetailsPage?.comments || articleCommentsAdapter.getInitialState(),
-);
+export const getArticleComments =
+  articleCommentsAdapter.getSelectors<StateScheme>(
+    (state) =>
+      state.articleDetailsPage?.comments ||
+      articleCommentsAdapter.getInitialState(),
+  );
 
-const initialState: ArticleCommentsScheme = articleCommentsAdapter
-  .getInitialState<ArticleCommentsScheme>({
+const initialState: ArticleCommentsScheme =
+  articleCommentsAdapter.getInitialState<ArticleCommentsScheme>({
     ids: [],
     entities: {},
     isLoading: false,

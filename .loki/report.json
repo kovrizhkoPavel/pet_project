@@ -1,1 +1,48 @@
-{"newItems":[],"deletedItems":[],"passedItems":[],"failedItems":["chrome_iphone7_shared_Text_Only_Text.png","chrome_iphone7_shared_Text_Only_Text_Dark.png","chrome_iphone7_shared_Text_Text_Title.png","chrome_iphone7_shared_Text_Text_Title_Dark.png","chrome_laptop_shared_Text_Only_Text.png","chrome_laptop_shared_Text_Only_Text_Dark.png","chrome_laptop_shared_Text_Text_Title.png","chrome_laptop_shared_Text_Text_Title_Dark.png"],"expectedItems":["chrome_iphone7_shared_Text_Only_Text.png","chrome_iphone7_shared_Text_Only_Text_Dark.png","chrome_iphone7_shared_Text_Text_Title.png","chrome_iphone7_shared_Text_Text_Title_Dark.png","chrome_laptop_shared_Text_Only_Text.png","chrome_laptop_shared_Text_Only_Text_Dark.png","chrome_laptop_shared_Text_Text_Title.png","chrome_laptop_shared_Text_Text_Title_Dark.png"],"actualItems":["chrome_iphone7_shared_Text_Only_Text.png","chrome_iphone7_shared_Text_Only_Text_Dark.png","chrome_iphone7_shared_Text_Text_Title.png","chrome_iphone7_shared_Text_Text_Title_Dark.png","chrome_laptop_shared_Text_Only_Text.png","chrome_laptop_shared_Text_Only_Text_Dark.png","chrome_laptop_shared_Text_Text_Title.png","chrome_laptop_shared_Text_Text_Title_Dark.png"],"diffItems":["chrome_iphone7_shared_Text_Only_Text.png","chrome_iphone7_shared_Text_Only_Text_Dark.png","chrome_iphone7_shared_Text_Text_Title.png","chrome_iphone7_shared_Text_Text_Title_Dark.png","chrome_laptop_shared_Text_Only_Text.png","chrome_laptop_shared_Text_Only_Text_Dark.png","chrome_laptop_shared_Text_Text_Title.png","chrome_laptop_shared_Text_Text_Title_Dark.png"],"actualDir":"current","expectedDir":"reference","diffDir":"difference"}
+{
+  "newItems": [],
+  "deletedItems": [],
+  "passedItems": [],
+  "failedItems": [
+    "chrome_iphone7_shared_Text_Only_Text.png",
+    "chrome_iphone7_shared_Text_Only_Text_Dark.png",
+    "chrome_iphone7_shared_Text_Text_Title.png",
+    "chrome_iphone7_shared_Text_Text_Title_Dark.png",
+    "chrome_laptop_shared_Text_Only_Text.png",
+    "chrome_laptop_shared_Text_Only_Text_Dark.png",
+    "chrome_laptop_shared_Text_Text_Title.png",
+    "chrome_laptop_shared_Text_Text_Title_Dark.png"
+  ],
+  "expectedItems": [
+    "chrome_iphone7_shared_Text_Only_Text.png",
+    "chrome_iphone7_shared_Text_Only_Text_Dark.png",
+    "chrome_iphone7_shared_Text_Text_Title.png",
+    "chrome_iphone7_shared_Text_Text_Title_Dark.png",
+    "chrome_laptop_shared_Text_Only_Text.png",
+    "chrome_laptop_shared_Text_Only_Text_Dark.png",
+    "chrome_laptop_shared_Text_Text_Title.png",
+    "chrome_laptop_shared_Text_Text_Title_Dark.png"
+  ],
+  "actualItems": [
+    "chrome_iphone7_shared_Text_Only_Text.png",
+    "chrome_iphone7_shared_Text_Only_Text_Dark.png",
+    "chrome_iphone7_shared_Text_Text_Title.png",
+    "chrome_iphone7_shared_Text_Text_Title_Dark.png",
+    "chrome_laptop_shared_Text_Only_Text.png",
+    "chrome_laptop_shared_Text_Only_Text_Dark.png",
+    "chrome_laptop_shared_Text_Text_Title.png",
+    "chrome_laptop_shared_Text_Text_Title_Dark.png"
+  ],
+  "diffItems": [
+    "chrome_iphone7_shared_Text_Only_Text.png",
+    "chrome_iphone7_shared_Text_Only_Text_Dark.png",
+    "chrome_iphone7_shared_Text_Text_Title.png",
+    "chrome_iphone7_shared_Text_Text_Title_Dark.png",
+    "chrome_laptop_shared_Text_Only_Text.png",
+    "chrome_laptop_shared_Text_Only_Text_Dark.png",
+    "chrome_laptop_shared_Text_Text_Title.png",
+    "chrome_laptop_shared_Text_Text_Title_Dark.png"
+  ],
+  "actualDir": "current",
+  "expectedDir": "reference",
+  "diffDir": "difference"
+}

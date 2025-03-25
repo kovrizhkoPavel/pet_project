@@ -12,22 +12,19 @@ export const initArticlePage = createAsyncThunk<
   void,
   URLSearchParams,
   TThunkApiConfig<string>
->(
-  '/initArticlePage',
-  async (searchParams, thinkAPI) => {
-    const { dispatch, getState } = thinkAPI;
+>('/initArticlePage', async (searchParams, thinkAPI) => {
+  const { dispatch, getState } = thinkAPI;
 
-    const isInitialized = getIsInitialized(getState());
+  const isInitialized = getIsInitialized(getState());
 
-    if (isInitialized) return;
+  if (isInitialized) return;
 
-    const params = getQuerySearchParams(searchParams);
+  const params = getQuerySearchParams(searchParams);
 
-    dispatch(articlesFilterActions.setFilterTypeBySearchParams(params));
-    dispatch(articlesSearchActions.setSearchBySearchParams(params));
-    dispatch(articlesSortActions.setSortBySearchParams(params));
+  dispatch(articlesFilterActions.setFilterTypeBySearchParams(params));
+  dispatch(articlesSearchActions.setSearchBySearchParams(params));
+  dispatch(articlesSortActions.setSortBySearchParams(params));
 
-    dispatch(articlesPageActions.initViewState());
-    dispatch(fetchGetArticleList());
-  },
-);
+  dispatch(articlesPageActions.initViewState());
+  dispatch(fetchGetArticleList());
+});

@@ -18,15 +18,15 @@ type TProfileCardProps = {
   isLoading?: boolean;
   error?: boolean;
   readonly?: boolean;
-  validationError?: TProfileValidationError,
-  onFirstNameChange?: (val:string) => void;
-  onLastNameChange?: (val:string) => void;
-  onCityChange?: (val:string) => void;
-  onAgeChange?: (val:string) => void;
-  onAvatarChange?: (val:string) => void;
-  onCurrencyChange?: (val:string) => void;
-  onCountryChange?: (val:string) => void;
-}
+  validationError?: TProfileValidationError;
+  onFirstNameChange?: (val: string) => void;
+  onLastNameChange?: (val: string) => void;
+  onCityChange?: (val: string) => void;
+  onAgeChange?: (val: string) => void;
+  onAvatarChange?: (val: string) => void;
+  onCurrencyChange?: (val: string) => void;
+  onCountryChange?: (val: string) => void;
+};
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
   const { t } = useTranslation();
@@ -96,7 +96,8 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         onChange={onFirstNameChange}
         isError={!!validationError?.firstname}
         hint={
-          validationError?.firstname && validateErrorTranslates[validationError.firstname]
+          validationError?.firstname &&
+          validateErrorTranslates[validationError.firstname]
         }
       />
       <Input
@@ -107,7 +108,8 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         onChange={onLastNameChange}
         isError={!!validationError?.lastname}
         hint={
-          validationError?.lastname && validateErrorTranslates[validationError.lastname]
+          validationError?.lastname &&
+          validateErrorTranslates[validationError.lastname]
         }
       />
       <Input

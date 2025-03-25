@@ -15,9 +15,8 @@ type TModalProps = {
 } & TWithChildren;
 
 export const Modal = (props: TModalProps) => {
-  const {
-    className, contentClass, title, children, isOpen, lazy, onClose,
-  } = props;
+  const { className, contentClass, title, children, isOpen, lazy, onClose } =
+    props;
 
   const { isMounted, isClosing, closeHandler } = useModal({
     isOpen,
@@ -33,16 +32,11 @@ export const Modal = (props: TModalProps) => {
 
   return (
     <Portal>
-      <div className={
-        getClassName(cls.modal, mods, [className])
-      }
-      >
+      <div className={getClassName(cls.modal, mods, [className])}>
         <Overlay onclick={closeHandler} />
         <div className={cls.content}>
           {title && <h4 className={cls.title}>{title}</h4>}
-          <div className={getClassName('', {}, [contentClass])}>
-            {children}
-          </div>
+          <div className={getClassName('', {}, [contentClass])}>{children}</div>
         </div>
       </div>
     </Portal>

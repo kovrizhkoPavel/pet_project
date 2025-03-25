@@ -1,7 +1,14 @@
 import {
-  combineReducers, Reducer, ReducersMapObject, UnknownAction,
+  combineReducers,
+  Reducer,
+  ReducersMapObject,
+  UnknownAction,
 } from '@reduxjs/toolkit';
-import { StateScheme, TReducerManager, TStateSchemeKeys } from '@/shared/types/stateScheme';
+import {
+  StateScheme,
+  TReducerManager,
+  TStateSchemeKeys,
+} from '@/shared/types/stateScheme';
 import { TOptionalLiteralKeys } from '@/shared/types/utils';
 
 type TState = Omit<StateScheme, TOptionalLiteralKeys<StateScheme>>;

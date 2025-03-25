@@ -13,7 +13,7 @@ import { ArticleInfo } from '../ArticleInfo/ArticleInfo';
 type TArticleDetailsProps = {
   id: string;
   className?: string;
-}
+};
 
 export const ArticleDetails: FC<TArticleDetailsProps> = ({ className, id }) => {
   const dispatch = useAppDispatch();

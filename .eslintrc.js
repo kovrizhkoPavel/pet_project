@@ -16,15 +16,14 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },
@@ -53,30 +52,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'i18next',
-    'pet-project',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'i18next', 'pet-project'],
   rules: {
     'pet-project/fsd-relative-path': 'error',
-    indent: [
-      'error',
-      2,
-    ],
-    'linebreak-style': [
-      'error',
-      'unix',
-    ],
-    quotes: [
-      'error',
-      'single',
-    ],
-    semi: [
-      'error',
-      'always',
-    ],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     // 'max-len': ['error', { ignoreComments: true, code: 125 }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'tsx'] }],
     'import/prefer-default-export': 'off',

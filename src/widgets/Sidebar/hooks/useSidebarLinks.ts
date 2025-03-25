@@ -27,16 +27,18 @@ export const useSidebarLinks = (): TSidebarLink[] => {
 
   if (!authData) return staticLinks;
 
-  const authOnlyLinks: TSidebarLink[] = [{
-    path: `${RoutePath.profile}${authData.id}`,
-    Icon: ProfileIcon,
-    label: 'translation\:nav_profile',
-  },
-  {
-    path: RoutePath.articles,
-    Icon: ArticleIcon,
-    label: 'translation\:nav_article',
-  }];
+  const authOnlyLinks: TSidebarLink[] = [
+    {
+      path: `${RoutePath.profile}${authData.id}`,
+      Icon: ProfileIcon,
+      label: 'translation\:nav_profile',
+    },
+    {
+      path: RoutePath.articles,
+      Icon: ArticleIcon,
+      label: 'translation\:nav_article',
+    },
+  ];
 
   if (isUserAdmin) return [...staticLinks, adminLink, ...authOnlyLinks];
 

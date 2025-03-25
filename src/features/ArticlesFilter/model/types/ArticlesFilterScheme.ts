@@ -5,4 +5,4 @@ export type TFilterType = TObjectValue<typeof FilterType>;
 
 export type ArticlesFilterScheme = {
   filterType?: TFilterType;
-}
+};

@@ -13,7 +13,7 @@ type TButtonProps = {
   className?: string;
   variant?: TObjectValue<typeof ButtonVariant>;
   children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<TButtonProps> = (props) => {
   const {

@@ -10,12 +10,16 @@ type TOptions = {
   initialState?: StateScheme;
 };
 
-export const renderComponent = (component: ReactNode, options: TOptions = {}) => {
+export const renderComponent = (
+  component: ReactNode,
+  options: TOptions = {},
+) => {
   const { route = '/', initialState } = options;
 
   // for @headlessui selects
-  window.ResizeObserver = window.ResizeObserver
-    || jest.fn().mockImplementation(() => ({
+  window.ResizeObserver =
+    window.ResizeObserver ||
+    jest.fn().mockImplementation(() => ({
       disconnect: jest.fn(),
       observe: jest.fn(),
       unobserve: jest.fn(),
@@ -24,9 +28,7 @@ export const renderComponent = (component: ReactNode, options: TOptions = {}) =>
   return render(
     <MemoryRouter initialEntries={[route]}>
       <StoreProvider initialState={initialState}>
-        <I18nextProvider i18n={i18nForTest}>
-          {component}
-        </I18nextProvider>
+        <I18nextProvider i18n={i18nForTest}>{component}</I18nextProvider>
       </StoreProvider>
     </MemoryRouter>,
   );

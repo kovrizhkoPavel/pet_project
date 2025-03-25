@@ -1,5 +1,9 @@
 import { ReactNode } from 'react';
-import { Popover as HPopover, PopoverButton, PopoverPanel } from '@headlessui/react';
+import {
+  Popover as HPopover,
+  PopoverButton,
+  PopoverPanel,
+} from '@headlessui/react';
 import { AnchorProps } from '@headlessui/react/dist/internal/floating';
 import { TWithChildren } from '@/shared/types/utils';
 import cls from './Popover.module.scss';

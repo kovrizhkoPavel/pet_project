@@ -15,15 +15,18 @@ type TAction =
   | { type: RatingActionType.SET_TEMP_RATING; payload: number }
   | { type: RatingActionType.SET_FEEDBACK; payload: string };
 
-export const ratingReducer = (state: TRatingState, action: TAction): TRatingState => {
+export const ratingReducer = (
+  state: TRatingState,
+  action: TAction,
+): TRatingState => {
   switch (action.type) {
-  case RatingActionType.SET_TEMP_RATING:
-    return { ...state, tempRating: action.payload };
-  case RatingActionType.SET_IS_MODAL_OPEN:
-    return { ...state, isModalOpen: action.payload };
-  case RatingActionType.SET_FEEDBACK:
-    return { ...state, feedback: action.payload };
-  default:
-    return state;
+    case RatingActionType.SET_TEMP_RATING:
+      return { ...state, tempRating: action.payload };
+    case RatingActionType.SET_IS_MODAL_OPEN:
+      return { ...state, isModalOpen: action.payload };
+    case RatingActionType.SET_FEEDBACK:
+      return { ...state, feedback: action.payload };
+    default:
+      return state;
   }
 };

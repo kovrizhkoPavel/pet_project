@@ -6,14 +6,12 @@ const createPublicApi = require('./createPublicApi');
 
 module.exports = async (layer, sliceName) => {
   try {
-    await mkdir(
-      resolveRoot('src', layer, makeFirstCharUpperCase(sliceName)),
-    );
+    await mkdir(resolveRoot('src', layer, makeFirstCharUpperCase(sliceName)));
   } catch (err) {
     console.error(`Не удалось создать директорию для слайса ${sliceName}`, err);
   }
-  
+
   await createModel(layer, sliceName);
   await createUi(layer, sliceName);
   await createPublicApi(layer, sliceName);
-}
+};

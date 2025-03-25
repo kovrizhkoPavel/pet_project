@@ -9,12 +9,10 @@ type TRatingProps = {
   className?: string;
   defaultValue?: number;
   onChange?: (value: number) => void;
-}
+};
 
 const STARS_COUNT = 5;
-const STARS = new Array(STARS_COUNT)
-  .fill(null)
-  .map((_, i) => i + 1);
+const STARS = new Array(STARS_COUNT).fill(null).map((_, i) => i + 1);
 
 export const Rating = (props: TRatingProps) => {
   const { className, onChange, defaultValue = 0 } = props;
@@ -34,29 +32,22 @@ export const Rating = (props: TRatingProps) => {
 
   const getIconClasses = (star: number) => {
     const mod = {
-      [cls.iconSelected]: hoveredStar > 0
-        ? star <= hoveredStar
-        : star <= defaultValue,
+      [cls.iconSelected]:
+        hoveredStar > 0 ? star <= hoveredStar : star <= defaultValue,
     };
 
     return getClassName(cls.icon, mod);
   };
 
   return (
-    <HStack
-      className={className}
-      gap="8"
-      onMouseLeave={onMouseLeave}
-    >
+    <HStack className={className} gap="8" onMouseLeave={onMouseLeave}>
       {STARS.map((star) => (
         <Button
           key={star}
           onClick={onButtonStarClick(star)}
           onMouseEnter={onMouseEnter(star)}
         >
-          <StarIcon
-            className={getIconClasses(star)}
-          />
+          <StarIcon className={getIconClasses(star)} />
         </Button>
       ))}
     </HStack>

@@ -14,11 +14,17 @@ type TRatingDrawer = {
   onButtonSubmit: VoidFunction;
   onRatingChange: (rating: number) => void;
   onTextareaChange?: (text: string) => void;
-}
+};
 
 export const RatingDrawer = (props: TRatingDrawer) => {
   const {
-    isOpen, feedback, rating, onRatingChange, onTextareaChange, onButtonSubmit, onClose,
+    isOpen,
+    feedback,
+    rating,
+    onRatingChange,
+    onTextareaChange,
+    onButtonSubmit,
+    onClose,
   } = props;
   const { t } = useTranslation();
 
@@ -33,16 +39,10 @@ export const RatingDrawer = (props: TRatingDrawer) => {
           onChange={onTextareaChange}
         />
         <HStack justify="end" gap="8" className={cls.buttonContainer}>
-          <Button
-            variant={ButtonVariant.OUTLINE}
-            onClick={onClose}
-          >
+          <Button variant={ButtonVariant.OUTLINE} onClick={onClose}>
             {t('translation\:rating_reset_btn')}
           </Button>
-          <Button
-            variant={ButtonVariant.FILL}
-            onClick={onButtonSubmit}
-          >
+          <Button variant={ButtonVariant.FILL} onClick={onButtonSubmit}>
             {t('translation\:rating_submit_btn')}
           </Button>
         </HStack>

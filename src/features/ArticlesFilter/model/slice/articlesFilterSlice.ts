@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TQuerySearchKeys } from '@/pages/ArticlesPage/model/types/articlesPageSchema';
 import { TOptionalRecord } from '@/shared/types/utils';
-import { ArticlesFilterScheme, TFilterType } from '../types/ArticlesFilterScheme';
+import {
+  ArticlesFilterScheme,
+  TFilterType,
+} from '../types/ArticlesFilterScheme';
 import { checkFilterType } from '../../utils/utils';
 
 const initialState: ArticlesFilterScheme = {

@@ -10,11 +10,14 @@ import cls from './ArticlesSearch.module.scss';
 type TArticlesSearchProps = {
   className?: string;
   onChange: VoidFunction;
-}
+};
 
 const DELAY = 500; // 0.5 sec
 
-export const ArticlesSearch: FC<TArticlesSearchProps> = ({ className, onChange }) => {
+export const ArticlesSearch: FC<TArticlesSearchProps> = ({
+  className,
+  onChange,
+}) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 

@@ -9,22 +9,17 @@ type TButtonGroupProps = {
   isShow: boolean;
   onSubmit: VoidFunction;
   onReset: VoidFunction;
-}
+};
 
 export const ButtonGroup: FC<TButtonGroupProps> = (props) => {
-  const {
-    className, isShow, onReset, onSubmit,
-  } = props;
+  const { className, isShow, onReset, onSubmit } = props;
   const { t } = useTranslation();
 
   if (!isShow) return <></>;
 
   return (
     <div className={getClassName(cls.buttonGroup, {}, [className])}>
-      <Button
-        variant={ButtonVariant.OUTLINE}
-        onClick={onReset}
-      >
+      <Button variant={ButtonVariant.OUTLINE} onClick={onReset}>
         {t('translation\:comment_reset_btn')}
       </Button>
       <Button

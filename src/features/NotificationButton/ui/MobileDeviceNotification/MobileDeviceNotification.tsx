@@ -9,13 +9,18 @@ type TMobileDeviceNotificationProps = {
   notifications: TNotification[];
 };
 
-export const MobileDeviceNotification = (props: TMobileDeviceNotificationProps) => {
+export const MobileDeviceNotification = (
+  props: TMobileDeviceNotificationProps,
+) => {
   const { notifications } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
     <>
-      <NotificationIcon className={cls.icon} onClick={() => setIsDrawerOpen(true)} />
+      <NotificationIcon
+        className={cls.icon}
+        onClick={() => setIsDrawerOpen(true)}
+      />
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
         <NotificationsList notifications={notifications} />
       </Drawer>

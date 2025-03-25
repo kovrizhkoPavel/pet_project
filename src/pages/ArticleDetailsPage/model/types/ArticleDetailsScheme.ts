@@ -5,12 +5,12 @@ import { ArticlesRecommendationsScheme } from '@/features/ArticlesRecommendation
 
 export type ArticlePageScheme = {
   _isInit: boolean;
-}
+};
 
 export type ArticleDetailsPageScheme = {
   articlePage: ArticlePageScheme;
   comments: ArticleCommentsScheme;
   addComment: AddCommentFormScheme;
   details: ArticleDetailsScheme;
-  recommendations: ArticlesRecommendationsScheme
-}
+  recommendations: ArticlesRecommendationsScheme;
+};

@@ -12,7 +12,7 @@ import cls from './Navbar.module.scss';
 
 type TNavbarProps = {
   className?: string;
-}
+};
 
 export const Navbar: FC<TNavbarProps> = ({ className }) => {
   const { t } = useTranslation();
@@ -42,10 +42,7 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
           >
             {t('translation\:button_login')}
           </Button>
-          <LoginModal
-            isOpen={isAuthOpen}
-            onClose={onModalClose}
-          />
+          <LoginModal isOpen={isAuthOpen} onClose={onModalClose} />
         </>
       )}
     </div>

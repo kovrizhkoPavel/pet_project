@@ -12,7 +12,10 @@ const userSlice = createSlice({
   reducers: {
     setAuthData: (state, actions: PayloadAction<TUser>) => {
       state.authData = actions.payload;
-      localStorage.setItem(LocalStorageKey.AUTH_DATA, JSON.stringify(state.authData));
+      localStorage.setItem(
+        LocalStorageKey.AUTH_DATA,
+        JSON.stringify(state.authData),
+      );
     },
 
     initAuthData: (state) => {

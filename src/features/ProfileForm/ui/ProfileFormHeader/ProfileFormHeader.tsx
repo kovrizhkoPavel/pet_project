@@ -6,12 +6,14 @@ import cls from './ProfilePageHeader.module.scss';
 type TProfilePageHeaderProps = {
   className?: string;
   onSubmit: () => void;
-}
+};
 
-export const ProfileFormHeader = ({ className, onSubmit }: TProfilePageHeaderProps) => {
-  const {
-    onButtonReset, onEditButtonClick, canEdit, isReadonly,
-  } = useProfileFormHeader();
+export const ProfileFormHeader = ({
+  className,
+  onSubmit,
+}: TProfilePageHeaderProps) => {
+  const { onButtonReset, onEditButtonClick, canEdit, isReadonly } =
+    useProfileFormHeader();
 
   return (
     <div className={getClassName(cls.profilePageHeader, {}, [className])}>

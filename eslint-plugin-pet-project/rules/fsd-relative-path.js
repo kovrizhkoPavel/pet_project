@@ -3,13 +3,13 @@
 const path = require('path');
 
 const layers = {
-  'entities': 'entities',
-  'features': 'features',
-  'pages': 'pages',
-  'widgets': 'widgets',
-}
+  entities: 'entities',
+  features: 'features',
+  pages: 'pages',
+  widgets: 'widgets',
+};
 
-const MESSAGE = 'Within a single slice, all paths must be relative'
+const MESSAGE = 'Within a single slice, all paths must be relative';
 
 module.exports = {
   meta: {
@@ -27,10 +27,10 @@ module.exports = {
       ImportDeclaration(node) {
         // widgets/PageLoader
         const importPath = node.source.value;
-        
+
         // /Users/user/project/pet_project/src/app/providers/route/ui/AppRouter.tsx
         const filePath = context.filename;
-        
+
         if (checkIsPathInvalid(filePath, importPath)) {
           context.report({
             node,
@@ -39,26 +39,26 @@ module.exports = {
             //   return fixer.replaceText(importPath, 'foo')
             //   console.log(fixer);
             // }
-          })
+          });
         }
-      }
+      },
     };
   },
 };
 
 function checkIsPathInvalid(from, to) {
   if (checkIsPathRelative(to)) return false;
-  
+
   const [importedLayer, importedSlice] = to.split('/');
-  
+
   if (!layers[importedLayer]) return false;
 
-  const [,normalizedPath] = path.toNamespacedPath(from).split('src'); // '/entities/Article/ui/ArticleInfo/ArticleInfo.tsx'
-  const [,layer, slice] = normalizedPath.split(path.sep); // [ '', 'entities', 'Article', 'ui', 'ArticleInfo', 'ArticleInfo.tsx' ]
-  
+  const [, normalizedPath] = path.toNamespacedPath(from).split('src'); // '/entities/Article/ui/ArticleInfo/ArticleInfo.tsx'
+  const [, layer, slice] = normalizedPath.split(path.sep); // [ '', 'entities', 'Article', 'ui', 'ArticleInfo', 'ArticleInfo.tsx' ]
+
   if (!layer || !slice) return false;
-  
-  return importedLayer === layer && importedSlice === slice
+
+  return importedLayer === layer && importedSlice === slice;
 }
 
 function checkIsPathRelative(path) {

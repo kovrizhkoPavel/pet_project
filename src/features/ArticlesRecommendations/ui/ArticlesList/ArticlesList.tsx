@@ -6,8 +6,8 @@ import cls from './ArticlesList.module.scss';
 
 type TArticlesListProps = {
   isLoading: boolean;
-  articles: TArticle[]
-}
+  articles: TArticle[];
+};
 
 export const ArticlesList = (props: TArticlesListProps) => {
   const { isLoading, articles } = props;

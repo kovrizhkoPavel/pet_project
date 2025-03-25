@@ -6,9 +6,12 @@ import cls from './PageContainer.module.scss';
 type TPageContainerProps = {
   className?: string;
   children: ReactNode;
-}
+};
 
-export const PageContainer: FC<TPageContainerProps> = ({ className, children }) => {
+export const PageContainer: FC<TPageContainerProps> = ({
+  className,
+  children,
+}) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const onScroll = useScrollPosition(sectionRef);
 

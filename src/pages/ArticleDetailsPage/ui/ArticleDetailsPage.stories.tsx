@@ -52,13 +52,15 @@ const article: TArticle = {
 const meta = {
   title: 'pages/ArticlesDetails',
   component: ArticleDetailsPage,
-  decorators: [StoreDecorator({
-    articleDetailsPage: {
-      details: {
-        data: article,
+  decorators: [
+    StoreDecorator({
+      articleDetailsPage: {
+        details: {
+          data: article,
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof ArticleDetailsPage>;
 
 export default meta;

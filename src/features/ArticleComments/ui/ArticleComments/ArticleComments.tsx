@@ -13,9 +13,12 @@ import cls from './ArticleComments.module.scss';
 type TArticleCommentsProps = {
   id: string;
   className?: string;
-}
+};
 
-export const ArticleComments: FC<TArticleCommentsProps> = ({ className, id }) => {
+export const ArticleComments: FC<TArticleCommentsProps> = ({
+  className,
+  id,
+}) => {
   const { t } = useTranslation();
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getIsLoading);

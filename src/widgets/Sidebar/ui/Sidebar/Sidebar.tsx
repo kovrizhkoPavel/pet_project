@@ -10,7 +10,7 @@ import { LinkIcon } from '../LinkIcon/LinkIcon';
 
 type TSidebarProps = {
   className?: string;
-}
+};
 
 export const Sidebar: FC<TSidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -22,9 +22,9 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
 
   return (
     <aside
-      className={
-        getClassName(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])
-      }
+      className={getClassName(cls.sidebar, { [cls.collapsed]: isCollapsed }, [
+        className,
+      ])}
       data-testid="sidebar"
     >
       <div className={cls.wrapper}>
@@ -34,16 +34,14 @@ export const Sidebar: FC<TSidebarProps> = ({ className }) => {
           className={cls.burgerMenuButton}
           dataTestId="sidebar_button"
         />
-        {
-          sidebarLinkList.map((item) => (
-            <LinkIcon
-              key={item.path}
-              path={item.path}
-              Icon={item.Icon}
-              label={!isCollapsed ? t(item.label) : ''}
-            />
-          ))
-        }
+        {sidebarLinkList.map((item) => (
+          <LinkIcon
+            key={item.path}
+            path={item.path}
+            Icon={item.Icon}
+            label={!isCollapsed ? t(item.label) : ''}
+          />
+        ))}
       </div>
       <div className={cls.switcher}>
         <LangSwitcher hasLabel={!isCollapsed} />

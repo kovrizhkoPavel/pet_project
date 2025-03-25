@@ -1,5 +1,8 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { TArticle, TArticlesView } from '@/entities/Article/model/types/article';
+import {
+  TArticle,
+  TArticlesView,
+} from '@/entities/Article/model/types/article';
 import { ArticlesSortScheme } from '@/features/ArticlesSort';
 import { ArticlesFilterScheme } from '@/features/ArticlesFilter';
 import { ArticlesSearchScheme } from '@/features/ArticlesSearch';
@@ -24,4 +27,4 @@ export type ArticlesMainScheme = {
   search: ArticlesSearchScheme;
 };
 
-export type TQuerySearchKeys = 'page'| 'sort' | 'order' | 'type' | 'search'
+export type TQuerySearchKeys = 'page' | 'sort' | 'order' | 'type' | 'search';

@@ -13,7 +13,7 @@ import cls from './ArticlesFilter.module.scss';
 type TArticlesFilterProps = {
   className?: string;
   onChange: VoidFunction;
-}
+};
 export const ArticlesFilter: FC<TArticlesFilterProps> = (props) => {
   const { className, onChange } = props;
   const { t } = useTranslation();
@@ -44,9 +44,11 @@ export const ArticlesFilter: FC<TArticlesFilterProps> = (props) => {
   ];
 
   const onToggleChange = (type: TFilterType) => () => {
-    dispatch(articlesFilterActions.setFilterType(
-      type === filterTypes ? undefined : type,
-    ));
+    dispatch(
+      articlesFilterActions.setFilterType(
+        type === filterTypes ? undefined : type,
+      ),
+    );
     onChange();
   };
 

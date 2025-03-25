@@ -7,7 +7,7 @@ type TCountrySelectProps = {
   className?: string;
   readonly?: boolean;
   onChange?: (val: string) => void;
-}
+};
 
 const options = Object.entries(Country).map(([value, label]) => ({
   value,

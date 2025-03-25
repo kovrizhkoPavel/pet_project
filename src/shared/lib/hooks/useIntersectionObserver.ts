@@ -4,7 +4,7 @@ type TProps = {
   rootRef: MutableRefObject<HTMLElement | null | undefined> | null;
   observeRef: MutableRefObject<HTMLElement | null | undefined>;
   cb: VoidFunction;
-}
+};
 
 export const useIntersectionObserver = (props: TProps) => {
   const { rootRef, observeRef, cb } = props;

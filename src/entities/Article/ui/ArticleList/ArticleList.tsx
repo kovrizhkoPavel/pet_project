@@ -14,14 +14,12 @@ type TArticleListProps = {
   view: TArticlesView;
   articles: TArticle[];
   fetchNextPage: VoidFunction;
-}
+};
 
 export const ArticleList: FC<TArticleListProps> = (props) => {
   const parentRef = useRef(null);
   const onScroll = useScrollPosition(parentRef);
-  const {
-    className, view, articles, isLoading, fetchNextPage,
-  } = props;
+  const { className, view, articles, isLoading, fetchNextPage } = props;
   const isViewList = view === ArticlesView.LIST;
 
   if (isLoading && articles.length === 0) {

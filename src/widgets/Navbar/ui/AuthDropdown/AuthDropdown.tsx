@@ -20,10 +20,14 @@ export const AuthDropdown = () => {
     dispatch(userActions.logout());
   };
 
-  const adminItem = isUserAdmin ? [{
-    content: t('translation\:title_admin'),
-    href: RoutePath.admin,
-  }] : [];
+  const adminItem = isUserAdmin
+    ? [
+        {
+          content: t('translation\:title_admin'),
+          href: RoutePath.admin,
+        },
+      ]
+    : [];
 
   return (
     <Dropdown

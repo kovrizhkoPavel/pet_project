@@ -1,10 +1,18 @@
 import {
-  ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef,
+  ChangeEvent,
+  FC,
+  InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
 } from 'react';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Input.module.scss';
 
-type TInputAttribute = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type TInputAttribute = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 type TInputProps = {
   className?: string;
   value?: string | number;
@@ -15,7 +23,7 @@ type TInputProps = {
   readonly?: boolean;
   direction?: 'row' | 'column';
   hint?: string;
-} & TInputAttribute
+} & TInputAttribute;
 
 export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
   const {
@@ -51,10 +59,7 @@ export const Input: FC<TInputProps> = memo<TInputProps>((props) => {
   }, [isAutoFocus]);
 
   return (
-    <div className={
-      getClassName(cls.input, mod, [className])
-    }
-    >
+    <div className={getClassName(cls.input, mod, [className])}>
       {label && <p className={cls.label}>{label}</p>}
       <div className={cls.inputWrapper}>
         <input

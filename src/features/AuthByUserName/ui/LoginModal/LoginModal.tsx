@@ -12,7 +12,7 @@ type TLoginModalProps = {
   isOpen: boolean;
   onClose: VoidFunction;
   className?: string;
-}
+};
 
 export const LoginModal: FC<TLoginModalProps> = (props) => {
   const { className, isOpen, onClose } = props;

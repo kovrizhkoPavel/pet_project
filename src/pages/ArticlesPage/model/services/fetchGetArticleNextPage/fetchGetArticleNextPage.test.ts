@@ -2,9 +2,7 @@ import { expect } from '@storybook/test';
 import TestAsyncThunk from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ArticlesView } from '@/entities/Article/constants';
 import { StateScheme } from '@/shared/types/stateScheme';
-import {
-  fetchGetArticleNextPage,
-} from './fetchGetArticleNextPage';
+import { fetchGetArticleNextPage } from './fetchGetArticleNextPage';
 import { fetchGetArticleList } from '../fetchGetArticleList/fetchGetArticleList';
 import { ArticlesPageSchema } from '../../types/articlesPageSchema';
 
@@ -26,10 +24,7 @@ jest.mock('../fetchGetArticleList/fetchGetArticleList');
 
 describe('fetchGetArticleNextPage', () => {
   test('fetch next page', async () => {
-    const Thunk = new TestAsyncThunk(
-      fetchGetArticleNextPage,
-      state,
-    );
+    const Thunk = new TestAsyncThunk(fetchGetArticleNextPage, state);
 
     await Thunk.callThunk();
 
@@ -37,14 +32,11 @@ describe('fetchGetArticleNextPage', () => {
   });
 
   test('fetch no call', async () => {
-    const Thunk = new TestAsyncThunk(
-      fetchGetArticleNextPage,
-      {
-        articlesPage: {
-          articles: { ...state?.articlesPage?.articles, hasMore: false },
-        },
-      } as StateScheme,
-    );
+    const Thunk = new TestAsyncThunk(fetchGetArticleNextPage, {
+      articlesPage: {
+        articles: { ...state?.articlesPage?.articles, hasMore: false },
+      },
+    } as StateScheme);
 
     await Thunk.callThunk();
 

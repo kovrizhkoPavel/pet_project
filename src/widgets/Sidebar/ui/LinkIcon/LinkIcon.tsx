@@ -11,19 +11,19 @@ type TLinkIconProps = {
   className?: string;
   iconClassName?: string;
   label?: string;
-}
+};
 
-export const LinkIcon: FC<TLinkIconProps> = memo(({
-  className, iconClassName, path, Icon, label,
-}) => (
-  <AppLink
-    to={path}
-    theme={AppLinkTheme.INVERTED}
-    className={getClassName(cls.link, {}, [className, cls.appLink])}
-  >
-    <div className={cls.link_container}>
-      <Icon className={getClassName(cls.link_icon, {}, [iconClassName])} />
-      { label && <div className={cls.link__label}>{label}</div> }
-    </div>
-  </AppLink>
-));
+export const LinkIcon: FC<TLinkIconProps> = memo(
+  ({ className, iconClassName, path, Icon, label }) => (
+    <AppLink
+      to={path}
+      theme={AppLinkTheme.INVERTED}
+      className={getClassName(cls.link, {}, [className, cls.appLink])}
+    >
+      <div className={cls.link_container}>
+        <Icon className={getClassName(cls.link_icon, {}, [iconClassName])} />
+        {label && <div className={cls.link__label}>{label}</div>}
+      </div>
+    </AppLink>
+  ),
+);

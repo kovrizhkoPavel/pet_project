@@ -5,7 +5,7 @@ import cls from './CardBig.module.scss';
 
 type TSkeletonCardProps = {
   className?: string;
-}
+};
 
 export const SkeletonCard: FC<TSkeletonCardProps> = ({ className }) => (
   <div className={getClassName(cls.skeletonCard, {}, [className])}>

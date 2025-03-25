@@ -8,7 +8,11 @@ const MainPage = () => {
   return (
     <PageContainer>
       <h1>{t('translation\:title_main')}</h1>
-      <RatingCard title="ff" modalTitle="sss" submitRatingHandler={(arg) => console.log(arg)} />
+      <RatingCard
+        title="ff"
+        modalTitle="sss"
+        submitRatingHandler={(arg) => console.log(arg)}
+      />
     </PageContainer>
   );
 };

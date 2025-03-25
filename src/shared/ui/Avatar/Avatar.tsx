@@ -7,12 +7,10 @@ type TAvatarProps = {
   className?: string;
   alt?: string;
   size?: number;
-}
+};
 
 export const Avatar: FC<TAvatarProps> = memo((props) => {
-  const {
-    className, src, alt, size = 100,
-  } = props;
+  const { className, src, alt, size = 100 } = props;
 
   return (
     <img

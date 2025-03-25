@@ -8,7 +8,7 @@ type TCommentListProps = {
   className?: string;
   isLoading?: boolean;
   comments: TComment[];
-}
+};
 
 export const CommentList: FC<TCommentListProps> = (props) => {
   const { className, comments, isLoading } = props;

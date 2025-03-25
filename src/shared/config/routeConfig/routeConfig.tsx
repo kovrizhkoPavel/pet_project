@@ -11,8 +11,8 @@ import { RoutePath } from './constants';
 
 export type TRouteProps = RouteProps & {
   isOnlyAuth?: boolean;
-  roles?: TUserRole[]
-}
+  roles?: TUserRole[];
+};
 
 export const routeConfig: TRouteProps[] = [
   {

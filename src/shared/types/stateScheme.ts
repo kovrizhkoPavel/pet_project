@@ -11,7 +11,7 @@ import { ProfileFormScheme } from '@/features/ProfileForm';
 export type StateScheme = {
   user: UserScheme;
   scrollPosition: ScrollPositionSchema;
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // async reducers
   authForm?: AuthSchema;
@@ -27,9 +27,11 @@ export type TReducerManager = {
   reduce: Reducer<StateScheme>;
   add: (key: TStateSchemeKeys, reducer: Reducer) => void;
   remove: (key: TStateSchemeKeys) => void;
-}
+};
 
-export type TReducerWithManager = EnhancedStore<StateScheme> & { reducerManager: TReducerManager };
+export type TReducerWithManager = EnhancedStore<StateScheme> & {
+  reducerManager: TReducerManager;
+};
 
 export type TThunkExtra = {
   api: AxiosInstance;
@@ -39,8 +41,8 @@ export type TThunkApiConfig<T> = {
   rejectValue: T;
   extra: TThunkExtra;
   state: StateScheme;
-}
+};
 
 export type TReducers = {
   [key in TStateSchemeKeys]?: Reducer;
-}
+};

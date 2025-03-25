@@ -6,23 +6,27 @@ const dataTestId = 'testId;';
 
 describe('ButtonIcon', () => {
   test('Should be render', () => {
-    render(<ButtonIcon
-      onClick={() => ''}
-      Icon={Icon}
-      label="test"
-      dataTestId={dataTestId}
-    />);
+    render(
+      <ButtonIcon
+        onClick={() => ''}
+        Icon={Icon}
+        label="test"
+        dataTestId={dataTestId}
+      />,
+    );
 
     expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
   });
 
   test('Should have text content', () => {
-    render(<ButtonIcon
-      onClick={() => ''}
-      Icon={Icon}
-      label="test"
-      dataTestId={dataTestId}
-    />);
+    render(
+      <ButtonIcon
+        onClick={() => ''}
+        Icon={Icon}
+        label="test"
+        dataTestId={dataTestId}
+      />,
+    );
 
     expect(screen.getByTestId(dataTestId)).toHaveTextContent('test');
   });

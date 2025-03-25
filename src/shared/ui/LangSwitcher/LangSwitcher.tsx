@@ -8,7 +8,7 @@ import cls from './LangSwitcher.module.scss';
 type TLangSwitcherProps = {
   className?: string;
   hasLabel?: boolean;
-}
+};
 
 export const LangSwitcher: FC<TLangSwitcherProps> = (props) => {
   const { className, hasLabel } = props;

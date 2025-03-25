@@ -9,21 +9,18 @@ export const fetchGetArticlesRecommendations = createAsyncThunk<
   TArticle[],
   void,
   TThunkApiConfig<string>
->(
-  'ArticlePage/fetchGetArticleList',
-  async (_, thinkAPI) => {
-    const { extra, rejectWithValue } = thinkAPI;
-    try {
-      const response = await extra.api.get<TArticle[]>(ArticleUrl.ARTICLE, {
-        params: {
-          _expand: 'user',
-          _limit: LIMIT,
-        },
-      });
+>('ArticlePage/fetchGetArticleList', async (_, thinkAPI) => {
+  const { extra, rejectWithValue } = thinkAPI;
+  try {
+    const response = await extra.api.get<TArticle[]>(ArticleUrl.ARTICLE, {
+      params: {
+        _expand: 'user',
+        _limit: LIMIT,
+      },
+    });
 
-      return response?.data ? response.data : rejectWithValue('error');
-    } catch (err) {
-      return rejectWithValue('error');
-    }
-  },
-);
+    return response?.data ? response.data : rejectWithValue('error');
+  } catch (err) {
+    return rejectWithValue('error');
+  }
+});

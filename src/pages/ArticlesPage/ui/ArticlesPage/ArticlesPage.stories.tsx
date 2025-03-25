@@ -10,18 +10,20 @@ import ArticlesPage from './ArticlesPage';
 const meta = {
   title: 'pages/ArticlesPage',
   component: ArticlesPage,
-  decorators: [StoreDecorator({
-    articlesPage: {
-      articles: {
-        view: ArticlesView.TILE,
-        isLoading: false,
-        limit: 1,
-        pageNum: 1,
-        hasMore: false,
-        ids: [],
-      } as unknown as ArticlesPageSchema,
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      articlesPage: {
+        articles: {
+          view: ArticlesView.TILE,
+          isLoading: false,
+          limit: 1,
+          pageNum: 1,
+          hasMore: false,
+          ids: [],
+        } as unknown as ArticlesPageSchema,
+      },
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof ArticlesPage>;
 
 export default meta;

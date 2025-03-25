@@ -22,7 +22,12 @@ export const ArticleInfo = () => {
 
   return (
     <>
-      <Text title={data?.title} size="L" text={data?.subtitle} className={cls.text} />
+      <Text
+        title={data?.title}
+        size="L"
+        text={data?.subtitle}
+        className={cls.text}
+      />
       <div className={cls.container}>
         <div className={cls.iconWrapper}>
           <EyeIcon className={cls.icon} />

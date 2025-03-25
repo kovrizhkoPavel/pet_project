@@ -3,36 +3,24 @@
  * https://jestjs.io/docs/configuration
  */
 
-import path from "path";
+import path from 'path';
 
 export default {
   clearMocks: true,
-  testEnvironment: "jsdom",
-  moduleFileExtensions: [
-    "js",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
-  ],
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
-    "**/?(*.)+(spec|test).[tj]s?(x)"
-  ],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: [
-    "node_modules", "<rootDir>src"
-  ],
+  moduleDirectories: ['node_modules', '<rootDir>src'],
 
   modulePaths: ['<rootDir>src'],
 
@@ -40,9 +28,8 @@ export default {
   moduleNameMapper: {
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-    '^@/(.*)$': '<rootDir>src/$1'
+    '^@/(.*)$': '<rootDir>src/$1',
   },
-
 
   // A set of global variables that need to be available in all test environments
   globals: {
@@ -52,13 +39,16 @@ export default {
   },
 
   reporters: [
-    "default",
-    ["jest-html-reporters", {
-      publicPath: "<rootDir>/reports/unit/html-report",
-      filename: "report.html",
-      openReport: false,
-      inlineSource: true
-    }]
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit/html-report',
+        filename: 'report.html',
+        openReport: false,
+        inlineSource: true,
+      },
+    ],
   ],
 
   // A map from regular expressions to paths to transformers
@@ -153,7 +143,6 @@ export default {
 
   // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
-
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [

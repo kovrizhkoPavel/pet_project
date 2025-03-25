@@ -8,7 +8,7 @@ import cls from './NotificationButton.module.scss';
 
 type TNotificationButtonProps = {
   className?: string;
-}
+};
 
 export const NotificationButton = (props: TNotificationButtonProps) => {
   const { className } = props;
@@ -22,9 +22,7 @@ export const NotificationButton = (props: TNotificationButtonProps) => {
   }
 
   if (isMobile) {
-    return (
-      <MobileDeviceNotification notifications={data} />
-    );
+    return <MobileDeviceNotification notifications={data} />;
   }
 
   return (
