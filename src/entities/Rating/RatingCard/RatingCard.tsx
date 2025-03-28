@@ -1,24 +1,16 @@
-import { useCallback, useReducer } from 'react';
+import { useCallback } from 'react';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
-import cls from './RatingCard.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Rating } from '@/shared/ui/Rating';
 import { Text } from '@/shared/ui/Text/Text';
-import { RatingActionType, ratingReducer } from './ratingReducer';
 import { RatingModal } from './RatingModal';
-import { RatingDrawer } from '@/entities/Rating/RatingCard/RatingDrawer';
+import { RatingDrawer } from './RatingDrawer';
 import { useDevice } from '@/shared/lib/hooks/useDevice';
+import { useRatingCard } from './useRatingCard';
+import { RatingCardProps } from './types';
+import cls from './RatingCard.module.scss';
 
-type TRatingCardProps = {
-  className?: string;
-  title?: string;
-  modalTitle?: string;
-  defaultValue?: number;
-  closeModalHandler?: () => void;
-  submitRatingHandler: (params: { rating: number; feedback?: string }) => void;
-};
-
-export const RatingCard = (props: TRatingCardProps) => {
+export const RatingCard = (props: RatingCardProps) => {
   const {
     className,
     title,
@@ -29,51 +21,32 @@ export const RatingCard = (props: TRatingCardProps) => {
   } = props;
 
   const isMobile = useDevice();
+  const {
+    isModalOpen,
+    feedback,
+    tempRating,
+    onModalClose,
+    onRatingChange,
+    onTextareaChange,
+  } = useRatingCard({
+    defaultValue,
+    closeModalHandler,
+  });
 
-  const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(
-    ratingReducer,
-    {
-      tempRating: defaultValue,
-      isModalOpen: false,
-      feedback: '',
-    },
-  );
-
-  const onModalClose = () => {
-    dispatch({
-      type: RatingActionType.SET_IS_MODAL_OPEN,
-      payload: false,
-    });
-    dispatch({
-      type: RatingActionType.SET_TEMP_RATING,
-      payload: defaultValue,
-    });
-    closeModalHandler?.();
-  };
-
-  const onRatingChange = useCallback((rating: number) => {
-    dispatch({
-      type: RatingActionType.SET_IS_MODAL_OPEN,
-      payload: true,
-    });
-    dispatch({
-      type: RatingActionType.SET_TEMP_RATING,
-      payload: rating,
-    });
-  }, []);
-
-  const onTextareaChange = (value: string) => {
-    dispatch({
-      type: RatingActionType.SET_FEEDBACK,
-      payload: value,
-    });
-  };
-
-  const onButtonSubmit = () => {
+  const onButtonSubmit = useCallback(() => {
     submitRatingHandler({
       rating: tempRating,
       feedback,
     });
+  }, [submitRatingHandler, tempRating, feedback]);
+
+  const sharedProps = {
+    rating: tempRating,
+    feedback,
+    onRatingChange,
+    onTextareaChange,
+    onButtonSubmit,
+    onClose: onModalClose,
   };
 
   return (
@@ -83,24 +56,15 @@ export const RatingCard = (props: TRatingCardProps) => {
         <HStack justify="center">
           <Rating defaultValue={tempRating} onChange={onRatingChange} />
         </HStack>
-        <RatingModal
-          isOpen={isModalOpen}
-          rating={tempRating}
-          title={modalTitle}
-          onClose={onModalClose}
-          onButtonSubmit={onButtonSubmit}
-          onRatingChange={onRatingChange}
-          onTextareaChange={onTextareaChange}
-        />
-        <RatingDrawer
-          feedback={feedback}
-          isOpen={isModalOpen}
-          rating={tempRating}
-          onRatingChange={onRatingChange}
-          onClose={onModalClose}
-          onButtonSubmit={onButtonSubmit}
-          onTextareaChange={onTextareaChange}
-        />
+        {isMobile ? (
+          <RatingDrawer isOpen={isModalOpen} {...sharedProps} />
+        ) : (
+          <RatingModal
+            isOpen={isModalOpen}
+            title={modalTitle}
+            {...sharedProps}
+          />
+        )}
       </VStack>
     </div>
   );

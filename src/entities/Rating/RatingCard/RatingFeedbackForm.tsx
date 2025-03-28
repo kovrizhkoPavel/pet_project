@@ -1,0 +1,39 @@
+import { useTranslation } from 'react-i18next';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Rating } from '@/shared/ui/Rating';
+import { Textarea } from '@/shared/ui/Textarea/Textarea';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { RatingFeedbackFormProps } from './types';
+import cls from './RatingCard.module.scss';
+
+export const RatingFeedbackForm = (props: RatingFeedbackFormProps) => {
+  const {
+    rating,
+    feedback,
+    onRatingChange,
+    onTextareaChange,
+    onButtonSubmit,
+    onClose,
+  } = props;
+  const { t } = useTranslation();
+
+  return (
+    <VStack gap="12" align="center">
+      <Rating defaultValue={rating} onChange={onRatingChange} />
+      <Textarea
+        placeholder={t('translation:feedback_placeholder')}
+        isAutoFocus
+        value={feedback}
+        onChange={onTextareaChange}
+      />
+      <HStack justify="end" gap="8" className={cls.buttonContainer}>
+        <Button variant={ButtonVariant.OUTLINE} onClick={onClose}>
+          {t('translation:rating_reset_btn')}
+        </Button>
+        <Button variant={ButtonVariant.FILL} onClick={onButtonSubmit}>
+          {t('translation:rating_submit_btn')}
+        </Button>
+      </HStack>
+    </VStack>
+  );
+}; 
