@@ -15,6 +15,7 @@ import { fetchAddArticleComment } from '../model/services/fetchAddArticleComment
 import cls from './ArticleDetailsPage.module.scss';
 import { getIsInit } from '../model/selectors/getArticleDetailsPageState';
 import { articleDetailsPageActions } from '../model/slice/articleDetailsPageSlice';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const initialReducer: TReducers = {
   articleDetailsPage: articleDetailsPageMainReducer,
@@ -42,6 +43,7 @@ const ArticleDetailsPage = () => {
   return (
     <PageContainer>
       <ArticleDetails id={id} />
+      <ArticleRating className={cls.ratingForm} />
       <ArticlesRecommendations />
       <AddCommentForm
         className={cls.addCommentForm}
