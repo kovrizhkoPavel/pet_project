@@ -12,6 +12,7 @@ export type RatingCardProps = {
   title?: string;
   modalTitle?: string;
   defaultValue?: number;
+  defaultFeedback?: string;
   closeModalHandler?: () => void;
   submitRatingHandler: (params: { rating: number; feedback?: string }) => void;
 };
