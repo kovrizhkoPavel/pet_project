@@ -882,5 +882,14 @@
       "description": "Произошло какое-то событие",
       "userId": "2"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    }
   ]
 }
