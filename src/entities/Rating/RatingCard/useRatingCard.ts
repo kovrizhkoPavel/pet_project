@@ -1,20 +1,24 @@
 import { useCallback, useReducer } from 'react';
 import { RatingActionType, ratingReducer } from './ratingReducer';
-import { RatingState } from './types';
 
 type UseRatingCardProps = {
   defaultValue: number;
+  defaultFeedback: string;
   closeModalHandler?: () => void;
 };
 
-export const useRatingCard = ({ defaultValue, closeModalHandler }: UseRatingCardProps) => {
+export const useRatingCard = ({
+  defaultValue,
+  defaultFeedback,
+  closeModalHandler,
+}: UseRatingCardProps) => {
   const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(
     ratingReducer,
     {
       tempRating: defaultValue,
+      feedback: defaultFeedback,
       isModalOpen: false,
-      feedback: '',
-    } as RatingState,
+    },
   );
 
   const onModalClose = useCallback(() => {
@@ -55,4 +59,4 @@ export const useRatingCard = ({ defaultValue, closeModalHandler }: UseRatingCard
     onRatingChange,
     onTextareaChange,
   };
-}; 
+};
