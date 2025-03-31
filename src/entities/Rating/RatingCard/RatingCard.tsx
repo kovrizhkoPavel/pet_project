@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Rating } from '@/shared/ui/Rating';
@@ -15,10 +16,12 @@ export const RatingCard = (props: RatingCardProps) => {
     className,
     title,
     defaultValue = 0,
+    defaultFeedback = '',
     modalTitle,
     closeModalHandler,
     submitRatingHandler,
   } = props;
+  const { t } = useTranslation();
 
   const isMobile = useDevice();
   const {
@@ -30,6 +33,7 @@ export const RatingCard = (props: RatingCardProps) => {
     onTextareaChange,
   } = useRatingCard({
     defaultValue,
+    defaultFeedback,
     closeModalHandler,
   });
 
@@ -56,16 +60,16 @@ export const RatingCard = (props: RatingCardProps) => {
         <HStack justify="center">
           <Rating defaultValue={tempRating} onChange={onRatingChange} />
         </HStack>
-        {isMobile ? (
-          <RatingDrawer isOpen={isModalOpen} {...sharedProps} />
-        ) : (
-          <RatingModal
-            isOpen={isModalOpen}
-            title={modalTitle}
-            {...sharedProps}
-          />
+        {!tempRating && (
+          <Text title={t('translation:articles_rating_no_feedback')} />
         )}
       </VStack>
+      {feedback && <Text text={feedback} />}
+      {isMobile ? (
+        <RatingDrawer isOpen={isModalOpen} {...sharedProps} />
+      ) : (
+        <RatingModal isOpen={isModalOpen} title={modalTitle} {...sharedProps} />
+      )}
     </div>
   );
 };

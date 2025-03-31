@@ -7,6 +7,8 @@
   "articles_filter_natural_science": "Natural science",
   "articles_filter_policy": "Policy",
   "articles_filter_science": "Science",
+  "articles_rating_feedback": "Thank you for your rating!",
+  "articles_rating_no_feedback": "Rate the article",
   "authorization_title": "Authorization",
   "button_login": "Log in",
   "button_logout": "Logout",
