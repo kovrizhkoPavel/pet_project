@@ -21,5 +21,6 @@ export const rtkApi = createApi({
       return headers;
     },
   }) as TBaseQuery,
+  tagTypes: ['articleRating'],
   endpoints: () => ({}),
 });

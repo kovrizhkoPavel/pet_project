@@ -6,9 +6,7 @@ export type TRating = {
 export type RatingFeedbackFormProps = {
   rating: number;
   feedback?: string;
-  onRatingChange: (rating: number) => void;
-  onTextareaChange?: (text: string) => void;
-  onButtonSubmit: VoidFunction;
+  onButtonSubmit: (params: TRating) => void;
   onClose: VoidFunction;
 };
 

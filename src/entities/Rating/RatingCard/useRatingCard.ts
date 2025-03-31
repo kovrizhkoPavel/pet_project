@@ -44,19 +44,11 @@ export const useRatingCard = ({
     });
   }, []);
 
-  const onTextareaChange = useCallback((value: string) => {
-    dispatch({
-      type: RatingActionType.SET_FEEDBACK,
-      payload: value,
-    });
-  }, []);
-
   return {
     isModalOpen,
     feedback,
     tempRating,
     onModalClose,
     onRatingChange,
-    onTextareaChange,
   };
 };

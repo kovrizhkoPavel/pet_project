@@ -1,6 +1,7 @@
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ArticleUrl } from '@/shared/constants/api';
-import { TArticleRatingDto, TRateArticleRatingDto, TRating } from './types';
+import { TArticleRatingDto, TRateArticleRatingDto } from './types';
+import { TRating } from '@/entities/Rating';
 
 const articleRatingApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -10,6 +11,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
         url: ArticleUrl.RATING,
         params: { userId, articleId },
       }),
+      providesTags: ['articleRating'],
     }),
 
     addRating: builder.mutation<void, TRateArticleRatingDto>({
@@ -18,6 +20,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
         url: ArticleUrl.RATING,
         body: arg,
       }),
+      invalidatesTags: ['articleRating'],
     }),
   }),
 });

@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getClassName } from '@/shared/lib/classNames/getClassName';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -24,32 +23,18 @@ export const RatingCard = (props: RatingCardProps) => {
   const { t } = useTranslation();
 
   const isMobile = useDevice();
-  const {
-    isModalOpen,
-    feedback,
-    tempRating,
-    onModalClose,
-    onRatingChange,
-    onTextareaChange,
-  } = useRatingCard({
-    defaultValue,
-    defaultFeedback,
-    closeModalHandler,
-  });
-
-  const onButtonSubmit = useCallback(() => {
-    submitRatingHandler({
-      rating: tempRating,
-      feedback,
+  const { isModalOpen, feedback, tempRating, onModalClose, onRatingChange } =
+    useRatingCard({
+      defaultValue,
+      defaultFeedback,
+      closeModalHandler,
     });
-  }, [submitRatingHandler, tempRating, feedback]);
 
   const sharedProps = {
     rating: tempRating,
     feedback,
     onRatingChange,
-    onTextareaChange,
-    onButtonSubmit,
+    onButtonSubmit: submitRatingHandler,
     onClose: onModalClose,
   };
 
