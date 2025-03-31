@@ -20,4 +20,4 @@ export type RatingState = {
   tempRating: number;
   isModalOpen: boolean;
   feedback: string;
-}; 
+};
