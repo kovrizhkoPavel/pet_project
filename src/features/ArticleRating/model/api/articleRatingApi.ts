@@ -4,11 +4,11 @@ import { TArticleRatingDto, TRateArticleRatingDto, TRating } from './types';
 
 const articleRatingApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
-    getRatingById: builder.query<TRating, TArticleRatingDto>({
-      query: (id) => ({
+    getRatingById: builder.query<TRating[], TArticleRatingDto>({
+      query: ({ userId, articleId }) => ({
         method: 'GET',
         url: ArticleUrl.RATING,
-        params: { id },
+        params: { userId, articleId },
       }),
     }),
 
