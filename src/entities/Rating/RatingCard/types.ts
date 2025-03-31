@@ -1,3 +1,8 @@
+export type TRating = {
+  rating: number;
+  feedback?: string;
+};
+
 export type RatingFeedbackFormProps = {
   rating: number;
   feedback?: string;
@@ -14,7 +19,7 @@ export type RatingCardProps = {
   defaultValue?: number;
   defaultFeedback?: string;
   closeModalHandler?: () => void;
-  submitRatingHandler: (params: { rating: number; feedback?: string }) => void;
+  submitRatingHandler: (params: TRating) => void;
 };
 
 export type RatingState = {

@@ -1,7 +1,10 @@
 import { useSelector } from 'react-redux';
-import { RatingCard } from '@/entities/Rating';
+import { RatingCard, TRating } from '@/entities/Rating';
 import { getAuthData } from '@/entities/User';
-import { useGetRatingByIdQuery } from '../model/api/articleRatingApi';
+import {
+  useAddRatingMutation,
+  useGetRatingByIdQuery,
+} from '../model/api/articleRatingApi';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 type TArticleRatingProps = {
@@ -12,7 +15,7 @@ type TArticleRatingProps = {
 export const ArticleRating = (props: TArticleRatingProps) => {
   const { className, articleId } = props;
   const userData = useSelector(getAuthData);
-
+  const [sendRating, { isLoading }] = useAddRatingMutation();
   const { data, isFetching } = useGetRatingByIdQuery(
     {
       articleId,
@@ -21,7 +24,16 @@ export const ArticleRating = (props: TArticleRatingProps) => {
     { skip: !userData?.id },
   );
 
-  if (isFetching) {
+  const onSubmitRatingHandler = ({ rating, feedback }: TRating) => {
+    sendRating({
+      articleId,
+      userId: userData?.id || '',
+      rating,
+      feedback,
+    });
+  };
+
+  if (isFetching || isLoading) {
     return <Skeleton width="100%" height={200} />;
   }
 
@@ -32,7 +44,7 @@ export const ArticleRating = (props: TArticleRatingProps) => {
       defaultValue={dataRating?.rating}
       defaultFeedback={dataRating?.feedback}
       className={className}
-      submitRatingHandler={() => undefined}
+      submitRatingHandler={onSubmitRatingHandler}
     />
   );
 };

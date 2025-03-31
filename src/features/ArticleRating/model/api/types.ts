@@ -1,7 +1,4 @@
-export type TRating = {
-  rating: number;
-  feedback?: string;
-};
+import { TRating } from '@/entities/Rating';
 
 export type TArticleRatingDto = {
   userId: string;
