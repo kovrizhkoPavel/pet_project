@@ -43,7 +43,7 @@ const ArticleDetailsPage = () => {
   return (
     <PageContainer>
       <ArticleDetails id={id} />
-      <ArticleRating className={cls.ratingForm} />
+      <ArticleRating articleId={id} className={cls.ratingForm} />
       <ArticlesRecommendations />
       <AddCommentForm
         className={cls.addCommentForm}
