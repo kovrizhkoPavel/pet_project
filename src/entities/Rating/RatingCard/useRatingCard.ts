@@ -1,53 +1,31 @@
-import { useCallback, useReducer } from 'react';
-import { RatingActionType, ratingReducer } from './ratingReducer';
+import { useCallback, useState } from 'react';
 
 type UseRatingCardProps = {
-  defaultValue: number;
-  defaultFeedback: string;
+  initialRating: number;
   closeModalHandler?: () => void;
 };
 
 export const useRatingCard = ({
-  defaultValue,
-  defaultFeedback,
+  initialRating,
   closeModalHandler,
 }: UseRatingCardProps) => {
-  const [{ isModalOpen, feedback, tempRating }, dispatch] = useReducer(
-    ratingReducer,
-    {
-      tempRating: defaultValue,
-      feedback: defaultFeedback,
-      isModalOpen: false,
-    },
-  );
+  const [isModalOpen, setIsModalpen] = useState(false);
+  const [rating, setRatig] = useState(initialRating);
 
   const onModalClose = useCallback(() => {
-    dispatch({
-      type: RatingActionType.SET_IS_MODAL_OPEN,
-      payload: false,
-    });
-    dispatch({
-      type: RatingActionType.SET_TEMP_RATING,
-      payload: defaultValue,
-    });
+    setIsModalpen(false);
+    setRatig(initialRating);
     closeModalHandler?.();
-  }, [closeModalHandler, defaultValue]);
+  }, [closeModalHandler, initialRating]);
 
   const onRatingChange = useCallback((rating: number) => {
-    dispatch({
-      type: RatingActionType.SET_IS_MODAL_OPEN,
-      payload: true,
-    });
-    dispatch({
-      type: RatingActionType.SET_TEMP_RATING,
-      payload: rating,
-    });
+    setRatig(rating);
+    setIsModalpen(true);
   }, []);
 
   return {
     isModalOpen,
-    feedback,
-    tempRating,
+    rating,
     onModalClose,
     onRatingChange,
   };

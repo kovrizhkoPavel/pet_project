@@ -41,8 +41,8 @@ export const ArticleRating = (props: TArticleRatingProps) => {
 
   return (
     <RatingCard
-      defaultValue={dataRating?.rating}
-      defaultFeedback={dataRating?.feedback}
+      initialRating={dataRating?.rating}
+      feedback={dataRating?.feedback}
       className={className}
       submitRatingHandler={onSubmitRatingHandler}
     />

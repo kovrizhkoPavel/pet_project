@@ -14,8 +14,8 @@ export const RatingCard = (props: RatingCardProps) => {
   const {
     className,
     title,
-    defaultValue = 0,
-    defaultFeedback = '',
+    initialRating = 0,
+    feedback = '',
     modalTitle,
     closeModalHandler,
     submitRatingHandler,
@@ -23,15 +23,13 @@ export const RatingCard = (props: RatingCardProps) => {
   const { t } = useTranslation();
 
   const isMobile = useDevice();
-  const { isModalOpen, feedback, tempRating, onModalClose, onRatingChange } =
-    useRatingCard({
-      defaultValue,
-      defaultFeedback,
-      closeModalHandler,
-    });
+  const { isModalOpen, onModalClose, onRatingChange, rating } = useRatingCard({
+    initialRating,
+    closeModalHandler,
+  });
 
   const sharedProps = {
-    rating: tempRating,
+    rating,
     feedback,
     onRatingChange,
     onButtonSubmit: submitRatingHandler,
@@ -43,9 +41,9 @@ export const RatingCard = (props: RatingCardProps) => {
       <VStack gap="12" justify="center" align="center">
         {title && <Text title={title} />}
         <HStack justify="center">
-          <Rating defaultValue={tempRating} onChange={onRatingChange} />
+          <Rating defaultValue={rating} onChange={onRatingChange} />
         </HStack>
-        {!tempRating && (
+        {!rating && (
           <Text title={t('translation:articles_rating_no_feedback')} />
         )}
       </VStack>
