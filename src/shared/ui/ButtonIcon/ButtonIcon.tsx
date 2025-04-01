@@ -1,18 +1,18 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Button } from 'shared/ui/Button/Button';
-import { TSvgIcon } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Button } from '@/shared/ui/Button/Button';
+import { TSvgIcon } from '@/shared/types/utils';
 import cls from './ButtonIcon.module.scss';
 
 type TButtonIconProps = {
-  onClick: VoidFunction;
+  onClick?: VoidFunction;
   Icon: TSvgIcon;
   className?: string;
   iconClassName?: string;
   labelClassName?: string;
   label?: string;
-  dataTestId?:string;
-}
+  dataTestId?: string;
+};
 
 export const ButtonIcon: FC<TButtonIconProps> = ({
   className,
@@ -30,13 +30,11 @@ export const ButtonIcon: FC<TButtonIconProps> = ({
   >
     <div className={cls.button_container}>
       <Icon className={getClassName(cls.button__icon, {}, [iconClassName])} />
-      {
-        label && (
-          <div className={getClassName(cls.button__label, {}, [labelClassName])}>
-            {label}
-          </div>
-        )
-      }
+      {label && (
+        <div className={getClassName(cls.button__label, {}, [labelClassName])}>
+          {label}
+        </div>
+      )}
     </div>
   </Button>
 );

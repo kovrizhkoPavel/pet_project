@@ -1,4 +1,4 @@
-import { TObjectValue } from 'shared/types/utils';
+import { TObjectValue } from '@/shared/types/utils';
 
 const AppRoute = {
   MAIN: 'main',
@@ -10,7 +10,7 @@ const AppRoute = {
   NOT_FOUND: 'not_found',
 } as const;
 
-type TAppRouteValues = TObjectValue<typeof AppRoute>
+type TAppRouteValues = TObjectValue<typeof AppRoute>;
 
 export const RoutePath: Record<TAppRouteValues, string> = {
   [AppRoute.MAIN]: '/',

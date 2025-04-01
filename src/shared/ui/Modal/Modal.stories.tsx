@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Modal } from '@/shared/ui/Modal/Modal';
 
 const meta = {
   title: 'shared/Modal',
@@ -7,6 +7,7 @@ const meta = {
   args: {
     children: 'Text',
     title: 'Title',
+    onClose: () => '',
   },
 } satisfies Meta<typeof Modal>;
 

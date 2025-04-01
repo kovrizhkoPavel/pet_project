@@ -1,8 +1,13 @@
 import {
-  CSSProperties, FC, ReactNode, RefObject, useEffect, useState,
+  CSSProperties,
+  FC,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useState,
 } from 'react';
 import { useVirtualizer, VirtualItem } from '@tanstack/react-virtual';
-import { useAppUseEffect } from 'shared/lib/hooks/useAppUseEffect';
+import { useAppUseEffect } from '@/shared/lib/hooks/useAppUseEffect';
 
 type TVirtualazerProps = {
   itemsCount: number;
@@ -13,7 +18,7 @@ type TVirtualazerProps = {
   fetchNextPage: VoidFunction;
   parentRef: RefObject<HTMLElement>;
   itemStyles: (item: VirtualItem) => CSSProperties;
-}
+};
 
 const defaultItemsOverscan = 5;
 

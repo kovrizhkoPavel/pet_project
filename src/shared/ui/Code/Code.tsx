@@ -1,13 +1,13 @@
 import { FC, useCallback } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import CopyIcon from 'shared/assets/icon/copy-icon.svg';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import CopyIcon from '@/shared/assets/icon/copy-icon.svg';
 import { Button } from '../Button/Button';
 import cls from './Code.module.scss';
 
 type TCodeProps = {
   className?: string;
-  content: string
-}
+  content: string;
+};
 
 export const Code: FC<TCodeProps> = (props) => {
   const { className, content } = props;

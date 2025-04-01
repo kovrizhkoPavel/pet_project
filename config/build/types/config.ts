@@ -1,4 +1,4 @@
-export type TBuildMode = 'production' | 'development';
+export type TBuildMode = "production" | "development";
 
 export type TBuildPath = {
   entry: string;
@@ -7,7 +7,7 @@ export type TBuildPath = {
   src: string;
   locales: string;
   buildLocales: string;
-}
+};
 
 export type TBuildOptions = {
   mode: TBuildMode;
@@ -15,13 +15,13 @@ export type TBuildOptions = {
   isDev: boolean;
   isDevAnalysis: boolean;
   port: number;
-  apiUrl:string;
-  project: 'storybook' | 'frontend' | 'jest';
-}
+  apiUrl: string;
+  project: "storybook" | "frontend" | "jest";
+};
 
 export type TBuildEnv = {
   mode: TBuildMode;
   analysis: boolean;
   port: number;
   apiUrl: string;
-}
+};

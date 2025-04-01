@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { Country, Currency } from 'shared/constants/common';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { Country, Currency } from '@/shared/constants/common';
 import { EditProfileForm } from './EditProfileForm';
 
 const meta = {

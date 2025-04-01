@@ -1,10 +1,10 @@
-import { TProfile } from 'entities/Profile';
-import { renderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
 import * as Router from 'react-router';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
+import { TProfile } from '@/entities/Profile';
 import { EditProfileForm } from './EditProfileForm';
 import * as query from '../../model/api/profileFormApi';
 
@@ -16,7 +16,8 @@ const profileData: TProfile = {
   country: 'Belarus',
   city: 'Moscow',
   username: 'admin213',
-  avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrsCRsWZNnmDAAqUAQdPiW_s9xcozSwftgA&s',
+  avatar:
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJrsCRsWZNnmDAAqUAQdPiW_s9xcozSwftgA&s',
   firstname: 'admin2131',
 };
 
@@ -47,17 +48,15 @@ describe('features/EditProfileForm', () => {
   });
 
   jest.spyOn(Router, 'useParams').mockReturnValue({ id: '1' });
-  jest.spyOn(query, 'useEditProfileMutation').mockImplementation(
-    () => [
-      mockSubmit,
-      {
-        isSuccess: false,
-        isError: false,
-        isLoading: false,
-        reset: () => '',
-      },
-    ],
-  );
+  jest.spyOn(query, 'useEditProfileMutation').mockImplementation(() => [
+    mockSubmit,
+    {
+      isSuccess: false,
+      isError: false,
+      isLoading: false,
+      reset: () => '',
+    },
+  ]);
 
   test('should render', () => {
     expect(screen.getByTestId('edit-profile-form')).toBeInTheDocument();
@@ -65,29 +64,45 @@ describe('features/EditProfileForm', () => {
 
   test('should switch readonly state', async () => {
     await userEvent.click(screen.getByTestId('edit-profile-form-edit-button'));
-    await expect(screen.getByTestId('edit-profile-form-submit-button')).toBeInTheDocument();
+    await expect(
+      screen.getByTestId('edit-profile-form-submit-button'),
+    ).toBeInTheDocument();
   });
 
   test('should reset changes', async () => {
     await userEvent.click(screen.getByTestId('edit-profile-form-edit-button'));
-    await userEvent.clear(screen.getByTestId('edit-profile-form-firstname-input'));
+    await userEvent.clear(
+      screen.getByTestId('edit-profile-form-firstname-input'),
+    );
     await userEvent.click(screen.getByTestId('edit-profile-form-reset-button'));
-    await expect(screen.getByTestId('edit-profile-form-firstname-input'))
-      .toHaveValue('admin2131');
+    await expect(
+      screen.getByTestId('edit-profile-form-firstname-input'),
+    ).toHaveValue('admin2131');
   });
 
-  test('shouldn\'t submit form', async () => {
+  test('should not submit form', async () => {
     await userEvent.click(screen.getByTestId('edit-profile-form-edit-button'));
-    await userEvent.clear(screen.getByTestId('edit-profile-form-firstname-input'));
-    await userEvent.click(screen.getByTestId('edit-profile-form-submit-button'));
+    await userEvent.clear(
+      screen.getByTestId('edit-profile-form-firstname-input'),
+    );
+    await userEvent.click(
+      screen.getByTestId('edit-profile-form-submit-button'),
+    );
     await expect(mockSubmit).not.toHaveBeenCalled();
   });
 
   test('should submit form', async () => {
     await userEvent.click(screen.getByTestId('edit-profile-form-edit-button'));
-    await userEvent.clear(screen.getByTestId('edit-profile-form-firstname-input'));
-    await userEvent.type(screen.getByTestId('edit-profile-form-firstname-input'), 'testUser');
-    await userEvent.click(screen.getByTestId('edit-profile-form-submit-button'));
+    await userEvent.clear(
+      screen.getByTestId('edit-profile-form-firstname-input'),
+    );
+    await userEvent.type(
+      screen.getByTestId('edit-profile-form-firstname-input'),
+      'testUser',
+    );
+    await userEvent.click(
+      screen.getByTestId('edit-profile-form-submit-button'),
+    );
 
     await expect(mockSubmit).toHaveBeenCalled();
     expect(mockSubmit).toHaveBeenCalledWith({

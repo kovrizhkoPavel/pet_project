@@ -1,6 +1,6 @@
 import { expect } from '@storybook/test';
-import { userActions, UserRole } from 'entities/User';
-import TestAsyncThunk from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { userActions, UserRole } from '@/entities/User';
+import TestAsyncThunk from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName', () => {
@@ -17,7 +17,9 @@ describe('loginByUserName', () => {
     await expect(Thunk.api.post).toHaveBeenCalled();
     await expect(Thunk.dispatch).toHaveBeenCalledTimes(3);
     await expect(result.meta.requestStatus).toBe('fulfilled');
-    await expect(Thunk.dispatch).toBeCalledWith(userActions.setAuthData(userValue));
+    await expect(Thunk.dispatch).toBeCalledWith(
+      userActions.setAuthData(userValue),
+    );
     await expect(result.payload).toEqual(userValue);
   });
 

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Input } from 'shared/ui/Input/Input';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { HStack } from 'shared/ui/Stack';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Input } from '@/shared/ui/Input/Input';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Text, TextVariant } from '@/shared/ui/Text/Text';
+import { HStack } from '@/shared/ui/Stack';
 import { ValidatorError } from '../../constants';
 import { CurrencySelect } from '../../../Currency';
 import { CountrySelect } from '../../../Country';
@@ -18,15 +18,15 @@ type TProfileCardProps = {
   isLoading?: boolean;
   error?: boolean;
   readonly?: boolean;
-  validationError?: TProfileValidationError,
-  onFirstNameChange?: (val:string) => void;
-  onLastNameChange?: (val:string) => void;
-  onCityChange?: (val:string) => void;
-  onAgeChange?: (val:string) => void;
-  onAvatarChange?: (val:string) => void;
-  onCurrencyChange?: (val:string) => void;
-  onCountryChange?: (val:string) => void;
-}
+  validationError?: TProfileValidationError;
+  onFirstNameChange?: (val: string) => void;
+  onLastNameChange?: (val: string) => void;
+  onCityChange?: (val: string) => void;
+  onAgeChange?: (val: string) => void;
+  onAvatarChange?: (val: string) => void;
+  onCurrencyChange?: (val: string) => void;
+  onCountryChange?: (val: string) => void;
+};
 
 export const ProfileCard: FC<TProfileCardProps> = (props) => {
   const { t } = useTranslation();
@@ -96,7 +96,8 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         onChange={onFirstNameChange}
         isError={!!validationError?.firstname}
         hint={
-          validationError?.firstname && validateErrorTranslates[validationError.firstname]
+          validationError?.firstname &&
+          validateErrorTranslates[validationError.firstname]
         }
       />
       <Input
@@ -107,7 +108,8 @@ export const ProfileCard: FC<TProfileCardProps> = (props) => {
         onChange={onLastNameChange}
         isError={!!validationError?.lastname}
         hint={
-          validationError?.lastname && validateErrorTranslates[validationError.lastname]
+          validationError?.lastname &&
+          validateErrorTranslates[validationError.lastname]
         }
       />
       <Input

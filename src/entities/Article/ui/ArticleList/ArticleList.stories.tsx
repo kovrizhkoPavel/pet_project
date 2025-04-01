@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { UserRole } from 'entities/User';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { UserRole } from '@/entities/User';
 import { TArticle } from '../../model/types/article';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../constants';
 import { ArticleList } from './ArticleList';
@@ -53,13 +53,16 @@ const meta = {
   args: {
     articles: [article, article],
     view: ArticlesView.TILE,
+    fetchNextPage: () => '',
   },
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LightTail: Story = {};
+export const LightTail: Story = {
+  args: {},
+};
 
 export const DarkTail: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],

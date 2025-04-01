@@ -1,11 +1,11 @@
 import { FC, useCallback } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/constants';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useNavigate } from 'react-router-dom';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/constants';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { TArticle, TArticleBlockText } from '../../../model/types/article';
 import { SkeletonCard } from './SkeletonCard';
 import { ViewsCount } from '../ViewsCount/ViewsCount';
@@ -18,23 +18,13 @@ type TCardBigProps = {
   isLoading: boolean;
   article: TArticle;
   height: number;
-}
+};
 
 export const CardBig: FC<TCardBigProps> = (props) => {
-  const {
-    className, article, height, isLoading,
-  } = props;
+  const { className, article, height, isLoading } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const {
-    createdAt,
-    type,
-    views,
-    title,
-    img,
-    user,
-    blocks,
-  } = article;
+  const { createdAt, type, views, title, img, user, blocks } = article;
 
   const textBlock: TArticleBlockText | undefined = blocks.find(
     (block): block is TArticleBlockText => block.type === ArticleBlockType.TEXT,
@@ -45,15 +35,19 @@ export const CardBig: FC<TCardBigProps> = (props) => {
   }, [article, navigate]);
 
   if (isLoading) {
-    return (
-      <SkeletonCard className={cls.skeletonCard} />
-    );
+    return <SkeletonCard className={cls.skeletonCard} />;
   }
 
   return (
-    <article style={{ height }} className={getClassName(cls.cardBig, {}, [className])}>
+    <article
+      style={{ height }}
+      className={getClassName(cls.cardBig, {}, [className])}
+    >
       <div className={cls.header}>
-        <AppLink className={cls.userContainer} to={`${RoutePath.profile}${user.id}`}>
+        <AppLink
+          className={cls.userContainer}
+          to={`${RoutePath.profile}${user.id}`}
+        >
           <Avatar size={30} src={`${user.avatar}`} alt="avatar" />
           <p className={cls.username}>{user.username}</p>
         </AppLink>
@@ -62,7 +56,9 @@ export const CardBig: FC<TCardBigProps> = (props) => {
       <h2>{title}</h2>
       <div>{type.join(', ')}</div>
       <img src={img} alt="logo" className={cls.img} />
-      {textBlock && <ArticleTextBlock content={textBlock} className={cls.textBlock} />}
+      {textBlock && (
+        <ArticleTextBlock content={textBlock} className={cls.textBlock} />
+      )}
       <div className={cls.footer}>
         <Button variant={ButtonVariant.OUTLINE} onClick={onReadMoreClick}>
           {t('translation\:button_read_mode')}

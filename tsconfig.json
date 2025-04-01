@@ -10,21 +10,18 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"],
-      "entities/*": ["./src/entities/*"]
+      "@/*": ["./src/*"],
+      "entities/*": ["./src/@/entities/*"]
     },
     "types": ["@testing-library/jest-dom", "node"],
     "strict": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./config/jest/jest-setup.ts",
-    "src/**/*"
-  ],
+  "include": ["./config/jest/jest-setup.ts", "src/**/*"],
   "files": ["./src/app/types/global.d.ts"]
 }

@@ -1,23 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateScheme } from 'shared/types/stateScheme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { StateScheme } from '@/shared/types/stateScheme';
 import ProfilePage from './ProfilePage';
 
 const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  decorators: [StoreDecorator({
-    profileForm: {
-      formData: {
-        username: 'user',
-        firstname: 'name',
-        lastname: 'lastname',
-        age: 22,
+  decorators: [
+    StoreDecorator({
+      profileForm: {
+        formData: {
+          username: 'user',
+          firstname: 'name',
+          lastname: 'lastname',
+          age: 22,
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import { TProfile } from 'entities/Profile';
+import { TProfile } from '@/entities/Profile';
 import { validateFirstname } from './validateFirstname';
 import { validateLastname } from './validateLastname';
 import { validateAge } from './validateAge';

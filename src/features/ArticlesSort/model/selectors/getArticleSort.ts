@@ -1,5 +1,5 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { SortField, SortOrder } from '../../constants';
 import { ArticlesSortScheme } from '../types/ArticlesSortScheme';
 

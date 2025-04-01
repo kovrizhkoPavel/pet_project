@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TArticle } from 'entities/Article/model/types/article';
-import {
-  fetchGetArticlesRecommendations,
-} from '../services/fetchGetArticlesRecommendations/fetchGetArticlesRecommendations';
+import { TArticle } from '@/entities/Article/model/types/article';
+import { fetchGetArticlesRecommendations } from '../services/fetchGetArticlesRecommendations/fetchGetArticlesRecommendations';
 import { ArticlesRecommendationsScheme } from '../types/ArticlesRecommendationsScheme';
 
 const initialState: ArticlesRecommendationsScheme = {
@@ -34,5 +32,7 @@ export const articlesRecommendationsSlice = createSlice({
   },
 });
 
-export const { actions: articlesRecommendationsActions } = articlesRecommendationsSlice;
-export const { reducer: articlesRecommendationsReducer } = articlesRecommendationsSlice;
+export const { actions: articlesRecommendationsActions } =
+  articlesRecommendationsSlice;
+export const { reducer: articlesRecommendationsReducer } =
+  articlesRecommendationsSlice;

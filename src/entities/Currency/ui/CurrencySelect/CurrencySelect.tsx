@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import { Currency } from 'shared/constants/common';
 import { useTranslation } from 'react-i18next';
-import { CustomSelect } from 'shared/ui/CustomSelect/CustomSelect';
+import { Currency } from '@/shared/constants/common';
+import { CustomSelect } from '@/shared/ui/CustomSelect/CustomSelect';
 
 type TCurrencySelectProps = {
   className?: string;
   readonly?: boolean;
   onChange?: (val: string) => void;
-}
+};
 
 const options = Object.entries(Currency).map(([value, label]) => ({
   value,

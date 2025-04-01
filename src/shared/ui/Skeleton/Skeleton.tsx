@@ -1,5 +1,5 @@
 import { CSSProperties, FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Skeleton.module.scss';
 
 type TSkeletonProps = {
@@ -7,12 +7,10 @@ type TSkeletonProps = {
   height?: string | number;
   width?: string | number;
   border?: string;
-}
+};
 
 export const Skeleton: FC<TSkeletonProps> = (props) => {
-  const {
-    className, width, height, border,
-  } = props;
+  const { className, width, height, border } = props;
 
   const style: CSSProperties = {
     width,
@@ -21,6 +19,9 @@ export const Skeleton: FC<TSkeletonProps> = (props) => {
   };
 
   return (
-    <div className={getClassName(cls.skeleton, {}, [className])} style={style} />
+    <div
+      className={getClassName(cls.skeleton, {}, [className])}
+      style={style}
+    />
   );
 };

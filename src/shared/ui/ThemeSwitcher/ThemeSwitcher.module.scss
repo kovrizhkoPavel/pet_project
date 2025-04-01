@@ -38,7 +38,9 @@
   height: 26px;
   border-radius: 50%;
   box-shadow: inset 8px -8px 0 0 var(--bg-color, #000);
-  transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+  transition:
+    box-shadow 0.5s ease 0s,
+    transform 0.4s ease 0.1s;
   transform: scale(1) rotate(-2deg);
 }
 
@@ -48,7 +50,7 @@
   left: 0;
   width: inherit;
   height: inherit;
-  content: "";
+  content: '';
   border-radius: inherit;
   transition: background 0.3s ease;
 }
@@ -60,23 +62,26 @@
   width: 4px;
   height: 4px;
   margin: -2px 0 0 -2px;
-  content: "";
+  content: '';
   border-radius: 50%;
-  box-shadow: 0 -16px 0 yellow,
-  0 16px 0 yellow,
-  16px 0 0 yellow,
-  -16px 0 0 yellow,
-  12px 12px 0 yellow,
-  -12px 12px 0 yellow,
-  12px -12px 0 yellow,
-  -12px -12px 0 yellow;
+  box-shadow:
+    0 -16px 0 yellow,
+    0 16px 0 yellow,
+    16px 0 0 yellow,
+    -16px 0 0 yellow,
+    12px 12px 0 yellow,
+    -12px 12px 0 yellow,
+    12px -12px 0 yellow,
+    -12px -12px 0 yellow;
   transition: all 0.3s ease;
   transform: scale(0);
 }
 
 .container input:checked + div {
   box-shadow: inset 32px -32px 0 0 #fff;
-  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+  transition:
+    transform 0.3s ease 0.1s,
+    box-shadow 0.2s ease 0s;
   transform: scale(0.5) rotate(0deg);
 }
 

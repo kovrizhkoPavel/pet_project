@@ -3,4 +3,4 @@ export type AuthSchema = {
   password: string;
   isLoading?: boolean;
   error?: string | null;
-}
+};

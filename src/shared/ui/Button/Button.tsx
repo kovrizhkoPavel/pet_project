@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TObjectValue } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { TObjectValue } from '@/shared/types/utils';
 import cls from './Button.module.scss';
 
 export const ButtonVariant = {
@@ -13,7 +13,7 @@ type TButtonProps = {
   className?: string;
   variant?: TObjectValue<typeof ButtonVariant>;
   children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button: FC<TButtonProps> = (props) => {
   const {
@@ -23,10 +23,14 @@ export const Button: FC<TButtonProps> = (props) => {
     ...otherProps
   } = props;
 
+  const mod = {
+    [cls.no_hover_active]: variant === ButtonVariant.CLEAR,
+  };
+
   return (
     <button
       type="button"
-      className={getClassName(cls.button, {}, [className, cls[variant]])}
+      className={getClassName(cls.button, mod, [className, cls[variant]])}
       {...otherProps}
     >
       {children}

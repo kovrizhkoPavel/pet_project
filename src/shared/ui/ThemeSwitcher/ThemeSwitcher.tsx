@@ -1,5 +1,5 @@
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Theme } from 'app/providers/ThemeProvider/constants';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
 import cls from './ThemeSwitcher.module.scss';
 
 export const ThemeSwitcher = () => {
@@ -13,11 +13,7 @@ export const ThemeSwitcher = () => {
       title={isDark ? 'Activate light mode' : 'Activate dark mode'}
       aria-label={isDark ? 'Activate light mode' : 'Activate dark mode'}
     >
-      <input
-        type="checkbox"
-        defaultChecked={!isDark}
-        onChange={toggleTheme}
-      />
+      <input type="checkbox" defaultChecked={!isDark} onChange={toggleTheme} />
       <div />
     </label>
   );

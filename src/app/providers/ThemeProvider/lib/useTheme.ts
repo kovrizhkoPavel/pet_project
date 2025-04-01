@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { LocalStorageKey } from 'shared/constants/localstorage';
+import { LocalStorageKey } from '@/shared/constants/localstorage';
 import { Theme } from '../constants';
 import { ThemeContext } from './ThemeContext';
 
 type TUseThemeReturn = {
   theme: Theme;
   toggleTheme: VoidFunction;
-}
+};
 
 export const useTheme = (): TUseThemeReturn => {
   const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TProfile } from 'entities/Profile';
-import { TProfileValidationError } from 'entities/Profile/types/profile';
+import { TProfile } from '@/entities/Profile';
+import { TProfileValidationError } from '@/entities/Profile/types/profile';
 import { ProfileFormScheme } from '../types/profileFormScheme';
 
 const initialState: ProfileFormScheme = {
@@ -20,7 +20,10 @@ export const profileFormSlice = createSlice({
       state.readonly = action.payload;
     },
 
-    setValidationErrors: (state, action: PayloadAction<TProfileValidationError | undefined>) => {
+    setValidationErrors: (
+      state,
+      action: PayloadAction<TProfileValidationError | undefined>,
+    ) => {
       state.validationError = action.payload;
     },
 

@@ -1,9 +1,12 @@
 import { FC, useCallback } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { TObjectValue, TSortOrder } from 'shared/types/utils';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { CustomSelect, TSelectOption } from 'shared/ui/CustomSelect/CustomSelect';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { TObjectValue, TSortOrder } from '@/shared/types/utils';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import {
+  CustomSelect,
+  TSelectOption,
+} from '@/shared/ui/CustomSelect/CustomSelect';
 import { articlesSortActions } from '../../model/slice/articleSortSlice';
 import { SortField, SortOrder } from '../../constants';
 import cls from './ArticleSort.module.scss';
@@ -13,7 +16,7 @@ type TSortField = TObjectValue<typeof SortField>;
 type TArticleSortProps = {
   className?: string;
   onSortChange: VoidFunction;
-}
+};
 
 export const ArticleSort: FC<TArticleSortProps> = (props) => {
   const { className, onSortChange } = props;
@@ -24,7 +27,8 @@ export const ArticleSort: FC<TArticleSortProps> = (props) => {
     {
       value: SortOrder.ASC,
       label: t('translation\:sort-asc'),
-    }, {
+    },
+    {
       value: SortOrder.DESC,
       label: t('translation\:sort-desc'),
     },
@@ -45,15 +49,21 @@ export const ArticleSort: FC<TArticleSortProps> = (props) => {
     },
   ];
 
-  const onSelectOrderChange = useCallback((value:TSortOrder) => {
-    dispatch(articlesSortActions.setSortOrder(value));
-    onSortChange();
-  }, [dispatch, onSortChange]);
+  const onSelectOrderChange = useCallback(
+    (value: TSortOrder) => {
+      dispatch(articlesSortActions.setSortOrder(value));
+      onSortChange();
+    },
+    [dispatch, onSortChange],
+  );
 
-  const onSelectFieldChange = useCallback((value:TSortField) => {
-    dispatch(articlesSortActions.setSortField(value));
-    onSortChange();
-  }, [dispatch, onSortChange]);
+  const onSelectFieldChange = useCallback(
+    (value: TSortField) => {
+      dispatch(articlesSortActions.setSortField(value));
+      onSortChange();
+    },
+    [dispatch, onSortChange],
+  );
 
   return (
     <div className={getClassName(cls.articleSort, {}, [className])}>
@@ -62,10 +72,7 @@ export const ArticleSort: FC<TArticleSortProps> = (props) => {
         onChange={onSelectOrderChange}
         label={t('translation\:sort_label')}
       />
-      <CustomSelect
-        options={FieldOptions}
-        onChange={onSelectFieldChange}
-      />
+      <CustomSelect options={FieldOptions} onChange={onSelectFieldChange} />
     </div>
   );
 };

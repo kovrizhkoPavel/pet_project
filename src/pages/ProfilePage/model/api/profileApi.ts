@@ -1,6 +1,6 @@
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileUrl } from 'shared/constants/api';
-import { TProfile } from 'entities/Profile';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileUrl } from '@/shared/constants/api';
+import { TProfile } from '@/entities/Profile';
 
 const profileApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({

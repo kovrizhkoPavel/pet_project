@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: build production project
         run: npm run build:prod
 
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: linting typeScript
         run: npm run lint
       - name: linting styles
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
@@ -53,10 +53,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: unit tests
         run: npm run test:unit
-
 #  ui-test:
 #    runs-on: ubuntu-latest
 #    strategy:

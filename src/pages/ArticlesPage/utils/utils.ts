@@ -1,4 +1,6 @@
-export const getQuerySearchParams = (params: URLSearchParams): Record<string, string> => {
+export const getQuerySearchParams = (
+  params: URLSearchParams,
+): Record<string, string> => {
   const param: Record<string, string> = {};
 
   params.forEach((value, key) => {

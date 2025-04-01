@@ -1,7 +1,9 @@
-import { ProfileValidatorError } from 'entities/Profile';
-import { TProfileValidationError } from 'entities/Profile/types/profile';
+import { ProfileValidatorError } from '@/entities/Profile';
+import { TProfileValidationError } from '@/entities/Profile/types/profile';
 
-export const validateAge = (value?: number): Pick<TProfileValidationError, 'age'> => {
+export const validateAge = (
+  value?: number,
+): Pick<TProfileValidationError, 'age'> => {
   if (!value) {
     return { age: ProfileValidatorError.REQUIRED };
   }

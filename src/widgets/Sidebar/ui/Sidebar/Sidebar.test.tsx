@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { renderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
+import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
@@ -14,6 +14,8 @@ describe('Sidebar', () => {
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
     fireEvent.click(buttonToggle);
-    expect(screen.getByTestId('sidebar').classList.contains('collapsed')).not.toBe(true);
+    expect(
+      screen.getByTestId('sidebar').classList.contains('collapsed'),
+    ).not.toBe(true);
   });
 });

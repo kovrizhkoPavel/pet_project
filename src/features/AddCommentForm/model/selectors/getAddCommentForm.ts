@@ -1,8 +1,9 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { AddCommentFormScheme } from '../types/AddCommentFormScheme';
 
-const getAddCommentForm = (state: StateScheme) => state?.articleDetailsPage?.addComment;
+const getAddCommentForm = (state: StateScheme) =>
+  state?.articleDetailsPage?.addComment;
 
 export const getText = createSelector(
   getAddCommentForm,

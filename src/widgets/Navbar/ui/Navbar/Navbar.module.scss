@@ -1,5 +1,6 @@
 .navbar {
   display: flex;
+  gap: 20px;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
@@ -10,8 +11,4 @@
 
 .button__auth {
   margin-left: 12px;
-}
-
-.themeSwitcher {
-  margin-right: 20px;
 }

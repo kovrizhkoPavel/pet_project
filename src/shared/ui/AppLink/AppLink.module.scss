@@ -1,6 +1,4 @@
 .appLink {
-  color: var(--font-color);
-
   &:hover,
   &:focus {
     opacity: var(--opacity-hover);
@@ -14,9 +12,9 @@
 }
 
 .primary {
-  color: var(--font-color);
+  color: var(--blue-color);
 }
 
 .inverted {
-  color: var(--font-color);
+  color: var(--blue-light-color);
 }

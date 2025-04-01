@@ -1,7 +1,7 @@
-import { TArticle } from 'entities/Article/model/types/article';
+import { TArticle } from '@/entities/Article/model/types/article';
 
 export type ArticlesRecommendationsScheme = {
-  articles: TArticle[]
+  articles: TArticle[];
   isLoading?: boolean;
   error?: string;
-}
+};

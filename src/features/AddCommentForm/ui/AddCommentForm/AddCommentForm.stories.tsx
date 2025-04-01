@@ -1,20 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateScheme } from 'shared/types/stateScheme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { AddCommentForm } from './AddCommentForm';
 
 const meta = {
   title: 'features/AddCommentForm',
   component: AddCommentForm,
-  decorators: [StoreDecorator({
-    articleDetailsPage: {
-      addComment: {
-        text: 'text',
+  args: {
+    onSubmit: () => '',
+  },
+  decorators: [
+    StoreDecorator({
+      articleDetailsPage: {
+        addComment: {
+          text: 'text',
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof AddCommentForm>;
 
 export default meta;

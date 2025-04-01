@@ -1,13 +1,13 @@
-import type {Preview} from "@storybook/react";
-import {StyleDecorator} from "../../src/shared/config/storybook/StyleDecorator";
-import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator";
-import {Theme} from "../../src/app/providers/ThemeProvider/constants";
-import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator";
-import {TranslateDecorator} from "../../src/shared/config/storybook/TranslateDecorator";
+import type { Preview } from '@storybook/react';
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
+import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
+import { Theme } from '../../src/app/providers/ThemeProvider/constants';
+import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
+import { TranslateDecorator } from '../../src/shared/config/storybook/TranslateDecorator';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -37,6 +37,5 @@ export const globalTypes = {
     },
   },
 };
-
 
 export default preview;

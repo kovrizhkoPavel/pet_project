@@ -1,5 +1,5 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { createSelector } from '@reduxjs/toolkit';
+import { StateScheme } from '@/shared/types/stateScheme';
 
 const getArticlesSearch = (state: StateScheme) => state.articlesPage?.search;
 

@@ -9,6 +9,11 @@ export const ProfileUrl = <const>{
 export const ArticleUrl = <const>{
   COMMENTS: '/comments',
   ARTICLE: '/articles',
+  RATING: '/article-ratings',
+};
+
+export const Notifications = <const>{
+  GET_NOTIFICATIONS: '/notifications',
 };
 
 export const DEFAULT_ERROR_TEXT = 'Error';

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateScheme } from 'shared/types/stateScheme';
-import { UserRole } from 'entities/User';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { UserRole } from '@/entities/User';
 import { ArticleBlockType, ArticleType } from '../../constants';
 import { TArticle } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
@@ -53,14 +53,16 @@ const meta = {
   title: 'entities/ArticleDetails',
   component: ArticleDetails,
   args: { id: '1' },
-  decorators: [StoreDecorator({
-    articleDetailsPage: {
-      details: {
-        data: article,
-        isLoading: false,
+  decorators: [
+    StoreDecorator({
+      articleDetailsPage: {
+        details: {
+          data: article,
+          isLoading: false,
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 } satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
@@ -69,13 +71,15 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {};
 
 export const Loading: Story = {
-  decorators: [StoreDecorator({
-    articleDetailsPage: {
-      details: {
-        isLoading: true,
+  decorators: [
+    StoreDecorator({
+      articleDetailsPage: {
+        details: {
+          isLoading: true,
+        },
       },
-    },
-  } as StateScheme)],
+    } as StateScheme),
+  ],
 };
 
 export const Dark: Story = {

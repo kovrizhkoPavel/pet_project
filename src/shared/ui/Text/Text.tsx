@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Text.module.scss';
 import { TObjectValue } from '../../types/utils';
 
@@ -20,7 +20,7 @@ type TTextProps = {
   variant?: TObjectValue<typeof TextVariant>;
   align?: 'left' | 'center' | 'right';
   size?: keyof typeof TextSize;
-}
+};
 
 export const Text: FC<TTextProps> = (props) => {
   const {
@@ -38,9 +38,8 @@ export const Text: FC<TTextProps> = (props) => {
   };
 
   return (
-    <div className={
-      getClassName(cls.textWrapper, mod, [className, cls[variant]])
-    }
+    <div
+      className={getClassName(cls.textWrapper, mod, [className, cls[variant]])}
     >
       {title && <h4 className={cls.title}>{title}</h4>}
       {text && <p className={cls.text}>{text}</p>}

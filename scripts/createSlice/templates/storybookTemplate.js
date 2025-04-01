@@ -1,4 +1,7 @@
-module.exports = (layer, componentName) => `import type { Meta, StoryObj } from '@storybook/react';
+module.exports = (
+  layer,
+  componentName,
+) => `import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/constants';
 import { ${componentName} } from './${componentName}';

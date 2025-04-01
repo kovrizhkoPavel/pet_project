@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { CommentItem } from '../CommentItem/CommentItem';
 import { TComment } from '../../model/types/comment';
 
@@ -8,7 +8,7 @@ type TCommentListProps = {
   className?: string;
   isLoading?: boolean;
   comments: TComment[];
-}
+};
 
 export const CommentList: FC<TCommentListProps> = (props) => {
   const { className, comments, isLoading } = props;

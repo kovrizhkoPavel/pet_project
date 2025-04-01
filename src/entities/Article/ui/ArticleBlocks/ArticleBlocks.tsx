@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { TArticle, TArticleBlock } from '../../model/types/article';
 import { getData, getIsLoading } from '../../model/selectors/getArticleDetails';
 import { ArticleBlockType } from '../../constants';
@@ -16,14 +16,14 @@ export const ArticleBlocks = () => {
     const { type } = block;
 
     switch (type) {
-    case ArticleBlockType.TEXT:
-      return <ArticleTextBlock content={block} key={block.id} />;
-    case ArticleBlockType.IMAGE:
-      return <ArticleImageBlock content={block} key={block.id} />;
-    case ArticleBlockType.CODE:
-      return <ArticleCodeBlock content={block} key={block.id} />;
-    default:
-      return <></>;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlock content={block} key={block.id} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlock content={block} key={block.id} />;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlock content={block} key={block.id} />;
+      default:
+        return <></>;
     }
   }, []);
 

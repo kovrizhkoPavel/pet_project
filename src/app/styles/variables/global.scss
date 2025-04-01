@@ -1,6 +1,6 @@
 :root {
   // font
-  --font-family-main: consolas, "Roboto", sans-serif;
+  --font-family-main: consolas, 'Roboto', sans-serif;
   --font-size-s: 12px;
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -18,13 +18,16 @@
   --sidebar-collapsed-width: 80px;
   --icon-size-l: 45px;
   --icon-size-m: 30px;
+  --icon-size-s: 20px;
   --border-radius-m: 5px;
   --border-radius-l: 10px;
 
   // colors
-  --light-color: #F9F9FA;
+  --yellow-color: #ffd700;
+  --light-color: #f9f9fa;
   --dark-color: #151112;
   --gray-color: #e1e1e1;
+  --gray-middle: #707070;
   --gray-dark-color: #282828;
   --error-color: #d30202;
   --blue-color: #0384d3;

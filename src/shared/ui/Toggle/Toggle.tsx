@@ -1,7 +1,5 @@
-import {
-  ButtonHTMLAttributes, FC, ReactNode, useState,
-} from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { ButtonHTMLAttributes, FC, ReactNode, useState } from 'react';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Toggle.module.scss';
 
 type TToggleProps = {
@@ -9,12 +7,10 @@ type TToggleProps = {
   isActive?: boolean;
   className?: string;
   onChangeHandler?: (isActive: boolean) => void;
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Toggle: FC<TToggleProps> = (props) => {
-  const {
-    className, children, isActive, onChangeHandler,
-  } = props;
+  const { className, children, isActive, onChangeHandler } = props;
   const [active, setActive] = useState(isActive ?? false);
 
   const onButtonClick = () => {

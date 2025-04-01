@@ -1,15 +1,15 @@
 import { FC, useCallback, useEffect } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ModalLoader } from 'widgets/ModalLoader';
-import { Text, TextVariant } from 'shared/ui/Text/Text';
-import { KeyboardKey } from 'shared/constants/common';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { TReducers } from 'shared/types/stateScheme';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Input } from '@/shared/ui/Input/Input';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ModalLoader } from '@/widgets/ModalLoader';
+import { Text, TextVariant } from '@/shared/ui/Text/Text';
+import { KeyboardKey } from '@/shared/constants/common';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { TReducers } from '@/shared/types/stateScheme';
 import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
@@ -21,7 +21,7 @@ import cls from './LoginForm.module.scss';
 type TLoginFormProps = {
   className?: string;
   onSuccess?: VoidFunction;
-}
+};
 
 const initialReducer: TReducers = {
   authForm: authReducer,
@@ -35,13 +35,19 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
 
-  const onUserNameChange = useCallback((value: string) => {
-    dispatch(authActions.setUserName(value));
-  }, [dispatch]);
+  const onUserNameChange = useCallback(
+    (value: string) => {
+      dispatch(authActions.setUserName(value));
+    },
+    [dispatch],
+  );
 
-  const onPasswordChange = useCallback((value: string) => {
-    dispatch(authActions.setPassword(value));
-  }, [dispatch]);
+  const onPasswordChange = useCallback(
+    (value: string) => {
+      dispatch(authActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const onSubmit = useCallback(async () => {
     const response = await dispatch(loginByUserName({ username, password }));
@@ -50,11 +56,14 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
     }
   }, [dispatch, username, password, onSuccess]);
 
-  const onKeyDown = useCallback((evt: KeyboardEvent) => {
-    if (evt.key === KeyboardKey.ENTER) {
-      onSubmit();
-    }
-  }, [onSubmit]);
+  const onKeyDown = useCallback(
+    (evt: KeyboardEvent) => {
+      if (evt.key === KeyboardKey.ENTER) {
+        onSubmit();
+      }
+    },
+    [onSubmit],
+  );
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
@@ -69,7 +78,12 @@ const LoginForm: FC<TLoginFormProps> = ({ className, onSuccess }) => {
   return (
     <div className={getClassName(cls.loginForm, {}, [className])}>
       {isLoading && <ModalLoader />}
-      {error && <Text title={t('translation\:title_error')} variant={TextVariant.ERROR} />}
+      {error && (
+        <Text
+          title={t('translation\:title_error')}
+          variant={TextVariant.ERROR}
+        />
+      )}
       <Input
         type="text"
         className={cls.input}

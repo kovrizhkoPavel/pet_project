@@ -1,12 +1,22 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TArticle, TArticlesView } from 'entities/Article/model/types/article';
-import { StateScheme } from 'shared/types/stateScheme';
-import { ArticlesView } from 'entities/Article/constants';
-import { LocalStorageKey } from 'shared/constants/localstorage';
-import { TOptionalRecord } from 'shared/types/utils';
+import {
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+import {
+  TArticle,
+  TArticlesView,
+} from '@/entities/Article/model/types/article';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { ArticlesView } from '@/entities/Article/constants';
+import { LocalStorageKey } from '@/shared/constants/localstorage';
+import { TOptionalRecord } from '@/shared/types/utils';
 import { DEFAULT_PAGE_NUM, PageLimit } from '../../constants';
 import { fetchGetArticleList } from '../services/fetchGetArticleList/fetchGetArticleList';
-import { ArticlesPageSchema, TQuerySearchKeys } from '../types/articlesPageSchema';
+import {
+  ArticlesPageSchema,
+  TQuerySearchKeys,
+} from '../types/articlesPageSchema';
 
 const adapterInitialState = {
   ids: [],
@@ -56,13 +66,12 @@ export const articlesPageSlice = createSlice({
     },
 
     initViewState(state) {
-      state.view = localStorage.getItem(
-        LocalStorageKey.ARTICLE_VIEW,
-      ) as TArticlesView || ArticlesView.TILE;
+      state.view =
+        (localStorage.getItem(LocalStorageKey.ARTICLE_VIEW) as TArticlesView) ||
+        ArticlesView.TILE;
 
-      state.limit = state.view === ArticlesView.TILE
-        ? PageLimit.TILE
-        : PageLimit.LIST;
+      state.limit =
+        state.view === ArticlesView.TILE ? PageLimit.TILE : PageLimit.LIST;
 
       state.isInitialized = true;
     },

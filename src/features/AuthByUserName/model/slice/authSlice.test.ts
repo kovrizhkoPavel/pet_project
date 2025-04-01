@@ -13,12 +13,16 @@ describe('authSlice', () => {
   });
 
   test('should set user name', () => {
-    expect(authReducer(state, authActions.setUserName('test1')))
-      .toEqual({ username: 'test1', password: '' });
+    expect(authReducer(state, authActions.setUserName('test1'))).toEqual({
+      username: 'test1',
+      password: '',
+    });
   });
 
   test('should set password', () => {
-    expect(authReducer(state, authActions.setPassword('test1')))
-      .toEqual({ username: '', password: 'test1' });
+    expect(authReducer(state, authActions.setPassword('test1'))).toEqual({
+      username: '',
+      password: 'test1',
+    });
   });
 });

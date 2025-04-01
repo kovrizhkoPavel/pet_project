@@ -1,12 +1,18 @@
 import {
-  ChangeEvent, FC, memo, TextareaHTMLAttributes, useEffect, useRef,
+  ChangeEvent,
+  FC,
+  memo,
+  TextareaHTMLAttributes,
+  useEffect,
+  useRef,
 } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
 import cls from './Textarea.module.scss';
 
 type TTextareaAttribute = Omit<
-  TextareaHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'readOnly'
->
+  TextareaHTMLAttributes<HTMLTextAreaElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 type TTextareaProps = {
   className?: string;
   value?: string;

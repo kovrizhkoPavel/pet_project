@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { PageContainer } from 'widgets/PageContainer';
+import { PageContainer } from '@/widgets/PageContainer';
 
 const AdminPage = () => {
   const { t } = useTranslation();

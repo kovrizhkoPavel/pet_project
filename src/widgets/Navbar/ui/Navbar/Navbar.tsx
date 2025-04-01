@@ -1,17 +1,18 @@
 import { FC, useCallback, useState } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUserName';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { LoginModal } from '@/features/AuthByUserName';
+import { getAuthData } from '@/entities/User';
+import { NotificationButton } from '@/features/NotificationButton';
 import { AuthDropdown } from '../AuthDropdown/AuthDropdown';
 import cls from './Navbar.module.scss';
 
 type TNavbarProps = {
   className?: string;
-}
+};
 
 export const Navbar: FC<TNavbarProps> = ({ className }) => {
   const { t } = useTranslation();
@@ -29,9 +30,8 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
 
   return (
     <div className={getClassName(cls.navbar, {}, [className])}>
-      <div className={cls.themeSwitcher}>
-        <ThemeSwitcher />
-      </div>
+      <ThemeSwitcher />
+      {isAuthData && <NotificationButton />}
       <AuthDropdown />
       {!isAuthData && (
         <>
@@ -42,10 +42,7 @@ export const Navbar: FC<TNavbarProps> = ({ className }) => {
           >
             {t('translation\:button_login')}
           </Button>
-          <LoginModal
-            isOpen={isAuthOpen}
-            onClose={onModalClose}
-          />
+          <LoginModal isOpen={isAuthOpen} onClose={onModalClose} />
         </>
       )}
     </div>

@@ -6,11 +6,18 @@
   &:hover,
   &:focus {
     opacity: var(--opacity-hover);
-
   }
 
   &:active {
     opacity: var(--opacity-active);
+  }
+}
+
+.no_hover_active {
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
   }
 }
 
@@ -23,6 +30,7 @@
 }
 
 .outline {
+  padding: 7px 11px;
   color: var(--primary-color);
   background: none;
   border: 1px solid var(--primary-color);
@@ -34,4 +42,3 @@
   background: var(--secondary-color);
   border-radius: var(--border-radius-m);
 }
-

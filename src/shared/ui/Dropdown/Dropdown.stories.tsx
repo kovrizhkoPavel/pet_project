@@ -1,7 +1,7 @@
 /* eslint-disable */
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
 import { Dropdown } from './Dropdown';
 
 const meta = {
@@ -10,7 +10,10 @@ const meta = {
   args: {
     content: <div>Story</div>,
     items: [
-      { content: 'item1', href: 'http://localhost:6006/?path=/story/shared-dropdown--light' },
+      {
+        content: 'item1',
+        href: 'http://localhost:6006/?path=/story/shared-dropdown--light',
+      },
       { content: <div>item2</div>, onClick: () => alert('storybook') },
     ],
   },

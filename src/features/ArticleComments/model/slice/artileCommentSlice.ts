@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { TComment } from 'entities/Comment';
-import { StateScheme } from 'shared/types/stateScheme';
+import { TComment } from '@/entities/Comment';
+import { StateScheme } from '@/shared/types/stateScheme';
 import { ArticleCommentsScheme } from '../types/ArticleCommentScheme';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
 
@@ -8,12 +8,15 @@ const articleCommentsAdapter = createEntityAdapter({
   selectId: (comment: TComment) => comment.id,
 });
 
-export const getArticleComments = articleCommentsAdapter.getSelectors<StateScheme>(
-  (state) => state.articleDetailsPage?.comments || articleCommentsAdapter.getInitialState(),
-);
+export const getArticleComments =
+  articleCommentsAdapter.getSelectors<StateScheme>(
+    (state) =>
+      state.articleDetailsPage?.comments ||
+      articleCommentsAdapter.getInitialState(),
+  );
 
-const initialState: ArticleCommentsScheme = articleCommentsAdapter
-  .getInitialState<ArticleCommentsScheme>({
+const initialState: ArticleCommentsScheme =
+  articleCommentsAdapter.getInitialState<ArticleCommentsScheme>({
     ids: [],
     entities: {},
     isLoading: false,

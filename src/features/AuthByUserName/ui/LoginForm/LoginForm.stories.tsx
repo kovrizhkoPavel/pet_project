@@ -1,8 +1,8 @@
 import { Meta, type StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider/constants';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { StateScheme } from 'shared/types/stateScheme';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider/constants';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { StateScheme } from '@/shared/types/stateScheme';
 import LoginForm from './LoginForm';
 
 const meta = {
@@ -20,31 +20,37 @@ export const Dark: Story = {
 };
 
 export const Auth: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+      },
+    } as StateScheme),
+  ],
 };
 
 export const Error: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-      error: 'Error',
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+        error: 'Error',
+      },
+    } as StateScheme),
+  ],
 };
 
 export const Loading: Story = {
-  decorators: [StoreDecorator({
-    authForm: {
-      username: 'admin',
-      password: '123',
-      isLoading: true,
-    },
-  } as StateScheme)],
+  decorators: [
+    StoreDecorator({
+      authForm: {
+        username: 'admin',
+        password: '123',
+        isLoading: true,
+      },
+    } as StateScheme),
+  ],
 };
 export default meta;

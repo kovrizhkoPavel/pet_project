@@ -1,6 +1,6 @@
-import { Virtualizer } from 'shared/ui/Virtualazer/Virtualizer';
 import { CSSProperties, RefObject } from 'react';
 import { VirtualItem } from '@tanstack/react-virtual';
+import { Virtualizer } from '@/shared/ui/Virtualazer/Virtualizer';
 import { CardSmall } from './CardSmall';
 import { TArticle } from '../../../model/types/article';
 
@@ -10,7 +10,7 @@ type VirtualizedCardSmallProps = {
   isLoading: boolean;
   articles: TArticle[];
   className?: string;
-}
+};
 
 const getItemStyles = (item: VirtualItem): CSSProperties => ({
   position: 'absolute',
@@ -23,9 +23,7 @@ const getItemStyles = (item: VirtualItem): CSSProperties => ({
 
 export const CARD_BIG_SMALL = 300;
 export const VirtualizedCardSmall = (props: VirtualizedCardSmallProps) => {
-  const {
-    parentRef, isLoading, articles, className, fetchNextPage,
-  } = props;
+  const { parentRef, isLoading, articles, className, fetchNextPage } = props;
 
   return (
     <Virtualizer

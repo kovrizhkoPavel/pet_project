@@ -1,8 +1,12 @@
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { TWithChildren } from 'shared/types/utils';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { TWithChildren } from '@/shared/types/utils';
 import cls from './Flex.module.scss';
 import {
-  TFlexAlign, TFlexDirections, TFlexGap, TFlexJustify, TFlexWrap,
+  TFlexAlign,
+  TFlexDirections,
+  TFlexGap,
+  TFlexJustify,
+  TFlexWrap,
 } from './types';
 
 export type TFlexProps = {
@@ -61,7 +65,7 @@ export const Flex = (props: TFlexProps) => {
     wrap = 'wrap',
     direction = 'row',
     justify = 'start',
-    stretch,
+    stretch = false,
     gap,
     children,
   } = props;
@@ -76,11 +80,11 @@ export const Flex = (props: TFlexProps) => {
   ];
 
   const mod = {
-    [cls.stretch]: !!stretch,
+    [cls.stretch]: stretch,
   };
 
   return (
-    <div className={getClassName(cls.flex, mod, classes)}>
+    <div {...props} className={getClassName(cls.flex, mod, classes)}>
       {children}
     </div>
   );

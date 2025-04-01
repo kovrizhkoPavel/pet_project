@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { getClassName } from 'shared/lib/classNames/getClassName';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { getClassName } from '@/shared/lib/classNames/getClassName';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import cls from './CardBig.module.scss';
 
 type TSkeletonCardProps = {
   className?: string;
-}
+};
 
 export const SkeletonCard: FC<TSkeletonCardProps> = ({ className }) => (
   <div className={getClassName(cls.skeletonCard, {}, [className])}>

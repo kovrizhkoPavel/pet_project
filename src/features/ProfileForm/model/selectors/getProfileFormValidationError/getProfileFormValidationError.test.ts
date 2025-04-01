@@ -1,6 +1,6 @@
-import { StateScheme } from 'shared/types/stateScheme';
 import { expect } from '@storybook/test';
-import { ValidatorError } from 'entities/Profile/constants';
+import { StateScheme } from '@/shared/types/stateScheme';
+import { ValidatorError } from '@/entities/Profile/constants';
 import { getProfileFormValidationError } from './getProfileFormValidationError';
 
 const validationError = {
