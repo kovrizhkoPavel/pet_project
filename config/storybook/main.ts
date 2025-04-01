@@ -8,6 +8,20 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
   ],
+  webpackFinal: async (config) => {
+    config?.module?.rules?.push({
+      test: /\.tsx?$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-typescript'],
+        },
+      },
+      exclude: /node_modules/,
+    });
+    config?.resolve?.extensions?.push('.ts', '.tsx');
+    return config;
+  },
   framework: {
     name: '@storybook/react-webpack5',
     options: {
