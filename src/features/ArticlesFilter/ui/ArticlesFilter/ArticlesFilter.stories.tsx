@@ -6,6 +6,9 @@ import { ArticlesFilter } from './ArticlesFilter';
 const meta = {
   title: '',
   component: ArticlesFilter,
+  args: {
+    onChange: () => '',
+  },
 } satisfies Meta<typeof ArticlesFilter>;
 
 export default meta;

@@ -8,6 +8,9 @@ import { AddCommentForm } from './AddCommentForm';
 const meta = {
   title: 'features/AddCommentForm',
   component: AddCommentForm,
+  args: {
+    onSubmit: () => '',
+  },
   decorators: [
     StoreDecorator({
       articleDetailsPage: {

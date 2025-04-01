@@ -53,13 +53,16 @@ const meta = {
   args: {
     articles: [article, article],
     view: ArticlesView.TILE,
+    fetchNextPage: () => '',
   },
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LightTail: Story = {};
+export const LightTail: Story = {
+  args: {},
+};
 
 export const DarkTail: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],

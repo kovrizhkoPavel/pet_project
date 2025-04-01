@@ -7,6 +7,7 @@ const meta = {
   args: {
     children: 'Text',
     title: 'Title',
+    onClose: () => '',
   },
 } satisfies Meta<typeof Modal>;
 

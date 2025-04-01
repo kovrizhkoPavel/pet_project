@@ -8,6 +8,7 @@ const meta = {
   component: RatingCard,
   args: {
     title: 'storybook',
+    submitRatingHandler: () => '',
   },
 } satisfies Meta<typeof RatingCard>;
 
