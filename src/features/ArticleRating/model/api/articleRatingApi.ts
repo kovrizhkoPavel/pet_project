@@ -3,26 +3,30 @@ import { ArticleUrl } from '@/shared/constants/api';
 import { TArticleRatingDto, TRateArticleRatingDto } from './types';
 import { TRating } from '@/entities/Rating';
 
-const articleRatingApi = rtkApi.injectEndpoints({
-  endpoints: (builder) => ({
-    getRatingById: builder.query<TRating[], TArticleRatingDto>({
-      query: ({ userId, articleId }) => ({
-        method: 'GET',
-        url: ArticleUrl.RATING,
-        params: { userId, articleId },
-      }),
-      providesTags: ['articleRating'],
-    }),
+const tags = ['articleRating'];
 
-    addRating: builder.mutation<void, TRateArticleRatingDto>({
-      query: (arg) => ({
-        method: 'POST',
-        url: ArticleUrl.RATING,
-        body: arg,
+const articleRatingApi = rtkApi
+  .enhanceEndpoints({ addTagTypes: tags })
+  .injectEndpoints({
+    endpoints: (builder) => ({
+      getRatingById: builder.query<TRating[], TArticleRatingDto>({
+        query: ({ userId, articleId }) => ({
+          method: 'GET',
+          url: ArticleUrl.RATING,
+          params: { userId, articleId },
+        }),
+        providesTags: tags,
       }),
-      invalidatesTags: ['articleRating'],
+
+      addRating: builder.mutation<void, TRateArticleRatingDto>({
+        query: (arg) => ({
+          method: 'POST',
+          url: ArticleUrl.RATING,
+          body: arg,
+        }),
+        invalidatesTags: tags,
+      }),
     }),
-  }),
-});
+  });
 
 export const { useGetRatingByIdQuery, useAddRatingMutation } = articleRatingApi;
